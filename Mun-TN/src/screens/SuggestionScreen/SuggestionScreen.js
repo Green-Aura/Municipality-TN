@@ -1,12 +1,13 @@
 import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View,Image, FlatList, ScrollView, Platform} from 'react-native'
-import React, { useEffect, useState } from 'react'
-import {firebase} from '../../../firebase/config'
+import React, { useCallback, useEffect, useState } from 'react'
+import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styles from './styles.js'
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DocumentPicker from "react-native-document-picker"
+import DocumentPicker,{types} from "react-native-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
     const options = ["general", "electicity", "garbage"]
@@ -19,37 +20,25 @@ const SuggesstionScreen = ({navigation}) => {
     const[longitude,setLongitute]=useState(0)
     const[latitude,setLatitude]=useState(0)
     const [list,setList]=useState([])
-    
-        async function choosefile (){
-            try{
-                const file=await DocumentPicker.pick({
-                    type:[DocumentPicker.types.allFiles]
-                })
+    const[fileresponse,setFileResponse]=useState(null)
+   const openDocument= async()=>{
+    try{
+      const res =await DocumentPicker.pick({
+        type:[DocumentPicker.types.allFiles],
 
-                const path=await normalizepath(file.uri)
-            }catch(e){
-                if(DocumentPicker.isCancel(e)){
+      })
+    }
+    catch(e){
+     if(DocumentPicker.isCancel(e)){
 
-                }
-                else{
-                    throw e
-                }
-            }
-        }
-        async function normalizepath(path){
-            if(Platform.OS==="ios"|| Platform.OS==="android"){
-                const filePrefix='file://'
-                if(path.startsWith(filePrefix)){
-                    path=path.substring(filePrefix.length)
-                    try{
-                        path=decodeURI(path)
-
-                    }catch(err){
-
-                    }
-                }
-            }
-        }
+     }
+     else{
+      throw e
+     } 
+    }
+   }
+       
+        
 const ref=firebase.firestore().collection('suggestions')
 var handlesubmit= async ()=>{
     UploadImage()
@@ -113,11 +102,12 @@ const UploadImage=async()=>{
                 return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
             }}
             defaultButtonText={'Select type '}/>
-    <TextInput style={styles.input} value={desc} onChangeText={setdesc} placeholder='description ' />
+    <TextInput style={styles.input} numberOfLines={10}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
-   
-   <TouchableOpacity onPress={PickImage}><Text>pick an Image </Text></TouchableOpacity>
-   <TouchableOpacity onPress={choosefile}><Text>pick a pdf fil </Text></TouchableOpacity>
+   <View>
+   <TouchableOpacity style={styles.camerabutton} onPress={PickImage}><Text>pick an Image </Text></TouchableOpacity>
+   <TouchableOpacity style={styles.pdfbut} onPress={openDocument}><Text>pick a pdf file </Text></TouchableOpacity>
+   </View>
    {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:300}}/></View>)}
 
    
