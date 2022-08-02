@@ -185,12 +185,13 @@ export default function Tabe({focused, icon}) {
 
       <Animated.View style={{
         width: getWidth() - 25,
-        height: 3,
+        height: 2,
         backgroundColor: 'turquoise',
         position: 'absolute',
-        bottom: 98,
+        bottom: 48,
         // Horizontal Padding = 20...
-        left: 50,
+        right: 30,
+        left: 17,
         borderRadius: 20,
         transform: [
           { translateX: tabOffsetValue }
@@ -208,7 +209,7 @@ function getWidth() {
   let width = Dimensions.get("window").width
 
   // Horizontal Padding = 20...
-  width = width - 80
+  width = width - 10
 
   // Total five Tabs...
   return width / 5
