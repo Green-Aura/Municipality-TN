@@ -38,6 +38,7 @@ export default function HomeScreen({navigation}) {
 
     return (
         <View style={styles.container}>
+            
            {/* <FlatList 
            data={DATA}
            renderItem={({ item})} => <Item title={item.title} />}
@@ -68,6 +69,7 @@ export default function HomeScreen({navigation}) {
                     uri:feed_image,
                 }}
                 />
+                
     <View style={styles.cardFooter}>
     <View style={styles.footerLeft}>  
        <View style={{ flexDirection: 'row' }}>
@@ -83,13 +85,14 @@ export default function HomeScreen({navigation}) {
         </View>
             </View>
             </View>
-            //                     {/* <InnerContainer>
-            //     <WelcomeImage resizeMode="cover" source={require('../../../assets/green.png')} />    
-            // <PageTitle welcome={true}>Welcome!</PageTitle>
-            //     </InnerContainer> */}
+
                 
     );
 }
+{/* <InnerContainer>
+<WelcomeImage resizeMode="cover" source={require('../../../assets/green.png')} />    
+<PageTitle welcome={true}>Welcome!</PageTitle>
+</InnerContainer>  */}
 
 const styles = StyleSheet.create({
     container: {
