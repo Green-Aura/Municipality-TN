@@ -58,7 +58,7 @@ export default function App() {
           headerShown: false
         }}> 
       { user ? (
-        <Stack.Screen name="Hom">
+        <Stack.Screen name="Tabe"  >
         {props => <Tabe {...props} extraData={user} />}
         </Stack.Screen>
         ) : (
