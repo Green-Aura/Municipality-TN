@@ -13,7 +13,7 @@ const RenderSuggessions = () => {
             querysnapshot.forEach(doc=>{
             
                 list.push({ 
-                    id:doc.data().id,
+                    id:doc.id,
                     type:doc.data().type,
                     image:doc.data().image,
                     municipalityname:doc.data().municipalityname,
