@@ -7,7 +7,7 @@ import LoginScreen from './src/screens/LoginScreen/LoginScreen'
 import ComplainScreen from './src/screens/ComplainScreen/ComplainScreen';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScreen'
-import SuggesstionScreen from './src/screens/SuggestionScreen/SuggestionScreen';
+import Suggestion from './src/screens/SuggestionScreen/Suggestion.js'
 import SuggestionList from './src/screens/SuggestionList/SuggestionList'
 
 import Options from './src/screens/OptionsScreen/Options'
@@ -71,11 +71,11 @@ export default function App() {
           </>
           )}
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Suggestion" component={SuggesstionScreen} />
+          
           <Stack.Screen name="Complain" component={ComplainScreen} />
           <Stack.Screen name="SuggestionList" component={SuggestionList} />
           <Stack.Screen name="Options" component={Options} />
-          
+          <Stack.Screen name="Suggestion" component={Suggestion} />
       </Stack.Navigator>
    
      

@@ -11,7 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //Screens :
 import Home from '../HomeScreen/HomeScreen';
 import Complain from '../ComplainScreen/ComplainScreen';
-import Suggestion from '../SuggestionScreen/SuggestionScreen'
+import Suggestion from '../SuggestionScreen/Suggestion'
 import SuggestionList from '../SuggestionList/SuggestionList'
 import Options from '../OptionsScreen/Options'
 // Font Awesome Icons...
