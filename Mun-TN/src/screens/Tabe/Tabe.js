@@ -13,7 +13,7 @@ import Home from '../HomeScreen/HomeScreen';
 import Complain from '../ComplainScreen/ComplainScreen';
 import Suggestion from '../SuggestionScreen/SuggestionScreen'
 import SuggestionList from '../SuggestionList/SuggestionList'
-
+import Options from '../OptionsScreen/Options'
 // Font Awesome Icons...
 import { FontAwesome5, AntDesign } from '@expo/vector-icons'
 import { useRef } from 'react';
@@ -133,7 +133,7 @@ export default function Tabe() {
           )
         }}></Tab.Screen>
 
-        <Tab.Screen name={"Suggestion"} component={Suggestion} options={{
+        <Tab.Screen name={"Options"} component={Options} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
