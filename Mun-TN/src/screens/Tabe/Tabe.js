@@ -13,6 +13,7 @@ import Home from '../HomeScreen/HomeScreen';
 import Complain from '../ComplainScreen/ComplainScreen';
 import Suggestion from '../SuggestionScreen/SuggestionScreen'
 import SuggestionList from '../SuggestionList/SuggestionList'
+import OptionScreen from '../OptionScreen/OptionScreen';
 
 // Font Awesome Icons...
 import { FontAwesome5, AntDesign, FontAwesome } from '@expo/vector-icons'
@@ -110,7 +111,7 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"ActionButton"} component={EmptyScreen} options={{
+        <Tab.Screen name={"Suggestion"} component={Suggestion} options={{
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
@@ -133,7 +134,7 @@ export default function Tabe({focused, icon}) {
           )
         }}></Tab.Screen>
 
-        <Tab.Screen name={"Suggestion"} component={Suggestion} options={{
+        <Tab.Screen name={"Option"} component={OptionScreen} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
