@@ -18,8 +18,8 @@ import { color } from "react-native-reanimated";
         alignItems:'center',
         marginTop:40,
         borderBottomColor:"black",
-        borderWidth:2
-
+        borderWidth:2,
+        textAlignVertical:"top"
     },
     button:{
         backgroundColor:'#1ED760',
@@ -50,6 +50,21 @@ buttoncontainer:{
     alignContent:"center",
     alignItems:"center",
     
+},
+camerabutton:{
+        width:"30%",
+        padding:17,
+        backgroundColor:"#00d301",
+        textAlign:"center"
+},
+pdfbut:{
+    marginTop:20,
+    padding:17,
+    backgroundColor:"#1de9b6",
+    lineHeight:"30",
+    width:"30%",
+    textAlign:"center",
+
 }
        
 })
