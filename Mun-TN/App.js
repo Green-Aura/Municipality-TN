@@ -9,8 +9,6 @@ import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScreen'
 import SuggesstionScreen from './src/screens/SuggestionScreen/SuggestionScreen';
 import SuggestionList from './src/screens/SuggestionList/SuggestionList'
-
-
 import Tabe from './src/screens/Tabe/Tabe'
 
 
@@ -60,7 +58,7 @@ export default function App() {
           headerShown: false
         }}> 
       { user ? (
-        <Stack.Screen name="Welcome">
+        <Stack.Screen name="Tabe"  >
         {props => <Tabe {...props} extraData={user} />}
         </Stack.Screen>
         ) : (
