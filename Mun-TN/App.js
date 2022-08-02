@@ -10,7 +10,6 @@ import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScr
 import SuggesstionScreen from './src/screens/SuggestionScreen/SuggestionScreen';
 import SuggestionList from './src/screens/SuggestionList/SuggestionList'
 
-
 import Tabe from './src/screens/Tabe/Tabe'
 
 
