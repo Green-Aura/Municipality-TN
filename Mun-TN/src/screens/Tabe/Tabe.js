@@ -15,14 +15,14 @@ import Suggestion from '../SuggestionScreen/SuggestionScreen'
 import SuggestionList from '../SuggestionList/SuggestionList'
 
 // Font Awesome Icons...
-import { FontAwesome5, AntDesign } from '@expo/vector-icons'
+import { FontAwesome5, AntDesign, FontAwesome } from '@expo/vector-icons'
 import { useRef } from 'react';
 const Tab = createBottomTabNavigator();
 
 // Hiding Tab Names...
 
 
-export default function Tabe() {
+export default function Tabe({focused, icon}) {
   // Animated Tab Indicator...
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
   return (
@@ -61,11 +61,11 @@ export default function Tabe() {
             <View style={{
               // centring Tab Button...
               position: 'absolute',
-              top: 20,
+              top: 15,
             }}>
               <FontAwesome5
                 name="home"
-                size={20}
+                size={25}
                 color={focused ? 'turquoise' : 'gray'}
               ></FontAwesome5>
             </View>
@@ -85,11 +85,11 @@ export default function Tabe() {
             <View style={{
               // centring Tab Button...
               position: 'absolute',
-              top: 20
+              top: 15
             }}>
               <AntDesign
                 name="addfolder"
-                size={20}
+                size={25}
                 color={focused ? 'turquoise' : 'gray'}
               ></AntDesign>
             </View>
@@ -123,11 +123,11 @@ export default function Tabe() {
                 alignItems: 'center',
                 marginBottom: Platform.OS == "android" ? 50 : 30
               }}>
-                <Image  style={{
-                  width: 22,
-                  height: 22,
-                  tintColor: 'white',
-                }}></Image>
+               <FontAwesome5
+                name="truck"
+                size={25}
+                color={focused ? 'turquoise' : 'gray'}
+              ></FontAwesome5>
               </View>
             </TouchableOpacity>
           )
@@ -138,11 +138,11 @@ export default function Tabe() {
             <View style={{
               // centring Tab Button...
               position: 'absolute',
-              top: 20
+              top: 15
             }}>
               <AntDesign
                 name="pluscircle"
-                size={24}
+                size={25}
                 color={focused ? 'turquoise' : 'gray'}
               ></AntDesign>
             </View>
@@ -162,13 +162,13 @@ export default function Tabe() {
             <View style={{
               // centring Tab Button...
               position: 'absolute',
-              top: 20
+              top: 15
             }}>
-              <AntDesign
-                name="setting"
-                size={24}
+              <FontAwesome
+                name="user"
+                size={25}
                 color={focused ? 'turquoise' : 'gray'}
-              ></AntDesign>
+              ></FontAwesome>
             </View>
           )
         }} listeners={({ navigation, route }) => ({
@@ -185,12 +185,13 @@ export default function Tabe() {
 
       <Animated.View style={{
         width: getWidth() - 25,
-        height: 3,
+        height: 2,
         backgroundColor: 'turquoise',
         position: 'absolute',
-        bottom: 98,
+        bottom: 48,
         // Horizontal Padding = 20...
-        left: 50,
+        right: 30,
+        left: 17,
         borderRadius: 20,
         transform: [
           { translateX: tabOffsetValue }
@@ -208,7 +209,7 @@ function getWidth() {
   let width = Dimensions.get("window").width
 
   // Horizontal Padding = 20...
-  width = width - 80
+  width = width - 10
 
   // Total five Tabs...
   return width / 5
@@ -217,39 +218,6 @@ function getWidth() {
 function EmptyScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
-function HomeScreen({navigation}) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-
-    </View>
-  );
-}
-
-function NotificationScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications!</Text>
-    </View>
-  );
-}
-
-function SearchScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Search!</Text>
     </View>
   );
 }

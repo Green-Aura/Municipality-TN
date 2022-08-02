@@ -93,7 +93,7 @@ setupvoted(false)
             setList(list)
         })
     },[])
-  return ( 
+  return (
     <View>
     <FlatList data={list} style={styles.container} renderItem={({item})=>(
 
