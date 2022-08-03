@@ -19,7 +19,9 @@ import { color } from "react-native-reanimated";
         marginTop:40,
         borderBottomColor:"black",
         borderWidth:2,
-        textAlignVertical:"top"
+        textAlignVertical:"top",
+        borderRadius:10
+
     },
     button:{
         backgroundColor:'#1ED760',
@@ -67,6 +69,14 @@ pdfbut:{
     textAlign:"center",
     borderRadius:50
 
-}
-       
+},
+localisation:{
+    marginTop:20,
+    borderRadius:50,
+    width:30,
+    height:30,
+    textAlign:"center",
+    backgroundColor:"#1de9b6",
+    
+}      
 })
