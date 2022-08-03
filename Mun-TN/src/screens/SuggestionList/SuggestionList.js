@@ -16,6 +16,7 @@ const RenderSuggessions = () => {
     const ref=firebase.firestore().collection('suggestions') 
     const upvote=(id)=>{
        if(upvoted===false&&downvoted==false){
+
         ref.doc(id).get().then(snapshot=>{setupvotes(snapshot.data().votes)  })
     
 

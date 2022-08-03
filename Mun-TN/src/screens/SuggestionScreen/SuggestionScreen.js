@@ -42,7 +42,7 @@ const SuggesstionScreen = ({navigation}) => {
 const ref=firebase.firestore().collection('suggestions')
 var handlesubmit= async ()=>{
     UploadImage()
-    await  ref.add({type:type,municipalityname:name,description:desc,image:image,location:{latitude:latitude,longitude:longitude}})
+    await  ref.add({type:type,municipalityname:name,description:desc,image:image,votes:0,downvote:0})
     alert("added successfully")
     console.log("image "+image.uri)
   navigation.navigate("Rendersuggestions")
