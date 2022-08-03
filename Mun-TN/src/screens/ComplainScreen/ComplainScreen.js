@@ -2,7 +2,7 @@ import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpac
 import React, { useCallback, useEffect, useState } from 'react'
 import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {Entypo,FontAwesome} from 'react-native-vector-icons';
 import styles from './styles.js'
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
@@ -38,7 +38,7 @@ export default function ComplainScreen ({navigation}) {
          } 
         }
        }           */
-const ref=firebase.firestore().collection('Complain')
+const ref=firebase.firestore().collection('Complains')
 var handlesubmit= async ()=>{
     UploadImage()
     await  ref.add({type:type,description:desc,image:image,location:{latitude:latitude,longitude:longitude},iduser:null})
@@ -104,16 +104,13 @@ const UploadImage=async()=>{
     <TextInput style={styles.input} numberOfLines={10}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView horizontal={true}>
    <View>
-   <TouchableOpacity style={styles.camerabutton} onPress={PickImage}><Text>pick an Image </Text></TouchableOpacity>
-   <TouchableOpacity style={styles.pdfbut}/*  onPress={openDocument} */><Text>pick a pdf file </Text></TouchableOpacity>
+   <TouchableOpacity style={styles.localisation} onPress={PickImage}><FontAwesome name='camera' style={{marginTop:8}}></FontAwesome></TouchableOpacity>
+   <TouchableOpacity style={styles.localisation}><Entypo size={20} name='location' style={{marginTop:8}}></Entypo></TouchableOpacity>
    </View>
    {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:300}}/></View>)}
 
    
    </SafeAreaView>
-    
-
-
     </View>
     <View style={styles.buttoncontainer}>
   
