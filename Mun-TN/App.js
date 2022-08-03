@@ -12,6 +12,8 @@ import SuggestionList from './src/screens/SuggestionList/SuggestionList';
 import Tabe from './src/screens/Tabe/Tabe';
 import OptionScreen from './src/screens/OptionScreen/OptionScreen';
 import NewsScreen from './src/screens/HomeScreen/News';
+import Categorie from './components/Categorie';
+import TrendingNews from './components/TrendingNews';
 
 
 import {decode, encode} from 'base-64'
@@ -74,6 +76,8 @@ export default function App() {
           <Stack.Screen name="SuggestionList" component={SuggestionList} />
           <Stack.Screen name="Option" component={OptionScreen} />
           <Stack.Screen name="News" component={NewsScreen} />
+          <Stack.Screen name="Categories" component={Categorie} />
+          <Stack.Screen name='Trending' component={TrendingNews} />
       </Stack.Navigator>
    
      
