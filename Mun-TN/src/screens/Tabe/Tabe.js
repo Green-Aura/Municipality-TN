@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Plus...
 
 //Screens :
-import Home from '../HomeScreen/HomeScreen';
+import HomeScreen from '../HomeScreen/HomeScreen';
 import Complain from '../ComplainScreen/ComplainScreen';
 import Suggestion from '../SuggestionScreen/SuggestionScreen'
 import SuggestionList from '../SuggestionList/SuggestionList'
@@ -57,7 +57,7 @@ export default function Tabe({focused, icon}) {
           // Tab ICons....
         }
         <Tab.Screen
-        name={"Home"} component={Home} options={{
+        name={"Home"} component={HomeScreen} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
