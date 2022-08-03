@@ -11,7 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //Screens :
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Complain from '../ComplainScreen/ComplainScreen';
-import Suggestion from '../SuggestionScreen/SuggestionScreen'
+import Suggesstion from '../SuggestionScreen/Suggestion'
 import SuggestionList from '../SuggestionList/SuggestionList'
 import OptionScreen from '../OptionScreen/OptionScreen';
 
@@ -111,7 +111,7 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"Suggestion"} component={Suggestion} options={{
+        <Tab.Screen name={"Suggestion"} component={Suggesstion} options={{
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
