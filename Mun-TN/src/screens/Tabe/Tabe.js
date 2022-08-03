@@ -14,6 +14,7 @@ import Complain from '../ComplainScreen/ComplainScreen';
 import Suggesstion from '../SuggestionScreen/Suggestion'
 import SuggestionList from '../SuggestionList/SuggestionList'
 import OptionScreen from '../OptionScreen/OptionScreen';
+import NewsScreen from '../HomeScreen/News';
 
 // Font Awesome Icons...
 import { FontAwesome5, AntDesign, FontAwesome } from '@expo/vector-icons'
@@ -57,7 +58,7 @@ export default function Tabe({focused, icon}) {
           // Tab ICons....
         }
         <Tab.Screen
-        name={"Home"} component={HomeScreen} options={{
+        name={"News"} component={NewsScreen} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
