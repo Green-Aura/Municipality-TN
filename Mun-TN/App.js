@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {firebase} from './firebase/config';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './src/screens/LoginScreen/LoginScreen';
+import LoginScreen from './src/screens/LoginScreen/LoginScreen'
 import ComplainScreen from './src/screens/ComplainScreen/ComplainScreen';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScreen';
@@ -14,7 +14,8 @@ import OptionScreen from './src/screens/OptionScreen/OptionScreen';
 import NewsScreen from './src/screens/HomeScreen/News';
 import Categorie from './components/Categorie';
 import TrendingNews from './components/TrendingNews';
-
+import GetNews from './src/screens/HomeScreen/GetNews'
+import WebViewComponent from './components/WebView'
 
 import {decode, encode} from 'base-64'
 if (!global.btoa) {  global.btoa = encode }
@@ -76,8 +77,10 @@ export default function App() {
           <Stack.Screen name="SuggestionList" component={SuggestionList} />
           <Stack.Screen name="Option" component={OptionScreen} />
           <Stack.Screen name="News" component={NewsScreen} />
-          <Stack.Screen name="Categories" component={Categorie} />
+          <Stack.Screen name="Categorie" component={Categorie} />
           <Stack.Screen name='Trending' component={TrendingNews} />
+          <Stack.Screen name="GetNews" component={GetNews} />
+          <Stack.Screen name="WebView" component={WebViewComponent} options={{ headerShown: false }} />
       </Stack.Navigator>
    
      

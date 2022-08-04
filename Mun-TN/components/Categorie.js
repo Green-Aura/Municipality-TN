@@ -1,6 +1,5 @@
 import React,  { Component } from "react";
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import { black } from "react-native-paper/lib/typescript/styles/colors";
 
 
 const categories = [
@@ -12,28 +11,34 @@ const categories = [
     'Sports',
   ];
 
-class Categorie extends Component {
-   state ={}
-   render() {
+function Categories () {
+   
     return (
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
-            {
-              categories.map((category, index) => (
-                <View key={index}>
-                  <Text style={{ 
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            {categories.map((category, index) => (
+                <TouchableOpacity 
+                key={index} 
+              
+              >
+                <View>
+                  <Text 
+                  style={{ 
                     padding: 10, 
                     borderWidth: 1, 
                     borderColor: 'black', 
                     fontSize: 19, 
                     margin: 10, 
                     borderRadius: 10 
-                    }}>{category}</Text>
+                    }}>
+                      {category}
+                    </Text>
                 </View>
+                </TouchableOpacity>
               ))
             }
         </ScrollView>
       );
-    }
+    
   }
 
-export default Categorie;
+export default Categories;

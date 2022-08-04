@@ -1,25 +1,30 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, { Component, useState } from 'react';
+import {
+    ActivityIndicator,
+    ScrollView,
+    Text,
+    View,
+    Image,
+    Dimensions,
+    TouchableOpacity,
+  } from 'react-native';
 import Categorie from '../../../components/Categorie';
-import config from "../../../config/config"
 import TrendingNews from '../../../components/TrendingNews';
 
+const deviceWidth = Dimensions.get('window').width;
 
-
-class NewsScreen extends Component {
-    componentDidMount() {
-        console.log(config.API_KEY)
-    }
-    render (){
+function NewsScreen({navigation}) {
+  const  [page,setPage]=useState("allnews")
+  
         return (
             <View>
-                <Categorie />
-                <TrendingNews />
+              
+                <Categorie  />
+               {page=="allnews"?<TrendingNews />:page=="entertainment"}
                 <Text> News Screen </Text>
             </View>
         )
-    }
+    
 }
-
 
 export default NewsScreen
