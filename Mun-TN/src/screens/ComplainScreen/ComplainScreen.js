@@ -2,7 +2,8 @@ import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpac
 import React, { useCallback, useEffect, useState } from 'react'
 import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
-import {Entypo,FontAwesome} from 'react-native-vector-icons';
+import {Dimensions} from 'react-native';
+import {Entypo,FontAwesome,AntDesign} from 'react-native-vector-icons';
 import styles from './styles.js'
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
@@ -21,7 +22,7 @@ export default function ComplainScreen ({navigation}) {
     const[latitude,setLatitude]=useState(0)
     const [list,setList]=useState([])
     const[fileresponse,setFileResponse]=useState(null)
-       
+    const window=Dimensions.get('window') 
    /* const openDocument= async()=>{
         try{
           const res =await DocumentPicker.pick({
@@ -81,7 +82,7 @@ const UploadImage=async()=>{
     return (
         <ScrollView>
         <KeyboardAvoidingView style={styles.container} behavior='padding'>
-        <View style={styles.inputcontainer}>
+     <View style={styles.inputcontainer}>
         <SelectDropdown
             data={options}
             onSelect={(selectedItem, index) => {
@@ -101,17 +102,20 @@ const UploadImage=async()=>{
                 return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
             }}
             defaultButtonText={'Select type '}/>
-    <TextInput style={styles.input} numberOfLines={10}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
-   <SafeAreaView horizontal={true}>
-   <View>
-   <TouchableOpacity style={styles.localisation} onPress={PickImage}><FontAwesome name='camera' style={{marginTop:8}}></FontAwesome></TouchableOpacity>
-   <TouchableOpacity style={styles.localisation}><Entypo size={20} name='location' style={{marginTop:8}}></Entypo></TouchableOpacity>
-   </View>
-   {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:300}}/></View>)}
+    <TextInput style={styles.input} numberOfLines={10}  multiline={true} value={desc} onChangeText={setdesc} placeholder='Description ' />
+   <SafeAreaView horizontal={true} >
+    <View style={{flexDirection:"row"}}>
+    <TouchableOpacity style={styles.camerabutton} onPress={PickImage}><FontAwesome name='camera' style={{marginTop:8,marginLeft:28}} size={32}></FontAwesome></TouchableOpacity>
+   <TouchableOpacity style={styles.localisation}><Entypo size={32} name='location' style={{marginTop:8,marginLeft:30}}></Entypo></TouchableOpacity>
+   <TouchableOpacity style={styles.pdfbut}><AntDesign size={32} name='addfile' style={{marginTop:8,marginLeft:31}}></AntDesign></TouchableOpacity>
+   
+    </View>
+   
+  {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:275,borderRadius:40,marginTop:15,marginLeft:window.width/35}}/></View>)}
 
    
    </SafeAreaView>
-    </View>
+ </View>
     <View style={styles.buttoncontainer}>
   
      <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>

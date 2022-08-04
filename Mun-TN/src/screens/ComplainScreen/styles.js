@@ -8,7 +8,9 @@ import { color } from "react-native-reanimated";
     },
     inputcontainer:{
         width:"80%",
-        marginBottom:40
+        marginBottom:40,
+        
+        
         
 
     },
@@ -20,6 +22,7 @@ import { color } from "react-native-reanimated";
         borderBottomColor:"black",
         borderWidth:2,
         textAlignVertical:"top",
+        
         borderRadius:10
 
     },
@@ -51,32 +54,48 @@ buttoncontainer:{
     display:"flex",
     alignContent:"center",
     alignItems:"center",
+    marginLeft:10,
+    margin:10,
     
 },
 camerabutton:{
-        width:"15%",
-        padding:17,
-        backgroundColor:"#00d301",
-        textAlign:"center",
-        borderRadius:50
+    marginTop:20,
+    borderRadius:200,
+    borderBottomWidth:3,
+    borderBottomRightRadius:3,
+    width:50,
+    height:50,
+    textAlign:"center",
+    backgroundColor:"#1de9b6",
+    flex:1,
+    borderTopStartRadius:3,
 },
 pdfbut:{
     marginTop:20,
-    padding:17,
-    backgroundColor:"#1de9b6",
-    lineHeight:"30",
-    width:"15",
+    borderRadius:100,
+    borderBottomWidth:3,
+    borderBottomLeftRadius:3,
+    width:50,
+    height:50,
     textAlign:"center",
-    borderRadius:50
+    backgroundColor:"#1de9b6",
+    flex:1,
+    borderTopEndRadius:3,
+    
 
 },
 localisation:{
     marginTop:20,
-    borderRadius:50,
-    width:30,
-    height:30,
+    borderRadius:100,
+    borderBottomWidth:3,
+    
+    width:50,
+    height:50,
+    
     textAlign:"center",
     backgroundColor:"#1de9b6",
-    
+    flex:1,
+    marginLeft:10,
+    margin:10,
 }      
 })
