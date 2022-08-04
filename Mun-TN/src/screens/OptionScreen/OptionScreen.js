@@ -45,15 +45,11 @@ export default function OptionScreen ({navigation}) {{
                         backgroundColor:'#00000050',
                         alignItems:'center',
                         justifyContent:'center'  
-                   
-                       
-                        
-
+             
                    }}>
                        
                        <Text style={{fontsize:41,color:'#FFF',fontWeight:'bold'}}>Choississez une option </Text>
                    </View>
-
                </View>
 
                <View style={{padding:20}}>

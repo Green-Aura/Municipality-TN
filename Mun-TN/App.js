@@ -16,6 +16,7 @@ import GetNews from './src/screens/HomeScreen/GetNews'
 import WebViewComponent from './components/WebView'
 
 import {decode, encode} from 'base-64'
+import MapViewComponent from './src/screens/MapBoxScreen/MapView';
 if (!global.btoa) {  global.btoa = encode }
 if (!global.atob) { global.atob = decode }
 
@@ -77,6 +78,8 @@ export default function App() {
           <Stack.Screen name="News" component={NewsScreen} />
           <Stack.Screen name="GetNews" component={GetNews} />
           <Stack.Screen name="WebView" component={WebViewComponent} options={{ headerShown: true }} />
+          <Stack.Screen name="MapView" component={MapViewComponent} />
+
       </Stack.Navigator>
    
      

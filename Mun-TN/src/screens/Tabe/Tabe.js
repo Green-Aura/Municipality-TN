@@ -16,6 +16,7 @@ import SuggestionList from '../SuggestionList/SuggestionList'
 import OptionScreen from '../OptionScreen/OptionScreen';
 import NewsScreen from '../HomeScreen/News';
 
+import MapViewComponent from '../MapBoxScreen/MapView'
 // Font Awesome Icons...
 import { FontAwesome5, AntDesign, FontAwesome } from '@expo/vector-icons'
 import { useRef } from 'react';
@@ -82,7 +83,7 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
+        <Tab.Screen name={"MapView"} component={MapViewComponent} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -112,7 +113,7 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"Suggestion"} component={Suggesstion} options={{
+        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
