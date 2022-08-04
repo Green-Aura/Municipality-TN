@@ -1,20 +1,22 @@
 import 'react-native-gesture-handler';
-import React, { useEffect, useState } from 'react'
-import {firebase} from './firebase/config'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import React, { useEffect, useState } from 'react';
+import {firebase} from './firebase/config';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen/LoginScreen'
 import ComplainScreen from './src/screens/ComplainScreen/ComplainScreen';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
-import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScreen'
-import SuggesstionScreen from './src/screens/SuggestionScreen/SuggestionScreen'
-import SuggestionList from './src/screens/SuggestionList/SuggestionList'
-import Tabe from './src/screens/Tabe/Tabe'
-import OptionScreen from './src/screens/OptionScreen/OptionScreen'
-
-
+import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScreen';
+import SuggesstionScreen from './src/screens/SuggestionScreen/Suggestion';
+import SuggestionList from './src/screens/SuggestionList/SuggestionList';
+import Tabe from './src/screens/Tabe/Tabe';
+import OptionScreen from './src/screens/OptionScreen/OptionScreen';
+import NewsScreen from './src/screens/HomeScreen/News';
+import GetNews from './src/screens/HomeScreen/GetNews'
+import WebViewComponent from './components/WebView'
 
 import {decode, encode} from 'base-64'
+import MapViewComponent from './src/screens/MapBoxScreen/MapView';
 if (!global.btoa) {  global.btoa = encode }
 if (!global.atob) { global.atob = decode }
 
@@ -69,10 +71,14 @@ export default function App() {
           </>
           )}
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Suggestion" component={SuggesstionScreen} />
+          <Stack.Screen name="Suggesstion" component={SuggesstionScreen} />
           <Stack.Screen name="Complain" component={ComplainScreen} />
           <Stack.Screen name="SuggestionList" component={SuggestionList} />
           <Stack.Screen name="Option" component={OptionScreen} />
+          <Stack.Screen name="News" component={NewsScreen} />
+          <Stack.Screen name="GetNews" component={GetNews} />
+          <Stack.Screen name="WebView" component={WebViewComponent} options={{ headerShown: true }} />
+          <Stack.Screen name="MapView" component={MapViewComponent} />
 
       </Stack.Navigator>
    

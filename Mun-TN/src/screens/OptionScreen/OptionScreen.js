@@ -32,7 +32,7 @@ export default function OptionScreen ({navigation}) {{
                    marginRight:5,
                    width:window.width,
                    height:window.height/2.5}}
-                  source={require('../../../assets/Welcome.jpg')}
+                  source={require('../../../assets/admin_suggestions.jpg')}
                   /> 
                    <View style={{
                        position:'absolute',
@@ -45,24 +45,20 @@ export default function OptionScreen ({navigation}) {{
                         backgroundColor:'#00000050',
                         alignItems:'center',
                         justifyContent:'center'  
-                   
-                       
-                        
-
+             
                    }}>
                        
                        <Text style={{fontsize:41,color:'#FFF',fontWeight:'bold'}}>Choississez une option </Text>
                    </View>
-
                </View>
 
                <View style={{padding:20}}>
 
                    <Text>Les Choix</Text>
                    <ScrollView horizontal={true} style={{marginTop:10}}>
-                   <TouchableOpacity style={{marginLeft:window.height/15}} onPress={() =>{changeScreen('Complain')}}>
+                   <TouchableOpacity style={{marginLeft:window.height/25}} onPress={() =>{changeScreen('Complain')}}>
                        <Image style={{height:100 , width:120,borderRadius:20,}}
-                       source={require('../../../assets/Welcome.jpg')}  />
+                       source={require('../../../assets/complain.jpg')}  />
                            <Text style={{marginTop:5, fontSize:13,fontWeight:'bold',textAlign:'center'}}>
                              Complain
                            </Text>
@@ -71,7 +67,7 @@ export default function OptionScreen ({navigation}) {{
 
                    <TouchableOpacity style={{marginLeft:30}}  onPress={() =>{changeScreen('Suggestion')}}>
                        <Image style={{height:100 , width:120,borderRadius:20,}}
-                       source={require('../../../assets/Welcome.jpg')} />
+                       source={require('../../../assets/suggestion2.jpg')} />
                            <Text style={{marginTop:5, fontSize:13,fontWeight:'bold',textAlign:'center'}}>
                            Suggestion
                            </Text>
