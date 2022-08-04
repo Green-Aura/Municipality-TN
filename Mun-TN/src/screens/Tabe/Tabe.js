@@ -31,7 +31,7 @@ export default function Tabe({focused, icon}) {
     
 <NavigationContainer independent={true}>
       <Tab.Navigator tabBarOptions={{
-        showLabel: false,
+        showLabel: true,
         // Floating Tab Bar...
         style: {
           backgroundColor: 'white',

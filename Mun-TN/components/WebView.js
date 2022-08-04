@@ -1,12 +1,12 @@
 import { WebView } from 'react-native-webview';
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class WebViewComponent extends Component {
-    render() {
+    render() { 
         return (
-            <WebView source={{uri: `${this.props.route.params.url}` }} />
-        )
+            <WebView source={{ uri: `${this.props.route.params.url}` }} />
+        );
     }
 }
-
-export default WebViewComponent
+ 
+export default WebViewComponent;
