@@ -59,7 +59,7 @@ export default function Tabe({focused, icon}) {
           // Tab ICons....
         }
         <Tab.Screen
-        name={"News"} component={NewsScreen} options={{
+        name={"Home"} component={HomeScreen} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -113,7 +113,7 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
+        <Tab.Screen name={"Suggestion"} component={Suggesstion} options={{
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
@@ -160,7 +160,7 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"Complain"} component={Complain} options={{
+        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -183,6 +183,8 @@ export default function Tabe({focused, icon}) {
             }).start();
           }
         })}></Tab.Screen>
+
+        
 
       </Tab.Navigator>
 
