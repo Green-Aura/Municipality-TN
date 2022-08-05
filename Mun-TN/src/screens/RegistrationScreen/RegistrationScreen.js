@@ -11,7 +11,6 @@ import {
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import styles from "./styles";
 import { firebase } from "../../../firebase/config";
-import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import * as ImagePicker from "expo-image-picker";
 
