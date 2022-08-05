@@ -6,6 +6,7 @@ import styles from './styles';
 import {firebase} from '../../../firebase/config.js'
 
 
+
 //Icons: 
 
 import { Ionicons, Octicons } from '@expo/vector-icons';
@@ -36,9 +37,7 @@ export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [hidePassword, setHidePassword] = useState(true)
-   
-   
-   
+
     const onFooterLinkPress = () => {
         navigation.navigate('Registration')
     }
@@ -115,23 +114,7 @@ export default function LoginScreen({navigation}) {
                 </View>
                 
             </KeyboardAwareScrollView>
-            </View>
-    )
-}
 
-const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ...props}) =>{
-     return (
-        <View>
-              <LeftIcon>
-                    <Octicons name={icon} size={30} color={brand} />
-              </LeftIcon>
-              <StyledInputLablel>{label}</StyledInputLablel>
-              <StyledTextInput {...props} />
-              {isPassword && (
-                <RightIcon onPress={()=> setHidePassword(!hidePassword)}>
-                    <Ionicons name={hidePassword ? 'md-eye-off' : 'md-eye'} size= {30} color={darkLight} />
-                </RightIcon>
-              )} 
         </View>
      )
 }
