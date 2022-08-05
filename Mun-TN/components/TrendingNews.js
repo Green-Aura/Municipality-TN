@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {ActivityIndicator, ScrollView, View, Image, Text, TouchableOpacity} from 'react-native';
 
-
-
 class TrendingNews extends Component {
   state = {
     news: [],
@@ -10,10 +8,11 @@ class TrendingNews extends Component {
 
   componentDidMount() {
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=fr&apiKey=20abdfb4e76f40bda730770b2b7ef55f`,
+      `https://newsapi.org/v2/everything?q=tesla&from=2022-07-05&sortBy=publishedAt&apiKey=20abdfb4e76f40bda730770b2b7ef55f`,
     )
       .then(res => res.json())
       .then(response => {
+        console.log(response)
         this.setState({
           news: response.articles,
         });
