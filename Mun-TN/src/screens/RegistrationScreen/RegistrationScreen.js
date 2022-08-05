@@ -11,9 +11,8 @@ import {
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import styles from "./styles";
 import { firebase } from "../../../firebase/config";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import * as ImagePicker from "expo-image-picker";
+// import PhoneInput from "react-phone-number-input";
+// import * as ImagePicker from "expo-image-picker";
 
 //Icons:
 
@@ -83,34 +82,34 @@ export default function RegistrationScreen({ navigation }) {
         alert(error);
       });
   };
-  useEffect(() => {
-    (async () => {
-      if (Platform.OS !== "web") {
-        const { status } =
-          await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (status !== "granted") {
-          alert(
-            "Sorry, Camera roll permissions are required to make this work!"
-          );
-        }
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     if (Platform.OS !== "web") {
+  //       const { status } =
+  //         await ImagePicker.requestMediaLibraryPermissionsAsync();
+  //       if (status !== "granted") {
+  //         alert(
+  //           "Sorry, Camera roll permissions are required to make this work!"
+  //         );
+  //       }
+  //     }
+  //   })();
+  // }, []);
 
-  const chooseImg = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      aspect: [4, 3],
-      quality: 1,
-      allowsEditing: true,
-    });
+  // const chooseImg = async () => {
+  //   let result = await ImagePicker.launchImageLibraryAsync({
+  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
+  //     aspect: [4, 3],
+  //     quality: 1,
+  //     allowsEditing: true,
+  //   });
 
-    console.log(result);
+  //   console.log(result);
 
-    if (!result.cancelled) {
-      setImage(result.uri);
-    }
-  };
+  //   if (!result.cancelled) {
+  //     setImage(result.uri);
+  //   }
+  // };
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
@@ -140,11 +139,11 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
-        <PhoneInput
+        {/* <PhoneInput
           placeholder="Enter phone number"
           value={phoneNumber}
           onChange={setPhoneNumber}
-        />
+        /> */}
 
         <MyTextInput
           icon="lock"
@@ -172,10 +171,10 @@ export default function RegistrationScreen({ navigation }) {
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
         />
-        <Button title="Choose image from camera roll" onPress={chooseImg} />
+        {/* <Button title="Choose image from camera roll" onPress={chooseImg} />
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-        )}
+        )} */}
         <StyledButton onPress={() => onRegisterPress()}>
           <Buttontext>Create account</Buttontext>
         </StyledButton>
