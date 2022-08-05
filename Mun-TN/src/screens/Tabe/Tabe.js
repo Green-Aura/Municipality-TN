@@ -59,7 +59,7 @@ export default function Tabe({focused, icon}) {
           // Tab ICons....
         }
         <Tab.Screen
-        name={"News"} component={NewsScreen} options={{
+        name={"Home"} component={HomeScreen} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
