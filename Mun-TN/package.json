@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-community/geolocation": "^2.1.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-firebase/auth": "^15.2.0",
     "@react-navigation/bottom-tabs": "^6.3.2",
@@ -49,7 +50,8 @@
     "react-native-webview": "11.18.1",
     "react-phone-number-input": "^3.2.6",
     "rn-fetch-blob": "^0.12.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "expo-location": "~14.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

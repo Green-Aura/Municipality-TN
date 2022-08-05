@@ -57,9 +57,9 @@ export default function OptionScreen ({navigation}) {{
 
                    <Text>Les Choix</Text>
                    <ScrollView horizontal={true} style={{marginTop:10}}>
-                   <TouchableOpacity style={{marginLeft:window.height/25}} onPress={() =>{changeScreen('Complain')}}>
+                   <TouchableOpacity style={{marginLeft:window.height/18}} onPress={() =>{changeScreen('Complain')}}>
                        <Image style={{height:100 , width:120,borderRadius:20,}}
-                       source={require('../../../assets/complain.jpg')}  />
+                       source={require('../../../assets/notebook.gif')}  />
                            <Text style={{marginTop:5, fontSize:13,fontWeight:'bold',textAlign:'center'}}>
                              Complain
                            </Text>
@@ -68,7 +68,7 @@ export default function OptionScreen ({navigation}) {{
 
                    <TouchableOpacity style={{marginLeft:30}}  onPress={() =>{changeScreen('Suggestion')}}>
                        <Image style={{height:100 , width:120,borderRadius:20,}}
-                       source={require('../../../assets/suggestion2.jpg')} />
+                       source={require('../../../assets/idea.gif')} />
                            <Text style={{marginTop:5, fontSize:13,fontWeight:'bold',textAlign:'center'}}>
                            Suggestion
                            </Text>
