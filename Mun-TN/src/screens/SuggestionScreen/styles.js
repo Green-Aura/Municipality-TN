@@ -22,7 +22,7 @@ import { color } from "react-native-reanimated";
         textAlignVertical:"top"
     },
     button:{
-        backgroundColor:'#1ED760',
+        backgroundColor:'#45dabe',
         padding:15,
         width:"40%",
         padding:15,
