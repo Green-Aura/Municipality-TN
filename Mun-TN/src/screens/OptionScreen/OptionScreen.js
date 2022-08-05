@@ -26,8 +26,8 @@ export default function OptionScreen ({navigation}) {{
                    <Image style={{
                   resizeMode: 'cover',
                     alignItems:'center',
-                   justifyContent:'center'   ,
-  
+                   justifyContent:'center',
+                   borderRadius: 20,
                    marginLeft:5,
                    marginRight:5,
                    width:window.width,
@@ -44,7 +44,8 @@ export default function OptionScreen ({navigation}) {{
                         marginRight:5,
                         backgroundColor:'#00000050',
                         alignItems:'center',
-                        justifyContent:'center'  
+                        justifyContent:'center',
+                         borderRadius: 20 
              
                    }}>
                        
