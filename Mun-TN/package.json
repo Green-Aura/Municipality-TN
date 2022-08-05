@@ -9,8 +9,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-community/google-signin": "^5.0.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-firebase/auth": "^15.2.0",
+    "@react-native-firebase/firestore": "^15.2.0",
     "@react-navigation/bottom-tabs": "^6.3.2",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
@@ -32,6 +34,8 @@
     "react-native-bouncy-checkbox": "^3.0.2",
     "react-native-check-box": "^2.1.7",
     "react-native-document-picker": "^8.1.1",
+    "react-native-dotenv": "^3.3.1",
+    "react-native-fbsdk": "^3.0.0",
     "react-native-gesture-handler": "~2.2.1",
     "react-native-ico-material-design": "^3.3.1",
     "react-native-image-picker": "^4.8.4",
@@ -46,6 +50,7 @@
     "react-native-sectioned-multi-select": "^0.9.1",
     "react-native-select-dropdown": "^2.0.4",
     "react-native-web": "0.17.7",
+    "react-native-webview": "^11.23.0",
     "rn-fetch-blob": "^0.12.0",
     "styled-components": "^5.3.5"
   },

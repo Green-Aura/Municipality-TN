@@ -21,11 +21,13 @@ export default StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50/2 
+        
     },
     userName: {
-        fontWeight: 'bold',
+        fontWeight: 'bolder',
         marginLeft: 10,
-        marginTop: 15
+        marginTop: 15,
+        fontSize:30
     },
     moreIcon : {
         fontSize: 20,
@@ -35,7 +37,9 @@ export default StyleSheet.create({
     feedImage: {
         height: 300,
         borderRadius: 10,
-        marginVertical: 10
+        marginVertical: 10,
+        borderColor:"black",
+        borderWidth:5
     },
     cardFooter: {
         flexDirection: 'row',
