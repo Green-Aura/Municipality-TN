@@ -1,4 +1,4 @@
-package com.muntn.newarchitecture.modules;
+package app.js.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
