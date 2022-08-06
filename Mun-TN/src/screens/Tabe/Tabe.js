@@ -20,6 +20,7 @@ import MapViewComponent from '../MapBoxScreen/MapView'
 // Font Awesome Icons...
 import { FontAwesome5, AntDesign, FontAwesome } from '@expo/vector-icons'
 import { useRef } from 'react';
+import Profile from '../ProfileScreen/Profile';
 const Tab = createBottomTabNavigator();
 
 // Hiding Tab Names...
@@ -160,7 +161,10 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"Complain"} component={Complain} options={{
+
+
+
+        <Tab.Screen name={"Profile"} component={Profile} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...

@@ -9,7 +9,7 @@ import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
-export default function Suggestion ({navigation}) {
+const SuggesstionScreen = ({navigation}) => {
     const options = ["general", "electicity", "garbage"]
     const[type,setType]=useState('')
     const [name,setname]=useState('')
@@ -42,7 +42,7 @@ export default function Suggestion ({navigation}) {
 const ref=firebase.firestore().collection('suggestions')
 var handlesubmit= async ()=>{
     UploadImage()
-    await  ref.add({type:type,municipalityname:name,description:desc,image:image,location:{latitude:latitude,longitude:longitude}})
+    await  ref.add({type:type,municipalityname:name,description:desc,image:image,votes:0,downvotes:0})
     alert("added successfully")
     console.log("image "+image.uri)
   navigation.navigate("Rendersuggestions")
@@ -124,3 +124,5 @@ const UploadImage=async()=>{
     </ScrollView>
   )
 }
+
+export default SuggesstionScreen

@@ -5,7 +5,6 @@ import styles from './styles'
 import { FontAwesome } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-
 const RenderSuggessions = () => {
     const[upvotes,setupvotes]=useState(null)
     const[list,setList]=useState([])
@@ -15,7 +14,8 @@ const RenderSuggessions = () => {
     const navigation=useNavigation()
     const ref=firebase.firestore().collection('suggestions') 
     const upvote=(id)=>{
-       if(upvoted===false&&downvoted==false){
+       if(upvoted===false&&downvoted==false){ 
+
         ref.doc(id).get().then(snapshot=>{setupvotes(snapshot.data().votes)  })
     
 
@@ -98,13 +98,14 @@ setupvoted(false)
     <FlatList data={list} style={styles.container} renderItem={({item})=>(
 
         <View style={styles.card}>
+        <View style={{alignContent:'center',alignItems:'center'}}>
         <Text style={styles.userName}>
         {item.type}
         </Text>
-        <Text> 
-        {item.description}
-        </Text>
+        </View>
+       
         <Text>{item.id}</Text> 
+        
         <Text> 
         {item.municipalityname}
         </Text>
@@ -112,6 +113,7 @@ setupvoted(false)
         
       
         <Image source={{uri:item.image.uri} } style={styles.feedImage}  /> 
+        <View style={{flexDirection:'row'}}>
        <TouchableOpacity onPress={()=>{upvote(item.id)}}><FontAwesome name="thumbs-up" color={upvoted==true?"red":"grey"} size={(20)}/></TouchableOpacity> 
        <Text style={{marginLeft: 5, fontSize: 10}}>{item.votes}</Text>  
 
@@ -119,7 +121,10 @@ setupvoted(false)
       <TouchableOpacity onPress={()=>{downvote(item.id)}}><FontAwesome name="thumbs-down" color={downvoted==true?"red":"grey"} size={(20)}/></TouchableOpacity>
       <Text>{item.downvotes}</Text>
         </View>
-
+        </View>
+        <Text> 
+        {item.description}
+        </Text>
         </View>  
     )} /> 
     </View>
