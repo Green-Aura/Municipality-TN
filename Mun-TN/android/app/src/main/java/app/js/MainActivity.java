@@ -1,4 +1,4 @@
-package com.muntn;
+package app.js;
 
 import android.os.Build;
 import android.os.Bundle;
