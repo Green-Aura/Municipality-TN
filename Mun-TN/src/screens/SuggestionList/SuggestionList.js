@@ -5,7 +5,6 @@ import styles from './styles'
 import { FontAwesome } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-
 const RenderSuggessions = () => {
     const[upvotes,setupvotes]=useState(null)
     const[list,setList]=useState([])
@@ -15,7 +14,7 @@ const RenderSuggessions = () => {
     const navigation=useNavigation()
     const ref=firebase.firestore().collection('suggestions') 
     const upvote=(id)=>{
-       if(upvoted===false&&downvoted==false){
+       if(upvoted===false&&downvoted==false){ 
 
         ref.doc(id).get().then(snapshot=>{setupvotes(snapshot.data().votes)  })
     

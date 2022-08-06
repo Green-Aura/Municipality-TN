@@ -40,7 +40,7 @@ class NewsScreen extends Component {
             <Categorie navigation={this.props.navigation} />
             <TrendingNews navigation={this.props.navigation} />
             <View style={{alignItems: 'center'}}>
-              {this.state.news.length === 0 ? (
+              {this.state.news.length===0?(
                 <View
                 style={{
                   width: deviceWidth,

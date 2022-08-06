@@ -24,7 +24,7 @@ export default StyleSheet.create({
         
     },
     userName: {
-        fontWeight: 'bolder',
+        fontWeight: 'bold',
         marginLeft: 10,
         marginTop: 15,
         fontSize:30
