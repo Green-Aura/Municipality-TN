@@ -9,14 +9,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // Plus...
 
 //Screens :
-import Home from '../HomeScreen/HomeScreen';
+import HomeScreen from '../HomeScreen/HomeScreen';
 import Complain from '../ComplainScreen/ComplainScreen';
-import Suggestion from '../SuggestionScreen/SuggestionScreen'
+import Suggesstion from '../SuggestionScreen/Suggestion'
 import SuggestionList from '../SuggestionList/SuggestionList'
+import OptionScreen from '../OptionScreen/OptionScreen';
+import NewsScreen from '../HomeScreen/News';
 
+import MapViewComponent from '../MapBoxScreen/MapView'
 // Font Awesome Icons...
 import { FontAwesome5, AntDesign, FontAwesome } from '@expo/vector-icons'
 import { useRef } from 'react';
+import Profile from '../ProfileScreen/Profile';
 const Tab = createBottomTabNavigator();
 
 // Hiding Tab Names...
@@ -29,7 +33,7 @@ export default function Tabe({focused, icon}) {
     
 <NavigationContainer independent={true}>
       <Tab.Navigator tabBarOptions={{
-        showLabel: false,
+        showLabel: true,
         // Floating Tab Bar...
         style: {
           backgroundColor: 'white',
@@ -56,7 +60,7 @@ export default function Tabe({focused, icon}) {
           // Tab ICons....
         }
         <Tab.Screen
-        name={"Home"} component={Home} options={{
+        name={"Home"} component={HomeScreen} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -80,7 +84,7 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
+        <Tab.Screen name={"MapView"} component={MapViewComponent} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -110,7 +114,7 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"ActionButton"} component={EmptyScreen} options={{
+        <Tab.Screen name={"Suggestion"} component={Suggesstion} options={{
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
@@ -133,7 +137,7 @@ export default function Tabe({focused, icon}) {
           )
         }}></Tab.Screen>
 
-        <Tab.Screen name={"Suggestion"} component={Suggestion} options={{
+        <Tab.Screen name={"Option"}  component={OptionScreen} options={{ 
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -157,7 +161,8 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"Complain"} component={Complain} options={{
+
+        <Tab.Screen name={"Profile"} component={Profile} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -180,6 +185,8 @@ export default function Tabe({focused, icon}) {
             }).start();
           }
         })}></Tab.Screen>
+
+        
 
       </Tab.Navigator>
 
