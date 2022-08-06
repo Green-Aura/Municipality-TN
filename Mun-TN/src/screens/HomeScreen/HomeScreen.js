@@ -1,11 +1,15 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import {View,Text,Image,TouchableOpacity} from 'react-native'
 import {Dimensions} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 const window=Dimensions.get('window')
+import News from '../HomeScreen/News'
+import Events from '../HomeScreen/Events'
 
 
 export default function HomeScreen ({navigation}) {{
+  const [Page,SetPage] = useState('Home');
+
 
    const changeScreen = (screen) => {
        navigation.navigate(screen)
@@ -21,7 +25,8 @@ export default function HomeScreen ({navigation}) {{
                    </Text>
                </View> */}
 
-
+           {Page === 'Home' ? 
+           <View>
                <View style={{alignItems:'center',justifyContent:'center'}}>
                    <Image style={{
                     resizeMode: 'cover',
@@ -38,7 +43,7 @@ export default function HomeScreen ({navigation}) {{
 
                <View style={{padding:20, marginBottom: -35}}>
                    <ScrollView horizontal={true} >
-                   <TouchableOpacity style={{marginLeft:window.height/25}} onPress={() =>{changeScreen('Suggestion')}}>
+                   <TouchableOpacity style={{marginLeft:window.height/25}} onPress={() =>{SetPage('events')}}>
                        <Image style={{height:100 , width:120,borderRadius:20,}}
                        source={require('../../../assets/newspaper.png')}  />
                            <Text style={{fontSize:13,fontWeight:'bold',textAlign:'center'}}>
@@ -47,7 +52,7 @@ export default function HomeScreen ({navigation}) {{
                    </TouchableOpacity>
 
 
-                   <TouchableOpacity style={{marginLeft:30}}  onPress={() =>{changeScreen('SuggestionList')}}>
+                   <TouchableOpacity style={{marginLeft:30}}  onPress={() =>{SetPage('News')}}>
                        <Image style={{height:100 , width:120,borderRadius:20,}}
                        source={require('../../../assets/internet.png')} />
                            <Text style={{ fontSize:13,fontWeight:'bold',textAlign:'center'}}>
@@ -76,6 +81,7 @@ export default function HomeScreen ({navigation}) {{
                    </TouchableOpacity>    
                    </ScrollView>
                </View>
+               </View>: Page === 'events' ? (<View><Events /><TouchableOpacity onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity></View>): Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>): null}
            </View>
        )
    }

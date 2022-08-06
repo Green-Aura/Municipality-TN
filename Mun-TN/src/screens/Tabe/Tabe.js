@@ -14,7 +14,7 @@ import Complain from '../ComplainScreen/ComplainScreen';
 import Suggesstion from '../SuggestionScreen/Suggestion'
 import SuggestionList from '../SuggestionList/SuggestionList'
 import OptionScreen from '../OptionScreen/OptionScreen';
-import NewsScreen from '../HomeScreen/News';
+import News from '../HomeScreen/News';
 
 import MapViewComponent from '../MapBoxScreen/MapView'
 // Font Awesome Icons...
