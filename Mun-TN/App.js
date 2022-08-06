@@ -59,7 +59,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: false
+          headerShown: false,
         }}> 
       { user ? (
         <Stack.Screen name="Tabe"  >
@@ -76,7 +76,7 @@ export default function App() {
           <Stack.Screen name="Complain" component={ComplainScreen} />
           <Stack.Screen name="SuggestionList" component={SuggestionList} />
           <Stack.Screen name="Option" component={OptionScreen} />
-          <Stack.Screen name="News" component={NewsScreen} />
+          <Stack.Screen name="NewsScreen" component={NewsScreen} />
           <Stack.Screen name="GetNews" component={GetNews} />
           <Stack.Screen name="WebView" component={WebViewComponent} options={{ headerShown: true }} />
           <Stack.Screen name="MapView" component={MapViewComponent} />

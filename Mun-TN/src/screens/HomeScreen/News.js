@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
-    ActivityIndicator,
-    ScrollView,
-    Text,
-    View,
-    Image,
-    Dimensions,
-    TouchableOpacity,
-  } from 'react-native';
-import Categorie from '../../../components/Categorie';
-import TrendingNews from '../../../components/TrendingNews';
+  ActivityIndicator,
+  ScrollView,
+  Text,
+  View,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
+import Categories from '../../../components/Categorie'
+import TrendingNews from '../../../components/TrendingNews'
 
 const deviceWidth = Dimensions.get('window').width;
-
-
 class NewsScreen extends Component {
     state = {
         news: [],
@@ -94,4 +92,5 @@ class NewsScreen extends Component {
       }
     }
 
-export default NewsScreen
+ 
+export default NewsScreen;

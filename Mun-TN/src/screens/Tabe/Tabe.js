@@ -114,7 +114,7 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
+        <Tab.Screen name={"Suggestion"} component={Suggesstion} options={{
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
@@ -161,6 +161,7 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
+
         <Tab.Screen name={"Profile"} component={Profile} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
@@ -184,6 +185,8 @@ export default function Tabe({focused, icon}) {
             }).start();
           }
         })}></Tab.Screen>
+
+        
 
       </Tab.Navigator>
 

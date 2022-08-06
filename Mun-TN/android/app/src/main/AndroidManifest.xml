@@ -5,6 +5,11 @@
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
   <uses-permission android:name="android.permission.VIBRATE"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<<<<<<< HEAD
+=======
+  <!-- END OPTIONAL PERMISSIONS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+>>>>>>> d865f406ac88f7e0bb00006a1312fa6c9c8a1da0
   <queries>
     <intent>
       <action android:name="android.intent.action.VIEW"/>
