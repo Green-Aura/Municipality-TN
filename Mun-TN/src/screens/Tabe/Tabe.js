@@ -14,7 +14,7 @@ import Complain from '../ComplainScreen/ComplainScreen';
 import Suggesstion from '../SuggestionScreen/Suggestion'
 import SuggestionList from '../SuggestionList/SuggestionList'
 import OptionScreen from '../OptionScreen/OptionScreen';
-import NewsScreen from '../HomeScreen/News';
+import News from '../HomeScreen/News';
 
 import MapViewComponent from '../MapBoxScreen/MapView'
 // Font Awesome Icons...
@@ -84,7 +84,7 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"MapView"} component={MapViewComponent} options={{
+        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -114,7 +114,11 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"complain"} component={Complain} options={{
+
+        
+
+        <Tab.Screen name={"MapView"} component={MapViewComponent} options={{
+
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
@@ -160,6 +164,8 @@ export default function Tabe({focused, icon}) {
             }).start();
           }
         })}></Tab.Screen>
+
+
 
 
         <Tab.Screen name={"Profile"} component={Profile} options={{
