@@ -114,7 +114,7 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
-        <Tab.Screen name={"Suggestion"} component={Suggesstion} options={{
+        <Tab.Screen name={"complain"} component={Complain} options={{
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
