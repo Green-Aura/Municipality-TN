@@ -1,17 +1,19 @@
 import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     profilecontainer:{
-        alignContent:"center",
-        alignItems:"center",
-        backgroundColor:"#13AA52",
+        alignContent:"flex-start",
+        alignItems:"flex-start",
         width:"50%",
-        marginTop:20
+        marginTop:20,
+    
     },
     image:{
         borderRadius:100,
-        width:200,height:200,
-        borderWidth:5,
-        borderColor:"turquoise"
+        width:200,
+        height:200,
+        overflow:'hidden',
+        marginLeft:150
+     
         
     },
     infocontainer:{
@@ -24,11 +26,12 @@ export default StyleSheet.create({
     logoutbuton:{
         backgroundColor:"turquoise",
         borderRadius:70,
-        width:"10%",
+        width:"20%",
         textAlign:"center",
         alignItems:"center",
-        marginLeft:"45%",
-        marginTop:50
+       marginBottom:30,
+        marginTop:10,
+        height:30
     },
     emailinput:{
         borderRadius:20,
@@ -53,11 +56,60 @@ export default StyleSheet.create({
     imageinput:{
         backgroundColor:"turquoise",
         borderRadius:40,
-        width:"50%",
+        width:"20%",
         marginTop:20,
-        height:20,
+        height:30,
         textAlign:"center",
-        alignItems:"center"
+        alignItems:"center",
+        alignContent:"center",
+        marginLeft:10
     
+    },
+    icon:{
+        marginLeft:280,
+        marginTop:-30
+    },
+    submitbutton:{
+        backgroundColor:"turquoise",
+        width:"20%",
+        alignItems:"center",
+        textAlign:"center",
+        borderRadius:50,
+        marginTop:20,
+        height:30,marginLeft:10
+        
+    },
+    backbutton:{
+        backgroundColor:"turquoise",
+        width:"20%",
+        marginTop:20,
+        borderRadius:50,
+        alignItems:"center",
+        height:30,marginLeft:10
+        
+
+        
+    },
+    card:{
+        alignContent:"center",
+        alignItems:'center',
+        backgroundColor:"#fff",
+        width:"50%",
+        left:"25%",
+        marginTop:20
+    },
+    complainsbut:{
+        backgroundColor:"turquoise",
+        width:'20%',
+        height:"30",
+        borderRadius:70,
+        
+    },
+    cards:{
+        alignContent:"center",
+        alignItems:"center"
+    },
+    buttonscontainer:{
+        alignItems:"center"
     }
 })
