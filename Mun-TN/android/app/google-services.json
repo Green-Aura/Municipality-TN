@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1019517327888",
+    "project_id": "auth-f8b1c",
+    "storage_bucket": "auth-f8b1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019517327888:android:48dfaf217804382447c895",
+        "android_client_info": {
+          "package_name": "com.muntn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019517327888-lo92qeu8bcrhs5l8b7gqr2e7mf1trre4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.muntn",
+            "certificate_hash": "8710b99ee496a9f2343da4e153bdee4db5ad677f"
+          }
+        },
+        {
+          "client_id": "1019517327888-2mdojghp5ltuhevs87cufpid50g5sgvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2fj3X43fu-YxnUeGiQKGCarwiT4TdYJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019517327888-2mdojghp5ltuhevs87cufpid50g5sgvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
