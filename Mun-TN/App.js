@@ -11,15 +11,22 @@ import SuggesstionScreen from './src/screens/SuggestionScreen/Suggestion';
 import SuggestionList from './src/screens/SuggestionList/SuggestionList';
 import Tabe from './src/screens/Tabe/Tabe';
 import OptionScreen from './src/screens/OptionScreen/OptionScreen';
-import NewsScreen from './src/screens/HomeScreen/News';
-import GetNews from './src/screens/HomeScreen/GetNews'
-import WebViewComponent from './components/WebView'
+
+
+
+
 import { View,Text,StyleSheet,Image,Appearance,useColorScheme } from 'react-native';
 import {decode, encode} from 'base-64'
 
 import MapViewComponent from './src/screens/MapBoxScreen/MapView';
 
 import styles from './src/screens/LoginScreen/styles';
+
+
+import News from './src/screens/HomeScreen/News'
+import Profile from './src/screens/ProfileScreen/Profile';
+import Events from './src/screens/HomeScreen/Events'
+
 
 if (!global.btoa) {  global.btoa = encode }
 if (!global.atob) { global.atob = decode }
@@ -74,7 +81,7 @@ export default function App() {
       <Stack.Navigator
       
         screenOptions={{
-          headerShown: false
+          headerShown: false,
         }}> 
       { user ? (
         <Stack.Screen name="Tabe"  >
@@ -91,11 +98,10 @@ export default function App() {
           <Stack.Screen name="Complain" component={ComplainScreen} />
           <Stack.Screen name="SuggestionList" component={SuggestionList} />
           <Stack.Screen name="Option" component={OptionScreen} />
-          <Stack.Screen name="News" component={NewsScreen} />
-          <Stack.Screen name="GetNews" component={GetNews} />
-          <Stack.Screen name="WebView" component={WebViewComponent} options={{ headerShown: true }} />
           <Stack.Screen name="MapView" component={MapViewComponent} />
-
+          <Stack.Screen name="Profileview" component={Profile}/>
+          <Stack.Screen name="News" component={News} />
+          <Stack.Screen name="Events" component={Events} />
       </Stack.Navigator>
    
      
