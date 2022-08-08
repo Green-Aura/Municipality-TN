@@ -4,15 +4,14 @@ export default StyleSheet.create({
         alignContent:"flex-start",
         alignItems:"flex-start",
         width:"50%",
-        marginTop:20,
+        marginTop:100,
     
     },
     image:{
-        borderRadius:100,
-        width:200,
-        height:200,
+        borderRadius:70,
+        width:"30%",
         overflow:'hidden',
-        marginLeft:150
+        marginLeft:150,
      
         
     },
@@ -94,9 +93,17 @@ export default StyleSheet.create({
         alignContent:"center",
         alignItems:'center',
         backgroundColor:"#fff",
-        width:"50%",
-        left:"25%",
-        marginTop:20
+        alignSelf:"center",
+        width:"90%",
+        marginTop:20,
+        shadowOffset:{
+            height:10,
+            width:10
+        },
+        shadowColor:"black",
+        shadowOpacity:0.5,
+        borderRadius:40,
+        padding:20
     },
     complainsbut:{
         backgroundColor:"turquoise",
@@ -111,5 +118,34 @@ export default StyleSheet.create({
     },
     buttonscontainer:{
         alignItems:"center"
+    },
+    updatebutton:{
+        padding:5,
+        lineHeight:20,
+        borderRadius:6,
+        backgroundColor:"#2ea44f",
+        
+    },
+    deletebutton:{
+        borderRadius:6,
+        backgroundColor:"#ff4742",
+        padding:8,
+        marginLeft:10
+    },
+    popupinput:{
+        backgroundColor:"#dee1e2",
+        borderColor:"#dee1e2",
+        borderRadius:2,
+        height:36,
+        padding:5
+
+        
+
+    },
+    submitpopup:{
+        borderRadius:6,
+        backgroundColor:"#008060",
+        padding:8,
+        marginLeft:10
     }
 })
