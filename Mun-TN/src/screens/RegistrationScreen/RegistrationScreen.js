@@ -11,7 +11,12 @@ import {
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import styles from "./styles";
 import { firebase } from "../../../firebase/config";
+
 // import "react-phone-number-input/style.css";
+
+
+// import PhoneInput from "react-phone-number-input";
+// import * as ImagePicker from "expo-image-picker";
 
 
 //Icons:
@@ -210,7 +215,7 @@ const MyTextInput = ({
         <RightIcon onPress={() => setHidePassword(!hidePassword)}>
           <Ionicons
             name={hidePassword ? "md-eye-off" : "md-eye"}
-            size={30}
+            size={30}kk
             color={darkLight}
           />
         </RightIcon>

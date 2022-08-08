@@ -58,7 +58,7 @@ class GetNews extends Component {
                     <TouchableOpacity
                       key={index}
                       onPress={() =>
-                        this.props.navigation.navigate('WebView', {
+                        navigation.navigate('WebView', {
                           url: news.url,
                         })
                       }>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-
+import { useTheme } from 'react-navigation';
 import { 
     InnerContainer,
     PageTitle,
@@ -16,7 +16,16 @@ import {
     WelcomeImage,
     Avatar,
 } from "../../../components/styles.js";
-
+import { DefaultTheme} from '@react-navigation/native';
+const MyTheme = {
+    ... DefaultTheme,
+    colors:{
+      ... DefaultTheme.colors,
+      primary:'dodgerblue',
+      background:'lightblue',
+      text:'green',
+    },
+  }
 const DATA =[
     {
         user_name: "MosaiqueFM",
@@ -51,7 +60,7 @@ const DATA =[
 function Item({ user_name, user_image, feed_image, like_count, comment_count}) {
     return (
         
-        <View style={styles.card}>
+        <View >
                 
         <View style={styles.cardHeader}>
         <View style={styles.headerLeft}>   
@@ -92,11 +101,11 @@ function Item({ user_name, user_image, feed_image, like_count, comment_count}) {
 }
 
 export default function HomeScreen({navigation}) {
-
+    const {Colors} = useTheme()
     return (
         
         <View style={styles.container}>
-
+  <Text style ={{fontSize : 30,color:Colors.text}} ></Text>
 
        <FlatList
         data={DATA}
