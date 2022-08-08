@@ -10,8 +10,8 @@ import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScr
 import SuggesstionScreen from './src/screens/SuggestionScreen/Suggestion';
 import SuggestionList from './src/screens/SuggestionList/SuggestionList';
 import Tabe from './src/screens/Tabe/Tabe';
+import OnboardingScreen from './src/screens/OnboardingScreen/OnboardingScreen';
 import OptionScreen from './src/screens/OptionScreen/OptionScreen';
-
 
 
 
@@ -89,6 +89,10 @@ export default function App() {
         </Stack.Screen>
         ) : (
           <>
+            <Stack.Screen
+              name="OnboardingScreen"
+              component={OnboardingScreen}
+            />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Registration" component={RegistrationScreen} />
           </>
@@ -102,6 +106,7 @@ export default function App() {
           <Stack.Screen name="Profileview" component={Profile}/>
           <Stack.Screen name="News" component={News} />
           <Stack.Screen name="Events" component={Events} />
+         
       </Stack.Navigator>
    
      
