@@ -114,7 +114,11 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
+
+        
+
         <Tab.Screen name={"MapView"} component={MapViewComponent} options={{
+
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
