@@ -1,4 +1,4 @@
-import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View,Image, FlatList, ScrollView, Platform} from 'react-native'
+import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View,Image, FlatList, ScrollView, Platform,useColorScheme } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
@@ -10,7 +10,54 @@ import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
+import { DefaultTheme} from '@react-navigation/native';
+
 export default function ComplainScreen ({navigation}) {
+  const [user,setUser]=useState({})
+  const [loading,setloading]=useState(false)
+  const getUser=()=>{
+    const usersRef = firebase.firestore().collection('users');
+    firebase.auth().onAuthStateChanged(async (user) => {
+      {
+        if (user) {
+         await usersRef
+            .doc(user.uid)
+            .get()
+            .then((document) => {
+             
+              setloading(false)
+              setUser({
+                id:document.id,
+                email:document.data().email,
+                fullName:document.data().fullName,
+                image:document.data().image,
+                phoneNumber:document.data().phoneNumber
+              })
+              console.log(document.data())
+            })
+            
+            .catch((error) => {
+              setloading(false)
+            });
+        } else {
+          setloading(false)
+        }
+      }
+    })
+  }
+  useEffect(()=>{
+    getUser()
+  },[])
+    const MyTheme = {
+        ... DefaultTheme,
+        colors:{
+          ... DefaultTheme.colors,
+          primary:'dodgerblue',
+          background:'lightblue',
+          text:'green',
+        },
+      }
+    const scheme = useColorScheme()
     const options = ["general", "electicity", "garbage"]
     const[type,setType]=useState('')
     const [name,setname]=useState('')
@@ -42,7 +89,7 @@ export default function ComplainScreen ({navigation}) {
 const ref=firebase.firestore().collection('Complains')
 var handlesubmit= async ()=>{
     UploadImage()
-    await  ref.add({type:type,description:desc,image:image,location:{latitude:latitude,longitude:longitude},iduser:null})
+    await  ref.add({type:type,description:desc,image:image,location:{latitude:latitude,longitude:longitude},iduser:user.id,createdAt:Date.now(),username:user.fullName,userimage:user.image})
     alert("added successfully")
     console.log("image "+image.uri)
 
@@ -80,7 +127,7 @@ const UploadImage=async()=>{
     // No permissions request is necessary for launching the image library
     
     return (
-        <ScrollView>
+        <ScrollView theme={scheme === 'dark'? DarkTheme : MyTheme}>
         <KeyboardAvoidingView style={styles.container} behavior='padding'>
      <View style={styles.inputcontainer}>
         <SelectDropdown

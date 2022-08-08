@@ -104,7 +104,6 @@ setupvoted(false)
         </Text>
         </View>
        
-        <Text>{item.id}</Text> 
         
         <Text> 
         {item.municipalityname}
@@ -113,6 +112,9 @@ setupvoted(false)
         
       
         <Image source={{uri:item.image.uri} } style={styles.feedImage}  /> 
+        <Text> 
+        {item.description}
+        </Text>
         <View style={{flexDirection:'row'}}>
        <TouchableOpacity onPress={()=>{upvote(item.id)}}><FontAwesome name="thumbs-up" color={upvoted==true?"red":"grey"} size={(20)}/></TouchableOpacity> 
        <Text style={{marginLeft: 5, fontSize: 10}}>{item.votes}</Text>  
@@ -122,9 +124,7 @@ setupvoted(false)
       <Text>{item.downvotes}</Text>
         </View>
         </View>
-        <Text> 
-        {item.description}
-        </Text>
+       
         </View>  
     )} /> 
     </View>
