@@ -12,8 +12,42 @@ import DocumentPicker,{types} from "react-native-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 import { DefaultTheme} from '@react-navigation/native';
 
-  
 export default function ComplainScreen ({navigation}) {
+  const [user,setUser]=useState({})
+  const [loading,setloading]=useState(false)
+  const getUser=()=>{
+    const usersRef = firebase.firestore().collection('users');
+    firebase.auth().onAuthStateChanged(async (user) => {
+      {
+        if (user) {
+         await usersRef
+            .doc(user.uid)
+            .get()
+            .then((document) => {
+             
+              setloading(false)
+              setUser({
+                id:document.id,
+                email:document.data().email,
+                fullName:document.data().fullName,
+                image:document.data().image,
+                phoneNumber:document.data().phoneNumber
+              })
+              console.log(document.data())
+            })
+            
+            .catch((error) => {
+              setloading(false)
+            });
+        } else {
+          setloading(false)
+        }
+      }
+    })
+  }
+  useEffect(()=>{
+    getUser()
+  },[])
     const MyTheme = {
         ... DefaultTheme,
         colors:{
@@ -55,7 +89,7 @@ export default function ComplainScreen ({navigation}) {
 const ref=firebase.firestore().collection('Complains')
 var handlesubmit= async ()=>{
     UploadImage()
-    await  ref.add({type:type,description:desc,image:image,location:{latitude:latitude,longitude:longitude},iduser:null})
+    await  ref.add({type:type,description:desc,image:image,location:{latitude:latitude,longitude:longitude},iduser:user.id,createdAt:Date.now(),username:user.fullName,userimage:user.image})
     alert("added successfully")
     console.log("image "+image.uri)
 
