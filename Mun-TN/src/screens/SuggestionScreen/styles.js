@@ -19,18 +19,20 @@ import { color } from "react-native-reanimated";
         marginTop:40,
         borderBottomColor:"black",
         borderWidth:2,
-        textAlignVertical:"top"
+        textAlignVertical:"top",
+        width:"100%"
     },
     button:{
-        backgroundColor:'#45dabe',
-        padding:15,
-        width:"40%",
-        padding:15,
-        borderRadius:500,
-        marginTop:10,
-        lineHeight:1,
-        fontWeight:700,
-        height:48,
+        elevation: 8,
+    backgroundColor: "#009688",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
     },
     but:{
         textAlign:"center",
@@ -52,18 +54,28 @@ buttoncontainer:{
     
 },
 camerabutton:{
-        width:"30%",
-        padding:17,
-        backgroundColor:"#00d301",
-        textAlign:"center"
+    elevation: 8,
+    backgroundColor: "#009688",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
 },
 pdfbut:{
-    marginTop:20,
-    padding:17,
-    backgroundColor:"#1de9b6",
-    lineHeight:"30",
-    width:"30%",
-    textAlign:"center",
+    elevation: 20,
+    backgroundColor: "#009688",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    top:15,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
 
 }
        
