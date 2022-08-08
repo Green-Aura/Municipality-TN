@@ -1,4 +1,4 @@
-import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View,Image, FlatList, ScrollView, Platform} from 'react-native'
+import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View,Image, FlatList, ScrollView, Platform,useColorScheme } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
@@ -10,7 +10,20 @@ import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
+import { DefaultTheme} from '@react-navigation/native';
+
+  
 export default function ComplainScreen ({navigation}) {
+    const MyTheme = {
+        ... DefaultTheme,
+        colors:{
+          ... DefaultTheme.colors,
+          primary:'dodgerblue',
+          background:'lightblue',
+          text:'green',
+        },
+      }
+    const scheme = useColorScheme()
     const options = ["general", "electicity", "garbage"]
     const[type,setType]=useState('')
     const [name,setname]=useState('')
@@ -80,7 +93,7 @@ const UploadImage=async()=>{
     // No permissions request is necessary for launching the image library
     
     return (
-        <ScrollView>
+        <ScrollView theme={scheme === 'dark'? DarkTheme : MyTheme}>
         <KeyboardAvoidingView style={styles.container} behavior='padding'>
      <View style={styles.inputcontainer}>
         <SelectDropdown

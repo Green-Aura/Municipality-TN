@@ -11,9 +11,8 @@ import {
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import styles from "./styles";
 import { firebase } from "../../../firebase/config";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
 import * as ImagePicker from "expo-image-picker";
+import PhoneInput from "react-native-phone-number-input";
 
 //Icons:
 
@@ -67,6 +66,8 @@ export default function RegistrationScreen({ navigation }) {
           id: uid,
           email,
           fullName,
+          image,
+          phoneNumber
         };
         const usersRef = firebase.firestore().collection("users");
         usersRef
@@ -82,20 +83,21 @@ export default function RegistrationScreen({ navigation }) {
       .catch((error) => {
         alert(error);
       });
+
   };
-  useEffect(() => {
-    (async () => {
-      if (Platform.OS !== "web") {
-        const { status } =
-          await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (status !== "granted") {
-          alert(
-            "Sorry, Camera roll permissions are required to make this work!"
-          );
-        }
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     if (Platform.OS !== "web") {
+  //       const { status } =
+  //         await ImagePicker.requestMediaLibraryPermissionsAsync();
+  //       if (status !== "granted") {
+  //         alert(
+  //           "Sorry, Camera roll permissions are required to make this work!"
+  //         );
+  //       }
+  //     }
+  //   })();
+  // }, []);
 
   const chooseImg = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -131,6 +133,13 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+        <PhoneInput
+        placeholder="Enter phone number"
+        value={phoneNumber}
+        defaultValue={216}
+        onChangeText={(text)=>{setPhoneNumber(text)
+        console.log(text)}}
+      /> 
         <MyTextInput
           icon="mail"
           placeholder="E-mail"
@@ -140,14 +149,8 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
-        <PhoneInput
-          placeholder="Enter phone number"
-          value={phoneNumber}
-          onChange={setPhoneNumber}
-        />
-
-        <MyTextInput
-          icon="lock"
+<MyTextInput
+          icon=" */lock"
           placeholderTextColor={darkLight}
           placeholder="Password"
           onChangeText={(text) => setPassword(text)}
@@ -172,10 +175,10 @@ export default function RegistrationScreen({ navigation }) {
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
         />
-        <Button title="Choose image from camera roll" onPress={chooseImg} />
+         <TouchableOpacity onPress={chooseImg}><Text>Choose image from camera roll</Text></TouchableOpacity>
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-        )}
+        )} 
         <StyledButton onPress={() => onRegisterPress()}>
           <Buttontext>Create account</Buttontext>
         </StyledButton>

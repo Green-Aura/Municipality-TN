@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import {firebase} from './firebase/config';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,DefaultTheme,DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen/LoginScreen'
 import ComplainScreen from './src/screens/ComplainScreen/ComplainScreen';
@@ -11,22 +11,41 @@ import SuggesstionScreen from './src/screens/SuggestionScreen/Suggestion';
 import SuggestionList from './src/screens/SuggestionList/SuggestionList';
 import Tabe from './src/screens/Tabe/Tabe';
 import OptionScreen from './src/screens/OptionScreen/OptionScreen';
-import NewsScreen from './src/screens/HomeScreen/News';
-import GetNews from './src/screens/HomeScreen/GetNews'
-import WebViewComponent from './components/WebView'
 
+
+
+
+import { View,Text,StyleSheet,Image,Appearance,useColorScheme } from 'react-native';
 import {decode, encode} from 'base-64'
+
 import MapViewComponent from './src/screens/MapBoxScreen/MapView';
+
+import styles from './src/screens/LoginScreen/styles';
+
+
+import News from './src/screens/HomeScreen/News'
+import Profile from './src/screens/ProfileScreen/Profile';
+import Events from './src/screens/HomeScreen/Events'
+
+
 if (!global.btoa) {  global.btoa = encode }
 if (!global.atob) { global.atob = decode }
 
 const Stack = createStackNavigator();
-
+const MyTheme = {
+  ... DefaultTheme,
+  colors:{
+    ... DefaultTheme.colors,
+    primary:'dodgerblue',
+    background:'lightblue',
+    text:'green',
+  },
+}
 export default function App() {
-
+  const scheme = useColorScheme()
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
   useEffect(() => {
     const usersRef = firebase.firestore().collection('users');
     firebase.auth().onAuthStateChanged(user => {
@@ -53,12 +72,16 @@ export default function App() {
       <></>
     )
   }
-
+  
   return (
-    <NavigationContainer>
+    
+    // <View style={theme == 'light '?styles.mainView:darkMode.mainView}>
+    <NavigationContainer theme={scheme === 'dark'? DarkTheme : MyTheme}>
+  
       <Stack.Navigator
+      
         screenOptions={{
-          headerShown: false
+          headerShown: false,
         }}> 
       { user ? (
         <Stack.Screen name="Tabe"  >
@@ -75,14 +98,14 @@ export default function App() {
           <Stack.Screen name="Complain" component={ComplainScreen} />
           <Stack.Screen name="SuggestionList" component={SuggestionList} />
           <Stack.Screen name="Option" component={OptionScreen} />
-          <Stack.Screen name="News" component={NewsScreen} />
-          <Stack.Screen name="GetNews" component={GetNews} />
-          <Stack.Screen name="WebView" component={WebViewComponent} options={{ headerShown: true }} />
           <Stack.Screen name="MapView" component={MapViewComponent} />
-
+          <Stack.Screen name="Profileview" component={Profile}/>
+          <Stack.Screen name="News" component={News} />
+          <Stack.Screen name="Events" component={Events} />
       </Stack.Navigator>
    
      
     </NavigationContainer>
+    // </View>
   );
-}
+        }
