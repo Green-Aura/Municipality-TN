@@ -84,7 +84,7 @@ export default function LoginScreen({ navigation }) {
         <InnerContainer>
           <PageLogo source={require("../../../assets/baladia.png")} />
           <PageTitle>Municipality</PageTitle>
-          <SubTitle>Account Login</SubTitle>
+          <SubTitle></SubTitle>
         </InnerContainer>
         <StyledFormArea>
           <MyTextInput

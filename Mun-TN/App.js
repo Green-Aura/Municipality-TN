@@ -10,7 +10,11 @@ import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScr
 import SuggesstionScreen from './src/screens/SuggestionScreen/Suggestion';
 import SuggestionList from './src/screens/SuggestionList/SuggestionList';
 import Tabe from './src/screens/Tabe/Tabe';
+<<<<<<< HEAD
 import OnboardingScreen from "./src/screens/OnboardingScreen/OnboardingScreen"
+=======
+import OnboardingScreen from './src/screens/OnboardingScreen/OnboardingScreen'
+>>>>>>> 1847c31d1443b04946e2b4e9c8086d30e811eba0
 import OptionScreen from './src/screens/OptionScreen/OptionScreen';
 
 
