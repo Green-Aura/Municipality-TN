@@ -13,6 +13,7 @@ import styles from "./styles";
 import { firebase } from "../../../firebase/config";
 import * as ImagePicker from "expo-image-picker";
 import PhoneInput from "react-native-phone-number-input";
+import {FontAwesome} from "@expo/vector-icons"
 
 //Icons:
 
@@ -197,8 +198,13 @@ export default function RegistrationScreen({ navigation }) {
           isPassword={true}
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
+
+        />
+         <TouchableOpacity onPress={chooseImg}><FontAwesome name="camera"/></TouchableOpacity>
+
         /> */}
          <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
+
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }}>
              
