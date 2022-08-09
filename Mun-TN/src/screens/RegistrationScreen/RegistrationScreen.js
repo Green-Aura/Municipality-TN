@@ -16,7 +16,7 @@ import PhoneInput from "react-native-phone-number-input";
 
 //Icons:
 
-import { Ionicons, Octicons } from "@expo/vector-icons";
+import { Ionicons, Octicons, AntDesign, Feather } from "@expo/vector-icons";
 
 import {
   StyledContainer,
@@ -122,10 +122,10 @@ export default function RegistrationScreen({ navigation }) {
         <InnerContainer>
           <PageLogo source={require("../../../assets/baladia.png")} />
           <PageTitle>Municipality</PageTitle>
-          <SubTitle>Account Signup</SubTitle>
+         
         </InnerContainer>
         <MyTextInput
-          icon="person"
+          icon="user"
           placeholder="Full Name"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setFullName(text)}
@@ -133,13 +133,35 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
-        <PhoneInput
+        {/* <PhoneInput 
+        
         placeholder="Enter phone number"
         value={phoneNumber}
         defaultValue={216}
         onChangeText={(text)=>{setPhoneNumber(text)
         console.log(text)}}
-      /> 
+      />  */}
+       
+      {/* <MyTextInput
+      icon="phone"
+   
+          placeholder="+216 xx xxx xxx"
+          placeholderTextColor={darkLight}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          underlineColorAndroid="transparent"
+          autoCapitalize="none"
+          
+        /> */}
+         <MyTextInput
+          icon="home"
+          placeholder="adress"
+          placeholderTextColor={darkLight}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          underlineColorAndroid="transparent"
+          autoCapitalize="none"
+        />
         <MyTextInput
           icon="mail"
           placeholder="E-mail"
@@ -149,8 +171,9 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+       
 <MyTextInput
-          icon=" */lock"
+          icon="lock"
           placeholderTextColor={darkLight}
           placeholder="Password"
           onChangeText={(text) => setPassword(text)}
@@ -162,7 +185,7 @@ export default function RegistrationScreen({ navigation }) {
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
         />
-        <MyTextInput
+        {/* <MyTextInput
           icon="lock"
           placeholderTextColor={darkLight}
           placeholder="Confirm Password"
@@ -174,10 +197,13 @@ export default function RegistrationScreen({ navigation }) {
           isPassword={true}
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
-        />
-         <TouchableOpacity onPress={chooseImg}><Text>Choose image from camera roll</Text></TouchableOpacity>
+        /> */}
+         <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
         {image && (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }}>
+             
+          </Image> 
+          
         )} 
         <StyledButton onPress={() => onRegisterPress()}>
           <Buttontext>Create account</Buttontext>
@@ -201,13 +227,17 @@ const MyTextInput = ({
   isPassword,
   hidePassword,
   setHidePassword,
+
   ...props
 }) => {
   return (
     <View>
       <LeftIcon>
-        <Octicons name={icon} size={30} color={brand} />
+        {/* <Octicons name={icon} size={30} color={brand} /> */}
+        <AntDesign name={icon}size={30} color={brand}/>
+       
       </LeftIcon>
+      
       <StyledInputLablel>{label}</StyledInputLablel>
       <StyledTextInput {...props} />
       {isPassword && (
@@ -217,8 +247,11 @@ const MyTextInput = ({
             size={30}
             color={darkLight}
           />
+       
+          
         </RightIcon>
       )}
+       {/* <Feather name="camera" size={24} color="black" /> */}
     </View>
   );
 };
