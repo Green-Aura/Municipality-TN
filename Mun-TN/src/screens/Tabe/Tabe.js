@@ -70,7 +70,7 @@ export default function Tabe({focused, icon}) {
               <FontAwesome5
                 name="home"
                 size={25}
-                color={focused ? 'turquoise' : 'gray'}
+                color={focused ? '#5eead4' : 'gray'}
               ></FontAwesome5>
             </View>
           )
@@ -94,7 +94,7 @@ export default function Tabe({focused, icon}) {
               <AntDesign
                 name="addfolder"
                 size={25}
-                color={focused ? 'turquoise' : 'gray'}
+                color={focused ? '#5eead4' : 'gray'}
               ></AntDesign>
             </View>
           )
@@ -114,14 +114,18 @@ export default function Tabe({focused, icon}) {
           // Extra Tab Screen For Action Button..
         }
 
+
+        
+
         <Tab.Screen name={"MapView"} component={MapViewComponent} options={{
+
           tabBarIcon: ({ focused }) => (
 
             <TouchableOpacity>
               <View style={{
                 width: 55,
                 height: 55,
-                backgroundColor: 'turquoise',
+                backgroundColor: '#5eead4',
                 borderRadius: 30,
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -130,7 +134,7 @@ export default function Tabe({focused, icon}) {
                <FontAwesome5
                 name="truck"
                 size={25}
-                color={focused ? 'turquoise' : 'gray'}
+                color={focused ? '#5eead4' : 'gray'}
               ></FontAwesome5>
               </View>
             </TouchableOpacity>
@@ -147,7 +151,7 @@ export default function Tabe({focused, icon}) {
               <AntDesign
                 name="pluscircle"
                 size={25}
-                color={focused ? 'turquoise' : 'gray'}
+                color={focused ? '#5eead4' : 'gray'}
               ></AntDesign>
             </View>
           )
@@ -174,7 +178,7 @@ export default function Tabe({focused, icon}) {
               <FontAwesome
                 name="user"
                 size={25}
-                color={focused ? 'turquoise' : 'gray'}
+                color={focused ? '#5eead4' : 'gray'}
               ></FontAwesome>
             </View>
           )
@@ -195,7 +199,7 @@ export default function Tabe({focused, icon}) {
       <Animated.View style={{
         width: getWidth() - 25,
         height: 2,
-        backgroundColor: 'turquoise',
+        backgroundColor: '#5eead4',
         position: 'absolute',
         bottom: 48,
         // Horizontal Padding = 20...

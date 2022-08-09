@@ -27,7 +27,7 @@ import { color } from "react-native-reanimated";
 
     },
     button:{
-        backgroundColor:'#1ED760',
+        backgroundColor:'#06b6d4',
         padding:15,
         width:"40%",
         padding:15,
@@ -66,7 +66,7 @@ camerabutton:{
     width:50,
     height:50,
     textAlign:"center",
-    backgroundColor:"#1de9b6",
+    backgroundColor:"#06b6d4",
     flex:1,
     borderTopStartRadius:3,
 },
@@ -78,7 +78,7 @@ pdfbut:{
     width:50,
     height:50,
     textAlign:"center",
-    backgroundColor:"#1de9b6",
+    backgroundColor:"#06b6d4",
     flex:1,
     borderTopEndRadius:3,
     
@@ -93,7 +93,7 @@ localisation:{
     height:50,
     
     textAlign:"center",
-    backgroundColor:"#1de9b6",
+    backgroundColor:"#06b6d4",
     flex:1,
     marginLeft:10,
     margin:10,
