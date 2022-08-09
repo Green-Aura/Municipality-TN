@@ -4,10 +4,11 @@ import {firebase} from '../../../firebase/config'
 import auth from "@react-native-firebase/auth"
 import { AuthContext } from '../../../firebase/Authprovider'
 import styles from './styles'
-import { FontAwesome } from '@expo/vector-icons';
-import * as ImagePicker from "expo-image-picker"; 
+import { FontAwesome,AntDesign } from '@expo/vector-icons';
+import * as PhotoPicker from "expo-image-picker"; 
 import {EvilIcons} from "react-native-vector-icons"
 import LoginScreen from '../LoginScreen/LoginScreen'
+import ImagePicker from "react-native-image-picker"
 export default Profile = ({navigation}) => {
   const {user,logout}=createContext(AuthContext)
   const [showpopup,setshowpopup]=useState(false)
@@ -43,8 +44,8 @@ var days=Math.floor((seconds%604800)/86400)
         setpopupinput("") }).catch(e=>console.log(e))
       }
     const chooseImg = async () => {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
+      let result = await PhotoPicker.launchImageLibraryAsync({
+        mediaTypes: PhotoPicker.MediaTypeOptions.All,
         aspect: [4, 3],
         quality: 1,
         allowsEditing: true, 
@@ -56,6 +57,12 @@ var days=Math.floor((seconds%604800)/86400)
         setImage(result.uri);
       }
     };
+    const takePhoto=()=>{
+      const options={}
+      ImagePicker.launchCamera(options,response=>{
+        console.log(response)
+      })
+    }
     const getComplaints= ()=>{
       return complainsref.onSnapshot(documentsnapshot=>{
         const list=[]
@@ -155,19 +162,18 @@ setname("")
    <ScrollView>
     {page==="profile"?(
       <View >
-     
       <View style={{alignContent:"center",alignItems:"center"}}>
-      <View style={styles.profilecontainer}>
-      <Image source={{uri:userData.image}} style={{width:200,height:200,   borderRadius:70,overflow:'hidden',marginLeft:150}}/>
-      <EvilIcons style={styles.icon } name="check" size={40} color="green"/>
+      <View style={styles.profilecontainer}> 
+      {userData.image?(<Image source={{uri:userData.image}} style={{width:100,height:100,borderRadius:50,overflow:'hidden',marginTop:20,marginLeft:"35%"}}/>):<Image source={{uri:userData.image}} style={{width:100,height:100,borderRadius:70,overflow:'hidden',marginLeft:150}}/>}
+      <EvilIcons style={styles.icon }  name="check" size={40} color="green"/>
       <View style={styles.infocontainer}>
-      <TouchableOpacity style={{marginTop:"-10%",marginLeft:350}} onPress={()=>setPage("updateprofile")}><FontAwesome name='pencil' size={20} /></TouchableOpacity>
-      <Text style={{fontWeight:"200",color:'#AEB5BC',fontSize:30,marginTop:20,marginLeft:100}}>your name:{userData.fullName}
+      <TouchableOpacity style={{marginTop:"-10%",marginLeft:"80%"}} onPress={()=>setPage("updateprofile")}><FontAwesome name='pencil' size={20} /></TouchableOpacity>
+      <Text style={{fontWeight:"bold",color:'black',fontSize:15,marginTop:20}}>your name:{userData.fullName}
       </Text>  
-      <Text style={{fontWeight:"200",color:'#AEB5BC',fontSize:30,marginTop:20,marginLeft:100}}>your email: {userData.email}</Text>
-      <Text style={{fontWeight:"200",color:'#AEB5BC',fontSize:30,marginTop:20,marginLeft:100}}>your phone number :{userData.phoneNumber} </Text>
+      <Text style={{fontWeight:"bold",color:'black',fontSize:15,marginTop:20}}>your email: {userData.email}</Text>
+      <Text style={{fontWeight :"bold",color:'black',fontSize:15,marginTop:20}}>your phone number :{userData.phoneNumber} </Text>
       <View style={styles.buttonscontainer}>
-      <TouchableOpacity style={styles.submitbutton}  onPress={()=>{setPage("complains")}}><Text>your complains</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.submitbutton}  onPress={()=>{setPage("complains")}}><Text style={{color:"white"}}>your complains</Text></TouchableOpacity>
       <TouchableOpacity style={styles.logoutbuton} onPress={async()=>{try {await firebase.auth().signOut() 
     
         console.log("logged out")
@@ -177,7 +183,7 @@ setname("")
         console.log(e)
       }
        }}>
-      <Text>log out</Text> 
+      <Text style={{color:"white"}}>log out</Text> 
       </TouchableOpacity>
       </View>
       </View>
@@ -187,32 +193,39 @@ setname("")
       </View>):page=="updateprofile"?(<View style={{alignContent:"center",alignItems:"center"}}>
         <View style={styles.formcontainer} >
       <TextInput style={styles.emailinput} placeholder='email ' value={email} onChangeText={(text)=>setemail(text)}/>
-      <TextInput placeholder='name ' style={styles.nameinput} value={name} onChangeText={(text)=>setname(text)}/>
-      
+      <TextInput placeholder='name' style={styles.nameinput} value={name} onChangeText={(text)=>setname(text)}/>
       {image&&<Image source={{uri:image  }} style={{width:200,height:200}}/>}
       <View style={{flexDirection:"row"}}>
+      
       <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><Text>pick an image</Text></TouchableOpacity>
       <TouchableOpacity style={styles.submitbutton} onPress={()=>handleupdate(userData.id)}><Text>submit</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text>back</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text style={{color:"white"}} >back</Text></TouchableOpacity>
       </View>
       </View>
       
-      </View>):page=="complains"?<View>
+      </View>):page=="complains"?<View> 
       <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text>back</Text></TouchableOpacity>
 <View>
-      <FlatList  data={complains.filter(item=>item.iduser==userData.id)} style={styles.container} renderItem={({item})=>(
-       <View style={styles.card}>
+      <FlatList  data={complains.filter(item=>item.iduser==userData.id)}  renderItem={({item})=>(
+       <View style={styles.container}>
        <View style={{flexDirection:"row",alignSelf:"flex-start"}}>
-       <Image  source={{uri:item.userimage}} style={{width:50,height:50,borderRadius:70}} />
-       <Text style={{fontWeight:"bold",fontSize:15,color:"#e63946",marginTop:9}}> {item.username}</Text>
+       <View style={{flexDirection:"row"}}>
+       <Image  source={{uri:item.userimage}} style={{width: 50,height: 50,borderRadius: 50/2}} />
+        <Text style={{fontWeight:"bold",fontSize:15,color:"black",marginTop:9,marginLeft:5}}>{item.username}</Text>
+        </View>
+        <View style={{marginTop:10,flexDirection:"row",alignSelf:"flex-end",marginLeft:"55%"}}>
+        <TouchableOpacity style={styles.updatebutton} onPress={()=>setshowpopup(true)}><FontAwesome name='pencil' size={20}/></TouchableOpacity>
+        <TouchableOpacity  onPress={()=>handledelete(item.id)} style={styles.deletebutton}><AntDesign name='delete' size={15}/></TouchableOpacity>
+        </View>
+       
        </View>
-       <Text style={{fontSize:16,fontWeight:"600"}}>{item.type}</Text>
-       {item.image.uri?(<Image source={{uri:item.image.uri} } style={{width:"70%",borderRadius:40,height:400}}/>):<Image source={{uri:item.image} } style={{width:"70%",borderRadius:40,height:300}}/>}
-       <Text style={{fontSize:15,marginTop:50,alignSelf:"flex-start"}}>{item.description}</Text>
-       <View style={{marginTop:30,flexDirection:"row"}}>
-       <TouchableOpacity style={styles.updatebutton} onPress={()=>setshowpopup(true)}><Text style={{color:"white"}}>update</Text></TouchableOpacity>
-       <TouchableOpacity  onPress={()=>handledelete(item.id)} style={styles.deletebutton}><Text>delete</Text></TouchableOpacity>
-       </View>
+      
+
+       {item.image.uri?(<Image source={{uri:item.image.uri} } style={{height: 300,
+        borderRadius: 10,
+        marginVertical: 10}}/>):<Image source={{uri:item.image} } style={{width:"70%",borderRadius:40,height:300}}/>}
+       <Text style={{fontSize:15,marginTop:10,alignSelf:"flex-start"}}>{item.description}</Text>
+       <Text style={{fontSize:16,fontWeight:"600",alignSelf:"flex-end"}}>{item.type}</Text>
        {showpopup==true?(<View style={{marginBottom:-30}}>
         <TouchableOpacity onPress={()=>setshowpopup(false)}><FontAwesome name='close' size={20}/></TouchableOpacity>
         <TextInput style={styles.popupinput} placeholder='enter your description here' value={popupinput} onChangeText={(text)=>setpopupinput(text)}/>
