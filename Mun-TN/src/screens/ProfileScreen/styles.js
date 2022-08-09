@@ -4,10 +4,9 @@ export default StyleSheet.create({
       
         width:"90%",
         height:"100%",
-        marginTop:100,
+        marginTop:"10%",
         alignSelf:"center",
         backgroundColor:"white",
-        borderTopLeftRadius: 60,
         shadowRadius: 10,
         elevation: 13,
         shadowOpacity: 0.5,
@@ -16,10 +15,6 @@ export default StyleSheet.create({
             height: 5,
             width: 0,
         },
-        borderRadius: 70
-
-
-    
     },
     image:{
         borderRadius:70,
@@ -148,7 +143,7 @@ export default StyleSheet.create({
     },
     buttonscontainer:{
         alignItems:"center",
-        marginTop:"75%"
+        marginTop:"20%"
     },
     updatebutton:{
         padding:5,

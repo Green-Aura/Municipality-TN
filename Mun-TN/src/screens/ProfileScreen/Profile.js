@@ -173,7 +173,6 @@ setname("")
       <Text style={{fontWeight:"bold",color:'black',fontSize:15,marginTop:20}}>your email: {userData.email}</Text>
       <Text style={{fontWeight :"bold",color:'black',fontSize:15,marginTop:20}}>your phone number :{userData.phoneNumber} </Text>
       <View style={styles.buttonscontainer}>
- 
       <TouchableOpacity style={styles.submitbutton}  onPress={()=>{setPage("complains")}}><Text style={{color:"white"}}>your complains</Text></TouchableOpacity>
       <TouchableOpacity style={styles.logoutbuton} onPress={async()=>{try {await firebase.auth().signOut() 
     
