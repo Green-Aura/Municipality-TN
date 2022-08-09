@@ -122,7 +122,7 @@ const UploadImage=async()=>{
     Alert.alert(
         'photo uploaded'
         )
-        setImage(null)
+        setImage(null) 
     }
     // No permissions request is necessary for launching the image library
     

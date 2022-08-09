@@ -1,10 +1,24 @@
 import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     profilecontainer:{
-        alignContent:"flex-start",
-        alignItems:"flex-start",
-        width:"50%",
+      
+        width:"90%",
+        height:"100%",
         marginTop:100,
+        alignSelf:"center",
+        backgroundColor:"white",
+        borderTopLeftRadius: 60,
+        shadowRadius: 10,
+        elevation: 13,
+        shadowOpacity: 0.5,
+        shadowColor: "#000",
+        shadowOffset: {
+            height: 5,
+            width: 0,
+        },
+        borderRadius: 70
+
+
     
     },
     image:{
@@ -23,9 +37,9 @@ export default StyleSheet.create({
         
     },
     logoutbuton:{
-        backgroundColor:"turquoise",
-        borderRadius:70,
-        width:"20%",
+        backgroundColor:"#14b8a6",
+        borderRadius:7,
+        width:"30%",
         textAlign:"center",
         alignItems:"center",
        marginBottom:30,
@@ -35,27 +49,29 @@ export default StyleSheet.create({
     emailinput:{
         borderRadius:20,
         backgroundColor:"grey",
-        width:"50%",
+        width:"100%",
         height:40
     },
     formcontainer:{
         alignContent:"center",
         alignItems:'center',
         width:"50%",
+        marginTop:"50%",
+        
         
 
     },
     nameinput:{
         borderRadius:20,
         backgroundColor:"grey",
-        width:"50%",
+        width:"100%",
         marginTop:20,
         height:40
     },
     imageinput:{
-        backgroundColor:"turquoise",
-        borderRadius:40,
-        width:"20%",
+        backgroundColor:"#14b8a6",
+        width:"50%",
+        marginRight:5,
         marginTop:20,
         height:30,
         textAlign:"center",
@@ -65,26 +81,27 @@ export default StyleSheet.create({
     
     },
     icon:{
-        marginLeft:280,
-        marginTop:-30
+        marginLeft:200,
+        marginTop:-15
     },
     submitbutton:{
-        backgroundColor:"turquoise",
-        width:"20%",
+        backgroundColor:"#14b8a6",
+        width:"40%",
         alignItems:"center",
         textAlign:"center",
-        borderRadius:50,
+        borderRadius:7,
         marginTop:20,
-        height:30,marginLeft:10
+        height:30
         
     },
     backbutton:{
-        backgroundColor:"turquoise",
-        width:"20%",
+        backgroundColor:"#14b8a6",
+        width:"30%",
         marginTop:20,
-        borderRadius:50,
+        borderRadius:5,
         alignItems:"center",
-        height:30,marginLeft:10
+        height:30,
+        marginLeft:10
         
 
         
@@ -103,34 +120,50 @@ export default StyleSheet.create({
         shadowColor:"black",
         shadowOpacity:0.5,
         borderRadius:40,
-        padding:20
+        padding:20,
+        backgroundColor: "#fff",
+        padding: 10,
+        margin: 10,
+        
     },
     complainsbut:{
-        backgroundColor:"turquoise",
+        backgroundColor:"green",
         width:'20%',
         height:"30",
         borderRadius:70,
         
     },
+    complaincard:{
+        backgroundColor: "#fff",
+        padding: 10,
+        margin: 10,
+        borderRadius: 10
+    }
+    ,
     cards:{
-        alignContent:"center",
-        alignItems:"center"
+        backgroundColor: "#fff",
+        padding: 10,
+        margin: 10,
+        borderRadius: 10
     },
     buttonscontainer:{
-        alignItems:"center"
+        alignItems:"center",
+        marginTop:"75%"
     },
     updatebutton:{
         padding:5,
         lineHeight:20,
         borderRadius:6,
         backgroundColor:"#2ea44f",
-        
+        alignSelf:"flex-start"
     },
     deletebutton:{
         borderRadius:6,
         backgroundColor:"#ff4742",
         padding:8,
-        marginLeft:10
+        marginLeft:10,
+        alignSelf:"flex-start"
+
     },
     popupinput:{
         backgroundColor:"#dee1e2",
@@ -147,5 +180,63 @@ export default StyleSheet.create({
         backgroundColor:"#008060",
         padding:8,
         marginLeft:10
+    },
+    container:{
+        
+        width: "90%",
+        alignSelf: "center",
+        shadowRadius: 10,
+        elevation: 13,
+        shadowOpacity: 0.5,
+        shadowColor: "#000",
+        shadowOffset: {
+            height: 5,
+            width: 0,
+        },
+        backgroundColor: "#fff",
+        marginTop: 20,
+        borderRadius:7
+    },
+        card: {
+       backgroundColor: "#fff",
+       padding: 10,
+       margin: 10,
+       borderRadius: 70
+    },
+    image:{
+        height: 200,
+        width: "100%",
+    },
+    title:{
+        fontSize: 18,
+        fontWeight: "600",
+        marginTop: 10
+    },
+    description:{
+        fontSize: 16,
+        fontWeight: "400",
+        marginTop: 10
+    },
+    data:{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 10
+    },
+    heading:{
+
+    },
+    author:{
+        fontWeight: "bold",
+        fontSize: 15
+    },
+    date:{
+        fontWeight: "bold",
+        color: "#e63946",
+        fontSize: 15
+    },
+    source:{
+        color: "#e63946",
+        fontWeight: "bold",
+        fontSize: 18
     }
 })

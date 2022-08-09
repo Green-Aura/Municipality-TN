@@ -10,7 +10,7 @@ import RegistrationScreen from './src/screens/RegistrationScreen/RegistrationScr
 import SuggesstionScreen from './src/screens/SuggestionScreen/Suggestion';
 import SuggestionList from './src/screens/SuggestionList/SuggestionList';
 import Tabe from './src/screens/Tabe/Tabe';
-import OnboardingScreen from './src/screens/OnboardingScreen/OnboardingScreen';
+import OnboardingScreen from "./src/screens/OnboardingScreen/OnboardingScreen"
 import OptionScreen from './src/screens/OptionScreen/OptionScreen';
 
 
