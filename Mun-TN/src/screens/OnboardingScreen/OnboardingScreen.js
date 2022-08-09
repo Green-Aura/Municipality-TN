@@ -19,7 +19,7 @@ const slides = [
   {
     id: '1',
     image: require('../OnboardingScreen/image.jpg'),
-    title: 'Best Digital Solution',
+    title: 'النظافة مسؤولية الجميع',
     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
@@ -31,7 +31,7 @@ const slides = [
   {
     id: '3',
     image: require('../OnboardingScreen/image2.jpg'),
-    title: 'Increase Your Value',
+    title: 'مستقبل أولادنا في نظافة بلادنا ',
     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
 ];

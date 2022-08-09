@@ -51,7 +51,7 @@ export default StyleSheet.create({
         color: '#2e2e2d'
     },
     footerLink: {
-        color: "#788eec",
+        color: "#14b8a6",
         fontWeight: "bold",
         fontSize: 16
     },
