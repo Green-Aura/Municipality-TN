@@ -16,7 +16,7 @@ import PhoneInput from "react-native-phone-number-input";
 
 //Icons:
 
-import { Ionicons, Octicons, AntDesign } from "@expo/vector-icons";
+import { Ionicons, Octicons, AntDesign, Feather } from "@expo/vector-icons";
 
 import {
   StyledContainer,
@@ -125,7 +125,7 @@ export default function RegistrationScreen({ navigation }) {
          
         </InnerContainer>
         <MyTextInput
-          icon="person"
+          icon="user"
           placeholder="Full Name"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setFullName(text)}
@@ -143,8 +143,8 @@ export default function RegistrationScreen({ navigation }) {
       />  */}
        
       <MyTextInput
-      icon="Phone"
-      // <AntDesign name="phone" size={24} color="black"/>
+      icon="phone"
+   
           placeholder="+216 xx xxx xxx"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setEmail(text)}
@@ -198,9 +198,12 @@ export default function RegistrationScreen({ navigation }) {
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
         />
-         <TouchableOpacity onPress={chooseImg}><Text>Choose image from camera roll</Text></TouchableOpacity>
+         <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
         {image && (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }}>
+             
+          </Image> 
+          
         )} 
         <StyledButton onPress={() => onRegisterPress()}>
           <Buttontext>Create account</Buttontext>
@@ -230,8 +233,11 @@ const MyTextInput = ({
   return (
     <View>
       <LeftIcon>
-        <Octicons name={icon} size={30} color={brand} />
+        {/* <Octicons name={icon} size={30} color={brand} /> */}
+        <AntDesign name={icon}size={30} color={brand}/>
+       
       </LeftIcon>
+      
       <StyledInputLablel>{label}</StyledInputLablel>
       <StyledTextInput {...props} />
       {isPassword && (
@@ -241,8 +247,11 @@ const MyTextInput = ({
             size={30}
             color={darkLight}
           />
+       
+          
         </RightIcon>
       )}
+       {/* <Feather name="camera" size={24} color="black" /> */}
     </View>
   );
 };
