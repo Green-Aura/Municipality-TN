@@ -16,7 +16,7 @@ import PhoneInput from "react-native-phone-number-input";
 
 //Icons:
 
-import { Ionicons, Octicons } from "@expo/vector-icons";
+import { Ionicons, Octicons, AntDesign } from "@expo/vector-icons";
 
 import {
   StyledContainer,
@@ -122,7 +122,7 @@ export default function RegistrationScreen({ navigation }) {
         <InnerContainer>
           <PageLogo source={require("../../../assets/baladia.png")} />
           <PageTitle>Municipality</PageTitle>
-          <SubTitle>Account Signup</SubTitle>
+         
         </InnerContainer>
         <MyTextInput
           icon="person"
@@ -133,13 +133,35 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
-        <PhoneInput
+        {/* <PhoneInput 
+        
         placeholder="Enter phone number"
         value={phoneNumber}
         defaultValue={216}
         onChangeText={(text)=>{setPhoneNumber(text)
         console.log(text)}}
-      /> 
+      />  */}
+       
+      <MyTextInput
+      icon="Phone"
+      // <AntDesign name="phone" size={24} color="black"/>
+          placeholder="+216 xx xxx xxx"
+          placeholderTextColor={darkLight}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          underlineColorAndroid="transparent"
+          autoCapitalize="none"
+          
+        />
+         <MyTextInput
+          icon="home"
+          placeholder="adress"
+          placeholderTextColor={darkLight}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          underlineColorAndroid="transparent"
+          autoCapitalize="none"
+        />
         <MyTextInput
           icon="mail"
           placeholder="E-mail"
@@ -149,8 +171,9 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+       
 <MyTextInput
-          icon=" */lock"
+          icon="lock"
           placeholderTextColor={darkLight}
           placeholder="Password"
           onChangeText={(text) => setPassword(text)}
@@ -201,6 +224,7 @@ const MyTextInput = ({
   isPassword,
   hidePassword,
   setHidePassword,
+
   ...props
 }) => {
   return (
