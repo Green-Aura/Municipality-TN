@@ -142,7 +142,7 @@ export default function RegistrationScreen({ navigation }) {
         console.log(text)}}
       />  */}
        
-      <MyTextInput
+      {/* <MyTextInput
       icon="phone"
    
           placeholder="+216 xx xxx xxx"
@@ -152,7 +152,7 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           
-        />
+        /> */}
          <MyTextInput
           icon="home"
           placeholder="adress"
@@ -185,7 +185,7 @@ export default function RegistrationScreen({ navigation }) {
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
         />
-        <MyTextInput
+        {/* <MyTextInput
           icon="lock"
           placeholderTextColor={darkLight}
           placeholder="Confirm Password"
@@ -197,7 +197,7 @@ export default function RegistrationScreen({ navigation }) {
           isPassword={true}
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
-        />
+        /> */}
          <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }}>
