@@ -37,7 +37,7 @@ const MyTheme = {
   colors:{
     ... DefaultTheme.colors,
     primary:'dodgerblue',
-    background:'lightblue',
+    background:'#ecfeff',
     text:'green',
   },
 }
