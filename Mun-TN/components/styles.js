@@ -9,7 +9,7 @@ export const Colors = {
     secondary: "#ESE7EB",
     tertiary: "#1F2937",
     darkLight: "#9CA3AF",
-    brand :"#0891b2",
+    brand :"#14b8a6",
     green: "#10B981",
     red: "#EF4444",
 }
@@ -92,11 +92,11 @@ export const StyledTextInput = styled.TextInput`
    padding: 15px;
    padding-left: 55px;
    padding-right: 55px;
-   border-radius: 100px;
+   border-radius: 10px;
    font-size: 16px;
    height: 60px;
    margin-vertical: 3px;
-   margin-bottom: 10px;
+   margin-bottom: 7px;
    color: ${tertiary};
 `;
 
@@ -121,16 +121,27 @@ export const RightIcon = styled.TouchableOpacity`
 `;
 
 export const StyledButton = styled.TouchableOpacity`
-   padding: 15px;
+   // padding: 15px;
    align-items: center;
    background-color: ${brand};
    justify-content: center;
-   border-radius: 60px;
-   margin-vertical: 5px;
-   height: 50px;
-   margin-right: 30;
-   margin-left: 30
-`;
+   
+   // margin-vertical: 5px;
+   // height: 50px;
+   // margin-right: 30;
+   // margin-left: 30;
+   padding: 15px;
+   padding-left: 55px;
+   padding-right: 55px;
+   border-radius: 10px;
+   font-size: 16px;
+   height: 60px;
+   margin-vertical: 3px;
+   margin-bottom: 10px;
+   margin-top: 15px;
+`
+
+
 
 export const Buttontext = styled.Text`
    color: ${primary};
