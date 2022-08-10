@@ -21,7 +21,7 @@ import MapViewComponent from '../MapBoxScreen/MapView'
 import { FontAwesome5, AntDesign, FontAwesome } from '@expo/vector-icons'
 import { useRef } from 'react';
 import Profile from '../ProfileScreen/Profile';
-import Articles from '../ArticleScreen/ArticleScreen';
+
 const Tab = createBottomTabNavigator();
 
 // Hiding Tab Names...
@@ -118,7 +118,7 @@ export default function Tabe({focused, icon}) {
 
         
 
-        <Tab.Screen name={"Articles"} component={Articles} options={{
+        <Tab.Screen name={"Complain"} component={Complain} options={{
 
           tabBarIcon: ({ focused }) => (
 
