@@ -13,6 +13,7 @@ import styles from "./styles";
 import { firebase } from "../../../firebase/config";
 import * as ImagePicker from "expo-image-picker";
 import PhoneInput from "react-native-phone-number-input";
+import {FontAwesome} from "@expo/vector-icons"
 
 //Icons:
 
@@ -120,8 +121,8 @@ export default function RegistrationScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          <PageLogo source={require("../../../assets/baladia.png")} />
-          <PageTitle>Municipality</PageTitle>
+          <PageLogo source={require("../../../assets/MUN.jpg")} />
+          {/* <PageTitle>Municipality</PageTitle> */}
          
         </InnerContainer>
         <MyTextInput
@@ -142,7 +143,7 @@ export default function RegistrationScreen({ navigation }) {
         console.log(text)}}
       />  */}
        
-      {/* <MyTextInput
+      <MyTextInput
       icon="phone"
    
           placeholder="+216 xx xxx xxx"
@@ -152,7 +153,7 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           
-        /> */}
+        />
          <MyTextInput
           icon="home"
           placeholder="adress"
@@ -197,8 +198,13 @@ export default function RegistrationScreen({ navigation }) {
           isPassword={true}
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
+
+        />
+         <TouchableOpacity onPress={chooseImg}><FontAwesome name="camera"/></TouchableOpacity>
+
         /> */}
          <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
+
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }}>
              

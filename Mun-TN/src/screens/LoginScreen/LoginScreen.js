@@ -82,8 +82,8 @@ export default function LoginScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          <PageLogo source={require("../../../assets/baladia.png")} />
-          <PageTitle>Municipality</PageTitle>
+          <PageLogo source={require("../../../assets/MUN.jpg")} />
+          {/* <PageTitle>بلديتي</PageTitle> */}
           <SubTitle></SubTitle>
         </InnerContainer>
         <StyledFormArea>

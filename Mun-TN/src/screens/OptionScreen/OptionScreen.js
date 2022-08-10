@@ -56,13 +56,11 @@ const [Page,SetPage] = useState('Option');
              
                    }}>
                        
-                       <Text style={{fontsize:41,color:'#FFF',fontWeight:'bold'}}>Choississez une option </Text>
                    </View>
                </View>
 
                <View style={{padding:20}}>
 
-                   <Text>Les Choix</Text>
                    <ScrollView horizontal={true} style={{marginTop:10}}>
                    <TouchableOpacity style={{marginLeft:window.height/18}} onPress={() =>{SetPage('Complain')}}>
                        <Image style={{height:100 , width:120,borderRadius:20,}}

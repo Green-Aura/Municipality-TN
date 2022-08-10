@@ -20,13 +20,6 @@ import {
 
 const DATA =[
     {
-        user_name: "ALJAZEERA",
-        user_image: "https://pbs.twimg.com/profile_images/1190503677108400128/q7i77pmz_400x400.jpg",
-        feed_image: "https://arabcenterdc.org/wp-content/uploads/2020/09/Kais-Saied-Supreme-Court-768x384.jpg",
-        description: "A new Tunisian constitution giving far more power to President Kais Saied passed in a referendum with a 30.5% turnout, the electoral commission said on Tuesday, tightening his grip in what critics fear is a march to a new era of autocracy.",
-        
-    },
-    {
         user_name: "France24",
         user_image: "https://upload.wikimedia.org/wikipedia/fr/thumb/2/24/Logos_FRANCE24_RVB_2013.svg/langfr-150px-Logos_FRANCE24_RVB_2013.svg.png",
         feed_image: "https://s.france24.com/media/display/a25e16f2-0d6d-11ed-8ba6-005056bf30b7/w:1280/p:1x1/2022-07-26T220049Z_1798490233_RC2XJV98L8B2_RTRMADP_3_TUNISIA-POLITICS-REFERENDUM-RESULTS-1.JPG",
@@ -77,7 +70,6 @@ function Item({ user_name, user_image, feed_image, description }) {
         <Text style={styles.userName}>{user_name}</Text>
         </View>
         <View style={styles.headerRight}>
-            <FontAwesome name="ellipsis-h" style={styles.moreIcon}/>
         </View>
     </View>
     <Image 
@@ -90,7 +82,6 @@ function Item({ user_name, user_image, feed_image, description }) {
 <View style={styles.cardFooter}>
 <View style={styles.footerLeft}> 
 </View>
-<FontAwesome name="bookmark" color="gray" size={(20)}/>
 </View>
     </View>
     )
