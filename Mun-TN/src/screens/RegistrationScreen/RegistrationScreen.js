@@ -121,8 +121,8 @@ export default function RegistrationScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          <PageLogo source={require("../../../assets/baladia.png")} />
-          <PageTitle>Municipality</PageTitle>
+          <PageLogo source={require("../../../assets/MUN.jpg")} />
+          {/* <PageTitle>Municipality</PageTitle> */}
          
         </InnerContainer>
         <MyTextInput
@@ -143,7 +143,7 @@ export default function RegistrationScreen({ navigation }) {
         console.log(text)}}
       />  */}
        
-      {/* <MyTextInput
+      <MyTextInput
       icon="phone"
    
           placeholder="+216 xx xxx xxx"
@@ -153,7 +153,7 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           
-        /> */}
+        />
          <MyTextInput
           icon="home"
           placeholder="adress"
