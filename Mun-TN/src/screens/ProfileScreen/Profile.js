@@ -4,12 +4,13 @@ import {firebase} from '../../../firebase/config'
 import auth from "@react-native-firebase/auth"
 import { AuthContext } from '../../../firebase/Authprovider'
 import styles from './styles'
-import { FontAwesome,AntDesign } from '@expo/vector-icons';
+import { FontAwesome,AntDesign,Feather,Octicons,SimpleLineIcons, Entypo} from '@expo/vector-icons';
 import * as PhotoPicker from "expo-image-picker"; 
 import {EvilIcons} from "react-native-vector-icons"
 import LoginScreen from '../LoginScreen/LoginScreen'
 import ImagePicker from "react-native-image-picker"
 export default Profile = ({navigation}) => {
+  const COLORS = {primary: '#ecfeff', cyan: '#14b8a6'};
   const {user,logout}=createContext(AuthContext)
   const [showpopup,setshowpopup]=useState(false)
     const [loading, setLoading] = useState(true)
@@ -163,18 +164,33 @@ setname("")
     {page==="profile"?(
       <View >
       <View style={{alignContent:"center",alignItems:"center"}}>
-      <View style={styles.profilecontainer}> 
-      {userData.image?(<Image source={{uri:userData.image}} style={{width:100,height:100,borderRadius:50,overflow:'hidden',marginTop:20,marginLeft:"35%"}}/>):<Image source={{uri:userData.image}} style={{width:100,height:100,borderRadius:70,overflow:'hidden',marginLeft:150}}/>}
-      <EvilIcons style={styles.icon }  name="check" size={40} color="green"/>
+      
+      <View style={styles.profilecontainer}>
+      <View style={styles.minicontainer}>
+      <View style={styles.namecontainer}>
+      <TouchableOpacity style={{marginLeft:"90%"}} onPress={()=>setPage("updateprofile")}><FontAwesome name='pencil' size={20} /></TouchableOpacity>
+      {userData.image?(<Image source={{uri:userData.image}} style={{width:100,height:100,borderRadius:50,overflow:'hidden',marginTop:20}}/>):<Image source={{uri:userData.image}} style={{width:100,height:100,borderRadius:70,overflow:'hidden',marginLeft:150}}/>}
+      <Text style={{fontWeight:"bold",color:'black',fontSize:15,marginTop:20,marginBottom:10}}>{userData.fullName}</Text>  
+      <Text style={{fontWeight:"bold",color:'grey',fontSize:15,marginBottom:10}}>{userData.email}</Text>
+      </View> 
+      </View>
       <View style={styles.infocontainer}>
-      <TouchableOpacity style={{marginTop:"-10%",marginLeft:"80%"}} onPress={()=>setPage("updateprofile")}><FontAwesome name='pencil' size={20} /></TouchableOpacity>
-      <Text style={{fontWeight:"bold",color:'black',fontSize:15,marginTop:20}}>your name:{userData.fullName}
-      </Text>  
-      <Text style={{fontWeight:"bold",color:'black',fontSize:15,marginTop:20}}>your email: {userData.email}</Text>
-      <Text style={{fontWeight :"bold",color:'black',fontSize:15,marginTop:20}}>your phone number :{userData.phoneNumber} </Text>
-      <View style={styles.buttonscontainer}>
-      <TouchableOpacity style={styles.submitbutton}  onPress={()=>{setPage("complains")}}><Text style={{color:"white"}}>your complains</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.logoutbuton} onPress={async()=>{try {await firebase.auth().signOut() 
+
+      <View style={{marginLeft:20,flexDirection:"row"}}>
+      <AntDesign name='phone' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Phone number {userData.phoneNumber}</Text>
+      </View>
+      <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
+    <FontAwesome name='home' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Address {userData.adress}</Text>
+      </View>
+      <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
+      <FontAwesome name='commenting-o' size={30} color={"turquoise"} onPress={()=>{setPage("complains")}}/><Text style={{fontWeight :"bold",color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Complaints</Text>
+      </View>
+      <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
+      <AntDesign name='logout' size={30} color={"turquoise"} onPress={async()=>{
+        try 
+        {
+        
+        await firebase.auth().signOut() 
     
         console.log("logged out")
       setPage("Login")
@@ -182,12 +198,12 @@ setname("")
       catch(e){
         console.log(e)
       }
-       }}>
-      <Text style={{color:"white"}}>log out</Text> 
-      </TouchableOpacity>
+       }}/><Text style={{fontWeight :"bold",color:'grey',fontSize:15,marginLeft:20,marginTop:10}} >logout</Text>
+     
       </View>
+      
       </View>
-      </View>
+      </View> 
       </View>
       
       </View>):page=="updateprofile"?(<View style={{alignContent:"center",alignItems:"center"}}>
@@ -196,10 +212,9 @@ setname("")
       <TextInput placeholder='name' style={styles.nameinput} value={name} onChangeText={(text)=>setname(text)}/>
       {image&&<Image source={{uri:image  }} style={{width:200,height:200}}/>}
       <View style={{flexDirection:"row"}}>
-      
-      <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><Text>pick an image</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><AntDesign name='camera' size={25} /></TouchableOpacity>
       <TouchableOpacity style={styles.submitbutton} onPress={()=>handleupdate(userData.id)}><Text>submit</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text style={{color:"white"}} >back</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text >back</Text></TouchableOpacity>
       </View>
       </View>
       
@@ -213,46 +228,28 @@ setname("")
        <Image  source={{uri:item.userimage}} style={{width: 50,height: 50,borderRadius: 50/2}} />
         <Text style={{fontWeight:"bold",fontSize:15,color:"black",marginTop:9,marginLeft:5}}>{item.username}</Text>
         </View>
-        <View style={{marginTop:10,flexDirection:"row",alignSelf:"flex-end",marginLeft:"55%"}}>
+        <View style={{marginBottom:20,flexDirection:"row",alignSelf:"flex-end",marginLeft:"52%"}}>
         <TouchableOpacity style={styles.updatebutton} onPress={()=>setshowpopup(true)}><FontAwesome name='pencil' size={20}/></TouchableOpacity>
         <TouchableOpacity  onPress={()=>handledelete(item.id)} style={styles.deletebutton}><AntDesign name='delete' size={15}/></TouchableOpacity>
         </View>
        
        </View>
       
-
-       {item.image.uri?(<Image source={{uri:item.image.uri} } style={{height: 300,
-        borderRadius: 10,
-        marginVertical: 10}}/>):<Image source={{uri:item.image} } style={{width:"70%",borderRadius:40,height:300}}/>}
+ 
+       {item.image.uri?(<Image source={{uri:item.image.uri} } style={{height: 300,borderRadius: 10, marginVertical: 10}}/>):<Image source={{uri:item.image} } style={{width:"70%",borderRadius:40,height:300}}/>}
        <Text style={{fontSize:15,marginTop:10,alignSelf:"flex-start"}}>{item.description}</Text>
        <Text style={{fontSize:16,fontWeight:"600",alignSelf:"flex-end"}}>{item.type}</Text>
        {showpopup==true?(<View style={{marginBottom:-30}}>
         <TouchableOpacity onPress={()=>setshowpopup(false)}><FontAwesome name='close' size={20}/></TouchableOpacity>
-        <TextInput style={styles.popupinput} placeholder='enter your description here' value={popupinput} onChangeText={(text)=>setpopupinput(text)}/>
-        <TouchableOpacity onPress={chooseImg}><Text>change picture</Text></TouchableOpacity>
-       <TouchableOpacity style={styles.submitpopup} onPress={()=>handlecomplaintupdate(item.id)}><Text>submit</Text></TouchableOpacity>
-       
+        <TextInput style={styles.popupinput} numberOfLines={4} multiline={true} placeholder='enter your description here' value={popupinput} onChangeText={(text)=>setpopupinput(text)}/>
+        <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><AntDesign name='camera' size={25} /></TouchableOpacity>
+        <TouchableOpacity style={styles.submitpopup} onPress={()=>handlecomplaintupdate(item.id)}><Text>submit</Text></TouchableOpacity>
        </View>):null}
        </View>
-       
-       
-      
-        
-       
-        
-        
-      
-        
-    )} /> 
+       )} /> 
     </View>
-      
-      </View>:null}
-
-  
-   
-   
-   
-    </ScrollView>
+  </View>:page=="Login"?<LoginScreen/>:null}
+  </ScrollView>
   )
 }
 

@@ -1,61 +1,66 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from 'react-native';
 import {colors} from './colorsConfig';
 
 
 
 const meditateTypes = [
   {
-    title: 'All',
-    isActive: true,
+    title: 'News',
+    isActive: false,
     imageUrl: require('../../../assets/images/medicationTypes/all.png'),
   },
   {
-    title: 'My',
+    title: 'Events',
     isActive: false,
     imageUrl: require('../../../assets/images/medicationTypes/my.png'),
   },
   {
-    title: 'Anxious',
+    title: 'Complain',
     isActive: false,
     imageUrl: require('../../../assets/images/medicationTypes/anxious.png'),
   },
   {
-    title: 'Sleep',
+    title: 'Suggestion',
     isActive: false,
     imageUrl: require('../../../assets/images/medicationTypes/sleep.png'),
   },
+];
+
+const Categories = [
   {
-    title: 'Kids',
-    isActive: false,
-    imageUrl: require('../../../assets/images/medicationTypes/kids.png'),
+    imageUrl: require('../../../assets/images/medicationTypes/bg2.png'),
+  },
+  {
+    imageUrl: require('../../../assets/images/medicationTypes/bg2.png'),
+  },
+  {
+    imageUrl: require('../../../assets/images/medicationTypes/bg2.png'),
   },
 ];
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Meditate</Text>
-
       <View>
         <ScrollView
           style={styles.meditateItemWrapperContainer}
-          showsHorizontalScrollIndicator={false}
+          showsHorizontalScrollIndicator={true}
           horizontal={true}>
           {meditateTypes.map((item) => {
             return (
               <View style={styles.meditateItemWrapper}>
-                <View
+                <TouchableOpacity
                   style={[
                     styles.meditateItem,
                     {
                       backgroundColor: item.isActive
                         ? colors.primary
-                        : colors.gray,
+                        : colors.green,
                     },
                   ]}>
                   <Image source={item.imageUrl} />
-                </View>
+                </TouchableOpacity>
                 <Text
                   style={[
                     styles.itemTitle,
@@ -69,56 +74,22 @@ const HomeScreen = () => {
         </ScrollView>
       </View>
       <View style={styles.dailyThoughtsWrapper}>
-        <Image
-          style={styles.bgShape1}
-          source={require('../../../assets/images/bgShape4.png')}
-        />
-        <Image
-          style={styles.bgShape2}
-          source={require('../../../assets/images/bgShape5.png')}
-        />
-        <Image
-          style={styles.bgShape3}
-          source={require('../../../assets/images/bgShape6.png')}
-        />
-        <View>
-          <Text style={styles.dailyTitle}>Daily Thought</Text>
-          <Text style={styles.dailySubTitle}>MEDITATION - 3-10 MIN</Text>
-        </View>
-        <View>
+      <TouchableOpacity>
           <Image source={require('../../../assets/images/player.png')} />
-        </View>
+        </TouchableOpacity>
       </View>
-      <View style={styles.medicationTypeCards}>
-        <View>
-          <View style={styles.card}>
-            <Image
-              source={require('../../../assets/images/medicationTypes/bg1.png')}
-            />
-            <Text style={styles.card1Txt}>7 Days of calm</Text>
-          </View>
-          <View style={styles.card}>
-            <Image
-              source={require('../../../assets/images/medicationTypes/bg2.png')}
-            />
-            <Text style={styles.card1Txt}>Anxiet Release</Text>
-          </View>
-        </View>
-        <View>
-          <View style={styles.card}>
-            <Image
+        <ScrollView horizontal={true}>
+          {
+            Categories.map((category, index) => (
+              <View key={index}>
+                <Image
               source={require('../../../assets/images/medicationTypes/bg2.png')}
             />
             <Text style={styles.card1Txt}>Stress Removal</Text>
-          </View>
-          <View style={styles.card}>
-            <Image
-              source={require('../../../assets/images/medicationTypes/bg1.png')}
-            />
-            <Text style={styles.card1Txt}>Morning Meditate</Text>
-          </View>
-        </View>
-      </View>
+              </View>
+            ))
+          }
+        </ScrollView>
     </View>
   );
 };
@@ -130,8 +101,8 @@ export const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flex: 1,
-    padding: 20,
-    marginTop: 5,
+    padding: 10,
+    marginTop: 5
   },
   heading: {
     textAlign: 'center',
@@ -150,31 +121,33 @@ export const styles = StyleSheet.create({
   },
   meditateItem: {
     backgroundColor: colors.primary,
-    padding: 20,
-    borderRadius: 25,
+    padding:15,
+    borderRadius:5,
+    width: "100%"
   },
   meditateItemWrapper: {
-    margin: 10,
+    margin: 8,
+    width: "20%",
+    paddingLeft: "2%"
   },
   itemTitle: {
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 8,
     fontSize: 16,
     fontFamily: 'HelveticaNeue',
-    fontWeight: '400',
   },
   meditateItemWrapperContainer: {
-    marginTop: 30,
+    marginTop: 1,
   },
   dailyThoughtsWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: colors.lightBg,
     alignItems: 'center',
-    height: 95,
+    height: 90,
     marginTop: 10,
     borderRadius: 10,
-    marginBottom: 15,
+    marginBottom: 20,
   },
   bgShape1: {
     position: 'absolute',
@@ -190,8 +163,9 @@ export const styles = StyleSheet.create({
   },
   bgShape3: {
     position: 'absolute',
-    right: '40%',
-    bottom: 0,
+    right: 0,
+    top: 0,
+    borderRadius: 10,
   },
   dailyTitle: {
     fontSize: 18,
@@ -208,17 +182,21 @@ export const styles = StyleSheet.create({
   medicationTypeCards: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    padding: 10,
+    borderColor: 'black',
+    fonstSize: 19,
+    margin: 10,
   },
   card: {
-    marginBottom: 0,
+    marginBottom:1,
   },
   card1Txt: {
     fontFamily: 'HelveticaNeue',
     fontSize: 18,
     color: colors.white,
     position: 'relative',
-    bottom: 35,
-    left: 15,
+    bottom: 30,
+    left: 12,
     fontWeight: 'bold',
   },
 });

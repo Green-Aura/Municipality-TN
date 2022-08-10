@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     profilecontainer:{
       
-        width:"90%",
-        height:"100%",
-        marginTop:"10%",
+        width:"100%",
+        height:800,
+        
         alignSelf:"center",
-        backgroundColor:"white",
+        backgroundColor:"#ecfeff",
         shadowRadius: 10,
         elevation: 13,
         shadowOpacity: 0.5,
@@ -21,14 +21,13 @@ export default StyleSheet.create({
         width:"30%",
         overflow:'hidden',
         marginLeft:150,
-     
-        
     },
     infocontainer:{
-        marginTop:50,
+        marginTop:150,
         borderRadius:20,
         borderColor:"black",
-        borderWidth:0
+        borderWidth:0,
+        
         
     },
     logoutbuton:{
@@ -43,7 +42,7 @@ export default StyleSheet.create({
     },
     emailinput:{
         borderRadius:20,
-        backgroundColor:"grey",
+        backgroundColor:"white",
         width:"100%",
         height:40
     },
@@ -58,21 +57,22 @@ export default StyleSheet.create({
     },
     nameinput:{
         borderRadius:20,
-        backgroundColor:"grey",
+        backgroundColor:"white",
         width:"100%",
         marginTop:20,
         height:40
     },
     imageinput:{
         backgroundColor:"#14b8a6",
-        width:"50%",
+        width:"17%",
         marginRight:5,
         marginTop:20,
         height:30,
         textAlign:"center",
         alignItems:"center",
         alignContent:"center",
-        marginLeft:10
+        marginLeft:10,
+        borderRadius:60
     
     },
     icon:{
@@ -143,18 +143,20 @@ export default StyleSheet.create({
     },
     buttonscontainer:{
         alignItems:"center",
-        marginTop:"20%"
+        marginTop:"50%"
     },
     updatebutton:{
         padding:5,
         lineHeight:20,
         borderRadius:6,
-        backgroundColor:"#2ea44f",
+        borderColor:"black",
+        borderWidth:2,
         alignSelf:"flex-start"
     },
     deletebutton:{
         borderRadius:6,
-        backgroundColor:"#ff4742",
+        borderColor:"black",
+        borderWidth:2,
         padding:8,
         marginLeft:10,
         alignSelf:"flex-start"
@@ -164,8 +166,9 @@ export default StyleSheet.create({
         backgroundColor:"#dee1e2",
         borderColor:"#dee1e2",
         borderRadius:2,
-        height:36,
+        height:50,
         padding:5
+      
 
         
 
@@ -174,10 +177,10 @@ export default StyleSheet.create({
         borderRadius:6,
         backgroundColor:"#008060",
         padding:8,
-        marginLeft:10
+        marginLeft:10,
+        height:70
     },
-    container:{
-        
+    container:{ 
         width: "90%",
         alignSelf: "center",
         shadowRadius: 10,
@@ -233,5 +236,44 @@ export default StyleSheet.create({
         color: "#e63946",
         fontWeight: "bold",
         fontSize: 18
+    },
+    minicontainer:{
+        backgroundColor:"turquoise",
+        width:"100%",
+        height:"28%",
+      alignContent:"center",
+        
+    },
+    namecontainer:{
+        backgroundColor:"white",
+       
+       position:"absolute",
+       width:"90%",
+       alignSelf:"center",
+       alignItems:"center",
+       borderRadius:7,
+       marginTop:70,
+       elevation: 13,
+       shadowOpacity: 0.5,
+       shadowColor: "#000",
+       shadowOffset: {
+           height: 5,
+           width: 0,
+       },
+       shadowRadius:5
+    },
+    yourcomplainsbutton:{
+       alignItems:"center",
+       justifyContent:"center",
+       padding:15,
+       paddingLeft:55,
+       paddingRight:55,
+       borderRadius:10,
+       fontSize:16,
+       height:60,
+       marginVertical:3,
+       marginBottom:10,
+       marginTop:-130,
+       backgroundColor:"#14b8a6"
     }
 })
