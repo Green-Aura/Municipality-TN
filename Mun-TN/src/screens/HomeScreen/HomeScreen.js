@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from 'react
 import {colors} from './colorsConfig';
 
 
-
+ //Dummy data
 const meditateTypes = [
   {
     title: 'News',
