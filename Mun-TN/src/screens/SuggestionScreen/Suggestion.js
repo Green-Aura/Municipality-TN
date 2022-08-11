@@ -8,6 +8,7 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
+import {Feather} from "@expo/vector-icons"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
     const options = ["general", "electicity", "garbage"]
@@ -105,8 +106,9 @@ const UploadImage=async()=>{
     <TextInput style={styles.input} numberOfLines={10}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
    <View>
-   <TouchableOpacity style={styles.camerabutton} onPress={PickImage}><Text>pick an Image </Text></TouchableOpacity>
-   <TouchableOpacity style={styles.pdfbut} onPress={openDocument}><Text>pick a pdf file </Text></TouchableOpacity>
+   <TouchableOpacity onPress={PickImage}><Text><Feather name="camera" size={30} color="#14b8a6" /> pick an Image </Text></TouchableOpacity>
+   {/* <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity> */}
+   <TouchableOpacity onPress={openDocument}><Text><Feather name="file-plus" size={30} color="#14b8a6" />pick a pdf file </Text></TouchableOpacity>
    </View>
    {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:300}}/></View>)}
 
