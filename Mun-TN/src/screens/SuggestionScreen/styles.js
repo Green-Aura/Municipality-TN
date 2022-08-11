@@ -4,11 +4,15 @@ import { color } from "react-native-reanimated";
     container:{
         flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        marginTop:'50%',
+        alignSelf:"center"
     },
     inputcontainer:{
-        width:"80%",
-        marginBottom:40
+        width:370,
+        marginBottom:40,
+        backgroundColor:"white",
+        height:500
         
 
     },
@@ -16,10 +20,25 @@ import { color } from "react-native-reanimated";
         backgroundColor:"white",
         justifyContent: 'center',
         alignItems:'center',
-        marginTop:40,
-        borderBottomColor:"black",
-        borderWidth:2,
+        marginTop:80,
+        borderBottomColor:"rgba(0,0,0,.42)",
+        borderBottomWidth:2,
         textAlignVertical:"top",
+
+        width:300,
+        color:"rgba(0,0,0,.87)",
+    },
+    button:{
+        flexDirection:"row",
+        flex: 1,
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: '#14b8a6',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width:"5%",
+        marginLeft:10,
+        
         width:"100%",
         borderRadius:7
     },
@@ -56,6 +75,30 @@ buttoncontainer:{
     
 },
 camerabutton:{
+    flexDirection:"row",
+    flex: 1,
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: '#14b8a6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:"20%",
+
+    
+    
+    
+},
+pdfbut:{
+    flexDirection:"row",
+    flex: 1,
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: '#14b8a6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:"5%",
+    marginLeft:10,
+   
     
     elevation: 8,
     backgroundColor: "#009688",
@@ -81,6 +124,12 @@ pdfbut:{
     fontWeight: "bold",
     alignSelf: "center",
 
+    
+
+},
+suggestions:{
+    backgroundColor:"#ecfeff",
+    height:800
 }
        
 })
