@@ -110,7 +110,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-                  News
+                  Suggestion
                 </Text>
               </View>
         </ScrollView>
@@ -132,7 +132,7 @@ const HomeScreen = (props) => {
             ))
           }
         </ScrollView>
-        </View>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><SuggesstionScreen /><TouchableOpacity onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity></View>): null}
+        </View>:Page === 'News' ? (<View><TouchableOpacity style={styles.backbutton} onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><SuggesstionScreen /><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity></View>): null}
     </View>
   )
 };
@@ -242,6 +242,15 @@ export const styles = StyleSheet.create({
     left: 12,
     fontWeight: 'bold',
   },
+  backbutton:{
+    backgroundColor:"#14b8a6",
+    width:"30%",
+    marginTop:20,
+    borderRadius:5,
+    alignItems:"center",
+    height:30,
+    marginLeft:10
+},
 });
 
 
