@@ -5,6 +5,7 @@ import styles from './styles'
 import { FontAwesome5,Ionicons} from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+
 import { PanGestureHandler } from 'react-native-gesture-handler';
 import  { Animated,useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 const RenderSuggessions = () => {

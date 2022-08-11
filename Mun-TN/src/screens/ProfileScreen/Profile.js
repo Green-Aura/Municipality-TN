@@ -24,6 +24,7 @@ export default Profile = ({navigation}) => {
     const [complains,setcomplains]=useState([])
     const complainsref=firebase.firestore().collection("Complains")
     const [popupinput,setpopupinput]=useState("")
+    const[hasnocontent,sethascontent]=useState(false)
 const convertDate=(seconds)=>{
  /*  var numyears = Math.floor(seconds / 31536000);
   var nummonths = Math.floor((seconds % 31536000) / 2628000);
@@ -79,14 +80,20 @@ var days=Math.floor((seconds%604800)/86400)
             username:doc.data().username,
             userimage:doc.data().userimage
           })       })
+          if(list==[]){
+            sethascontent(true)
+          }
+         
           setcomplains(list)
-          console.log(list)
+          fileredcomplaints=complains.filter(element=>element.id==userData.id)
 
       })
  
     }
     const handledelete=(id)=>{
-      complainsref.doc(id).delete().then(()=>alert("deleted successfully")).catch(e=>console.log(e))
+      complainsref.doc(id).delete().then(()=>{}).catch(e=>console.log(e))
+      fileredcomplaints=fileredcomplaints.splice(fileredcomplaints.find(element=>element.id==id))
+      console.log(fileredcomplaints)
     }
     const getUser=()=>{
       const usersRef = firebase.firestore().collection('users');
@@ -105,9 +112,10 @@ var days=Math.floor((seconds%604800)/86400)
                   fullName:document.data().fullName,
                   image:document.data().image,
                   phoneNumber:document.data().phoneNumber,
+                  adress:document.data().adress
                   
                 })
-                console.log(document.data())
+                
               })
               
               .catch((error) => {
@@ -158,13 +166,13 @@ setname("")
        getComplaints()
         
           } , []);
-
-  return (
-   <ScrollView>
+var fileredcomplaints=complains.filter((item=>item.iduser==userData.id))
+  return ( 
+    <ScrollView>
     {page==="profile"?(
       <View >
+    
       <View style={{alignContent:"center",alignItems:"center"}}>
-      
       <View style={styles.profilecontainer}>
       <View style={styles.minicontainer}>
       <View style={styles.namecontainer}>
@@ -177,17 +185,17 @@ setname("")
       <View style={styles.infocontainer}>
 
       <View style={{marginLeft:20,flexDirection:"row"}}>
-      <AntDesign name='phone' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Phone number {userData.phoneNumber}</Text>
+      <AntDesign name='phone' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Phone number: {userData.phoneNumber}</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
-    <FontAwesome name='home' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Address {userData.adress}</Text>
+    <AntDesign name='home' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Address: {userData.adress}</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
-      <FontAwesome name='commenting-o' size={30} color={"turquoise"} onPress={()=>{setPage("complains")}}/><Text style={{fontWeight :"bold",color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Complaints</Text>
+        <FontAwesome name='commenting-o' size={30} color={"turquoise"} onPress={()=>{setPage("complains")}}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} onPress={()=>{setPage("complains")}}>Complaints({fileredcomplaints.length} complaints)</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
       <AntDesign name='logout' size={30} color={"turquoise"} onPress={async()=>{
-        try 
+        try  
         {
         
         await firebase.auth().signOut() 
@@ -198,7 +206,7 @@ setname("")
       catch(e){
         console.log(e)
       }
-       }}/><Text style={{fontWeight :"bold",color:'grey',fontSize:15,marginLeft:20,marginTop:10}} >logout</Text>
+       }}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} >logout</Text>
      
       </View>
       
@@ -208,45 +216,56 @@ setname("")
       
       </View>):page=="updateprofile"?(<View style={{alignContent:"center",alignItems:"center"}}>
         <View style={styles.formcontainer} >
-      <TextInput style={styles.emailinput} placeholder='email ' value={email} onChangeText={(text)=>setemail(text)}/>
-      <TextInput placeholder='name' style={styles.nameinput} value={name} onChangeText={(text)=>setname(text)}/>
-      {image&&<Image source={{uri:image  }} style={{width:200,height:200}}/>}
-      <View style={{flexDirection:"row"}}>
-      <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><AntDesign name='camera' size={25} /></TouchableOpacity>
-      <TouchableOpacity style={styles.submitbutton} onPress={()=>handleupdate(userData.id)}><Text>submit</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text >back</Text></TouchableOpacity>
-      </View>
-      </View>
-      
-      </View>):page=="complains"?<View> 
+        <TextInput style={styles.emailinput} placeholder='email ' value={email} onChangeText={(text)=>setemail(text)}/>
+        <TextInput placeholder='name' style={styles.nameinput} value={name} onChangeText={(text)=>setname(text)}/>
+        {image&&<Image source={{uri:image  }} style={{width:200,height:200}}/>}
+        <View style={{flexDirection:"row"}}>
+        <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><AntDesign name='camera' size={25} /></TouchableOpacity>
+        <TouchableOpacity style={styles.submitbutton} onPress={()=>handleupdate(userData.id)}><Text>submit</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text >back</Text></TouchableOpacity>
+        </View>
+        </View>
+        </View>):page=="complains"?<View>  
       <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text>back</Text></TouchableOpacity>
 <View>
-      <FlatList  data={complains.filter(item=>item.iduser==userData.id)}  renderItem={({item})=>(
-       <View style={styles.container}>
-       <View style={{flexDirection:"row",alignSelf:"flex-start"}}>
-       <View style={{flexDirection:"row"}}>
-       <Image  source={{uri:item.userimage}} style={{width: 50,height: 50,borderRadius: 50/2}} />
-        <Text style={{fontWeight:"bold",fontSize:15,color:"black",marginTop:9,marginLeft:5}}>{item.username}</Text>
-        </View>
-        <View style={{marginBottom:20,flexDirection:"row",alignSelf:"flex-end",marginLeft:"52%"}}>
-        <TouchableOpacity style={styles.updatebutton} onPress={()=>setshowpopup(true)}><FontAwesome name='pencil' size={20}/></TouchableOpacity>
-        <TouchableOpacity  onPress={()=>handledelete(item.id)} style={styles.deletebutton}><AntDesign name='delete' size={15}/></TouchableOpacity>
-        </View>
-       
-       </View>
-      
+{fileredcomplaints.length==0?(<View style={{alignSelf:"center",marginTop:50,backgroundColor:"white",borderRadius:5}}>
+  <Text>Looks Like you don't have any complaints yet</Text>
+<TouchableOpacity style={styles.addcomplain} onPress={()=>navigation.navigate("Complain")}><Text>you want to add some new complaints here ?</Text></TouchableOpacity>
+<TouchableOpacity style={styles.nothanks} onPress={()=>setPage("profile")}><Text>No thanks</Text></TouchableOpacity>
+</View>):null}
+<FlatList  data={fileredcomplaints}  renderItem={({item})=>(
+  <View> 
+  
+  
+ <View style={styles.container}>
+ <View style={{flexDirection:"row",alignSelf:"flex-start"}}>
+ <View style={{flexDirection:"row"}}>
+ <Image  source={{uri:item.userimage}} style={{width:50,height: 50,borderRadius: 50/2}} />
+  <Text style={{fontWeight:"bold",fontSize:15,color:"black",marginTop:9,marginLeft:5}}>{item.username}</Text>
+  </View>
+  <View style={{marginBottom:20,flexDirection:"row",alignSelf:"flex-end",marginLeft:"52%"}}>
+  <TouchableOpacity style={styles.updatebutton} onPress={()=>setshowpopup(true)}><FontAwesome name='pencil' size={20}/></TouchableOpacity>
+  <TouchableOpacity  onPress={()=>handledelete(item.id)} style={styles.deletebutton}><AntDesign name='delete' size={15}/></TouchableOpacity>
+  </View>
  
-       {item.image.uri?(<Image source={{uri:item.image.uri} } style={{height: 300,borderRadius: 10, marginVertical: 10}}/>):<Image source={{uri:item.image} } style={{width:"70%",borderRadius:40,height:300}}/>}
-       <Text style={{fontSize:15,marginTop:10,alignSelf:"flex-start"}}>{item.description}</Text>
-       <Text style={{fontSize:16,fontWeight:"600",alignSelf:"flex-end"}}>{item.type}</Text>
-       {showpopup==true?(<View style={{marginBottom:-30}}>
-        <TouchableOpacity onPress={()=>setshowpopup(false)}><FontAwesome name='close' size={20}/></TouchableOpacity>
-        <TextInput style={styles.popupinput} numberOfLines={4} multiline={true} placeholder='enter your description here' value={popupinput} onChangeText={(text)=>setpopupinput(text)}/>
-        <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><AntDesign name='camera' size={25} /></TouchableOpacity>
-        <TouchableOpacity style={styles.submitpopup} onPress={()=>handlecomplaintupdate(item.id)}><Text>submit</Text></TouchableOpacity>
-       </View>):null}
-       </View>
-       )} /> 
+ </View>
+
+
+ {item.image.uri?(<Image source={{uri:item.image.uri} } style={{height: 300,borderRadius: 10, marginVertical: 10}}/>):<Image source={{uri:item.image} } style={{width:"70%",borderRadius:40,height:300}}/>}
+ <Text style={{fontSize:15,marginTop:10,alignSelf:"flex-start"}}>{item.description}</Text>
+ <Text style={{fontSize:16,fontWeight:"600",alignSelf:"flex-end"}}>{item.type}</Text>
+ {showpopup==true?(<View style={{marginBottom:-30}}>
+  <TouchableOpacity onPress={()=>setshowpopup(false)}><FontAwesome name='close' size={20}/></TouchableOpacity>
+  <TextInput style={styles.popupinput} numberOfLines={4} multiline={true} placeholder='enter your description here' value={popupinput} onChangeText={(text)=>setpopupinput(text)}/>
+  <TouchableOpacity style={styles.imageinput} onPress={chooseImg}><AntDesign name='camera' size={25} /></TouchableOpacity>
+  <TouchableOpacity style={styles.submitpopup} onPress={()=>handlecomplaintupdate(item.id)}><Text>submit</Text></TouchableOpacity>
+ </View>):null}
+ </View>
+ </View>
+ )} />
+
+
+    
     </View>
   </View>:page=="Login"?<LoginScreen/>:null}
   </ScrollView>

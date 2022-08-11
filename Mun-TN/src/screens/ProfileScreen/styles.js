@@ -168,10 +168,6 @@ export default StyleSheet.create({
         borderRadius:2,
         height:50,
         padding:5
-      
-
-        
-
     },
     submitpopup:{
         borderRadius:6,
@@ -275,5 +271,24 @@ export default StyleSheet.create({
        marginBottom:10,
        marginTop:-130,
        backgroundColor:"#14b8a6"
+    },
+    nothanks:{
+        backgroundColor:"#14b8a6",
+        width:"30%",
+        marginTop:20,
+        borderRadius:5,
+        alignItems:"center",
+        height:30,
+        marginLeft:10
+        
+    },
+    addcomplain:{
+        backgroundColor:"#14b8a6",
+        width:"80%",
+        marginTop:20,
+        borderRadius:5,
+        alignItems:"center",
+        height:30,
+        marginLeft:10
     }
 })

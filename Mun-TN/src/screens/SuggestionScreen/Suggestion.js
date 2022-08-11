@@ -9,6 +9,7 @@ import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
 import {Feather} from "@expo/vector-icons"
+import * as expoDocumentPicker from"expo-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
     const options = ["general", "electicity", "garbage"]
@@ -22,23 +23,13 @@ const SuggesstionScreen = ({navigation}) => {
     const[latitude,setLatitude]=useState(0)
     const [list,setList]=useState([])
     const[fileresponse,setFileResponse]=useState(null)
-   const openDocument= async()=>{
-    try{
-      const res =await DocumentPicker.pick({
-        type:[DocumentPicker.types.allFiles],
-
-      })
-    }
-    catch(e){
-     if(DocumentPicker.isCancel(e)){
-
-     }
-     else{
-      throw e
-     } 
-    }
-   }
-       
+    const openDocument= async()=>{
+        const res= await expoDocumentPicker.getDocumentAsync({type:types.allFiles})
+           const source={uri:res.uri}
+           setfile(source)
+           console.log(source)
+      }
+  
         
 const ref=firebase.firestore().collection('suggestions')
 var handlesubmit= async ()=>{
@@ -103,7 +94,7 @@ const UploadImage=async()=>{
                 return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
             }}
             defaultButtonText={'Select type '}/>
-    <TextInput style={styles.input} numberOfLines={10}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
+    <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
    <View>
    <TouchableOpacity onPress={PickImage}><Text><Feather name="camera" size={30} color="#14b8a6" /> pick an Image </Text></TouchableOpacity>
@@ -115,13 +106,13 @@ const UploadImage=async()=>{
    
    </SafeAreaView>
     
-
-
-    </View>
-    <View style={styles.buttoncontainer}>
+   <View style={styles.buttoncontainer}>
   
-     <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
+  <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
+ </View>
+
     </View>
+  
     </KeyboardAvoidingView>
     </ScrollView>
   )
