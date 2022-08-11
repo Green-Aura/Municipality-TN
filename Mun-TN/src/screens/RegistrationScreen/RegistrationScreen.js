@@ -14,6 +14,7 @@ import { firebase } from "../../../firebase/config";
 import * as ImagePicker from "expo-image-picker";
 import PhoneInput from "react-native-phone-number-input";
 import {FontAwesome} from "@expo/vector-icons"
+// import RNPickerSelect from 'react-native-picker-select';
 
 //Icons:
 
@@ -45,6 +46,7 @@ export default function RegistrationScreen({ navigation }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [adress, setAdress] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
   const [image, setImage] = useState(null);
 
@@ -121,8 +123,8 @@ export default function RegistrationScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          <PageLogo source={require("../../../assets/baladia.png")} />
-          <PageTitle>Municipality</PageTitle>
+          <PageLogo source={require("../../../assets/MUN.jpg")} />
+          {/* <PageTitle>Municipality</PageTitle> */}
          
         </InnerContainer>
         <MyTextInput
@@ -142,23 +144,36 @@ export default function RegistrationScreen({ navigation }) {
         onChangeText={(text)=>{setPhoneNumber(text)
         console.log(text)}}
       />  */}
-       
-      {/* <MyTextInput
+          {/* <RNPickerSelect
+                 onValueChange={(value) => console.log(value)}
+               
+                 items={[
+                     { label: "rue nour", value: "rue nour" },
+                     { label: "rue 20 mars", value: "rue 20 mars" },
+                     { label: "rue abou kacem", value: "rue abou kacem" },
+                     { label: "rue hannibal", value: "rue hannibal" },
+                     { label: "rue ghazela", value: "rue ghazela" },
+                     { label: "rue bardo", value: "rue bardo" },
+                 ]}
+                
+             /> */}
+      <MyTextInput
+      
       icon="phone"
    
           placeholder="+216 xx xxx xxx"
           placeholderTextColor={darkLight}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(text) => setPhoneNumber(text)}
           value={email}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           
-        /> */}
+        />
          <MyTextInput
           icon="home"
           placeholder="adress"
           placeholderTextColor={darkLight}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(text) => setAdress(text)}
           value={email}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
@@ -261,3 +276,6 @@ const MyTextInput = ({
     </View>
   );
 };
+
+
+

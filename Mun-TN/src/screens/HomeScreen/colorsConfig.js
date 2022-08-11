@@ -10,5 +10,6 @@ export const colors = {
     lightBg: '#ECD3C2',
     heading: '#3F414E',
     facebookBg: '#7583CA',
+    green: '#14B8A6'
   };
   

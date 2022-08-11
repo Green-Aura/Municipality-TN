@@ -4,7 +4,8 @@ import { color } from "react-native-reanimated";
     container:{
         flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        backgroundColor:"#ecfeff"
     },
     inputcontainer:{
         width:"80%",
@@ -20,14 +21,14 @@ import { color } from "react-native-reanimated";
         alignItems:'center',
         marginTop:40,
         borderBottomColor:"black",
-        borderWidth:2,
+       borderBottomWidth:2,
         textAlignVertical:"top",
         
-        borderRadius:10
+        width:"80%"
 
     },
     button:{
-        backgroundColor:'#06b6d4',
+        backgroundColor:'#14b8a6',
         padding:15,
         width:"40%",
         padding:15,
@@ -60,40 +61,35 @@ buttoncontainer:{
 },
 camerabutton:{
     marginTop:20,
-    borderRadius:200,
-    borderBottomWidth:3,
-    borderBottomRightRadius:3,
+   
     width:50,
     height:50,
     textAlign:"center",
-    backgroundColor:"#06b6d4",
+    backgroundColor:"#14b8a6",
     flex:1,
-    borderTopStartRadius:3,
+    borderRadius:10
 },
 pdfbut:{
     marginTop:20,
-    borderRadius:100,
-    borderBottomWidth:3,
-    borderBottomLeftRadius:3,
+    
     width:50,
     height:50,
     textAlign:"center",
-    backgroundColor:"#06b6d4",
+    backgroundColor:"#14b8a6",
     flex:1,
-    borderTopEndRadius:3,
+    borderRadius:10
+   
     
 
 },
 localisation:{
     marginTop:20,
-    borderRadius:100,
-    borderBottomWidth:3,
+   borderRadius:10,
     
     width:50,
     height:50,
-    
     textAlign:"center",
-    backgroundColor:"#06b6d4",
+    backgroundColor:"#14b8a6",
     flex:1,
     marginLeft:10,
     margin:10,
