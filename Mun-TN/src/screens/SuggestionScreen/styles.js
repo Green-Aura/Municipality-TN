@@ -24,6 +24,7 @@ import { color } from "react-native-reanimated";
         borderBottomColor:"rgba(0,0,0,.42)",
         borderBottomWidth:2,
         textAlignVertical:"top",
+
         width:300,
         color:"rgba(0,0,0,.87)",
     },
@@ -36,8 +37,23 @@ import { color } from "react-native-reanimated";
         justifyContent: 'center',
         alignItems: 'center',
         width:"5%",
-        marginLeft:10
+        marginLeft:10,
         
+        width:"100%",
+        borderRadius:7
+    },
+    button:{
+       
+    elevation: 8,
+    backgroundColor: "#009688",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
     },
     but:{
         textAlign:"center",
@@ -81,8 +97,32 @@ pdfbut:{
     justifyContent: 'center',
     alignItems: 'center',
     width:"5%",
-    marginLeft:10
+    marginLeft:10,
    
+    
+    elevation: 8,
+    backgroundColor: "#009688",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase"
+},
+pdfbut:{
+ 
+    elevation: 20,
+    backgroundColor: "#009688",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    fontSize: 18,
+    top:15,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
 
     
 

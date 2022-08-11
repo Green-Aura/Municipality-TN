@@ -9,7 +9,11 @@ import {AntDesign,MaterialIcons} from "@expo/vector-icons"
 import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
+import * as expoDocumentPicker from "expo-document-picker"
 import FileViewer from "react-native-file-viewer";
+
+import {Feather} from "@expo/vector-icons"
+
 // import RNFetchBlob from 'rn-fetch-blob';
 
 const SuggesstionScreen = ({navigation}) => {
@@ -158,14 +162,12 @@ const UploadImage=async()=>{
         <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder={`feel free to add something here ${user.fullName}`} />
         
    <SafeAreaView>
-   <View style={{flexDirection:"row",width:"100%",marginTop:200,alignSelf:"center"}}>
- 
-   <TouchableOpacity style={styles.camerabutton}  onPress={PickImage}><MaterialIcons name='add-a-photo' size={20}/><Text>pick an Image </Text></TouchableOpacity>
-  
-  <TouchableOpacity style={styles.pdfbut} onPress={openDocument}><AntDesign name='addfile' size={20}/><Text>Pick a  file </Text></TouchableOpacity>
-  <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
 
-  </View>
+   <View>
+   <TouchableOpacity onPress={PickImage}><Text><Feather name="camera" size={30} color="#14b8a6" /> pick an Image </Text></TouchableOpacity>
+   {/* <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity> */}
+   <TouchableOpacity onPress={openDocument}><Text><Feather name="file-plus" size={30} color="#14b8a6" />pick a pdf file </Text></TouchableOpacity>
+   </View>
    {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:300}}/></View>)}
 
    

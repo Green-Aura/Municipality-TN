@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View,Image, FlatList, ListItem } from 'react-native'
+import { StyleSheet, Text, View,Image, FlatList, ListItem, Dimensions  } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import {firebase,db} from "../../../firebase/config"
 import styles from './styles'
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5,Ionicons} from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import  { Animated,useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 const RenderSuggessions = () => {
     const[upvotes,setupvotes]=useState(null)
     const[list,setList]=useState([])
@@ -93,6 +96,11 @@ setupvoted(false)
             setList(list)
         })
     },[])
+
+
+
+
+
   return (
     <View>
     <FlatList data={list} style={styles.container} renderItem={({item})=>(
@@ -116,11 +124,11 @@ setupvoted(false)
         {item.description}
         </Text>
         <View style={{flexDirection:'row'}}>
-       <TouchableOpacity onPress={()=>{upvote(item.id)}}><FontAwesome name="thumbs-up" color={upvoted==true?"red":"grey"} size={(20)}/></TouchableOpacity> 
+       <TouchableOpacity onPress={()=>{upvote(item.id)}}><FontAwesome5 name="thumbs-up" color={upvoted==true?"red":"grey"} size={(30)}/></TouchableOpacity> 
        <Text style={{marginLeft: 5, fontSize: 10}}>{item.votes}</Text>  
 
         <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-      <TouchableOpacity onPress={()=>{downvote(item.id)}}><FontAwesome name="thumbs-down" color={downvoted==true?"red":"grey"} size={(20)}/></TouchableOpacity>
+      <TouchableOpacity onPress={()=>{downvote(item.id)}}><FontAwesome5  name="thumbs-down" color={downvoted==true?"red":"grey"} size={(30)}/></TouchableOpacity>
       <Text>{item.downvotes}</Text>
         </View>
         </View>
@@ -129,6 +137,6 @@ setupvoted(false)
     )} /> 
     </View>
   )
-}
+    }
 
 export default RenderSuggessions
