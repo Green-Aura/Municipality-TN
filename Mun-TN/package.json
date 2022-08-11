@@ -32,7 +32,7 @@
     "pod": "^0.9.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-native": "^0.68.2",
+    "react-native": "0.68.2",
     "react-native-bouncy-checkbox": "^3.0.2",
     "react-native-check-box": "^2.1.7",
     "react-native-document-picker": "^8.1.1",
