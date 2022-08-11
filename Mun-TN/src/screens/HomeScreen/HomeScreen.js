@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from 'react-native';
+import ComplainScreen from '../ComplainScreen/ComplainScreen';
+import SuggestionList from '../SuggestionList/SuggestionList';
+import SuggesstionScreen from '../SuggestionScreen/Suggestion';
 import {colors} from './colorsConfig';
+import News from './News';
 
 
  //Dummy data
@@ -40,37 +44,75 @@ const Categories = [
 ];
 
 const HomeScreen = (props) => {
+
+  const [Page,SetPage] = useState('Home')
+
   return (
     <View style={styles.container}>
+      {Page === 'Home' ?
+      <View>
       <View>
         <ScrollView
           style={styles.meditateItemWrapperContainer}
           showsHorizontalScrollIndicator={true}
           horizontal={true}>
-          {meditateTypes.map((item) => {
-            return (
+         
               <View style={styles.meditateItemWrapper}>
-                <TouchableOpacity
+                <TouchableOpacity onPress={()=> {SetPage('News')}}
                   style={[
-                    styles.meditateItem,
-                    {
-                      backgroundColor: item.isActive
-                        ? colors.primary
-                        : colors.green,
-                    },
+                    styles.meditateItem
                   ]}>
-                  <Image source={item.imageUrl} />
+                  <Image source={require('../../../assets/images/medicationTypes/all.png')} />
                 </TouchableOpacity>
                 <Text
                   style={[
                     styles.itemTitle,
-                    {color: item.isActive ? colors.heading : colors.gray},
                   ]}>
-                  {item.title}
+                  News
                 </Text>
               </View>
-            );
-          })}
+              <View style={styles.meditateItemWrapper}>
+                <TouchableOpacity onPress={()=> {SetPage('Events')}}
+                  style={[
+                    styles.meditateItem
+                  ]}>
+                  <Image source={require('../../../assets/images/medicationTypes/my.png')} />
+                </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.itemTitle,
+                  ]}>
+                  Events
+                </Text>
+              </View>
+              <View style={styles.meditateItemWrapper}>
+                <TouchableOpacity onPress={()=> {SetPage('Complain')}}
+                  style={[
+                    styles.meditateItem
+                  ]}>
+                  <Image source={require('../../../assets/images/medicationTypes/anxious.png')} />
+                </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.itemTitle,
+                  ]}>
+                  Complain
+                </Text>
+              </View>
+              <View style={styles.meditateItemWrapper}>
+                <TouchableOpacity onPress={()=> {SetPage('Suggestion')}}
+                  style={[
+                    styles.meditateItem
+                  ]}>
+                  <Image source={require('../../../assets/images/medicationTypes/sleep.png')} />
+                </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.itemTitle,
+                  ]}>
+                  News
+                </Text>
+              </View>
         </ScrollView>
       </View>
       <View style={styles.dailyThoughtsWrapper}>
@@ -90,8 +132,9 @@ const HomeScreen = (props) => {
             ))
           }
         </ScrollView>
+        </View>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><SuggesstionScreen /><TouchableOpacity onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity></View>): null}
     </View>
-  );
+  )
 };
 
 export default HomeScreen;

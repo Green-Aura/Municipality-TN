@@ -5,7 +5,7 @@ import styles from './styles'
 import { FontAwesome } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
-const RenderSuggessions = () => {
+const SuggestionList = () => {
     const[upvotes,setupvotes]=useState(null)
     const[list,setList]=useState([])
     const [upvoted,setupvoted]=useState(false)
@@ -131,4 +131,4 @@ setupvoted(false)
   )
 }
 
-export default RenderSuggessions
+export default SuggestionList
