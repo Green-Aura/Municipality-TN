@@ -132,7 +132,7 @@ const HomeScreen = (props) => {
             ))
           }
         </ScrollView>
-        </View>:Page === 'News' ? (<View><TouchableOpacity style={styles.backbutton} onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><SuggesstionScreen /><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity></View>): null}
+        </View>:Page === 'News' ? (<View><TouchableOpacity style={styles.backbutton} onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggesstionScreen /></View>): null}
     </View>
   )
 };
