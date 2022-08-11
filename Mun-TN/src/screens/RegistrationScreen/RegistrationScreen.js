@@ -174,7 +174,7 @@ export default function RegistrationScreen({ navigation }) {
           placeholder="adress"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setAdress(text)}
-          value={email}
+          value={adress}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
@@ -201,23 +201,21 @@ export default function RegistrationScreen({ navigation }) {
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
         />
-        {/* <MyTextInput
+        <MyTextInput
           icon="lock"
           placeholderTextColor={darkLight}
-          placeholder="Confirm Password"
-          onChangeText={(text) => setConfirmPassword(text)}
+           placeholder="Confirm Password"
+           onChangeText={(text) => setConfirmPassword(text)}
           value={confirmPassword}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           secureTextEntry={hidePassword}
           isPassword={true}
-          hidePassword={hidePassword}
-          setHidePassword={setHidePassword}
+           hidePassword={hidePassword}
+           setHidePassword={setHidePassword}
 
-        />
-         <TouchableOpacity onPress={chooseImg}><FontAwesome name="camera"/></TouchableOpacity>
-
-        /> */}
+         />
+        
          <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
 
         {image && (
