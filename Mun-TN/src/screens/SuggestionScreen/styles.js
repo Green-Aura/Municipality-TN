@@ -4,11 +4,15 @@ import { color } from "react-native-reanimated";
     container:{
         flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        marginTop:'50%',
+        alignSelf:"center"
     },
     inputcontainer:{
-        width:"80%",
-        marginBottom:40
+        width:370,
+        marginBottom:40,
+        backgroundColor:"white",
+        height:500
         
 
     },
@@ -16,23 +20,24 @@ import { color } from "react-native-reanimated";
         backgroundColor:"white",
         justifyContent: 'center',
         alignItems:'center',
-        marginTop:40,
-        borderBottomColor:"black",
-        borderWidth:2,
+        marginTop:80,
+        borderBottomColor:"rgba(0,0,0,.42)",
+        borderBottomWidth:2,
         textAlignVertical:"top",
-        width:"100%"
+        width:300,
+        color:"rgba(0,0,0,.87)",
     },
     button:{
-        elevation: 8,
-    backgroundColor: "#009688",
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 25,
-    fontSize: 18,
-    color: "#fff",
-    fontWeight: "bold",
-    alignSelf: "center",
-    textTransform: "uppercase"
+        flexDirection:"row",
+        flex: 1,
+        height: 50,
+        borderRadius: 5,
+        backgroundColor: '#14b8a6',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width:"5%",
+        marginLeft:10
+        
     },
     but:{
         textAlign:"center",
@@ -54,29 +59,37 @@ buttoncontainer:{
     
 },
 camerabutton:{
-    elevation: 8,
-    backgroundColor: "#009688",
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    fontSize: 18,
-    color: "#fff",
-    fontWeight: "bold",
-    alignSelf: "center",
-    textTransform: "uppercase"
+    flexDirection:"row",
+    flex: 1,
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: '#14b8a6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:"20%",
+
+    
+    
+    
 },
 pdfbut:{
-    elevation: 20,
-    backgroundColor: "#009688",
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 12,
-    fontSize: 18,
-    top:15,
-    color: "#fff",
-    fontWeight: "bold",
-    alignSelf: "center",
+    flexDirection:"row",
+    flex: 1,
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: '#14b8a6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:"5%",
+    marginLeft:10
+   
 
+    
+
+},
+suggestions:{
+    backgroundColor:"#ecfeff",
+    height:800
 }
        
 })
