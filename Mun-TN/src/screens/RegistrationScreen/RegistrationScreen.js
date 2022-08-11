@@ -14,7 +14,7 @@ import { firebase } from "../../../firebase/config";
 import * as ImagePicker from "expo-image-picker";
 import PhoneInput from "react-native-phone-number-input";
 import {FontAwesome} from "@expo/vector-icons"
-import RNPickerSelect from 'react-native-picker-select';
+// import RNPickerSelect from 'react-native-picker-select';
 
 //Icons:
 
