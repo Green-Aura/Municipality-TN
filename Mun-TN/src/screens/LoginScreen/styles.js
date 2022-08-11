@@ -13,6 +13,7 @@ export default StyleSheet.create({
         height: 120,
         width: 90,
         alignSelf: "center",
+        borderRadius: 10,
         margin: 20
     },
     input: {

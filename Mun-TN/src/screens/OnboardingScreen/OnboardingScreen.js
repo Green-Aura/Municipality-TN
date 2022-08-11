@@ -20,19 +20,19 @@ const slides = [
     id: '1',
     image: require('../OnboardingScreen/image.jpg'),
     title: 'النظافة مسؤولية الجميع',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    // subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: '2',
-    image: require('../OnboardingScreen/image1.jpg'),
-    title: 'Achieve Your Goals',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    image: require('../OnboardingScreen/image3.jpg'),
+    title: 'النظافة عقلية قبل البلدية ',
+    // subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: '3',
     image: require('../OnboardingScreen/image2.jpg'),
     title: 'مستقبل أولادنا في نظافة بلادنا ',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    // subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
 ];
 
