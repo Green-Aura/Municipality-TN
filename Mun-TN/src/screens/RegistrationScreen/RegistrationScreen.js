@@ -123,7 +123,10 @@ export default function RegistrationScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          <PageLogo source={require("../../../assets/MUN.jpg")} />
+          <Image source={require("../RegistrationScreen/v1.png")}
+            style ={{width:280}}
+          
+          />
           {/* <PageTitle>Municipality</PageTitle> */}
          
         </InnerContainer>
@@ -136,16 +139,13 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+    
         {/* <PhoneInput 
         
         placeholder="Enter phone number"
         value={phoneNumber}
         defaultValue={216}
-        onChangeText={(text)=>{setPhoneNumber(text)
-        console.log(text)}}
-      />  */}
-          {/* <RNPickerSelect
-                 onValueChange={(value) => console.log(value)}
+        onChangeText={(text)=>{setPhoneNumber(text)rlog(value)}
                
                  items={[
                      { label: "rue nour", value: "rue nour" },
@@ -156,8 +156,8 @@ export default function RegistrationScreen({ navigation }) {
                      { label: "rue bardo", value: "rue bardo" },
                  ]}
                 
-             /> */}
-      <MyTextInput
+             />
+      {/* <MyTextInput
       
       icon="phone"
    
@@ -168,7 +168,7 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           
-        />
+        /> */}
          <MyTextInput
           icon="home"
           placeholder="adress"
