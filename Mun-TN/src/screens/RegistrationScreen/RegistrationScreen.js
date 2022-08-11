@@ -123,7 +123,10 @@ export default function RegistrationScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          <PageLogo source={require("../../../assets/MUN.jpg")} />
+          <Image source={require("../RegistrationScreen/v1.png")}
+            style ={{width:280}}
+          
+          />
           {/* <PageTitle>Municipality</PageTitle> */}
          
         </InnerContainer>
@@ -136,16 +139,13 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+    
         {/* <PhoneInput 
         
         placeholder="Enter phone number"
         value={phoneNumber}
         defaultValue={216}
-        onChangeText={(text)=>{setPhoneNumber(text)
-        console.log(text)}}
-      />  */}
-          {/* <RNPickerSelect
-                 onValueChange={(value) => console.log(value)}
+        onChangeText={(text)=>{setPhoneNumber(text)rlog(value)}
                
                  items={[
                      { label: "rue nour", value: "rue nour" },
@@ -156,8 +156,8 @@ export default function RegistrationScreen({ navigation }) {
                      { label: "rue bardo", value: "rue bardo" },
                  ]}
                 
-             /> */}
-      <MyTextInput
+             />
+      {/* <MyTextInput
       
       icon="phone"
    
@@ -168,13 +168,13 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           
-        />
+        /> */}
          <MyTextInput
           icon="home"
           placeholder="adress"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setAdress(text)}
-          value={email}
+          value={adress}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
@@ -201,23 +201,21 @@ export default function RegistrationScreen({ navigation }) {
           hidePassword={hidePassword}
           setHidePassword={setHidePassword}
         />
-        {/* <MyTextInput
+        <MyTextInput
           icon="lock"
           placeholderTextColor={darkLight}
-          placeholder="Confirm Password"
-          onChangeText={(text) => setConfirmPassword(text)}
+           placeholder="Confirm Password"
+           onChangeText={(text) => setConfirmPassword(text)}
           value={confirmPassword}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           secureTextEntry={hidePassword}
           isPassword={true}
-          hidePassword={hidePassword}
-          setHidePassword={setHidePassword}
+           hidePassword={hidePassword}
+           setHidePassword={setHidePassword}
 
-        />
-         <TouchableOpacity onPress={chooseImg}><FontAwesome name="camera"/></TouchableOpacity>
-
-        /> */}
+         />
+        
          <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
 
         {image && (
