@@ -20,10 +20,12 @@ import { color } from "react-native-reanimated";
         borderBottomColor:"black",
         borderWidth:2,
         textAlignVertical:"top",
-        width:"100%"
+        width:"100%",
+        borderRadius:7
     },
     button:{
-        elevation: 8,
+       
+    elevation: 8,
     backgroundColor: "#009688",
     borderRadius: 20,
     paddingVertical: 10,
@@ -54,6 +56,7 @@ buttoncontainer:{
     
 },
 camerabutton:{
+    
     elevation: 8,
     backgroundColor: "#009688",
     borderRadius: 20,
@@ -66,6 +69,7 @@ camerabutton:{
     textTransform: "uppercase"
 },
 pdfbut:{
+ 
     elevation: 20,
     backgroundColor: "#009688",
     borderRadius: 20,

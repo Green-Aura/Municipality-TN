@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         felx: 1,
-        backgroundColor: "#ddd",
+        backgroundColor: "#ecfeff",
     },
     card: {
        backgroundColor: "#fff",
-       padding: 10,
-       margin: 10,
-       borderRadius: 10
+       padding: 5,
+       margin: 20,
+       borderRadius: 15
     },
     cardHeader: {
         flexDirection: 'row',
@@ -19,7 +19,7 @@ export default StyleSheet.create({
     },
     userImage: {
         width: 50,
-        height: 50,
+        height: 100,
         borderRadius: 50/2 
         
     },
@@ -30,12 +30,12 @@ export default StyleSheet.create({
         fontSize:30
     },
     moreIcon : {
-        fontSize: 20,
+        fontSize: 30,
         color: "#ddd",
         marginTop: 15
     },
     feedImage: {
-        height: 300,
+        height: 200,
         borderRadius: 10,
         marginVertical: 10,
         borderColor:"black",
