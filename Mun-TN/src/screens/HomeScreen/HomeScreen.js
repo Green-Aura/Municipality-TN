@@ -51,6 +51,11 @@ const HomeScreen = (props) => {
     <View style={styles.container}>
       {Page === 'Home' ?
       <ScrollView>
+              <View style={styles.dailyThoughtsWrapper}>
+      <TouchableOpacity>
+          <Image source={require('../../../assets/images/player.png')} />
+        </TouchableOpacity>
+      </View>
       <View>
         <ScrollView
           style={styles.meditateItemWrapperContainer}
@@ -115,11 +120,6 @@ const HomeScreen = (props) => {
               </View>
         </ScrollView>
       </View>
-      <View style={styles.dailyThoughtsWrapper}>
-      <TouchableOpacity>
-          <Image source={require('../../../assets/images/player.png')} />
-        </TouchableOpacity>
-      </View>
         <ScrollView horizontal={true}>
           {
             Categories.map((category, index) => (
@@ -145,7 +145,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     padding: 10,
-    marginTop: 5
+    marginBottom: 15
   },
   heading: {
     textAlign: 'center',
@@ -163,20 +163,20 @@ export const styles = StyleSheet.create({
     color: colors.gray,
   },
   meditateItem: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.green,
     padding:15,
     borderRadius:5,
     width: "100%"
   },
   meditateItemWrapper: {
-    margin: 8,
-    width: "20%",
+    margin: 10,
+    width: "21%",
     paddingLeft: "2%"
   },
   itemTitle: {
     textAlign: 'center',
     marginTop: 8,
-    fontSize: 16,
+    fontSize: 10,
     fontFamily: 'HelveticaNeue',
   },
   meditateItemWrapperContainer: {
@@ -245,10 +245,9 @@ export const styles = StyleSheet.create({
   backbutton:{
     backgroundColor:"#14b8a6",
     width:"30%",
-    marginTop:20,
-    borderRadius:5,
+    borderRadius:3,
     alignItems:"center",
-    height:30,
+    height:28,
     marginLeft:10
 },
 });
