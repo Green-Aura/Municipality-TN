@@ -163,7 +163,7 @@ const UploadImage=async()=>{
             <SafeAreaView horizontal={true} >
             <View style={{flexDirection:"row",marginTop:80}}>
             <TouchableOpacity style={styles.camerabutton} onPress={PickImage}><FontAwesome name='camera' style={{marginTop:8,marginLeft:28}} size={32}></FontAwesome></TouchableOpacity>
-            <TouchableOpacity style={styles.localisation}><Entypo size={32} name='location' style={{marginTop:8,marginLeft:30}}></Entypo></TouchableOpacity>
+            <TouchableOpacity style={styles.localisation} onPress={()=>navigation.navigate("Map")}><Entypo size={32} name='location' style={{marginTop:8,marginLeft:30}}></Entypo></TouchableOpacity>
             <TouchableOpacity style={styles.pdfbut} onPress={openDocument}><AntDesign size={32} name='addfile' style={{marginTop:8,marginLeft:31}}></AntDesign></TouchableOpacity>
             
             </View>

@@ -85,7 +85,7 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"SuggestionList"} component={SuggestionList} options={{
+        <Tab.Screen name={"Suggestion"} component={SuggestionList} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -142,7 +142,7 @@ export default function Tabe({focused, icon}) {
           )
         }}></Tab.Screen>
 
-        <Tab.Screen name={"Option"}  component={OptionScreen} options={{ 
+        <Tab.Screen name={"Map"}  component={MapViewComponent} options={{ 
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
