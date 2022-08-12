@@ -33,13 +33,13 @@ const meditateTypes = [
 
 const Categories = [
   {
-    imageUrl: require('../../../assets/images/medicationTypes/bg2.png'),
+    imageUrl: require('../../../assets/clean1.jpg'),
   },
   {
-    imageUrl: require('../../../assets/images/medicationTypes/bg2.png'),
+    imageUrl: require('../../../assets/clean2.jpg'),
   },
   {
-    imageUrl: require('../../../assets/images/medicationTypes/bg2.png'),
+    imageUrl: require('../../../assets/clean3.jpg'),
   },
 ];
 
@@ -50,7 +50,7 @@ const HomeScreen = (props) => {
   return (
     <View style={styles.container}>
       {Page === 'Home' ?
-      <View>
+      <ScrollView>
       <View>
         <ScrollView
           style={styles.meditateItemWrapperContainer}
@@ -125,8 +125,12 @@ const HomeScreen = (props) => {
             Categories.map((category, index) => (
               <View key={index}>
                 <Image
+
               source={require('../../../assets/images/medicationTypes/bg2.png')}
              
+
+              // source={category.imageUrl}
+
             />
             
             <Text style={styles.card1Txt}>Stress Removal</Text>
@@ -134,7 +138,7 @@ const HomeScreen = (props) => {
             ))
           }
         </ScrollView>
-        </View>:Page === 'News' ? (<View><TouchableOpacity style={styles.backbutton} onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggesstionScreen /></View>): null}
+        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity style={styles.backbutton} onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggesstionScreen /></View>): null}
     </View>
   )
 };
