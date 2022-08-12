@@ -5,7 +5,7 @@ import SuggestionList from '../SuggestionList/SuggestionList';
 import SuggesstionScreen from '../SuggestionScreen/Suggestion';
 import {colors} from './colorsConfig';
 import News from './News';
-
+import { Video } from 'expo-av';
 
  //Dummy data
 const meditateTypes = [
@@ -51,10 +51,17 @@ const HomeScreen = (props) => {
     <View style={styles.container}>
       {Page === 'Home' ?
       <ScrollView>
-              <View style={styles.dailyThoughtsWrapper}>
-      <TouchableOpacity>
-          <Image source={require('../../../assets/images/player.png')} />
-        </TouchableOpacity>
+              <View>
+              <Video
+                source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={false}
+                resizeMode="cover"
+                shouldPlay
+                isLooping
+                style={{ width: 340, height: 150, borderRadius: 5 }}
+                />
       </View>
       <View>
         <ScrollView
@@ -170,12 +177,13 @@ export const styles = StyleSheet.create({
   },
   meditateItemWrapper: {
     margin: 10,
-    width: "21%",
-    paddingLeft: "2%"
+    width: "19%",
+    paddingLeft: "1%",
+    margingRight: "5%"
   },
   itemTitle: {
     textAlign: 'center',
-    marginTop: 8,
+    marginTop: 10,
     fontSize: 10,
     fontFamily: 'HelveticaNeue',
   },
@@ -249,6 +257,13 @@ export const styles = StyleSheet.create({
     alignItems:"center",
     height:28,
     marginLeft:10
+},
+backgroundVideo: {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
 },
 });
 
