@@ -126,7 +126,9 @@ const HomeScreen = (props) => {
               <View key={index}>
                 <Image
               source={require('../../../assets/images/medicationTypes/bg2.png')}
+             
             />
+            
             <Text style={styles.card1Txt}>Stress Removal</Text>
               </View>
             ))

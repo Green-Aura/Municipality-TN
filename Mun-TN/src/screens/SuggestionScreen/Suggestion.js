@@ -91,9 +91,10 @@ const UploadImage=async()=>{
                 return item
             }}
             renderDropdownIcon={isOpened => {
-                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+                return <FontAwesome name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-up-circle-outline'} color={'#444'} size={18} />;
             }}
-            defaultButtonText={'Select type '}/>
+            defaultButtonText={'Select type '}
+            />
     <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
    <View>
