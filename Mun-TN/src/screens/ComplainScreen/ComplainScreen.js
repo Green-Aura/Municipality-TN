@@ -8,10 +8,11 @@ import styles from './styles.js'
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DocumentPicker,{types} from "react-native-document-picker"
+import RNDocumentPicker,{types} from "react-native-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 import { DefaultTheme} from '@react-navigation/native';
-
+import FileViewer from "react-native-file-viewer";
+import * as expoDocumentPicker from "expo-document-picker"
 export default function ComplainScreen ({navigation}) {
   const [user,setUser]=useState({})
   const [loading,setloading]=useState(false)
@@ -69,30 +70,38 @@ export default function ComplainScreen ({navigation}) {
     const[latitude,setLatitude]=useState(0)
     const [list,setList]=useState([])
     const[fileresponse,setFileResponse]=useState(null)
+    const [file,setfile]=useState(null)
     const window=Dimensions.get('window') 
-   /* const openDocument= async()=>{
-        try{
-          const res =await DocumentPicker.pick({
-            type:[DocumentPicker.types.allFiles],
-    
-          })
-        }
-        catch(e){
-         if(DocumentPicker.isCancel(e)){
-    
-         }
-         else{
-          throw e
-         } 
-        }
-       }           */
+   const openDocument= async()=>{
+      const res= await expoDocumentPicker.getDocumentAsync({type:types.allFiles})
+         const source={uri:res.uri}
+         setfile(source)
+         console.log(source)
+    }
+    const uploadfile=async ()=>{
+      setUploading(true)
+      const response=await fetch(file.uri)
+      const blob=await response.blob()
+      const filename=file.uri.substring(file.uri.lastIndexOf('/')+1)
+      var ref=firebase.storage().ref().child(filename).put(blob)
+      try{
+        await ref
+      }catch(e){
+        console.log(e)
+      }
+      setUploading(false)
+      setfile(null)
+    }
 const ref=firebase.firestore().collection('Complains')
 var handlesubmit= async ()=>{
     UploadImage()
-    await  ref.add({type:type,description:desc,image:image,location:{latitude:latitude,longitude:longitude},iduser:user.id,createdAt:Date.now(),username:user.fullName,userimage:user.image})
+    uploadfile()
+    await  ref.add({type:type,description:desc,image:image,location:{latitude:latitude,longitude:longitude},iduser:user.id,createdAt:Date.now(),file:file,username:user.fullName,userimage:user.image,})
     alert("added successfully")
     console.log("image "+image.uri)
-
+    setImage(null)
+    setdesc("")
+    setType('')
 }
 
 const PickImage=async () =>{
@@ -119,9 +128,7 @@ const UploadImage=async()=>{
         console.log(e)
     }
     setUploading(false)
-    Alert.alert(
-        'photo uploaded'
-        )
+    
         setImage(null) 
     }
     // No permissions request is necessary for launching the image library
@@ -130,33 +137,36 @@ const UploadImage=async()=>{
         <ScrollView theme={scheme === 'dark'? DarkTheme : MyTheme}>
         <KeyboardAvoidingView style={styles.container} behavior='padding'>
      <View style={styles.inputcontainer}>
-        <SelectDropdown
-            data={options}
-            onSelect={(selectedItem, index) => {
-                console.log(selectedItem, index)
-                setType(selectedItem)
-                
-            }}
-            buttonTextAfterSelection={(selectedItem, index) => {
-                
-                return selectedItem
+     <SelectDropdown
+     data={options}
+     onSelect={(selectedItem, index) => {
+       console.log(selectedItem, index)
+       setType(selectedItem)
+       
+      }}
+      buttonTextAfterSelection={(selectedItem, index) => {
+        
+        return selectedItem
             }}
             rowTextForSelection={(item, index) => {
-                
-                return item
+              
+              return item
             }}
             renderDropdownIcon={isOpened => {
-                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+              return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
             }}
-            defaultButtonText={'Select type '}/>
-    <TextInput style={styles.input} numberOfLines={10}  multiline={true} value={desc} onChangeText={setdesc} placeholder='Description ' />
-   <SafeAreaView horizontal={true} >
-    <View style={{flexDirection:"row"}}>
-    <TouchableOpacity style={styles.camerabutton} onPress={PickImage}><FontAwesome name='camera' style={{marginTop:8,marginLeft:28}} size={32}></FontAwesome></TouchableOpacity>
-   <TouchableOpacity style={styles.localisation}><Entypo size={32} name='location' style={{marginTop:8,marginLeft:30}}></Entypo></TouchableOpacity>
-   <TouchableOpacity style={styles.pdfbut}><AntDesign size={32} name='addfile' style={{marginTop:8,marginLeft:31}}></AntDesign></TouchableOpacity>
-   
-    </View>
+            defaultButtonText={'Select type'}/>
+            <View style={{flexDirection:"row",marginTop:10}}>
+            <Image source={{uri:user.image }} style={{width:50,height:50,borderRadius:70,marginTop:23,marginRight:5}}/>
+            <TextInput style={styles.input}   multiline={true} value={desc} onChangeText={setdesc} placeholder={`what's in your mind ${user.fullName}?`}/>
+            </View>
+            <SafeAreaView horizontal={true} >
+            <View style={{flexDirection:"row",marginTop:80}}>
+            <TouchableOpacity style={styles.camerabutton} onPress={PickImage}><FontAwesome name='camera' style={{marginTop:8,marginLeft:28}} size={32}></FontAwesome></TouchableOpacity>
+            <TouchableOpacity style={styles.localisation} onPress={()=>navigation.navigate("Map")}><Entypo size={32} name='location' style={{marginTop:8,marginLeft:30}}></Entypo></TouchableOpacity>
+            <TouchableOpacity style={styles.pdfbut} onPress={openDocument}><AntDesign size={32} name='addfile' style={{marginTop:8,marginLeft:31}}></AntDesign></TouchableOpacity>
+            
+            </View>
    
   {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:275,borderRadius:40,marginTop:15,marginLeft:window.width/35}}/></View>)}
 
