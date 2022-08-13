@@ -58,7 +58,7 @@ const HomeScreen = (props) => {
                 volume={1.0}
                 isMuted={false}
                 resizeMode="cover"
-                // shouldPlay
+                shouldPlay
                 isLooping
                 style={{ width: 340, height: 150, borderRadius: 5 }}
                 />
