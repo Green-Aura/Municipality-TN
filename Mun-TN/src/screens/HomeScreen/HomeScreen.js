@@ -58,7 +58,7 @@ const HomeScreen = (props) => {
                 volume={1.0}
                 isMuted={false}
                 resizeMode="cover"
-                shouldPlay
+                // shouldPlay
                 isLooping
                 style={{ width: 340, height: 150, borderRadius: 5 }}
                 />
@@ -74,7 +74,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.meditateItem
                   ]}>
-                  <Image source={require('../../../assets/images/medicationTypes/all.png')} />
+                  <Image style={styles.images} source={require('../../../assets/news.png')} />
                 </TouchableOpacity>
                 <Text
                   style={[
@@ -88,7 +88,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.meditateItem
                   ]}>
-                  <Image source={require('../../../assets/images/medicationTypes/my.png')} />
+                  <Image style={styles.images} source={require('../../../assets/events.png')} />
                 </TouchableOpacity>
                 <Text
                   style={[
@@ -102,7 +102,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.meditateItem
                   ]}>
-                  <Image source={require('../../../assets/images/medicationTypes/anxious.png')} />
+                  <Image style={styles.images} source={require('../../../assets/complain.jpg')} />
                 </TouchableOpacity>
                 <Text
                   style={[
@@ -116,7 +116,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.meditateItem
                   ]}>
-                  <Image source={require('../../../assets/images/medicationTypes/sleep.png')} />
+                  <Image style={styles.images} source={require('../../../assets/suggestion.png')} />
                 </TouchableOpacity>
                 <Text
                   style={[
@@ -139,7 +139,7 @@ const HomeScreen = (props) => {
             ))
           }
         </ScrollView>
-        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity style={styles.backbutton} onPress={()=> SetPage('Home')}><Text>Back</Text></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity style={styles.backbutton} onPress={()=>SetPage('Home')}><Text>Back</Text></TouchableOpacity><SuggesstionScreen /></View>): null}
+        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
     </View>
   )
 };
@@ -173,13 +173,11 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.green,
     padding:15,
     borderRadius:5,
-    width: "100%"
+    width: "100%",
   },
   meditateItemWrapper: {
     margin: 10,
     width: "19%",
-    paddingLeft: "1%",
-    margingRight: "5%"
   },
   itemTitle: {
     textAlign: 'center',
@@ -265,6 +263,10 @@ backgroundVideo: {
   bottom: 0,
   right: 0,
 },
+images : {
+  width: 25,
+  height: 30,
+}
 });
 
 
