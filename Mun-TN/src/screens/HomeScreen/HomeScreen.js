@@ -5,7 +5,7 @@ import SuggestionList from '../SuggestionList/SuggestionList';
 import SuggesstionScreen from '../SuggestionScreen/Suggestion';
 import {colors} from './colorsConfig';
 import News from './News';
-
+import { Video } from 'expo-av';
 
  //Dummy data
 const meditateTypes = [
@@ -51,6 +51,18 @@ const HomeScreen = (props) => {
     <View style={styles.container}>
       {Page === 'Home' ?
       <ScrollView>
+              <View>
+              <Video
+                source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={false}
+                resizeMode="cover"
+                shouldPlay
+                isLooping
+                style={{ width: 340, height: 150, borderRadius: 5 }}
+                />
+      </View>
       <View>
         <ScrollView
           style={styles.meditateItemWrapperContainer}
@@ -115,11 +127,6 @@ const HomeScreen = (props) => {
               </View>
         </ScrollView>
       </View>
-      <View style={styles.dailyThoughtsWrapper}>
-      <TouchableOpacity>
-          <Image source={require('../../../assets/images/player.png')} />
-        </TouchableOpacity>
-      </View>
         <ScrollView horizontal={true}>
           {
             Categories.map((category, index) => (
@@ -145,7 +152,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     padding: 10,
-    marginTop: 5
+    marginBottom: 15
   },
   heading: {
     textAlign: 'center',
@@ -163,20 +170,21 @@ export const styles = StyleSheet.create({
     color: colors.gray,
   },
   meditateItem: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.green,
     padding:15,
     borderRadius:5,
     width: "100%"
   },
   meditateItemWrapper: {
-    margin: 8,
-    width: "20%",
-    paddingLeft: "2%"
+    margin: 10,
+    width: "19%",
+    paddingLeft: "1%",
+    margingRight: "5%"
   },
   itemTitle: {
     textAlign: 'center',
-    marginTop: 8,
-    fontSize: 16,
+    marginTop: 10,
+    fontSize: 10,
     fontFamily: 'HelveticaNeue',
   },
   meditateItemWrapperContainer: {
@@ -245,11 +253,17 @@ export const styles = StyleSheet.create({
   backbutton:{
     backgroundColor:"#14b8a6",
     width:"30%",
-    marginTop:20,
-    borderRadius:5,
+    borderRadius:3,
     alignItems:"center",
-    height:30,
+    height:28,
     marginLeft:10
+},
+backgroundVideo: {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
 },
 });
 
