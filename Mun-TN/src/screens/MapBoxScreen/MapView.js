@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView, NativeEventEmitt
 import {firebase} from '../../../firebase/config';
 import { Button ,FAB} from 'react-native-paper';
 import * as Loaction from "expo-location"
+import MapDirections from "react-native-maps-directions"
 const window=Dimensions.get('window')
 export default function MapViewComponent (){
   const mapref=useRef()
@@ -75,7 +76,6 @@ var trucks=[
     let location= await  Loaction.getCurrentPositionAsync({})
   
     setLocation(location.coords)
-    console.log(location)
     
   }
   var addlocation=()=>{
@@ -84,17 +84,26 @@ var trucks=[
   }
     return (
     <View style={{flex:1}}>
-<MapView provider="google" style={{flex:1,marginBottom:marginBottom,position:"absolute",width:"100%",height:"100%"}} initialRegion={{
-  latitude:36.891696,
-  longitude:10.1815426,
-  latitudeDelta: 0.09,
-  longitudeDelta: 0.04
-}}
+<MapView provider="google" style={{flex:1,marginBottom:marginBottom,position:"absolute",width:"100%",height:"100%"}} ref={mapref}
+
 
       showsMyLocationButton={true}
       showsUserLocation={true} >
+      <MapDirections origin={{latitude:37.050020,
+        longitude:11.014420,
+        latitudeDelta: 0.09,
+      longitudeDelta: 0.04}}
       
-<MapViewDirections/>
+      destination={{ latitude:36.891696,
+        longitude:10.1815426,
+        latitudeDelta: 0.09,
+        longitudeDelta: 0.04}}
+        strokeWidth={2}
+        strokeColor='red'
+        apikey=''
+      
+      />
+
 {truckdata.map(truck=>(
   <View>
   <Marker coordinate={truck.coords} draggable={true} onDragStart={(e)=>{
@@ -113,7 +122,11 @@ var trucks=[
 ))}
 
 </MapView> 
-<FAB icon="plus" style={{marginTop:400,width:50,marginLeft:"90%"}} onPress={()=>getlocation()}/>
+<FAB icon="plus" style={{marginTop:400,width:50,marginLeft:"90%"}} onPress={()=>{
+  
+  console.log(location)
+
+  getlocation()}}/>
 
    </View>
     
