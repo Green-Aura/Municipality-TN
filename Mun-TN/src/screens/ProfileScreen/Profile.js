@@ -80,9 +80,7 @@ var days=Math.floor((seconds%604800)/86400)
             username:doc.data().username,
             userimage:doc.data().userimage
           })       })
-          if(list==[]){
-            sethascontent(true)
-          }
+         
          
           setcomplains(list)
           fileredcomplaints=complains.filter(element=>element.id==userData.id)

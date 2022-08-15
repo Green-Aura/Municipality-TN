@@ -5,10 +5,10 @@ import { color } from "react-native-reanimated";
         flex:1,
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:"#ecfeff"
+        backgroundColor:"red"
     },
     inputcontainer:{
-        width:"80%",
+        width:"100%",
         marginBottom:40,
         
         
@@ -16,27 +16,43 @@ import { color } from "react-native-reanimated";
 
     },
     input:{
-        backgroundColor:"white",
+        
+        backgroundColor:"#dcdcdc",
         justifyContent: 'center',
         alignItems:'center',
         marginTop:40,
-        borderBottomColor:"black",
-       borderBottomWidth:2,
+      
         textAlignVertical:"top",
         
-        width:"80%"
-
+        width:"80%",
+        
+        height: 150,
+        padding: 12 ,
+        borderRadius:10,
+    //     box-sizing: border-box;
+    //     border: 2px solid #ccc;
+    //     border-radius: 4px;
+    //     background-color: #f8f8f8;
+    //     font-size: 16px;
+    //     resize: none;
+    //   }
     },
     button:{
         backgroundColor:'#14b8a6',
         padding:15,
-        width:"40%",
-        padding:15,
-        borderRadius:500,
-        marginTop:10,
-        lineHeight:1,
-        fontWeight:700,
-        height:48,
+        paddingLeft:55,
+        paddingRight:55,
+        fontSize:16,
+        height:50,
+        borderRadius:10,
+        marginVertical:3,
+        marginBottom:10,
+        marginTop:20,
+       marginLeft:1,
+//       
+//    margin-vertical: 3px;
+//    margin-bottom: 10px;
+//    margin-top: 15px;
     },
     but:{
         textAlign:"center",

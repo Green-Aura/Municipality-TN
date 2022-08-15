@@ -90,7 +90,7 @@ function Item({ user_name, user_image, feed_image, description }) {
 export default function News({navigation}) {
 
     return (
-        <View style={styles.container}>
+        <View>
 
             <FlatList 
                data={DATA}
@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     },
     headerLeft: {
         flexDirection: 'row',
+       
     },
     userImage: {
         width: 50,
