@@ -132,8 +132,14 @@ const HomeScreen = (props) => {
             Categories.map((category, index) => (
               <View key={index}>
                 <Image
-              source={category.imageUrl}
+
+              source={require('../../../assets/images/medicationTypes/bg2.png')}
+             
+
+              // source={category.imageUrl}
+
             />
+            
             <Text style={styles.card1Txt}>Stress Removal</Text>
               </View>
             ))
