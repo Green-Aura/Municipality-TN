@@ -85,7 +85,7 @@ export default function Tabe({focused, icon}) {
           }
         })}></Tab.Screen>
 
-        <Tab.Screen name={"Suggestion"} component={SuggestionList} options={{
+        {/* <Tab.Screen name={"Suggestion"} component={SuggestionList} options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
               // centring Tab Button...
@@ -107,7 +107,7 @@ export default function Tabe({focused, icon}) {
               useNativeDriver: true
             }).start();
           }
-        })}></Tab.Screen>
+        })}></Tab.Screen> */}
 
 
         {
@@ -118,7 +118,7 @@ export default function Tabe({focused, icon}) {
 
         
 
-        <Tab.Screen name={"Complain"} component={Complain} options={{
+        {/* <Tab.Screen name={"Complain"} component={Complain} options={{
 
           tabBarIcon: ({ focused }) => (
 
@@ -140,7 +140,7 @@ export default function Tabe({focused, icon}) {
               </View>
             </TouchableOpacity>
           )
-        }}></Tab.Screen>
+        }}></Tab.Screen> */}
 
         <Tab.Screen name={"Map"}  component={MapViewComponent} options={{ 
           tabBarIcon: ({ focused }) => (

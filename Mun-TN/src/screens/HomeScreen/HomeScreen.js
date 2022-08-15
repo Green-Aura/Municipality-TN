@@ -191,8 +191,7 @@ export const styles = StyleSheet.create({
     fontFamily: 'HelveticaNeue',
   },
   meditateItemWrapperContainer: {
-    marginTop: 1,
-    padding: 14
+    padding: 14,
   },
   dailyThoughtsWrapper: {
     flexDirection: 'row',
