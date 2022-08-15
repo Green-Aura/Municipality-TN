@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     },
     headerLeft: {
         flexDirection: 'row',
+       
     },
     userImage: {
         width: 50,

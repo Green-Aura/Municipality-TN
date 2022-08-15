@@ -44,6 +44,56 @@ var trucks=[
     latitudeDelta: 0.09,
   longitudeDelta: 0.04
   }
+},{
+  coords:{
+    latitude: 36.7857,
+    longitude:  10.1123,
+    latitudeDelta: 0.09,
+  longitudeDelta: 0.04
+  }
+},
+{
+  coords:{
+    latitude: 36.09,
+    longitude:   9.57,
+    latitudeDelta: 0.09,
+  longitudeDelta: 0.04
+  }
+},{
+  coords:{
+    latitude: 36.8075,
+    longitude: 10.1549,
+    latitudeDelta: 0.09,
+  longitudeDelta: 0.04
+  }
+},{
+  coords:{
+    latitude:36.802620,    
+    longitude: 10.110680,
+    latitudeDelta: 0.09,   
+  longitudeDelta: 0.04
+  }
+},{
+  coords:{
+    latitude:36.80471950015218,     
+    longitude: 10.10968443042429,  
+    latitudeDelta: 0.09,   
+  longitudeDelta: 0.04
+  }
+},{
+  coords:{
+    latitude:36.80264004295348,     
+    longitude: 10.107246448042577,   
+    latitudeDelta: 0.09,   
+  longitudeDelta: 0.04
+  }
+},{
+  coords:{
+    latitude: 36.8009448334434,     
+    longitude:  10.106684073921214,  
+    latitudeDelta: 0.09,   
+  longitudeDelta: 0.04
+  }
 }
 ]
   var getlocation=async ()=>{
@@ -75,7 +125,7 @@ var trucks=[
 
 {trucks.map(truck=>(
   <Marker coordinate={truck.coords}>
-  <Image source={require("./6306633.png")} style={{height:20,width:20}}/>
+  <Image source={require("./garbage-truck.png")} style={{height:20,width:20}}/>
 
   </Marker>
 ))}
