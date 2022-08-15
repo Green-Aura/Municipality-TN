@@ -1,17 +1,39 @@
-import  React,{ useEffect, useState } from 'react';
-import MapView, {Marker, MarkerAnimated} from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView } from 'react-native';
+import  React,{ useEffect, useRef, useState } from 'react';
+import MapView, {Circle, Marker, MarkerAnimated} from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView, NativeEventEmitter } from 'react-native';
+import {firebase} from '../../../firebase/config';
 import { Button ,FAB} from 'react-native-paper';
 import * as Loaction from "expo-location"
+import MapDirections from "react-native-maps-directions"
 const window=Dimensions.get('window')
 export default function MapViewComponent (){
+  const mapref=useRef()
  const [ marginBottom,setmarginBottom]=useState(1)
+ const [truckdata,settruckdata]=useState([])
+ const [position,setposition]=useState({
+   latitude:0,
+  longitude:0,
+ })
  const [location,setLocation]=useState({ latitude:36.891696,
   longitude:10.1815426,
   latitudeDelta: 0.09,
   longitudeDelta: 0.04})
  const [errormsg,seterrormsg]=useState(null)
-  
+  var gettrucks=async()=>{
+    firebase.firestore().collection("trucks").onSnapshot(document=>{
+      const list=[]
+      document.forEach(doc=>{
+        list.push({
+          id:doc.id,
+          coords:doc.data().coords
+        })
+      })
+      settruckdata(list)
+    })
+  }
+  useEffect(()=>{
+    gettrucks()
+  },[])
 var trucks=[
   {
     coords:{
@@ -96,47 +118,71 @@ var trucks=[
   }
 }
 ]
-  var getlocation=async ()=>{
-    let {status}=await Loaction.requestForegroundPermissionsAsync()
-    if(status=="granted"){
-      seterrormsg("permission denied")
-    }
-    let location= await  Loaction.getCurrentPositionAsync({})
+var getlocation=async ()=>{
+  let {status}=await Loaction.requestForegroundPermissionsAsync()
+  if(status=="granted"){
+    seterrormsg("permission denied")
+  }
+  let location= await  Loaction.getCurrentPositionAsync({})
+
+  setLocation(location.coords)
   
-    setLocation(location.coords)
-    console.log(location)
+}
+var addlocation=()=>{
+  console.log(location)
+  
+}
+  return (
+  <View style={{flex:1}}>
+<MapView provider="google" style={{flex:1,marginBottom:marginBottom,position:"absolute",width:"100%",height:"100%"}} ref={mapref}
+
+
+    showsMyLocationButton={true}
+    showsUserLocation={true} >
+    <MapDirections origin={{latitude:37.050020,
+      longitude:11.014420,
+      latitudeDelta: 0.09,
+    longitudeDelta: 0.04}}
     
-  }
-  var addlocation=()=>{
-    console.log(location)
+    destination={{ latitude:36.891696,
+      longitude:10.1815426,
+      latitudeDelta: 0.09,
+      longitudeDelta: 0.04}}
+      strokeWidth={2}
+      strokeColor='red'
+      apikey=''
     
-  }
-    return (
-    <View style={{flex:1}}>
-<MapView style={{flex:1,marginBottom:marginBottom,position:"absolute",width:"100%",height:"100%"}} initialRegion={{
-  latitude:36.891696,
-  longitude:10.1815426,
-  latitudeDelta: 0.09,
-  longitudeDelta: 0.04
+    />
+
+{truckdata.map(truck=>(
+<View>
+<Marker coordinate={truck.coords} draggable={true} onDragStart={(e)=>{
+  console.log("drag start" +e.nativeEvent.coordinate)
 }}
-      showsMyLocationButton={true}
-      showsUserLocation={true} >
-      
+onDragEnd={(e)=>{
+  console.log("drag ended",e.nativeEvent.coordinate)
+}}
+>
+<Image source={require("./6306633.png")} style={{height:20,width:20}}/>
 
-{trucks.map(truck=>(
-  <Marker coordinate={truck.coords}>
-  <Image source={require("./garbage-truck.png")} style={{height:20,width:20}}/>
+</Marker>
+<Circle center={{latitude:truck.coords.latitude,longitude:truck.coords.longitude}} radius={1000}/>
+</View>
 
-  </Marker>
 ))}
-</MapView> 
-<FAB icon="plus" style={{marginTop:400,width:50,marginLeft:"90%"}} onPress={()=>getlocation()}/>
 
-   </View>
-    
+</MapView> 
+<FAB icon="plus" style={{marginTop:400,width:50,marginLeft:"90%"}} onPress={()=>{
+
+console.log(location)
+
+getlocation()}}/>
+
+ </View>
   
-  )
-    }
+
+)
+  }
 
 const styles = StyleSheet.create({
   container: {
