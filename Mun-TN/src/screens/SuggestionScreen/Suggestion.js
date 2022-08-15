@@ -2,7 +2,7 @@ import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpac
 import React, { useCallback, useEffect, useState } from 'react'
 import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/FontAwesome';
 import styles from './styles.js'
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
@@ -91,7 +91,7 @@ const UploadImage=async()=>{
                 return item
             }}
             renderDropdownIcon={isOpened => {
-                return <FontAwesome name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-up-circle-outline'} color={'#444'} size={18} />;
+                return <Ionicons name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-up-circle-outline'} color={'#444'} size={18} />;
             }}
             defaultButtonText={'Select type '}
             />
