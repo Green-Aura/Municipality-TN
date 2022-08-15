@@ -8,7 +8,9 @@ export default StyleSheet.create({
     backgroundColor: "white",
   },
   inputcontainer: {
-    width: "100%",
+    width: "80%",
+    height: "-50%",
+    
     marginBottom: 40,
   },
   input: {
@@ -19,9 +21,9 @@ export default StyleSheet.create({
 
     textAlignVertical: "top",
 
-    width: "80%",
+    width: "100%",
 
-    height: 150,
+    height:200,
     padding: 12,
     borderRadius: 10,
     //     box-sizing: border-box;
@@ -42,7 +44,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     marginVertical: 3,
     marginBottom: 10,
-    marginTop: 20,
+    marginTop: 3,
     marginLeft: 1,
   },
   but: {

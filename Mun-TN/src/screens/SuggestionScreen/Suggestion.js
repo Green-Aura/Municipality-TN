@@ -2,13 +2,13 @@ import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpac
 import React, { useCallback, useEffect, useState } from 'react'
 import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
-import Ionicons from 'react-native-vector-icons/FontAwesome';
+
 import styles from './styles.js'
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
-import {Feather} from "@expo/vector-icons"
+import {Feather,Ionicons} from "@expo/vector-icons"
 import * as expoDocumentPicker from"expo-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
