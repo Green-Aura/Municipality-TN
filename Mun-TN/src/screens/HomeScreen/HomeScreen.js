@@ -66,7 +66,7 @@ const HomeScreen = (props) => {
       <View>
         <ScrollView
           style={styles.meditateItemWrapperContainer}
-          showsHorizontalScrollIndicator={true}
+          showsHorizontalScrollIndicator={false}
           horizontal={true}>
          
               <View style={styles.meditateItemWrapper}>
@@ -133,10 +133,9 @@ const HomeScreen = (props) => {
               <View key={index}>
                 <Image
 
-              source={require('../../../assets/images/medicationTypes/bg2.png')}
-             
-
-              // source={category.imageUrl}
+              // source={require('../../../assets/images/medicationTypes/bg2.png')}
+              style={styles.image}
+              source={category.imageUrl}
 
             />
             
@@ -193,6 +192,7 @@ export const styles = StyleSheet.create({
   },
   meditateItemWrapperContainer: {
     marginTop: 1,
+    padding: 14
   },
   dailyThoughtsWrapper: {
     flexDirection: 'row',
@@ -254,14 +254,6 @@ export const styles = StyleSheet.create({
     left: 12,
     fontWeight: 'bold',
   },
-  backbutton:{
-    backgroundColor:"#14b8a6",
-    width:"30%",
-    borderRadius:3,
-    alignItems:"center",
-    height:28,
-    marginLeft:10
-},
 backgroundVideo: {
   position: 'absolute',
   top: 0,
@@ -272,6 +264,12 @@ backgroundVideo: {
 images : {
   width: 25,
   height: 30,
+},
+image: {
+  width: 210,
+  height: 220,
+  margin: 5,
+  borderRadius: 5
 }
 });
 
