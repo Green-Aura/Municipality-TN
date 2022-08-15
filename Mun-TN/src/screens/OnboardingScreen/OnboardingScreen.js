@@ -34,6 +34,12 @@ const slides = [
     title: 'مستقبل أولادنا في نظافة بلادنا ',
     // subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
+  {
+    id: '1',
+    image: require('../OnboardingScreen/image.jpg'),
+    title: 'النظافة مسؤولية الجميع',
+    // subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
 ];
 
 const Slide = ({item}) => {
