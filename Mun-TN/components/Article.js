@@ -52,7 +52,7 @@ function Item({ image, title, description, source }) {
         
         
                     {/* description */}
-                    <Text Style={styles.description}>{description}</Text>
+                    <Text style={styles.description}>{description}</Text>
         
                     <View style={styles.data}>
                         {/* <Text style={styles.heading}>by: <Text style={styles.author}>Brijen Makwana</Text></Text> */}
@@ -102,13 +102,8 @@ const styles = StyleSheet.create({
             width: 0,
         },
         backgroundColor: "#fff",
-        marginTop: 20,
-    },
-        card: {
-       backgroundColor: "#fff",
-       padding: 10,
-       margin: 10,
-       borderRadius: 70
+        marginTop: 15,
+        borderRadius: 10
     },
     image:{
         height: 200,
@@ -128,9 +123,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         marginTop: 10
-    },
-    heading:{
-
     },
     author:{
         fontWeight: "bold",
