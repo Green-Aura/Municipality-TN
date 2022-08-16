@@ -100,7 +100,7 @@ var trucks=[
         longitudeDelta: 0.04}}
         strokeWidth={2}
         strokeColor='red'
-        apikey=''
+        apikey='AIzaSyDcTgDGFU0IT79oG9GHDUzJ7uAkA5Vldq8'
       
       />
 

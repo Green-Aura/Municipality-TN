@@ -12,8 +12,8 @@ import SuggestionList from '../SuggestionList/SuggestionList'
 import * as Animatable from 'react-native-animatable';
 
 const TabArr = [
-  { route: 'Home', label: 'Home', type: Icons.Feather, icon: 'home', component: HomeScreen },
-  { route: 'Event', label: 'Event', type: Icons.SimpleLineIcons, icon: 'event', component: SuggestionList },
+  { route: 'Accueil', label: 'Accueil', type: Icons.Feather, icon: 'home', component: HomeScreen },
+  { route: 'liste de suggestions', label: 'liste de suggestions', type: Icons.Octicons, icon: 'checklist', component: SuggestionList },
   { route: 'Map', label: 'Map', type: Icons.SimpleLineIcons, icon: 'location-pin', component: MapViewComponent },
   { route: 'Profile', label: 'Profile', type: Icons.FontAwesome, icon: 'user-circle-o', component: Profile },
 ];
@@ -97,16 +97,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
- 
-   
+    position: 'relative',
   },
   tabBar: {
-    height: 70,
+    height: 65,
     position: 'absolute',
-    bottom: 16,
+    bottom: 0,
     right: 16,
     left: 16,
-    borderRadius: 16,
+    borderRadius: 10,
     
    
   },
