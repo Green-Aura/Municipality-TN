@@ -49,6 +49,7 @@ export default function RegistrationScreen({ navigation }) {
   const [adress, setAdress] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
   const [image, setImage] = useState(null);
+  const [uploading,setUploading]=useState(false)
 
   const onFooterLinkPress = () => {
     navigation.navigate("Login");
@@ -89,20 +90,8 @@ export default function RegistrationScreen({ navigation }) {
       });
 
   };
-  // useEffect(() => {
-  //   (async () => {
-  //     if (Platform.OS !== "web") {
-  //       const { status } =
-  //         await ImagePicker.requestMediaLibraryPermissionsAsync();
-  //       if (status !== "granted") {
-  //         alert(
-  //           "Sorry, Camera roll permissions are required to make this work!"
-  //         );
-  //       }
-  //     }
-  //   })();
-  // }, []);
-
+ 
+ 
   const chooseImg = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -117,6 +106,24 @@ export default function RegistrationScreen({ navigation }) {
       setImage(result.uri);
     }
   };
+  const UploadImage=async()=>{
+    setUploading(true)
+    const response=await fetch(image.uri)
+    const blob=await response.blob()
+    const filename=image.uri.substring(image.uri.lastIndexOf('/')+1)
+    var ref=firebase.storage().ref().child(filename).put(blob)
+    try{
+        await ref
+    }
+    catch(e){
+        console.log(e)
+    }
+    setUploading(false)
+    Alert.alert(
+        'photo uploaded'
+        )
+        setImage(null)
+    }
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
