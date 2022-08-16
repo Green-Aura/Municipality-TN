@@ -148,7 +148,7 @@ console.log(location)
       userimage: user.image,
       location: location,
     });
-    alert("added successfully");
+    alert("ajouté avec succès");
     console.log("image " + image.uri);
     setImage(null);
     setdesc("");
@@ -259,6 +259,7 @@ console.log(location)
               color="#14b8a6" 
               size={30}
             ></FontAwesome>
+
           </TouchableOpacity>
         </View>
 

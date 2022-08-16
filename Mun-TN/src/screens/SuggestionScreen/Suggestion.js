@@ -93,7 +93,7 @@ const UploadImage=async()=>{
             renderDropdownIcon={isOpened => {
                 return <Ionicons name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-up-circle-outline'} color={'#444'} size={18} />;
             }}
-            defaultButtonText={'Select type '}
+            defaultButtonText={'Sélectionnez'}
             />
     <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
