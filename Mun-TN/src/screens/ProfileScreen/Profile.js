@@ -148,7 +148,7 @@ firebase.firestore().collection("users").doc(id).update({
   fullName:name,
 image:image
 
-}).then(()=>{alert("updated successfully")
+}).then(()=>{alert("mis à jour avec succès")
 setPage("profile")
 setImage(null)
 setemail("")
@@ -183,13 +183,13 @@ var fileredcomplaints=complains.filter((item=>item.iduser==userData.id))
       <View style={styles.infocontainer}>
 
       <View style={{marginLeft:20,flexDirection:"row"}}>
-      <AntDesign name='phone' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Phone number: {userData.phoneNumber}</Text>
+      <AntDesign name='phone' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Numéro de téléphone : {userData.phoneNumber}</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
     <AntDesign name='home' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Address: {userData.adress}</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
-        <FontAwesome name='commenting-o' size={30} color={"turquoise"} onPress={()=>{setPage("complains")}}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} onPress={()=>{setPage("complains")}}>Complaints({fileredcomplaints.length} complaints)</Text>
+        <FontAwesome name='commenting-o' size={30} color={"turquoise"} onPress={()=>{setPage("complains")}}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} onPress={()=>{setPage("complains")}}>complaints({fileredcomplaints.length} complaints)</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
       <AntDesign name='logout' size={30} color={"turquoise"} onPress={async()=>{
@@ -204,7 +204,7 @@ var fileredcomplaints=complains.filter((item=>item.iduser==userData.id))
       catch(e){
         console.log(e)
       }
-       }}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} >logout</Text>
+       }}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} >déconnexion</Text>
      
       </View>
       
