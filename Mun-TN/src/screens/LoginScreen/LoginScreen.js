@@ -101,7 +101,7 @@ export default function LoginScreen({ navigation }) {
           <MyTextInput
             icon="lock"
             placeholderTextColor={darkLight}
-            placeholder="Password"
+            placeholder="Mot de passe"
             onChangeText={(text) => setPassword(text)}
             value={password}
             underlineColorAndroid="transparent"
@@ -112,16 +112,16 @@ export default function LoginScreen({ navigation }) {
             setHidePassword={setHidePassword}
           />
           <StyledButton onPress={() => onLoginPress()}>
-            <Buttontext>Log in</Buttontext>
+            <Buttontext>Connectez-vous</Buttontext>
           </StyledButton>
 
           <Line />
         </StyledFormArea>
         <View style={styles.footerView}>
           <Text style={styles.footerText}>
-            Don't have an account?{" "}
+          Vous n'avez pas de compte ?{" "}
             <Text onPress={onFooterLinkPress} style={styles.footerLink}>
-              Sign up
+            S'inscrire
             </Text>
           </Text>
         </View>
