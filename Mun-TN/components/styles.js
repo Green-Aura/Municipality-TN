@@ -12,9 +12,10 @@ export const Colors = {
     brand :"#14b8a6",
     green: "#10B981",
     red: "#EF4444",
+    gray: "#708090",
 }
 
-const { primary, secondary, tertiary, darkLight, brand, green, red } = Colors;
+const { primary, secondary, tertiary, darkLight, brand, green, red,gray } = Colors;
 
 export const StyledContainer = styled.View`
    flex: 1;

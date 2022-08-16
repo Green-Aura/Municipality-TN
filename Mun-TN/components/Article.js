@@ -11,7 +11,7 @@ const DATA =[
         
     },
     {
-        source: "ALJAZEERA",
+        source: "الوطنية الاولى",
         title: "عيد المرأة",
         image: "https://tuniscope.com/uploads/images/content/femme-130821.jpg",
         description: "بمناسبة عيد المرأة تعتزم بلدية الدندان الاحتفال بهذا اليوم الوطني والعالمي من خلال تظاهرات وأنشطة ثقافية وذلك خلال يوم الاحد .",
@@ -20,10 +20,11 @@ const DATA =[
     {
         source: "ALJAZEERA",
         title: "Bad news",
-        image: "https://arabcenterdc.org/wp-content/uploads/2020/09/Kais-Saied-Supreme-Court-768x384.jpg",
-        description: "A new Tunisian constitution giving far more power to President Kais Saied passed in a referendum with a 30.5% turnout, the electoral commission said on Tuesday, tightening his grip in what critics fear is a march to a new era of autocracy.",
+        image: "https://modo3.com/thumbs/fit630x300/168421/1524978830/%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE_%D8%B9%D9%8A%D8%AF_%D8%BA%D8%B1%D8%B3_%D8%A7%D9%84%D8%A3%D8%B4%D8%AC%D8%A7%D8%B1.jpg",
+        description: "بمناسبة عيد الشجرة تعتزم بلدية الدندان بالاشتراك مع المجتمع المدني في تنظيم يوم توعوي للتحسيس بمخاطر التلوث تتخلله العديد من التظاهرات والفعاليات.",
         
     },
+
     {
         source: "ALJAZEERA",
         title: "Bad news",
@@ -31,16 +32,9 @@ const DATA =[
         description: "A new Tunisian constitution giving far more power to President Kais Saied passed in a referendum with a 30.5% turnout, the electoral commission said on Tuesday, tightening his grip in what critics fear is a march to a new era of autocracy.",
         
     },
-    {
-        source: "ALJAZEERA",
-        title: "Bad news",
-        image: "https://arabcenterdc.org/wp-content/uploads/2020/09/Kais-Saied-Supreme-Court-768x384.jpg",
-        description: "A new Tunisian constitution giving far more power to President Kais Saied passed in a referendum with a 30.5% turnout, the electoral commission said on Tuesday, tightening his grip in what critics fear is a march to a new era of autocracy.",
-        
-    }
+  
+
 ]
-
-
 function Item({ image, title, description, source }) {
     return (
         <TouchableOpacity style={styles.container}>
@@ -51,7 +45,7 @@ function Item({ image, title, description, source }) {
                     style={styles.image}
                     />
         
-                    <View style={{padding: 20}}>
+                    <View style={{padding: 10}}>
         
                     {/* title */}
                     <Text style={styles.title}>{title}</Text>
@@ -61,13 +55,13 @@ function Item({ image, title, description, source }) {
                     <Text Style={styles.description}>{description}</Text>
         
                     <View style={styles.data}>
-                        <Text style={styles.heading}>by: <Text style={styles.author}>Brijen Makwana</Text></Text>
+                        {/* <Text style={styles.heading}>by: <Text style={styles.author}>Brijen Makwana</Text></Text> */}
                         <Text style={styles.data}>Aug 9th 22</Text>
                     </View>
         
                     {/* source */}
                     <View style={{marginTop: 10}}>
-                    <Text>source: <Text style={styles.source}>{source}</Text></Text>
+                    {/* <Text>source: <Text style={styles.source}>{source}</Text></Text> */}
                     </View>
                     </View>
 </TouchableOpacity>

@@ -105,22 +105,29 @@ setupvoted(false)
     <FlatList data={list} renderItem={({item})=>(
         <View style={styles.card}>
         <View style={{alignContent:'center',alignItems:'center'}}>
-        <Text style={styles.userName}>
-        {item.type}
-        </Text>
+     
         </View>
-       
         
-        <Text> 
+        
+        {/* <Text> 
         {item.municipalityname}
-        </Text>
+        </Text> */}
         
         
-      
-        <Image source={{uri:item.image.uri} } style={styles.feedImage}  /> 
+      <View>
+      <Image source={{uri:item.image.uri} } style={styles.feedImage}  />
+      {/* <Text style={styles.userName}>
+        {item.type}
+        </Text>  */}
+      </View>
+       <View>
+       
+       </View>
+        
         <Text> 
         {item.description}
         </Text>
+        
         <View style={{flexDirection:'row'}}>
        <TouchableOpacity onPress={()=>{upvote(item.id)}}><FontAwesome5 name="thumbs-up" color={upvoted==true?"red":"grey"} size={(30)}/></TouchableOpacity> 
        <Text style={{marginLeft: 5, fontSize: 10}}>{item.votes}</Text>  
