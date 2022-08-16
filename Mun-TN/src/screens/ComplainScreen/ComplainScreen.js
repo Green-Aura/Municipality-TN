@@ -142,7 +142,7 @@ export default function ComplainScreen({ navigation }) {
       userimage: user.image,
       location: location,
     });
-    alert("added successfully");
+    alert("ajouté avec succès");
     console.log("image " + image.uri);
     setImage(null);
     setdesc("");
@@ -275,7 +275,7 @@ export default function ComplainScreen({ navigation }) {
       <View style={styles.buttoncontainer}>
         <View style={styles.button}>
           <TouchableOpacity style={styles.but} onPress={() => handlesubmit()}>
-            <Text style={styles.buttontext}>submit</Text>
+            <Text style={styles.buttontext}>soumettre</Text>
           </TouchableOpacity>
         </View>
       </View>

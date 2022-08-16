@@ -113,7 +113,7 @@ var trucks=[
     console.log("drag ended",e.nativeEvent.coordinate)
   }}
   >
-  <Image source={require("../MapBoxScreen/truks.png")} style={{height:20,width:20}}/>
+  <Image source={require("../MapBoxScreen/garbage-truck.png")} style={{height:20,width:20}}/>
 
   </Marker>
   <Circle center={{latitude:truck.coords.latitude,longitude:truck.coords.longitude}} radius={1000}/>

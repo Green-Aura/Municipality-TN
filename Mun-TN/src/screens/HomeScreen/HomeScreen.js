@@ -80,7 +80,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-                  News
+                  Nouvelles
                 </Text>
               </View>
               <View style={styles.meditateItemWrapper}>
@@ -94,7 +94,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-                  Events
+                 Événements
                 </Text>
               </View>
               <View style={styles.meditateItemWrapper}>
@@ -108,7 +108,8 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-                  Complain
+                Plaignez-vous
+
                 </Text>
               </View>
               <View style={styles.meditateItemWrapper}>
@@ -122,7 +123,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-                  Suggestion
+Suggestions
                 </Text>
               </View>
         </ScrollView>
