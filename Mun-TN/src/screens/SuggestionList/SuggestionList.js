@@ -102,9 +102,7 @@ setupvoted(false)
 
 
   return (
-    <View>
-    <FlatList data={list} style={styles.container} renderItem={({item})=>(
-
+    <FlatList data={list} renderItem={({item})=>(
         <View style={styles.card}>
         <View style={{alignContent:'center',alignItems:'center'}}>
         <Text style={styles.userName}>
@@ -135,8 +133,7 @@ setupvoted(false)
        
         </View>  
     )} /> 
-    </View>
-  )
-    }
+  )}
+  
 
 export default RenderSuggessions

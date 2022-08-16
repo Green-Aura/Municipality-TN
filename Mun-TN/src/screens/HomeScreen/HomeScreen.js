@@ -56,7 +56,7 @@ const HomeScreen = (props) => {
                 source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
                 rate={1.0}
                 volume={1.0}
-                isMuted={false}
+                isMuted={true}
                 resizeMode="cover"
                 shouldPlay
                 isLooping
@@ -66,7 +66,7 @@ const HomeScreen = (props) => {
       <View>
         <ScrollView
           style={styles.meditateItemWrapperContainer}
-          showsHorizontalScrollIndicator={true}
+          showsHorizontalScrollIndicator={false}
           horizontal={true}>
          
               <View style={styles.meditateItemWrapper}>
@@ -132,14 +132,19 @@ const HomeScreen = (props) => {
             Categories.map((category, index) => (
               <View key={index}>
                 <Image
+
+              // source={require('../../../assets/images/medicationTypes/bg2.png')}
+              style={styles.image}
               source={category.imageUrl}
+
             />
+            
             <Text style={styles.card1Txt}>Stress Removal</Text>
               </View>
             ))
           }
         </ScrollView>
-        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
+        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
     </View>
   )
 };
@@ -152,7 +157,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     padding: 10,
-    marginBottom: 15
+    marginBottom: 20
   },
   heading: {
     textAlign: 'center',
@@ -187,6 +192,7 @@ export const styles = StyleSheet.create({
   },
   meditateItemWrapperContainer: {
     marginTop: 1,
+    padding: 14
   },
   dailyThoughtsWrapper: {
     flexDirection: 'row',
@@ -248,14 +254,6 @@ export const styles = StyleSheet.create({
     left: 12,
     fontWeight: 'bold',
   },
-  backbutton:{
-    backgroundColor:"#14b8a6",
-    width:"30%",
-    borderRadius:3,
-    alignItems:"center",
-    height:28,
-    marginLeft:10
-},
 backgroundVideo: {
   position: 'absolute',
   top: 0,
@@ -266,6 +264,12 @@ backgroundVideo: {
 images : {
   width: 25,
   height: 30,
+},
+image: {
+  width: 210,
+  height: 220,
+  margin: 5,
+  borderRadius: 5
 }
 });
 

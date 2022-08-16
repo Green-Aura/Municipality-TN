@@ -2,13 +2,13 @@ import { Alert, KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpac
 import React, { useCallback, useEffect, useState } from 'react'
 import {firebase} from "../../../firebase/config.js"
 import SelectDropdown from 'react-native-select-dropdown'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 import styles from './styles.js'
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker'
 import * as ImagePicker from "expo-image-picker"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import DocumentPicker,{types} from "react-native-document-picker"
-import {Feather} from "@expo/vector-icons"
+import {Feather,Ionicons} from "@expo/vector-icons"
 import * as expoDocumentPicker from"expo-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
@@ -91,15 +91,18 @@ const UploadImage=async()=>{
                 return item
             }}
             renderDropdownIcon={isOpened => {
-                return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18} />;
+                return <Ionicons name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-up-circle-outline'} color={'#444'} size={18} />;
             }}
-            defaultButtonText={'Select type '}/>
+            defaultButtonText={'Select type '}
+            />
     <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
    <View>
-   <TouchableOpacity onPress={PickImage}><Text><Feather name="camera" size={30} color="#14b8a6" /> pick an Image </Text></TouchableOpacity>
-   {/* <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity> */}
-   <TouchableOpacity onPress={openDocument}><Text><Feather name="file-plus" size={30} color="#14b8a6" />pick a pdf file </Text></TouchableOpacity>
+   <TouchableOpacity onPress={PickImage}><Text><Feather name="camera" size={30} color="#14b8a6" />  </Text></TouchableOpacity>
+   
+   </View>
+   <View>
+   <TouchableOpacity onPress={openDocument}><Text><Feather name="file-plus" size={30} color="#14b8a6" /></Text></TouchableOpacity>
    </View>
    {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:300}}/></View>)}
 

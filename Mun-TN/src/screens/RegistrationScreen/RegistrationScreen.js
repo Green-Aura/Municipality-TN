@@ -70,7 +70,7 @@ export default function RegistrationScreen({ navigation }) {
           email,
           fullName,
           image,
-          phoneNumber
+          adress
         };
         const usersRef = firebase.firestore().collection("users");
         usersRef
