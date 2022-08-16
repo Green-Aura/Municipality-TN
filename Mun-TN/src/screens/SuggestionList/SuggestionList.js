@@ -103,31 +103,56 @@ setupvoted(false)
 
   return (
     <FlatList data={list} renderItem={({item})=>(
-        <View style={styles.card}>
-        <View style={{alignContent:'center',alignItems:'center'}}>
-        <Text style={styles.userName}>
+      <View style={styles.container}>
+        <Image 
+        source={{uri:item.image.uri}} 
+        style={styles.feedImage}
+        />
+      <Text style={styles.title}>
         {item.type}
-        </Text>
-        </View>
-       
-        
-        <Text> 
+        </Text> 
+        <Text 
+        style={{padding: 15}}
+        > 
         {item.municipalityname}
         </Text>
-        
-        
-      
-        <Image source={{uri:item.image.uri} } style={styles.feedImage}  /> 
-        <Text> 
+        <Text 
+        style={styles.description}
+        > 
         {item.description}
         </Text>
-        <View style={{flexDirection:'row'}}>
-       <TouchableOpacity onPress={()=>{upvote(item.id)}}><FontAwesome5 name="thumbs-up" color={upvoted==true?"red":"grey"} size={(30)}/></TouchableOpacity> 
-       <Text style={{marginLeft: 5, fontSize: 10}}>{item.votes}</Text>  
+        <View 
+        style={{flexDirection:'row'}}
+        >
+       <TouchableOpacity 
+       onPress={()=>{upvote(item.id)}}
+       >
+        <FontAwesome5 
+        name="thumbs-up" 
+        color={upvoted==true?"red":"grey"} 
+        size={(30)} style={{padding: 10}}
+        /></TouchableOpacity> 
+       <Text 
+       style={{  padding: 15, marginRight: 80}}
+       >
+        {item.votes}
+        </Text>  
 
-        <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-      <TouchableOpacity onPress={()=>{downvote(item.id)}}><FontAwesome5  name="thumbs-down" color={downvoted==true?"red":"grey"} size={(30)}/></TouchableOpacity>
-      <Text>{item.downvotes}</Text>
+        <View 
+        style={{ flexDirection: 'row', marginLeft: 10 }}>
+      <TouchableOpacity 
+      onPress={()=>{downvote(item.id)}}
+      >
+        <FontAwesome5  
+        name="thumbs-down" 
+        color={downvoted==true?"red":"grey"} 
+        size={(30)} style={{padding: 10}}
+        /></TouchableOpacity>
+      <Text 
+      style={{  padding: 15, marginRight: 80}}
+      >
+        {item.downvotes}
+        </Text>
         </View>
         </View>
        

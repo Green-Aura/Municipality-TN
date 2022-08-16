@@ -115,7 +115,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-                Plaignez-vous
+              Réclamation
 
                 </Text>
               </View>
@@ -267,8 +267,8 @@ images : {
   height: 30,
 },
 image: {
-  width: 210,
-  height: 220,
+  width: 220,
+  height: 260,
   margin: 5,
   borderRadius: 5
 }
