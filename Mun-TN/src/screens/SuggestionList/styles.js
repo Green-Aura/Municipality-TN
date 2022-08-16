@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
+
     container: {
-        width: "100%",
+        width: "80%",
         alignSelf: "center",
         shadowRadius: 10,
         elevation: 13,
@@ -11,6 +12,10 @@ export default StyleSheet.create({
             height: 5,
             width: 0,
         },
+        backgroundColor: "#fff",
+        borderRadius: 5,
+        marginTop: 10,
+        // position: 'absolute'
     },
     card: {
        backgroundColor: "#fff",
@@ -45,7 +50,8 @@ export default StyleSheet.create({
     feedImage: {
         height: 200,
         borderRadius: 5,
-        marginVertical: 10,
+        width: "100%",
+
     },
     cardFooter: {
         flexDirection: 'row',
@@ -78,7 +84,20 @@ export default StyleSheet.create({
       alignContent:"center",
         
     },
-    
+    title:{
+        fontSize: 20,
+        fontWeight: "600",
+        padding: 15,
+        marginBottom: -25,
+
+    },
+    description:{
+        fontSize: 16,
+        fontWeight: "400",
+        marginBottom: -5,
+        padding: 15,
+        marginTop: -20,
+    },
 
 
     
