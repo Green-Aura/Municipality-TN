@@ -97,16 +97,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
- 
-   
+    position: 'relative',
   },
   tabBar: {
-    height: 70,
+    height: 60,
     position: 'absolute',
-    bottom: 16,
+    bottom: 0,
     right: 16,
     left: 16,
-    borderRadius: 16,
+    borderRadius: 10,
     
    
   },
