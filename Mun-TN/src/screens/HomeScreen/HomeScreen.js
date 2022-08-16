@@ -53,7 +53,7 @@ const HomeScreen = (props) => {
       <ScrollView>
               <View>
               <Video
-                source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+                source={{ uri: 'https://v.ftcdn.net/03/29/04/62/700_F_329046289_HzoxUhrbyHyRr4XEvZUDAl9LQIzy3K0B_ST.mp4' }}
                 rate={1.0}
                 volume={1.0}
                 isMuted={true}
