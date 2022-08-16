@@ -4,7 +4,8 @@ import { color } from "react-native-reanimated";
     container:{
         flex:1,
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+    
     },
     inputcontainer:{
         width:"80%",
