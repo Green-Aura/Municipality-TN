@@ -15,6 +15,8 @@ import SuggesstionScreen from "./src/screens/SuggestionScreen/Suggestion";
 import SuggestionList from "./src/screens/SuggestionList/SuggestionList";
 import Tabe from "./src/screens/Tabe/Tabe";
 import Tabe1 from './src/screens/Tabe/Tabe1'
+import Tabe2 from './src/screens/Tabe/Tabe2'
+import Tabe3 from './src/screens/Tabe/Tabe3'
 
 import OnboardingScreen from "./src/screens/OnboardingScreen/OnboardingScreen";
 import OptionScreen from "./src/screens/OptionScreen/OptionScreen";
@@ -94,7 +96,7 @@ export default function App() {
       >
         {user ? (
           <Stack.Screen name="Tabe">
-            {(props) => <Tabe1 {...props} extraData={user} />}
+            {(props) => <Tabe2 {...props} extraData={user} />}
           </Stack.Screen>
         ) : (
           <>
