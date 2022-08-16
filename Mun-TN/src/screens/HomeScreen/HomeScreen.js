@@ -5,6 +5,7 @@ import SuggestionList from '../SuggestionList/SuggestionList';
 import SuggesstionScreen from '../SuggestionScreen/Suggestion';
 import {colors} from './colorsConfig';
 import News from './News';
+import Articles from '../../../components/Article';
 import { Video } from 'expo-av';
 
  //Dummy data
@@ -40,6 +41,12 @@ const Categories = [
   },
   {
     imageUrl: require('../../../assets/clean3.jpg'),
+  },
+  {
+    imageUrl: require('../../../assets/clean4.jpg'),
+  },
+  {
+    imageUrl: require('../../../assets/clean5.webp'),
   },
 ];
 
@@ -144,7 +151,7 @@ const HomeScreen = (props) => {
             ))
           }
         </ScrollView>
-        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggestionList /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
+        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><Articles /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
     </View>
   )
 };
@@ -157,11 +164,9 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     padding: 10,
-    marginBottom: 20
   },
   heading: {
     textAlign: 'center',
-    fontFamily: 'HelveticaNeue',
     fontWeight: 'bold',
     fontSize: 28,
     color: colors.heading,
@@ -188,7 +193,6 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     fontSize: 10,
-    fontFamily: 'HelveticaNeue',
   },
   meditateItemWrapperContainer: {
     padding: 14,
@@ -223,7 +227,6 @@ export const styles = StyleSheet.create({
   },
   dailyTitle: {
     fontSize: 18,
-    fontFamily: 'HelveticaNeue',
     color: colors.heading,
     fontWeight: 'bold',
     marginBottom: 10,
@@ -231,7 +234,6 @@ export const styles = StyleSheet.create({
   dailySubTitle: {
     color: colors.heading,
     fontSize: 11,
-    fontFamily: 'HelveticaNeue',
   },
   medicationTypeCards: {
     flexDirection: 'row',
@@ -245,7 +247,6 @@ export const styles = StyleSheet.create({
     marginBottom:1,
   },
   card1Txt: {
-    fontFamily: 'HelveticaNeue',
     fontSize: 18,
     color: colors.white,
     position: 'relative',
