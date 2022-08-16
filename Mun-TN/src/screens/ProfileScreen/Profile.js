@@ -189,7 +189,7 @@ var fileredcomplaints=complains.filter((item=>item.iduser==userData.id))
     <AntDesign name='home' size={30} color={"turquoise"}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}}>Address: {userData.adress}</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
-        <FontAwesome name='commenting-o' size={30} color={"turquoise"} onPress={()=>{setPage("complains")}}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} onPress={()=>{setPage("complains")}}>complaints({fileredcomplaints.length} complaints)</Text>
+        <FontAwesome name='commenting-o' size={30} color={"turquoise"} onPress={()=>{setPage("complains")}}/><Text style={{color:'grey',fontSize:15,marginLeft:20,marginTop:10}} onPress={()=>{setPage("complains")}}>Réclamations({fileredcomplaints.length} Réclamations)</Text>
       </View>
       <View style={{marginLeft:20,flexDirection:"row",marginTop:20}}>
       <AntDesign name='logout' size={30} color={"turquoise"} onPress={async()=>{
