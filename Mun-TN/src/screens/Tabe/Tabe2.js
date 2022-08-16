@@ -13,9 +13,9 @@ import * as Animatable from 'react-native-animatable';
 
 const TabArr = [
   { route: 'Home', label: 'Home', type: Icons.Feather, icon: 'home', component: HomeScreen },
-  { route: 'Search', label: 'Search', type: Icons.Feather, icon: 'search', component: SuggestionList },
-  { route: 'Add', label: 'Add', type: Icons.Feather, icon: 'plus-square', component: MapViewComponent },
-  { route: 'Account', label: 'Account', type: Icons.FontAwesome, icon: 'user-circle-o', component: Profile },
+  { route: 'Event', label: 'Event', type: Icons.SimpleLineIcons, icon: 'event', component: SuggestionList },
+  { route: 'Map', label: 'Map', type: Icons.SimpleLineIcons, icon: 'location-pin', component: MapViewComponent },
+  { route: 'Profile', label: 'Profile', type: Icons.FontAwesome, icon: 'user-circle-o', component: Profile },
 ];
 
 const Tab = createBottomTabNavigator();
@@ -58,7 +58,7 @@ const TabButton = (props) => {
           <Animatable.View
             ref={circleRef}
             style={styles.circle} />
-          <Icon type={item.type} name={item.icon} color={focused ? Colors.white : Colors.primary} />
+          <Icon type={item.type} name={item.icon} color={focused ? Colors.white : Colors.green} />
         </View>
         <Animatable.Text
           ref={textRef}
@@ -97,6 +97,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+ 
+   
   },
   tabBar: {
     height: 70,
@@ -105,6 +107,8 @@ const styles = StyleSheet.create({
     right: 16,
     left: 16,
     borderRadius: 16,
+    
+   
   },
   btn: {
     width: 50,
@@ -120,12 +124,12 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.green,
     borderRadius: 25,
   },
   text: {
     fontSize: 10,
     textAlign: 'center',
-    color: Colors.primary,
+    color: Colors.green,
   }
 })

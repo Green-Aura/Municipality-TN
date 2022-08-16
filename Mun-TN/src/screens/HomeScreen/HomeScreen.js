@@ -115,7 +115,7 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-                Plaignez-vous
+              Réclamation
 
                 </Text>
               </View>
