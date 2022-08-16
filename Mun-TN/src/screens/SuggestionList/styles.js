@@ -14,7 +14,8 @@ export default StyleSheet.create({
         },
         backgroundColor: "#fff",
         borderRadius: 5,
-        marginTop: 20,
+        marginTop: 10,
+        // position: 'absolute'
     },
     card: {
        backgroundColor: "#fff",
