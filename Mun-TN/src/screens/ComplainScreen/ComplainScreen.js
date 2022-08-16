@@ -33,6 +33,7 @@ export default function ComplainScreen ({navigation}) {
 setlocation(location.coords)
 console.log(location)
     setPage("Complain")
+    alert("location selected")
     }
     
   
@@ -55,7 +56,7 @@ console.log(location)
                 fullName:document.data().fullName,
                 image:document.data().image,
                 phoneNumber:document.data().phoneNumber,
-                location:location
+               
               })
               console.log(document.data())
             })
@@ -202,7 +203,9 @@ const UploadImage=async()=>{
         <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
        </View>
        </KeyboardAvoidingView>):page=="map"?(
+
         <View>
+       
        <View>
        <Text></Text>
        <Text></Text>
@@ -225,12 +228,9 @@ const UploadImage=async()=>{
        <Text></Text>
        <Text></Text>
        <Text></Text>
-       <MapView provider="google"  style={{flex:1,position:"absolute",width:"100%",height:"100%",margin:'auto'}}>
-        </MapView>
-        <FAB icon="plus" style={{marginTop:10,width:50,marginLeft:"90%"}} onPress={()=>getlocation()}/>
-
-        </View>
-        </View>
+       <MapView provider="google"  style={{flex:1,position:"absolute",width:"100%",height:"100%",top:0,left:0,bottom:0,right:0}}></MapView>
+       <FAB icon="plus" style={{marginTop:10,width:50,marginLeft:"90%"}} onPress={()=>getlocation()}/></View></View>
+       
       ):null}
      
    </ScrollView>
