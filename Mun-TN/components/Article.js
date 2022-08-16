@@ -5,16 +5,16 @@ import { StyleSheet, Text, View, SafeAreaView, Image, FlatList, TouchableOpacity
 const DATA =[
     {
         source: "ALJAZEERA",
-        title: "Bad news",
-        image: "https://arabcenterdc.org/wp-content/uploads/2020/09/Kais-Saied-Supreme-Court-768x384.jpg",
-        description: "A new Tunisian constitution giving far more power to President Kais Saied passed in a referendum with a 30.5% turnout, the electoral commission said on Tuesday, tightening his grip in what critics fear is a march to a new era of autocracy.",
+        title: "LE COSTUME TRADITIONNEL TUNISIEN",
+        image: "https://chwaya.b-cdn.net/img/ybc_blog/post/3-slide-costume-femmes.jpg",
+        description: "Le mode d'habillement constitue l'un des traits distinctifs de la personnalité de l'homme. Il fait également partie intégrante des spécificités inhérentes à son identité et à la civilisation dont il se prévaut. Autant par sa diversité, que par son raffinement, le costume traditionnel tunisien témoigne de la richesse et de la valeur inestimable du patrimoine culturel et civilisationnel de ce pays à l’histoire plusieurs fois millénaire, qu'est la Tunisie.",
         
     },
     {
         source: "ALJAZEERA",
-        title: "Bad news",
-        image: "https://arabcenterdc.org/wp-content/uploads/2020/09/Kais-Saied-Supreme-Court-768x384.jpg",
-        description: "A new Tunisian constitution giving far more power to President Kais Saied passed in a referendum with a 30.5% turnout, the electoral commission said on Tuesday, tightening his grip in what critics fear is a march to a new era of autocracy.",
+        title: "عيد المرأة",
+        image: "https://tuniscope.com/uploads/images/content/femme-130821.jpg",
+        description: "بمناسبة عيد المرأة تعتزم بلدية الدندان الاحتفال بهذا اليوم الوطني والعالمي من خلال تظاهرات وأنشطة ثقافية وذلك خلال يوم الاحد .",
         
     },
     {
