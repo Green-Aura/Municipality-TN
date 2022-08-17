@@ -113,7 +113,7 @@ export default StyleSheet.create({
             width:10
         },
         shadowColor:"black",
-        shadowOpacity:0.5,
+        shadowOpacity:1,
         borderRadius:40,
         padding:20,
         backgroundColor: "#fff",
@@ -234,7 +234,8 @@ export default StyleSheet.create({
         fontSize: 18
     },
     minicontainer:{
-        backgroundColor:"turquoise",
+        
+        backgroundColor:"#008080",
         width:"100%",
         height:"28%",
       alignContent:"center",

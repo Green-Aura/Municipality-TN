@@ -13,6 +13,8 @@ import * as expoDocumentPicker from"expo-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
     const options = ["general", "electicity", "garbage"]
+    const [user, setUser] = useState({});
+    const [loading, setloading] = useState(false);
     const[type,setType]=useState('')
     const [name,setname]=useState('')
     const [desc,setdesc]=useState('')
@@ -70,10 +72,59 @@ const UploadImage=async()=>{
         setImage(null)
     }
     // No permissions request is necessary for launching the image library
+    const getUser = () => {
+        const usersRef = firebase.firestore().collection("users");
+        
+        firebase.auth().onAuthStateChanged(async (user) => {
+        
+          {
+            if (user) {
+              await usersRef
+                .doc(user.uid)
+                .get()
+                .then((document) => {
+                  setloading(false);
+                  setUser({
+                    id: document.id,
+                    email: document.data().email,
+                    fullName: document.data().fullName,
+                    image: document.data().image,
+                    phoneNumber: document.data().phoneNumber,
+                    location: location,
+                  });
+                  console.log(document.data());
+                  console.log(user)
+                })
     
+                .catch((error) => {
+                  setloading(false);
+                });
+            } else {
+              setloading(false);
+            }
+          }
+        });
+      };
+      useEffect(() => {
+        getUser();
+      }, []);
     return (
         <ScrollView>
         <KeyboardAvoidingView style={styles.container} behavior='padding'>
+        {/* <View style ={{flexDirection:"row"}}>
+    <Image
+            source={{ uri: user.image }}
+            style={{
+              width: 40,
+              height: 50,
+              borderRadius: 20,
+              marginTop: 20,
+              marginLeft:10,
+
+            }}
+          />
+          <Text style={{marginTop:35,marginLeft:10,fontSize:18}}>{user.fullName}</Text>
+    </View> */}
         <View style={styles.inputcontainer}>
         <SelectDropdown
             data={options}
@@ -91,20 +142,18 @@ const UploadImage=async()=>{
                 return item
             }}
             renderDropdownIcon={isOpened => {
-                return <Ionicons name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-up-circle-outline'} color={'#444'} size={18} />;
+                return <Ionicons name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-down-circle-outline'} color={'#444'} size={18} />;
             }}
             defaultButtonText={'Sélectionnez'}
             />
     <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
-   <View>
-   <TouchableOpacity onPress={PickImage}><Text><Feather name="camera" size={30} color="#14b8a6" />  </Text></TouchableOpacity>
+   <View style={{ flexDirection: "row", marginTop: 15,marginLeft:50 }}>
+   <TouchableOpacity onPress={PickImage}><Text style={{ marginTop: 8, marginLeft:35}}><Feather name="camera"  size={30} color="#14b8a6" />  </Text></TouchableOpacity>
+   <TouchableOpacity onPress={openDocument}><Text style={{ marginTop: 8, marginLeft: 75}}><Feather name="file-plus"    size={30} color="#14b8a6" /></Text></TouchableOpacity>
+   </View>
    
-   </View>
-   <View>
-   <TouchableOpacity onPress={openDocument}><Text><Feather name="file-plus" size={30} color="#14b8a6" /></Text></TouchableOpacity>
-   </View>
-   {image&&(<View><Image source={{uri:image.uri}} style={{width:300,height:300}}/></View>)}
+   {image&&(<View><Image source={{uri:image.uri}} style={{width:200,height:200}}/></View>)}
 
    
    </SafeAreaView>

@@ -8,16 +8,16 @@ export default StyleSheet.create({
     backgroundColor: "white",
   },
   inputcontainer: {
-    width: "80%",
+    width: "100%",
     height: "-50%",
     
     marginBottom: 40,
   },
   input: {
-    backgroundColor: "#dcdcdc",
+    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 40,
+    marginTop: 20,
 
     textAlignVertical: "top",
 
@@ -25,7 +25,7 @@ export default StyleSheet.create({
 
     height:200,
     padding: 12,
-    borderRadius: 10,
+    borderRadius: 5,
     //     box-sizing: border-box;
     //     border: 2px solid #ccc;
     //     border-radius: 4px;
@@ -44,7 +44,7 @@ export default StyleSheet.create({
     borderRadius: 10,
     marginVertical: 3,
     marginBottom: 10,
-    marginTop: 3,
+    marginTop: -28,
     marginLeft: 1,
   },
   but: {

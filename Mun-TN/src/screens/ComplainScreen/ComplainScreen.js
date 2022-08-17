@@ -180,6 +180,21 @@ export default function ComplainScreen({ navigation }) {
   return (
     <ScrollView theme={scheme === "dark" ? DarkTheme : MyTheme}>
     {/* <KeyboardAvoidingView style={styles.container} behavior="padding"> */}
+    <View style ={{flexDirection:"row"}}>
+    <Image
+            source={{ uri: user.image }}
+            style={{
+              width: 40,
+              height: 50,
+              borderRadius: 20,
+              marginTop: 20,
+              marginLeft:10,
+
+            }}
+          />
+          <Text style={{marginTop:35,marginLeft:10,fontSize:18}}>{user.fullName}</Text>
+    </View>
+   
       <View style={styles.inputcontainer}>
         <SelectDropdown
           data={options}
@@ -198,23 +213,14 @@ export default function ComplainScreen({ navigation }) {
               <Ionicons
                 name={isOpened ? "ios-chevron-up-circle-outline" : "ios-chevron-down-circle-outline"}
                 color={"#444"}
-                size={26}
+                size={30}
               />
             );
           }}
-          // defaultButtonText={"Select type"}
+          defaultButtonText={""}
         />
         <View style={{ flexDirection: "row", marginTop: 10 }}>
-          <Image
-            source={{ uri: user.image }}
-            style={{
-              width: 40,
-              height: 50,
-              borderRadius: 20,
-              marginTop: 100,
-
-            }}
-          />
+      
           <TextInput
             style={styles.input}
             multiline={true}
