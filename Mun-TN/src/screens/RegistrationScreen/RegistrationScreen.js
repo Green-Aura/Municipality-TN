@@ -49,6 +49,7 @@ export default function RegistrationScreen({ navigation }) {
   const [adress, setAdress] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
   const [image, setImage] = useState(null);
+  const [uploading,setUploading]=useState(false)
 
   const onFooterLinkPress = () => {
     navigation.navigate("Login");
@@ -70,7 +71,8 @@ export default function RegistrationScreen({ navigation }) {
           email,
           fullName,
           image,
-          phoneNumber
+          phoneNumber,
+          adress
         };
         const usersRef = firebase.firestore().collection("users");
         usersRef
@@ -88,20 +90,8 @@ export default function RegistrationScreen({ navigation }) {
       });
 
   };
-  // useEffect(() => {
-  //   (async () => {
-  //     if (Platform.OS !== "web") {
-  //       const { status } =
-  //         await ImagePicker.requestMediaLibraryPermissionsAsync();
-  //       if (status !== "granted") {
-  //         alert(
-  //           "Sorry, Camera roll permissions are required to make this work!"
-  //         );
-  //       }
-  //     }
-  //   })();
-  // }, []);
-
+ 
+ 
   const chooseImg = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -116,6 +106,24 @@ export default function RegistrationScreen({ navigation }) {
       setImage(result.uri);
     }
   };
+  const UploadImage=async()=>{
+    setUploading(true)
+    const response=await fetch(image.uri)
+    const blob=await response.blob()
+    const filename=image.uri.substring(image.uri.lastIndexOf('/')+1)
+    var ref=firebase.storage().ref().child(filename).put(blob)
+    try{
+        await ref
+    }
+    catch(e){
+        console.log(e)
+    }
+    setUploading(false)
+    Alert.alert(
+        'photo uploaded'
+        )
+        setImage(null)
+    }
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
@@ -132,7 +140,7 @@ export default function RegistrationScreen({ navigation }) {
         </InnerContainer>
         <MyTextInput
           icon="user"
-          placeholder="Full Name"
+          placeholder="Nom et prénom"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setFullName(text)}
           value={fullName}
@@ -140,38 +148,21 @@ export default function RegistrationScreen({ navigation }) {
           autoCapitalize="none"
         />
     
-        {/* <PhoneInput 
-        
-        placeholder="Enter phone number"
-        value={phoneNumber}
-        defaultValue={216}
-        onChangeText={(text)=>{setPhoneNumber(text)rlog(value)}
-               
-                 items={[
-                     { label: "rue nour", value: "rue nour" },
-                     { label: "rue 20 mars", value: "rue 20 mars" },
-                     { label: "rue abou kacem", value: "rue abou kacem" },
-                     { label: "rue hannibal", value: "rue hannibal" },
-                     { label: "rue ghazela", value: "rue ghazela" },
-                     { label: "rue bardo", value: "rue bardo" },
-                 ]}
-                
-             />
-      {/* <MyTextInput
+  <MyTextInput
       
       icon="phone"
    
           placeholder="+216 xx xxx xxx"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setPhoneNumber(text)}
-          value={email}
+          value={phoneNumber}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
           
-        /> */}
+        />
          <MyTextInput
           icon="home"
-          placeholder="adress"
+          placeholder="adresse"
           placeholderTextColor={darkLight}
           onChangeText={(text) => setAdress(text)}
           value={adress}
@@ -191,7 +182,7 @@ export default function RegistrationScreen({ navigation }) {
 <MyTextInput
           icon="lock"
           placeholderTextColor={darkLight}
-          placeholder="Password"
+          placeholder="Mot de passe"
           onChangeText={(text) => setPassword(text)}
           value={password}
           underlineColorAndroid="transparent"
@@ -204,7 +195,7 @@ export default function RegistrationScreen({ navigation }) {
         <MyTextInput
           icon="lock"
           placeholderTextColor={darkLight}
-           placeholder="Confirm Password"
+           placeholder="Confirmer le mot de passe"
            onChangeText={(text) => setConfirmPassword(text)}
           value={confirmPassword}
           underlineColorAndroid="transparent"
@@ -216,7 +207,7 @@ export default function RegistrationScreen({ navigation }) {
 
          />
         
-         <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choose image from camera roll</Text></TouchableOpacity>
+         <TouchableOpacity onPress={chooseImg}><Text> <Feather name="camera" size={30} color={brand} />  Choisissez une image </Text></TouchableOpacity>
 
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }}>
@@ -225,13 +216,13 @@ export default function RegistrationScreen({ navigation }) {
           
         )} 
         <StyledButton onPress={() => onRegisterPress()}>
-          <Buttontext>Create account</Buttontext>
+          <Buttontext>Créer un compte</Buttontext>
         </StyledButton>
         <View style={styles.footerView}>
           <Text style={styles.footerText}>
-            Already got an account?{" "}
+          Vous avez déjà un compte ?{" "}
             <Text onPress={onFooterLinkPress} style={styles.footerLink}>
-              Log in
+            Connectez-vous
             </Text>
           </Text>
         </View>

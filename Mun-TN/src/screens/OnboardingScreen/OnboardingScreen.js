@@ -34,6 +34,7 @@ const slides = [
     title: 'مستقبل أولادنا في نظافة بلادنا ',
     // subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
+
 ];
 
 const Slide = ({item}) => {
@@ -114,7 +115,7 @@ const OnboardingScreen = ({navigation}) => {
                 style={styles.btn}
                 onPress={() => navigation.navigate('Login')}>
                 <Text style={{fontWeight: 'bold', fontSize: 15}}>
-                  GET STARTED
+                commencer
                 </Text>
               </TouchableOpacity>
             </View>
@@ -137,7 +138,7 @@ const OnboardingScreen = ({navigation}) => {
                     fontSize: 15,
                     color: COLORS.cyan,
                   }}>
-                  SKIP
+                 sauter
                 </Text>
               </TouchableOpacity>
               <View style={{width: 15}} />
@@ -150,7 +151,7 @@ const OnboardingScreen = ({navigation}) => {
                     fontWeight: 'bold',
                     fontSize: 15,
                   }}>
-                  NEXT
+               suivant 
                 </Text>
               </TouchableOpacity>
             </View>

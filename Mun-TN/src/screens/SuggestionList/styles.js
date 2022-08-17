@@ -1,8 +1,21 @@
 import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
+
     container: {
-        felx: 1,
-        backgroundColor: "#ecfeff",
+        width: "80%",
+        alignSelf: "center",
+        shadowRadius: 10,
+        elevation: 13,
+        shadowOpacity: 0.5,
+        shadowColor: "#000",
+        shadowOffset: {
+            height: 5,
+            width: 0,
+        },
+        backgroundColor: "#fff",
+        borderRadius: 5,
+        marginTop: 10,
+        // position: 'absolute'
     },
     card: {
        backgroundColor: "#fff",
@@ -36,10 +49,9 @@ export default StyleSheet.create({
     },
     feedImage: {
         height: 200,
-        borderRadius: 10,
-        marginVertical: 10,
-        borderColor:"black",
-        borderWidth:5
+        borderRadius: 5,
+        width: "100%",
+
     },
     cardFooter: {
         flexDirection: 'row',
@@ -49,7 +61,43 @@ export default StyleSheet.create({
     footerLeft: {
         flexDirection: 'row',
     },
-    
+    profilecontainer:{
+      
+        width:"100%",
+        height:800,
+        
+        alignSelf:"center",
+        backgroundColor:"#ecfeff",
+        shadowRadius: 10,
+        elevation: 13,
+        shadowOpacity: 0.5,
+        shadowColor: "#000",
+        shadowOffset: {
+            height: 5,
+            width: 0,
+        },
+    },
+    minicontainer:{
+        backgroundColor:"turquoise",
+        width:"100%",
+        height:"28%",
+      alignContent:"center",
+        
+    },
+    title:{
+        fontSize: 20,
+        fontWeight: "600",
+        padding: 15,
+        marginBottom: -25,
+
+    },
+    description:{
+        fontSize: 16,
+        fontWeight: "400",
+        marginBottom: -5,
+        padding: 15,
+        marginTop: -20,
+    },
 
 
     
