@@ -113,7 +113,7 @@ bottom: 0}} ref={mapref}
         strokeWidth={2}
         strokeColor='red'
         apikey='AIzaSyDcTgDGFU0IT79oG9GHDUzJ7uAkA5Vldq8'
-        
+
       
       />
 
