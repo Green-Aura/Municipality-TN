@@ -6,6 +6,7 @@ import { Button ,FAB} from 'react-native-paper';
 import { useTheme } from '@react-navigation/native';
 import * as Loaction from "expo-location"
 import MapDirections from "react-native-maps-directions"
+import  PushNotification  from 'react-native-push-notification';
 import { mapDarkStyle,mapStandardStyle } from './DarkStyle';
 const window=Dimensions.get('window')
 export default function MapViewComponent (){
@@ -73,6 +74,7 @@ var trucks=[
   }
 }
 ]
+
   var getlocation=async ()=>{
     let {status}=await Loaction.requestForegroundPermissionsAsync()
     if(status!=="granted"){
@@ -110,7 +112,8 @@ bottom: 0}} ref={mapref}
         longitudeDelta: 0.04}}
         strokeWidth={2}
         strokeColor='red'
-        apikey='AIzaSyClxT8BQD4ymaZKtfhR52Dk43zMv4kyrnE'
+        apikey='AIzaSyDcTgDGFU0IT79oG9GHDUzJ7uAkA5Vldq8'
+        
       
       />
 
@@ -124,11 +127,10 @@ bottom: 0}} ref={mapref}
   }}
   >
   <Image source={require("../MapBoxScreen/garbage-truck.png")} style={{height:20,width:20}}/>
-
   </Marker>
   <Circle center={{latitude:truck.coords.latitude,longitude:truck.coords.longitude}} radius={1000}/>
   <Polyline coordinates={[truck.coords
-  ,{  latitude: 36.803361467599,
+  ,{latitude: 36.803361467599,
     longitude:10.112652667605,
     latitudeDelta: 0.09,
   longitudeDelta: 0.04}]}/>

@@ -1,5 +1,5 @@
 package app.js;
-
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -37,6 +37,8 @@ public class MainApplication extends Application implements ReactApplication {
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage());
        new MapsPackage()
+        new ReactNativePushNotificationPackage()
+      
       return packages;
     }
 
