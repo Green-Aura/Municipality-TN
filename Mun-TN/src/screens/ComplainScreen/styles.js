@@ -45,7 +45,7 @@ export default StyleSheet.create({
     marginVertical: 3,
     marginBottom: 10,
     marginTop: 10,
-    marginLeft: 120,
+    marginLeft: 113,
   },
   but: {
     textAlign: "center",
@@ -99,7 +99,8 @@ export default StyleSheet.create({
   author:{
     fontWeight: "bold",
     fontSize: 15,
-    marginTop: 10
+    marginTop: 20,
+    marginLeft: 5
 },
 author1:{
   fontWeight: "bold",
