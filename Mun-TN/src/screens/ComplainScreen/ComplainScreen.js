@@ -312,8 +312,25 @@ console.log(location)
       <Text></Text>
       <Text></Text>
       <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      
+      
+
      <MapView provider="google"  style={{flex:1,position:"absolute",width:"100%",height:"100%",top:0,left:0,bottom:0,right:0}}></MapView>
-     <FAB icon="plus" style={{marginTop:10,width:50,marginLeft:"90%"}} onPress={()=>getlocation()}/></View></View>):null}
+     <FAB icon="plus" style={{marginTop:-80,width:50,marginLeft:"85%"}} onPress={()=>getlocation()}/></View></View>):null}
       
     {/* </KeyboardAvoidingView> */}
   </ScrollView>

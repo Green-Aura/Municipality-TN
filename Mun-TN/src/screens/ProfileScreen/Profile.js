@@ -224,7 +224,7 @@ var fileredcomplaints=complains.filter((item=>item.iduser==userData.id))
         </View>
         </View>
         </View>):page=="complains"?<View>  
-      <TouchableOpacity style={styles.backbutton} onPress={()=>{setPage("profile")}}><Text>back</Text></TouchableOpacity>
+      <TouchableOpacity  onPress={()=>{setPage("profile")}}><Image source={require("../../../assets/images/back.png")} /></TouchableOpacity>
 <View>
 {fileredcomplaints.length==0?(<View style={{alignSelf:"center",marginTop:50,backgroundColor:"white",borderRadius:5}}>
   <Text>Looks Like you don't have any complaints yet</Text>
@@ -241,7 +241,7 @@ var fileredcomplaints=complains.filter((item=>item.iduser==userData.id))
  <Image  source={{uri:item.userimage}} style={{width:50,height: 50,borderRadius: 50/2}} />
   <Text style={{fontWeight:"bold",fontSize:15,color:"black",marginTop:9,marginLeft:5}}>{item.username}</Text>
   </View>
-  <View style={{marginBottom:20,flexDirection:"row",alignSelf:"flex-end",marginLeft:"52%"}}>
+  <View style={{marginBottom:20,flexDirection:"row",alignSelf:"flex-end",marginLeft:"45%"}}>
   <TouchableOpacity style={styles.updatebutton} onPress={()=>setshowpopup(true)}><FontAwesome name='pencil' size={20}/></TouchableOpacity>
   <TouchableOpacity  onPress={()=>handledelete(item.id)} style={styles.deletebutton}><AntDesign name='delete' size={15}/></TouchableOpacity>
   </View>

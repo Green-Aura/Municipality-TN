@@ -116,7 +116,6 @@ const HomeScreen = (props) => {
                     styles.itemTitle,
                   ]}>
               Réclamation
-
                 </Text>
               </View>
               <View style={styles.meditateItemWrapper}>
