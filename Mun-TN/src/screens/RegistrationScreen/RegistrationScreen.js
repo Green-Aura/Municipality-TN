@@ -500,10 +500,10 @@ export default function RegistrationScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          {/* <Image source={require("../RegistrationScreen/v1.png")}
+           <Image source={require("../RegistrationScreen/v1.png")}
             style ={{width:280}}
           
-          /> */}
+          /> 
           {/* <PageTitle>Municipality</PageTitle> */}
         </InnerContainer>
 
@@ -516,16 +516,30 @@ export default function RegistrationScreen({ navigation }) {
           underlineColorAndroid="transparent"
           autoCapitalize="none"
         />
+        <View >
+        <AntDesign name="home" size={30} color={"#00B2FF"} style={{marginBottom:-35,position:"absolute",marginTop:25,marginLeft:16}} />
         <SelectList 
-          setSelected={setcity}
-          data={cities}
-          placeholder="choisissez votre ville "
-          onSelect={() => console.log(city)}
-          search={false}
-        />
+             inputStyles ={{padding :8, color:"#989898",fontSize:15,marginLeft:26}}
+             boxStyles ={{borderWidth:0 , borderBottomWidth :1,marginTop:15}}
+              setSelected={setcity}
+              data={cities}
+              placeholder="       Choisissez votre ville "
+              onSelect={() => console.log(city)}
+              search={false} 
+                     
+        
+     
+          />
+      
+        </View>
+        <View>
+        <AntDesign name="home" size={30} color={"#00B2FF"} style={{marginBottom:-35,position:"absolute",marginTop:24,marginLeft:16}} />
         <SelectList
+       
+         inputStyles ={{padding :8 ,borderWidth : 0, color:"#989898",fontSize:15,marginLeft:26}}
+         boxStyles ={{borderWidth:0, borderBottomWidth :1,marginTop:15}}
           setSelected={setMunicipality}
-          placeholder="choisissez votre municipalitée"
+          placeholder=" Choisissez votre municipalitée"
           data={
             city == "Ariana"
               ? Ariana
@@ -582,8 +596,8 @@ export default function RegistrationScreen({ navigation }) {
           onSelect={() => console.log(Municipality)}
           search={false}
         />
-
-        <MyTextInput
+        </View>
+        {/* <MyTextInput
           icon="home"
           placeholder="adresse"
           placeholderTextColor={darkLight}
@@ -591,7 +605,7 @@ export default function RegistrationScreen({ navigation }) {
           value={adress}
           underlineColorAndroid="transparent"
           autoCapitalize="none"
-        />
+        /> */}
         <MyTextInput
           icon="mail"
           placeholder="E-mail"

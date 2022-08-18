@@ -82,8 +82,8 @@ export default function LoginScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          {/* <Image source={require("../LoginScreen/v2.png")}
-          style={{width:280}} /> */}
+           <Image source={require("../LoginScreen/v2.png")}
+          style={{width:280}} /> 
           {/* <PageTitle>بلديتي</PageTitle> */}
           <SubTitle></SubTitle>
         </InnerContainer>
