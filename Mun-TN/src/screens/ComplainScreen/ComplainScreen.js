@@ -97,7 +97,7 @@ console.log(location)
     },
   };
   const scheme = useColorScheme();
-  const options = ["general", "electicity", "garbage"];
+  const options = ["Réclamations Générales", "Eclairage public","Parking","Risque Sanitaire","Déchets/ordures","Autres"];
   const [type, setType] = useState("");
   const [name, setname] = useState("");
   const [desc, setdesc] = useState("");
@@ -185,10 +185,29 @@ console.log(location)
 
   return (
     <ScrollView theme={scheme === "dark" ? DarkTheme : MyTheme}>
+
     {/* <KeyboardAvoidingView style={styles.container} behavior="padding"> */}
     {page=="Complain"?(<View><View style={styles.inputcontainer}>
-      <SelectDropdown
+      <View style={{flexDirection:"row"}}>
+              <Image
+          source={{ uri: user.image }}
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: 30,
+            marginTop: 10,
 
+          }}
+        />
+        <Text style={styles.author}>{user.fullName}</Text>
+
+        <View style={styles.button}>
+        <TouchableOpacity style={styles.but} onPress={() => handlesubmit()}>
+          <Text style={styles.buttontext}>Publier</Text>
+        </TouchableOpacity>
+      </View>
+        </View>
+      <SelectDropdown
         data={options}
         onSelect={(selectedItem, index) => {
           console.log(selectedItem, index);
@@ -212,16 +231,6 @@ console.log(location)
         // defaultButtonText={"Select type"}
       />
       <View style={{ flexDirection: "row", marginTop: 10 }}>
-        <Image
-          source={{ uri: user.image }}
-          style={{
-            width: 40,
-            height: 50,
-            borderRadius: 20,
-            marginTop: 100,
-
-          }}
-        />
         <TextInput
           style={styles.input}
           multiline={true}
@@ -231,38 +240,42 @@ console.log(location)
         />
       </View>
       <SafeAreaView horizontal={true}>
-        <View style={{ flexDirection: "row", marginTop: 8 }}>
+        <View style={{flexDirection:"row"}}>
           <TouchableOpacity onPress={PickImage}>
             <SimpleLineIcons
               name="camera"
-              style={{ marginTop: 8, marginLeft: 45}}
+              style={{ marginTop: 20, marginLeft: 10}}
               color="#00B2FF" 
               size={30}
             ></SimpleLineIcons>
-
           </TouchableOpacity>
+          <Text style={styles.author1}>Photo/Video</Text>
+          </View>
+          <View style={{flexDirection:"row"}}>
           <TouchableOpacity
-
             onPress={() => setPage("map")}
           >
            <SimpleLineIcons
               name="location-pin"
-              style={{ marginTop: 8, marginLeft: 80 }}
+              style={{ marginTop: 20, marginLeft: 8 }}
               color="#00B2FF" 
               size={30}
             ></SimpleLineIcons>
           </TouchableOpacity>
+          <Text style={styles.author1}>Position</Text>
+            </View>
+            <View style={{flexDirection:"row"}}>
           <TouchableOpacity  onPress={openDocument}>
           <FontAwesome
               name="file-pdf-o"
-              style={{ marginTop:8, marginLeft: 90 }}
+              style={{ marginTop:20, marginLeft: 10 }}
               color="#00B2FF" 
               size={30}
             ></FontAwesome>
 
           </TouchableOpacity>
-        </View>
-
+          <Text style={styles.author1}>Fichier</Text>
+          </View>
         {image && (
           <View>
             <Image
@@ -281,12 +294,6 @@ console.log(location)
       </SafeAreaView>
     </View>
     <View style={styles.buttoncontainer}>
-      <View style={styles.button}>
-        <TouchableOpacity style={styles.but} onPress={() => handlesubmit()}>
-          <Text style={styles.buttontext}>submit</Text>
-        </TouchableOpacity>
-      </View>
-      
       </View></View>):page=="map"?(
         <View>
      
@@ -330,7 +337,7 @@ console.log(location)
       
 
      <MapView provider="google"  style={{flex:1,position:"absolute",width:"100%",height:"100%",top:0,left:0,bottom:0,right:0}}></MapView>
-     <FAB icon="plus" style={{marginTop:-80,width:50,marginLeft:"85%"}} onPress={()=>getlocation()}/></View></View>):null}
+     <FAB icon="plus" style={{marginTop:-80,width:55,marginLeft:150,height:55}} onPress={()=>getlocation()}/></View></View>):null}
       
     {/* </KeyboardAvoidingView> */}
   </ScrollView>
