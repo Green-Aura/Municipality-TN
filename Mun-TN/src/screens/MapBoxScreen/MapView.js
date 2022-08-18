@@ -1,15 +1,21 @@
 import  React,{ useEffect, useRef, useState } from 'react';
-import MapView, {Circle, Marker, MarkerAnimated} from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView, NativeEventEmitter } from 'react-native';
+import MapView, {Circle, Marker, MarkerAnimated, Polyline} from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView, NativeEventEmitter, Alert } from 'react-native';
 import {firebase} from '../../../firebase/config';
 import { Button ,FAB} from 'react-native-paper';
+import { useTheme } from '@react-navigation/native';
 import * as Loaction from "expo-location"
 import MapDirections from "react-native-maps-directions"
+import  PushNotification  from 'react-native-push-notification';
+import { mapDarkStyle,mapStandardStyle } from './DarkStyle';
 const window=Dimensions.get('window')
 export default function MapViewComponent (){
   const mapref=useRef()
  const [ marginBottom,setmarginBottom]=useState(1)
  const [truckdata,settruckdata]=useState([])
+ const theme=useTheme()
+ const[isdark,setdark]=useState(false)
+
  const [position,setposition]=useState({
    latitude:0,
   longitude:0,
@@ -68,25 +74,31 @@ var trucks=[
   }
 }
 ]
+
   var getlocation=async ()=>{
     let {status}=await Loaction.requestForegroundPermissionsAsync()
-    if(status=="granted"){
-      seterrormsg("permission denied")
+    if(status!=="granted"){
+      alert("permission denied")
     }
     let location= await  Loaction.getCurrentPositionAsync({})
   
     setLocation(location.coords)
     
   }
-  var addlocation=()=>{
-    console.log(location)
-    
-  }
+  
+  useEffect(()=>{
+getlocation()
+  },[])
     return (
     <View style={{flex:1}}>
-<MapView provider="google" style={{flex:1,marginBottom:marginBottom,position:"absolute",width:"100%",height:"100%"}} ref={mapref}
-
-
+<MapView provider="google" style={{ position: 'absolute',
+top: 0,
+left: 0,
+right: 0,
+bottom: 0}} ref={mapref}
+      showsCompass={true}
+      showsTraffic={true}
+      showsBuilding={true}
       showsMyLocationButton={true}
       showsUserLocation={true} >
       <MapDirections origin={{latitude:37.050020,
@@ -100,13 +112,12 @@ var trucks=[
         longitudeDelta: 0.04}}
         strokeWidth={2}
         strokeColor='red'
-        apikey=''
-      
+        apikey='AIzaSyDcTgDGFU0IT79oG9GHDUzJ7uAkA5Vldq8'
       />
 
 {truckdata.map(truck=>(
   <View>
-  <Marker coordinate={truck.coords} draggable={true} onDragStart={(e)=>{
+  <Marker  tappable={true} title="trashtruck"  coordinate={truck.coords} draggable={true} onDragStart={(e)=>{
     console.log("drag start" +e.nativeEvent.coordinate)
   }}
   onDragEnd={(e)=>{
@@ -114,9 +125,13 @@ var trucks=[
   }}
   >
   <Image source={require("../MapBoxScreen/garbage-truck.png")} style={{height:20,width:20}}/>
-
   </Marker>
   <Circle center={{latitude:truck.coords.latitude,longitude:truck.coords.longitude}} radius={1000}/>
+  <Polyline coordinates={[truck.coords
+  ,{latitude: 36.803361467599,
+    longitude:10.112652667605,
+    latitudeDelta: 0.09,
+  longitudeDelta: 0.04}]}/>
   </View>
   
 ))}
@@ -141,7 +156,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  map: {
+  map:{
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
     flex:1,

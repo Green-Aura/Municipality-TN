@@ -19,15 +19,15 @@ const DATA =[
     },
     {
         source: "ALJAZEERA",
-        title: "Bad news",
+        title: "عيد الشجرة ",
         image: "https://modo3.com/thumbs/fit630x300/168421/1524978830/%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE_%D8%B9%D9%8A%D8%AF_%D8%BA%D8%B1%D8%B3_%D8%A7%D9%84%D8%A3%D8%B4%D8%AC%D8%A7%D8%B1.jpg",
         description: "بمناسبة عيد الشجرة تعتزم بلدية الدندان بالاشتراك مع المجتمع المدني في تنظيم يوم توعوي للتحسيس بمخاطر التلوث تتخلله العديد من التظاهرات والفعاليات.",
         
     },
 
     {
-        source: "ALJAZEERA",
-        title: "Bad news",
+      
+        title: "Presedent",
         image: "https://arabcenterdc.org/wp-content/uploads/2020/09/Kais-Saied-Supreme-Court-768x384.jpg",
         description: "A new Tunisian constitution giving far more power to President Kais Saied passed in a referendum with a 30.5% turnout, the electoral commission said on Tuesday, tightening his grip in what critics fear is a march to a new era of autocracy.",
         
