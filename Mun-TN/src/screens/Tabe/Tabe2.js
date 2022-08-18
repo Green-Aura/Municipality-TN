@@ -123,12 +123,12 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.green,
+    backgroundColor:'#00B2FF',
     borderRadius: 25,
   },
   text: {
     fontSize: 10,
     textAlign: 'center',
-    color: Colors.green,
+    color: '#00B2FF',
   }
 })

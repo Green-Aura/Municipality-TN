@@ -6,7 +6,7 @@ export default StyleSheet.create({
         height:800,
         
         alignSelf:"center",
-        backgroundColor:"#ecfeff",
+        backgroundColor:"#F5F5F5",
         shadowRadius: 10,
         elevation: 13,
         shadowOpacity: 0.5,
@@ -31,7 +31,7 @@ export default StyleSheet.create({
         
     },
     logoutbuton:{
-        backgroundColor:"#14b8a6",
+        backgroundColor:"#00B2FF",
         borderRadius:7,
         width:"30%",
         textAlign:"center",
@@ -41,26 +41,41 @@ export default StyleSheet.create({
         height:30
     },
     emailinput:{
-        borderRadius:20,
-        backgroundColor:"white",
-        width:"100%",
-        height:40
+        backgroundColor: "transparent",
+        padding: 15,
+        paddingLeft: 55,
+        paddingRight: 55,
+        borderRadius: 10,
+        fontSize: 16,
+        height: 60,
+        marginVertical: 3,
+        marginBottom: 5,
+        borderBottomColor :"black",
+        borderBottomWidth :1,
+        
     },
     formcontainer:{
         alignContent:"center",
         alignItems:'center',
-        width:"50%",
-        marginTop:"50%",
+        width:"100%",
+        marginTop:"40%",
         
         
 
     },
     nameinput:{
-        borderRadius:20,
-        backgroundColor:"white",
-        width:"100%",
-        marginTop:20,
-        height:40
+   backgroundColor: "transparent",
+   padding: 15,
+   paddingLeft: 55,
+   paddingRight: 55,
+   borderRadius: 10,
+   fontSize: 16,
+   height: 60,
+   marginVertical: 3,
+   marginBottom: 5,
+   borderBottomColor :"black",
+   borderBottomWidth :1,
+   
     },
     imageinput:{
         backgroundColor:"#14b8a6",
@@ -76,21 +91,28 @@ export default StyleSheet.create({
     
     },
     icon:{
-        marginLeft:200,
-        marginTop:-15
+        marginLeft:300,
+        marginTop:-15,
+        
     },
     submitbutton:{
-        backgroundColor:"#14b8a6",
-        width:"40%",
-        alignItems:"center",
-        textAlign:"center",
-        borderRadius:7,
-        marginTop:20,
-        height:30
+        backgroundColor:"#00B2FF",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 15,
+        paddingLeft: 55,
+        paddingRight: 55,
+        borderRadius: 10,
+        fontSize: 16,
+        height: 60,
+        marginVertical: 3,
+        marginBottom: 10,
+        marginTop: 15,
+        marginLeft:30,
         
     },
     backbutton:{
-        backgroundColor:"#14b8a6",
+        backgroundColor:"#00B2FF",
         width:"30%",
         marginTop:20,
         borderRadius:5,
@@ -235,7 +257,7 @@ export default StyleSheet.create({
     },
     minicontainer:{
         
-        backgroundColor:"#008080",
+        backgroundColor:"#00B2FF",
         width:"100%",
         height:"28%",
       alignContent:"center",

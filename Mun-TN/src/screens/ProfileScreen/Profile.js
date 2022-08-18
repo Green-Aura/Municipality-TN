@@ -257,7 +257,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               </View>
               <View style={styles.infocontainer}>
                 <View style={{ marginLeft: 20, flexDirection: "row" }}>
-                  <AntDesign name="phone" size={30} color={"turquoise"} />
+                  <AntDesign name="phone" size={30} color={"#00B2FF"} />
                   <Text
                     style={{
                       color: "grey",
@@ -276,7 +276,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                     marginTop: 20,
                   }}
                 >
-                  <AntDesign name="home" size={30} color={"turquoise"} />
+                  <AntDesign name="home" size={30} color={"#00B2FF"} />
                   <Text
                     style={{
                       color: "grey",
@@ -298,7 +298,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                   <FontAwesome
                     name="commenting-o"
                     size={30}
-                    color={"turquoise"}
+                    color={"#00B2FF"}
                     onPress={() => {
                       setPage("complains");
                     }}
@@ -327,7 +327,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                   <AntDesign
                     name="logout"
                     size={30}
-                    color={"turquoise"}
+                    color={"#00B2FF"}
                     onPress={async () => {
                       try {
                         await firebase.auth().signOut();
@@ -358,7 +358,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
         <View style={{ alignContent: "center", alignItems: "center" }}>
           <View style={styles.formcontainer}>
             <TextInput
-            icon="mail"
+              icon="mail"
               style={styles.emailinput}
               placeholder="email "
               value={email}
@@ -377,8 +377,11 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               />
             )}
             <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity style={styles.imageinput} onPress={chooseImg}>
-                <AntDesign name="camera" size={25} />
+              <TouchableOpacity onPress={chooseImg}>
+                <AntDesign  name="camera"
+              style={{ marginTop: 28, marginLeft: 45}}
+              color="#00B2FF" 
+              size={30} />
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.submitbutton}

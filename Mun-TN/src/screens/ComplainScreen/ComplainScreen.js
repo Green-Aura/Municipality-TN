@@ -42,11 +42,16 @@ export default function ComplainScreen({ navigation }) {
     if (status == "granted") {
       seterrormsg("permission granted");
     }
-    let location = await Loaction.getCurrentPositionAsync({});
-    setlocation(location.coords);
-    console.log(location);
-    setPage("Complain");
-  };
+
+    let location= await  Loaction.getCurrentPositionAsync({})
+setlocation(location.coords)
+console.log(location)
+    setPage("Complain")
+    alert("location selected")
+    }
+    
+  
+
 
   const getUser = () => {
     const usersRef = firebase.firestore().collection("users");
@@ -59,6 +64,7 @@ export default function ComplainScreen({ navigation }) {
             .then((document) => {
               setloading(false);
               setUser({
+
                 id: document.id,
                 email: document.data().email,
                 fullName: document.data().fullName,
@@ -180,111 +186,152 @@ export default function ComplainScreen({ navigation }) {
   return (
     <ScrollView theme={scheme === "dark" ? DarkTheme : MyTheme}>
     {/* <KeyboardAvoidingView style={styles.container} behavior="padding"> */}
-    <View style ={{flexDirection:"row"}}>
-    <Image
-            source={{ uri: user.image }}
-            style={{
-              width: 40,
-              height: 50,
-              borderRadius: 20,
-              marginTop: 20,
-              marginLeft:10,
+    {page=="Complain"?(<View><View style={styles.inputcontainer}>
+      <SelectDropdown
 
-            }}
-          />
-          <Text style={{marginTop:35,marginLeft:10,fontSize:18}}>{user.fullName}</Text>
-    </View>
-   
-      <View style={styles.inputcontainer}>
-        <SelectDropdown
-          data={options}
-          onSelect={(selectedItem, index) => {
-            console.log(selectedItem, index);
-            setType(selectedItem);
+        data={options}
+        onSelect={(selectedItem, index) => {
+          console.log(selectedItem, index);
+          setType(selectedItem);
+        }}
+        buttonTextAfterSelection={(selectedItem, index) => {
+          return selectedItem;
+        }}
+        rowTextForSelection={(item, index) => {
+          return item;
+        }}
+        renderDropdownIcon={(isOpened) => {
+          return (
+            <Ionicons
+              name={isOpened ? "ios-chevron-up-circle-outline" : "ios-chevron-down-circle-outline"}
+              color={"#444"}
+              size={26}
+            />
+          );
+        }}
+        // defaultButtonText={"Select type"}
+      />
+      <View style={{ flexDirection: "row", marginTop: 10 }}>
+        <Image
+          source={{ uri: user.image }}
+          style={{
+            width: 40,
+            height: 50,
+            borderRadius: 20,
+            marginTop: 100,
+
           }}
-          buttonTextAfterSelection={(selectedItem, index) => {
-            return selectedItem;
-          }}
-          rowTextForSelection={(item, index) => {
-            return item;
-          }}
-          renderDropdownIcon={(isOpened) => {
-            return (
-              <Ionicons
-                name={isOpened ? "ios-chevron-up-circle-outline" : "ios-chevron-down-circle-outline"}
-                color={"#444"}
-                size={30}
-              />
-            );
-          }}
-          defaultButtonText={""}
         />
-        <View style={{ flexDirection: "row", marginTop: 10 }}>
-      
-          <TextInput
-            style={styles.input}
-            multiline={true}
-            value={desc}
-            onChangeText={setdesc}
-            placeholder={`what's in your mind ${user.fullName}?`}
-          />
-        </View>
-        <SafeAreaView horizontal={true}>
-          <View style={{ flexDirection: "row", marginTop: 8 }}>
-            <TouchableOpacity onPress={PickImage}>
-              <SimpleLineIcons
-                name="camera"
-                style={{ marginTop: 8, marginLeft: 45}}
-                color="#14b8a6" 
-                size={30}
-              ></SimpleLineIcons>
-
-            </TouchableOpacity>
-            <TouchableOpacity
-
-              onPress={() => navigation.navigate("Map")}
-            >
-             <SimpleLineIcons
-                name="location-pin"
-                style={{ marginTop: 8, marginLeft: 80 }}
-                color="#14b8a6" 
-                size={30}
-              ></SimpleLineIcons>
-            </TouchableOpacity>
-            <TouchableOpacity  onPress={openDocument}>
-            <FontAwesome
-                name="file-pdf-o"
-                style={{ marginTop: 8, marginLeft: 90 }}
-                color="#14b8a6" 
-                size={30}
-              ></FontAwesome>
-            </TouchableOpacity>
-          </View>
-
-          {image && (
-            <View>
-              <Image
-                source={{ uri: image.uri }}
-                style={{
-                  width: 200,
-                  height: 110,
-                  borderRadius: 10,
-                  marginTop: 15,
-                  marginLeft:150,
-                  marginLeft: window.width / 35,
-                }}
-              />
-            </View>
-          )}
-        </SafeAreaView>
+        <TextInput
+          style={styles.input}
+          multiline={true}
+          value={desc}
+          onChangeText={setdesc}
+          placeholder={`what's in your mind ${user.fullName}?`}
+        />
       </View>
-      <View style={styles.buttoncontainer}>
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.but} onPress={() => handlesubmit()}>
-            <Text style={styles.buttontext}>soumettre</Text>
+      <SafeAreaView horizontal={true}>
+        <View style={{ flexDirection: "row", marginTop: 8 }}>
+          <TouchableOpacity onPress={PickImage}>
+            <SimpleLineIcons
+              name="camera"
+              style={{ marginTop: 8, marginLeft: 45}}
+              color="#00B2FF" 
+              size={30}
+            ></SimpleLineIcons>
+
+          </TouchableOpacity>
+          <TouchableOpacity
+
+            onPress={() => setPage("map")}
+          >
+           <SimpleLineIcons
+              name="location-pin"
+              style={{ marginTop: 8, marginLeft: 80 }}
+              color="#00B2FF" 
+              size={30}
+            ></SimpleLineIcons>
+          </TouchableOpacity>
+          <TouchableOpacity  onPress={openDocument}>
+          <FontAwesome
+              name="file-pdf-o"
+              style={{ marginTop:8, marginLeft: 90 }}
+              color="#00B2FF" 
+              size={30}
+            ></FontAwesome>
+
           </TouchableOpacity>
         </View>
+
+        {image && (
+          <View>
+            <Image
+              source={{ uri: image.uri }}
+              style={{
+                width: 200,
+                height: 110,
+                borderRadius: 10,
+                marginTop: 15,
+                marginLeft:150,
+                marginLeft: window.width / 35,
+              }}
+            />
+          </View>
+        )}
+      </SafeAreaView>
+    </View>
+    <View style={styles.buttoncontainer}>
+      <View style={styles.button}>
+        <TouchableOpacity style={styles.but} onPress={() => handlesubmit()}>
+          <Text style={styles.buttontext}>submit</Text>
+        </TouchableOpacity>
       </View>
+      
+      </View></View>):page=="map"?(
+        <View>
+     
+     <View>
+     <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      
+      
+
+     <MapView provider="google"  style={{flex:1,position:"absolute",width:"100%",height:"100%",top:0,left:0,bottom:0,right:0}}></MapView>
+     <FAB icon="plus" style={{marginTop:-80,width:50,marginLeft:"85%"}} onPress={()=>getlocation()}/></View></View>):null}
+      
     {/* </KeyboardAvoidingView> */}
   </ScrollView>
   );

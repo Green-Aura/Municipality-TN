@@ -149,8 +149,8 @@ const UploadImage=async()=>{
     <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
    <SafeAreaView>
    <View style={{ flexDirection: "row", marginTop: 15,marginLeft:50 }}>
-   <TouchableOpacity onPress={PickImage}><Text style={{ marginTop: 8, marginLeft:35}}><Feather name="camera"  size={30} color="#14b8a6" />  </Text></TouchableOpacity>
-   <TouchableOpacity onPress={openDocument}><Text style={{ marginTop: 8, marginLeft: 75}}><Feather name="file-plus"    size={30} color="#14b8a6" /></Text></TouchableOpacity>
+   <TouchableOpacity onPress={PickImage}><Text style={{ marginTop: 8, marginLeft:35}}><Feather name="camera"  size={30} color="#00B2FF" />  </Text></TouchableOpacity>
+   <TouchableOpacity onPress={openDocument}><Text style={{ marginTop: 8, marginLeft: 75}}><Feather name="file-plus"    size={30} color="#00B2FF" /></Text></TouchableOpacity>
    </View>
    
    {image&&(<View><Image source={{uri:image.uri}} style={{width:200,height:200}}/></View>)}
