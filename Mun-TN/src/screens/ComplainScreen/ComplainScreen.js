@@ -236,7 +236,7 @@ console.log(location)
             <SimpleLineIcons
               name="camera"
               style={{ marginTop: 8, marginLeft: 45}}
-              color="#14b8a6" 
+              color="#00B2FF" 
               size={30}
             ></SimpleLineIcons>
 
@@ -248,15 +248,15 @@ console.log(location)
            <SimpleLineIcons
               name="location-pin"
               style={{ marginTop: 8, marginLeft: 80 }}
-              color="#14b8a6" 
+              color="#00B2FF" 
               size={30}
             ></SimpleLineIcons>
           </TouchableOpacity>
           <TouchableOpacity  onPress={openDocument}>
           <FontAwesome
               name="file-pdf-o"
-              style={{ marginTop: 8, marginLeft: 90 }}
-              color="#14b8a6" 
+              style={{ marginTop:8, marginLeft: 90 }}
+              color="#00B2FF" 
               size={30}
             ></FontAwesome>
 

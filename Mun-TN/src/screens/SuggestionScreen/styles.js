@@ -8,28 +8,28 @@ import { color } from "react-native-reanimated";
     
     },
     inputcontainer:{
-        width:"80%",
+        width:"100%",
         marginBottom:40
         
 
     },
     input:{
-        backgroundColor:"#dcdcdc",
-        justifyContent: 'center',
-        alignItems:'center',
-        marginTop:40,
-      
-        textAlignVertical:"top",
-        
-        width:"100%",
-        
-        height: 150,
-        padding: 12 ,
-        borderRadius:10,
+        backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+
+    textAlignVertical: "top",
+
+    width: "100%",
+
+    height:200,
+    padding: 12,
+    borderRadius: 5,
     },
     button:{
        
-        backgroundColor:'#14b8a6',
+        backgroundColor:'#00B2FF',
         padding:15,
         paddingLeft:55,
         paddingRight:55,
@@ -38,7 +38,7 @@ import { color } from "react-native-reanimated";
         borderRadius:10,
         marginVertical:3,
         marginBottom:10,
-        marginTop:20,
+        marginTop:15,
        marginLeft:1,
     },
     but:{

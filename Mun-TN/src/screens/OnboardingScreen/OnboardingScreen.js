@@ -10,10 +10,11 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import { color } from 'react-native-reanimated';
 
 const {width, height} = Dimensions.get('window');
 
-const COLORS = {primary: '#ecfeff', cyan: '#14b8a6'};
+const COLORS = {primary: '#F5F5F5', cyan: '#006AFF'};
 
 const slides = [
   {
@@ -114,8 +115,8 @@ const OnboardingScreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.btn}
                 onPress={() => navigation.navigate('Login')}>
-                <Text style={{fontWeight: 'bold', fontSize: 15}}>
-                commencer
+                <Text style={{fontWeight: 'bold', fontSize: 15,color:"white"}}>
+                Commencer
                 </Text>
               </TouchableOpacity>
             </View>
@@ -138,7 +139,7 @@ const OnboardingScreen = ({navigation}) => {
                     fontSize: 15,
                     color: COLORS.cyan,
                   }}>
-                 sauter
+                 Sauter
                 </Text>
               </TouchableOpacity>
               <View style={{width: 15}} />
@@ -150,8 +151,9 @@ const OnboardingScreen = ({navigation}) => {
                   style={{
                     fontWeight: 'bold',
                     fontSize: 15,
+                    color:"white",
                   }}>
-               suivant 
+               Suivant 
                 </Text>
               </TouchableOpacity>
             </View>
@@ -181,7 +183,7 @@ const OnboardingScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   subtitle: {
-    color: COLORS.cyan,
+    color: "white",
     fontSize: 13,
     marginTop: 10,
     maxWidth: '70%',
@@ -189,7 +191,7 @@ const styles = StyleSheet.create({
     lineHeight: 23,
   },
   title: {
-    color: COLORS.cyan,
+    color: 'black',
     fontSize: 22,
     fontWeight: 'bold',
     marginTop: 20,
@@ -203,7 +205,7 @@ const styles = StyleSheet.create({
   indicator: {
     height: 2.5,
     width: 10,
-    backgroundColor: 'grey',
+    backgroundColor: 'black',
     marginHorizontal: 3,
     borderRadius: 2,
   },
@@ -211,7 +213,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     borderRadius: 5,
-    backgroundColor: '#14b8a6',
+    backgroundColor: '#00B2FF',
     justifyContent: 'center',
     alignItems: 'center',
   },

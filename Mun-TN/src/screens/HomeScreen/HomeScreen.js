@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
-import {View, Text, StyleSheet, ScrollView, Image, TouchableOpacity} from 'react-native';
+import React, { useRef, useState } from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Animated, SafeAreaView, } from 'react-native';
 import ComplainScreen from '../ComplainScreen/ComplainScreen';
-import SuggestionList from '../SuggestionList/SuggestionList';
 import SuggesstionScreen from '../SuggestionScreen/Suggestion';
 import {colors} from './colorsConfig';
 import News from './News';
 import Articles from '../../../components/Article';
 import { Video } from 'expo-av';
+import profile from '../../../assets/profile.png';
+// Tab ICons...
+import New from '../../../assets/New.png';
+import Event from '../../../assets/Event.png';
+import notifications from '../../../assets/complains.png';
+import settings from '../../../assets/suggest.png';
+import logout from '../../../assets/logout.png';
+
+// Menu
+import menu from '../../../assets/menu.png';
+import close from '../../../assets/close.png';
+
+// Photo
+import photo from '../../../assets/photo.jpg';
+
 
  //Dummy data
 const meditateTypes = [
@@ -52,26 +67,142 @@ const Categories = [
 
 const HomeScreen = (props) => {
 
-  const [Page,SetPage] = useState('Home')
+  const [Page,SetPage] = useState('Home');
+  const [currentTab, setCurrentTab] = useState("Home");
+  const [showMenu, setShowMenu] = useState(false);
 
+  // Animated Properties...
+
+  const offsetValue = useRef(new Animated.Value(0)).current;
+  // Scale Intially must be One...
+  const scaleValue = useRef(new Animated.Value(1)).current;
+  const closeButtonOffset = useRef(new Animated.Value(0)).current;
+
+var changeview=(view)=>{
+  SetPage(view)
+}
+const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
   return (
-    <View style={styles.container}>
-      {Page === 'Home' ?
-      <ScrollView>
-              <View>
-              <Video
-                source={{ uri: 'https://v.ftcdn.net/03/29/04/62/700_F_329046289_HzoxUhrbyHyRr4XEvZUDAl9LQIzy3K0B_ST.mp4' }}
-                rate={1.0}
-                volume={1.0}
-                isMuted={true}
-                resizeMode="cover"
-                shouldPlay
-                isLooping
-                style={{ width: 340, height: 150, borderRadius: 5 }}
-                />
+
+    <TouchableOpacity onPress={() => {
+      if (title == "LogOut") {
+        // Do your Stuff...
+      } else {
+        setCurrentTab(title)
+        SetPage(Page)
+      }
+    }}>
+      <View style={{
+        flexDirection: "row",
+        alignItems: 'center',
+        paddingVertical: 8,
+        backgroundColor: currentTab == title ? 'white' : 'transparent',
+        paddingLeft: 20,
+        paddingRight: 35,
+        borderRadius: 8,
+        marginTop: 10
+      }}>
+
+        <Image source={image} style={{
+          width: 25, height: 25,
+          tintColor: currentTab == title ? "#5359D1" : "white"
+        }}></Image>
+
+        <Text style={{
+          fontSize: 15,
+          fontWeight: 'bold',
+          paddingLeft: 15,
+          color: currentTab == title ? "#5359D1" : "white"
+        }}>{title}</Text>
+
       </View>
-      <View>
-        <ScrollView
+    </TouchableOpacity>
+  );
+}
+  return (
+    <ScrollView style={{backgroundColor: "#F5F5F5"}}>
+<View style={{ justifyContent: 'flex-start', padding: 5}}>
+<View style={{marginTop: 35, backgroundColor:'#989898'}}>
+  
+    {TabButton(currentTab, setCurrentTab, "News", New,"News")}
+    {TabButton(currentTab, setCurrentTab, "Event", Event,"Events")}
+    {TabButton(currentTab, setCurrentTab, "Complain", notifications,"Complain")}
+    {TabButton(currentTab, setCurrentTab, "Suggestion", settings,"Suggestion")}
+
+    </View>
+  <View style={{ flexGrow: 1, marginTop: 290 }}>
+
+  </View>
+  
+
+</View>
+
+{
+  // Over lay View...
+}
+
+<Animated.View style={{
+  flexGrow: 1,
+  backgroundColor: '#F5F5F5',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  paddingHorizontal: 15,
+  paddingVertical: 20,
+  borderRadius: showMenu ? 15 : 0,
+  // Transforming View...
+  transform: [
+    { scale: scaleValue },
+    { translateX: offsetValue }
+  ]
+}}>
+
+  {
+    // Menu Button...
+  }
+
+  <Animated.View style={{
+    transform: [{
+      translateY: closeButtonOffset
+    }]
+  }}>
+    <TouchableOpacity onPress={() => {
+      // Do Actions Here....
+      // Scaling the view...
+      Animated.timing(scaleValue, {
+        toValue: showMenu ? 1 : 0.88,
+        duration: 300,
+        useNativeDriver: true
+      })
+        .start()
+      Animated.timing(offsetValue, {
+        // YOur Random Value...
+        toValue: showMenu ? 0 : 200,
+        duration: 300,
+        useNativeDriver: true
+      })
+        .start()
+      Animated.timing(closeButtonOffset, {
+        // YOur Random Value...
+        toValue: !showMenu ? -30 : 0,
+        duration: 300,
+        useNativeDriver: true
+      })
+        .start()
+
+      setShowMenu(!showMenu);
+    }}>
+
+      <Image source={showMenu ? close : menu} style={{
+        width: 30,
+        height: 25,
+        tintColor: 'black',
+        marginTop: 5,
+      }}></Image>
+    </TouchableOpacity>
+          {/* <ScrollView
           style={styles.meditateItemWrapperContainer}
           showsHorizontalScrollIndicator={false}
           horizontal={true}>
@@ -129,10 +260,26 @@ const HomeScreen = (props) => {
                   style={[
                     styles.itemTitle,
                   ]}>
-Suggestions
+                       Suggestions
                 </Text>
               </View>
-        </ScrollView>
+        </ScrollView> */}
+      {Page === 'Home' ?
+      <ScrollView>
+              <View>
+              <Video
+                source={{ uri: 'https://v.ftcdn.net/03/29/04/62/700_F_329046289_HzoxUhrbyHyRr4XEvZUDAl9LQIzy3K0B_ST.mp4' }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={true}
+                resizeMode="cover"
+                shouldPlay
+                isLooping
+                style={{ width: 360, height: 290, borderRadius: 5 }}
+                />
+      </View>
+      <View>
+        
       </View>
         <ScrollView horizontal={true}>
           {
@@ -152,9 +299,14 @@ Suggestions
           }
         </ScrollView>
         </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><Articles /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
-    </View>
+  </Animated.View>
+
+</Animated.View>
+    </ScrollView>
   )
 };
+
+
 
 export default HomeScreen;
 
@@ -164,6 +316,9 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     padding: 10,
+    marginBottom: 60,
+    width: "100%"
+    
   },
   heading: {
     textAlign: 'center',
@@ -266,8 +421,8 @@ images : {
   height: 30,
 },
 image: {
-  width: 220,
-  height: 260,
+  width: 200,
+  height: 220,
   margin: 5,
   borderRadius: 5
 }

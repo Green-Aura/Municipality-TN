@@ -82,13 +82,13 @@ export default function LoginScreen({ navigation }) {
         keyboardShouldPersistTaps="always"
       >
         <InnerContainer>
-          <Image source={require("../LoginScreen/v2.png")}
-          style={{width:280}} />
+          {/* <Image source={require("../LoginScreen/v2.png")}
+          style={{width:280}} /> */}
           {/* <PageTitle>بلديتي</PageTitle> */}
           <SubTitle></SubTitle>
         </InnerContainer>
         <StyledFormArea>
-          <MyTextInput
+          <MyTextInput 
             icon="mail"
             placeholder="E-mail"
             placeholderTextColor={darkLight}
@@ -98,7 +98,7 @@ export default function LoginScreen({ navigation }) {
             autoCapitalize="none"
           />
 
-          <MyTextInput
+          <MyTextInput 
             icon="lock"
             placeholderTextColor={darkLight}
             placeholder="Mot de passe"
@@ -136,6 +136,7 @@ const MyTextInput = ({
   isPassword,
   hidePassword,
   setHidePassword,
+  style,
   ...props
 }) => {
   return (
