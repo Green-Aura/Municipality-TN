@@ -236,7 +236,7 @@ console.log(location)
           multiline={true}
           value={desc}
           onChangeText={setdesc}
-          placeholder={`what's in your mind ${user.fullName}?`}
+          placeholder={`Quoi de neuf ${user.fullName}?`}
         />
       </View>
       <SafeAreaView horizontal={true}>
