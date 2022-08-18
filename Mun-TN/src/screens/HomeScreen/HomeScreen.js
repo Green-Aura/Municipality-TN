@@ -163,7 +163,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 
 <Animated.View style={{
   flexGrow: 1,
-  backgroundColor: '#F5F5F5',
+  backgroundColor: '#DCDCDC',
   position: 'absolute',
   top: 0,
   bottom: 0,
