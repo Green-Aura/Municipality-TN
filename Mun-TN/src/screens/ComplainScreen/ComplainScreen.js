@@ -236,7 +236,7 @@ console.log(location)
             <SimpleLineIcons
               name="camera"
               style={{ marginTop: 8, marginLeft: 45}}
-              color="#14b8a6" 
+              color="#00B2FF" 
               size={30}
             ></SimpleLineIcons>
 
@@ -248,15 +248,15 @@ console.log(location)
            <SimpleLineIcons
               name="location-pin"
               style={{ marginTop: 8, marginLeft: 80 }}
-              color="#14b8a6" 
+              color="#00B2FF" 
               size={30}
             ></SimpleLineIcons>
           </TouchableOpacity>
           <TouchableOpacity  onPress={openDocument}>
           <FontAwesome
               name="file-pdf-o"
-              style={{ marginTop: 8, marginLeft: 90 }}
-              color="#14b8a6" 
+              style={{ marginTop:8, marginLeft: 90 }}
+              color="#00B2FF" 
               size={30}
             ></FontAwesome>
 
@@ -312,8 +312,25 @@ console.log(location)
       <Text></Text>
       <Text></Text>
       <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      <Text></Text>
+      
+      
+
      <MapView provider="google"  style={{flex:1,position:"absolute",width:"100%",height:"100%",top:0,left:0,bottom:0,right:0}}></MapView>
-     <FAB icon="plus" style={{marginTop:10,width:50,marginLeft:"90%"}} onPress={()=>getlocation()}/></View></View>):null}
+     <FAB icon="plus" style={{marginTop:-80,width:50,marginLeft:"85%"}} onPress={()=>getlocation()}/></View></View>):null}
       
     {/* </KeyboardAvoidingView> */}
   </ScrollView>

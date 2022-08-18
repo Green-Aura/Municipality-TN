@@ -124,11 +124,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.blue,
+    backgroundColor:'#00B2FF',
     borderRadius: 25,
   },
   text: {
     fontSize: 10,
     textAlign: 'center',
     color: Colors.blue,
+    color: '#00B2FF',
+
   }
 })
