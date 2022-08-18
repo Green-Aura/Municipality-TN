@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   Image,
@@ -15,7 +15,6 @@ import { color } from 'react-native-reanimated';
 const {width, height} = Dimensions.get('window');
 
 const COLORS = {primary: '#F5F5F5', cyan: '#006AFF'};
-
 const slides = [
   {
     id: '1',
@@ -40,7 +39,7 @@ const slides = [
 
 const Slide = ({item}) => {
   return (
-    <View style={{alignItems: 'center'}}>
+    <View style={{alignItems: 'center',}}>
       <Image
         source={item?.image}
         style={{height: '75%', width, resizeMode: 'contain'}}
@@ -55,6 +54,12 @@ const Slide = ({item}) => {
 
 const OnboardingScreen = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = React.useState(0);
+  const [loaded,setloaded]=useState(false)
+const load=(cb)=>{
+  setTimeout(cb,3000)
+
+}
+load(()=>setloaded(true))
   const ref = React.useRef();
   const updateCurrentSlideIndex = e => {
     const contentOffsetX = e.nativeEvent.contentOffset.x;
@@ -77,6 +82,7 @@ const OnboardingScreen = ({navigation}) => {
     ref?.current.scrollToOffset({offset});
     setCurrentSlideIndex(lastSlideIndex);
   };
+  
 
   const Footer = () => {
     return (
@@ -85,9 +91,11 @@ const OnboardingScreen = ({navigation}) => {
           height: height * 0.25,
           justifyContent: 'space-between',
           paddingHorizontal: 20,
+          position:"relative",
+          
         }}>
         {/* Indicator container */}
-        <View
+       <View
           style={{
             flexDirection: 'row',
             justifyContent: 'center',
@@ -109,7 +117,8 @@ const OnboardingScreen = ({navigation}) => {
         </View>
 
         {/* Render buttons */}
-        <View style={{marginBottom: 20}}>
+       <View style={{marginBottom: 20}}>
+          
           {currentSlideIndex == slides.length - 1 ? (
             <View style={{height: 50}}>
               <TouchableOpacity
@@ -165,6 +174,8 @@ const OnboardingScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primary}}>
+    
+      {loaded?(<View >
       <StatusBar backgroundColor={COLORS.primary} />
       <FlatList
         ref={ref}
@@ -177,6 +188,7 @@ const OnboardingScreen = ({navigation}) => {
         renderItem={({item}) => <Slide item={item} />}
       />
       <Footer />
+      </View>):(<View ><Image  style ={{marginTop:"75%",marginLeft:40}} source={require("../../../assets/ba.png")}/></View>)}
     </SafeAreaView>
   );
 };
