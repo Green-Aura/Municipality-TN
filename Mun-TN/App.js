@@ -17,7 +17,7 @@ import Tabe from "./src/screens/Tabe/Tabe";
 import Tabe1 from './src/screens/Tabe/Tabe1'
 import Tabe2 from './src/screens/Tabe/Tabe2'
 import Tabe3 from './src/screens/Tabe/Tabe3'
-
+import LoadingScreen from "./src/screens/OnboardingScreen/LoadingScreen";
 import OnboardingScreen from "./src/screens/OnboardingScreen/OnboardingScreen";
 import OptionScreen from "./src/screens/OptionScreen/OptionScreen";
 
@@ -83,7 +83,7 @@ export default function App() {
   }, []);
 
   if (loading) {
-    return <></>;
+    return <View><LoadingScreen/></View>;
   }
 
   return (
@@ -100,6 +100,7 @@ export default function App() {
           </Stack.Screen>
         ) : (
           <>
+          
             <Stack.Screen
               name="OnboardingScreen"
               component={OnboardingScreen}

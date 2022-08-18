@@ -14,7 +14,7 @@ import * as Animatable from 'react-native-animatable';
 const TabArr = [
   { route: 'Accueil', label: 'Accueil', type: Icons.Feather, icon: 'home', component: HomeScreen },
   { route: 'liste de suggestions', label: 'liste de suggestions', type: Icons.Octicons, icon: 'checklist', component: SuggestionList },
-  { route: 'Map', label: 'Map', type: Icons.SimpleLineIcons, icon: 'location-pin', component: MapViewComponent },
+  { route: 'Map', label: 'Camion', type: Icons.SimpleLineIcons, icon: 'location-pin', component: MapViewComponent },
   { route: 'Profile', label: 'Profile', type: Icons.FontAwesome, icon: 'user-circle-o', component: Profile },
 ];
 
@@ -52,13 +52,13 @@ const TabButton = (props) => {
       style={styles.container}>
       <Animatable.View
         ref={viewRef}
-        duration={1000}
+        duration={300}
         style={styles.container}>
         <View style={styles.btn}>
           <Animatable.View
             ref={circleRef}
             style={styles.circle} />
-          <Icon type={item.type} name={item.icon} color={focused ? Colors.white : Colors.green} />
+          <Icon type={item.type} name={item.icon} color={focused ? Colors.white : Colors.blue} />
         </View>
         <Animatable.Text
           ref={textRef}
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   tabBar: {
-    height: 65,
+    height: 60,
     position: 'absolute',
     bottom: 0,
     right: 16,
@@ -123,12 +123,15 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: Colors.blue,
     backgroundColor:'#00B2FF',
     borderRadius: 25,
   },
   text: {
     fontSize: 10,
     textAlign: 'center',
+    color: Colors.blue,
     color: '#00B2FF',
+
   }
 })

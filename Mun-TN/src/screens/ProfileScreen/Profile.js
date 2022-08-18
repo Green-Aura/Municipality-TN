@@ -138,7 +138,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                 fullName: document.data().fullName,
                 image: document.data().image,
                 phoneNumber: document.data().phoneNumber,
-                adress: document.data().adress,
+                Municipality: document.data().Municipality,
+                city:document.data().city
               });
             })
 
@@ -285,7 +286,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       marginTop: 10,
                     }}
                   >
-                    Address: {userData.adress}
+                    Address: {userData.city},{userData.Municipality}
                   </Text>
                 </View>
                 <View
@@ -352,7 +353,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                 </View>
               </View>
             </View>
-          </View>
+          </View> 
         </View>
       ) : page == "updateprofile" ? (
         <View style={{ alignContent: "center", alignItems: "center" }}>
