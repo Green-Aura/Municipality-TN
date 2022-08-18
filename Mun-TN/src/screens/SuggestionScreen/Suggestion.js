@@ -25,6 +25,8 @@ const SuggesstionScreen = ({navigation}) => {
     const[latitude,setLatitude]=useState(0)
     const [list,setList]=useState([])
     const[fileresponse,setFileResponse]=useState(null)
+    const [file, setfile] = useState(null);
+
     const openDocument= async()=>{
         const res= await expoDocumentPicker.getDocumentAsync({type:types.allFiles})
            const source={uri:res.uri}
@@ -36,7 +38,7 @@ const SuggesstionScreen = ({navigation}) => {
 const ref=firebase.firestore().collection('suggestions')
 var handlesubmit= async ()=>{
     UploadImage()
-    await  ref.add({type:type,municipalityname:name,description:desc,image:image,votes:0,downvotes:0})
+    await  ref.add({type:type,municipalityname:name,description:desc,image:image,votes:0,downvotes:0,username:user.fullName,userimage:user.image})
     alert("added successfully")
     console.log("image "+image.uri)
   navigation.navigate("Rendersuggestions")
@@ -73,44 +75,41 @@ const UploadImage=async()=>{
     }
     // No permissions request is necessary for launching the image library
     const getUser = () => {
-        const usersRef = firebase.firestore().collection("users");
-        
-        firebase.auth().onAuthStateChanged(async (user) => {
-        
-          {
-            if (user) {
-              await usersRef
-                .doc(user.uid)
-                .get()
-                .then((document) => {
-                  setloading(false);
-                  setUser({
-                    id: document.id,
-                    email: document.data().email,
-                    fullName: document.data().fullName,
-                    image: document.data().image,
-                    phoneNumber: document.data().phoneNumber,
-                    location: location,
-                  });
-                  console.log(document.data());
-                  console.log(user)
-                })
-    
-                .catch((error) => {
-                  setloading(false);
+      const usersRef = firebase.firestore().collection("users");
+      firebase.auth().onAuthStateChanged(async (user) => {
+        {
+          if (user) {
+            await usersRef
+              .doc(user.uid)
+              .get()
+              .then((document) => {
+                setloading(false);
+                setUser({
+  
+                  id: document.id,
+                  email: document.data().email,
+                  fullName: document.data().fullName,
+                  image: document.data().image,
+                  phoneNumber: document.data().phoneNumber,
+                 
                 });
-            } else {
-              setloading(false);
-            }
+                console.log(document.data());
+              })
+  
+              .catch((error) => {
+              
+              });
+          } else {
+           
           }
-        });
-      };
+        }
+      });
+    };
       useEffect(() => {
         getUser();
       }, []);
     return (
         <ScrollView>
-        <KeyboardAvoidingView style={styles.container} behavior='padding'>
         {/* <View style ={{flexDirection:"row"}}>
     <Image
             source={{ uri: user.image }}
@@ -126,6 +125,10 @@ const UploadImage=async()=>{
           <Text style={{marginTop:35,marginLeft:10,fontSize:18}}>{user.fullName}</Text>
     </View> */}
         <View style={styles.inputcontainer}>
+          <Text>{user.fullName}</Text>
+          <Image source={{uri:user.image}} style={{height:100,width:100}}/>
+          <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
+
         <SelectDropdown
             data={options}
             onSelect={(selectedItem, index) => {
@@ -146,7 +149,7 @@ const UploadImage=async()=>{
             }}
             defaultButtonText={'Sélectionnez'}
             />
-    <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
+    <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder={`what's in your mind ${user.fullName}`} />
    <SafeAreaView>
    <View style={{ flexDirection: "row", marginTop: 15,marginLeft:50 }}>
    <TouchableOpacity onPress={PickImage}><Text style={{ marginTop: 8, marginLeft:35}}><Feather name="camera"  size={30} color="#00B2FF" />  </Text></TouchableOpacity>
@@ -159,13 +162,10 @@ const UploadImage=async()=>{
    </SafeAreaView>
     
    <View style={styles.buttoncontainer}>
-  
-  <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
  </View>
 
     </View>
   
-    </KeyboardAvoidingView>
     </ScrollView>
   )
 }
