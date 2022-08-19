@@ -8,39 +8,38 @@ import { color } from "react-native-reanimated";
     
     },
     inputcontainer:{
-        width:"80%",
+        width:"100%",
         marginBottom:40
         
 
     },
     input:{
-        backgroundColor:"#dcdcdc",
-        justifyContent: 'center',
-        alignItems:'center',
-        marginTop:40,
-      
-        textAlignVertical:"top",
-        
-        width:"100%",
-        
-        height: 150,
-        padding: 12 ,
-        borderRadius:10,
+        backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 5,
+
+    textAlignVertical: "top",
+
+    width: "100%",
+
+    height:200,
+    padding: 12,
+    borderRadius: 5,
     },
-    button:{
-       
-        backgroundColor:'#14b8a6',
-        padding:15,
-        paddingLeft:55,
-        paddingRight:55,
-        fontSize:16,
-        height:50,
-        borderRadius:10,
-        marginVertical:3,
-        marginBottom:10,
-        marginTop:20,
-       marginLeft:1,
-    },
+    button: {
+        backgroundColor: "#00B2FF",
+        padding: 15,
+        paddingLeft: 10,
+        paddingRight: 10,
+        fontSize: 16,
+        height: 48,
+        borderRadius: 5,
+        marginVertical: 3,
+        marginBottom: 10,
+        marginTop: 10,
+        marginLeft: 113,
+      },
     but:{
         textAlign:"center",
         alignItems:"center",
@@ -48,17 +47,29 @@ import { color } from "react-native-reanimated";
 
     }
 ,
-buttontext:{
-    color:"white",
-    fontSize:16,
-    fontWeight:'700'
-},
+buttontext: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "700",
+  },
 buttoncontainer:{
     width:"100%",
     display:"flex",
     alignContent:"center",
     alignItems:"center",
     
+},
+author:{
+    fontWeight: "bold",
+    fontSize: 15,
+    marginTop: 20,
+    marginLeft: 5
+},
+author1:{
+  fontWeight: "bold",
+  fontSize: 15,
+  marginTop: 25,
+  marginLeft: 15,
 },
        
 })

@@ -9,10 +9,10 @@ export const Colors = {
     secondary: "#ESE7EB",
     tertiary: "#1F2937",
     darkLight: "#9CA3AF",
-    brand :"#14b8a6",
+    brand :"#00B2FF",
     green: "#10B981",
     red: "#EF4444",
-    gray: "#708090",
+    gray: "#778899",
 }
 
 const { primary, secondary, tertiary, darkLight, brand, green, red,gray } = Colors;
@@ -21,7 +21,7 @@ export const StyledContainer = styled.View`
    flex: 1;
    padding: 25px;
    padding-top: ${StatusBarHeight + 10}px;
-   background-color: ${primary};
+   background-color: #006AFF;
 `
 
 export const InnerContainer = styled.View`
@@ -87,9 +87,22 @@ export const SubTitle = styled.Text`
 export const StyledFormArea = styled.View`
   width: 100%;
 `;
-
+export const StyledSelectList =styled.View`
+background-color: transparent;
+padding: 15px;
+padding-left: 55px;
+padding-right: 55px;
+border-radius: 10px;
+font-size: 16px;
+height: 60px;
+margin-vertical: 3px;
+margin-bottom: 5px;
+borderBottom: 3px solid lightgreen
+borderBottomWidth :1px
+color: ${tertiary};
+`
 export const StyledTextInput = styled.TextInput`
-   background-color: ${primary};
+   background-color: transparent;
    padding: 15px;
    padding-left: 55px;
    padding-right: 55px;
@@ -97,7 +110,9 @@ export const StyledTextInput = styled.TextInput`
    font-size: 16px;
    height: 60px;
    margin-vertical: 3px;
-   margin-bottom: 7px;
+   margin-bottom: 5px;
+   borderBottom: 3px solid lightgreen
+   borderBottomWidth :1px
    color: ${tertiary};
 `;
 

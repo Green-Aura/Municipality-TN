@@ -6,6 +6,7 @@ import { Button ,FAB} from 'react-native-paper';
 import { useTheme } from '@react-navigation/native';
 import * as Loaction from "expo-location"
 import MapDirections from "react-native-maps-directions"
+import { setGoogleApiKey } from 'expo-location';
 import  PushNotification  from 'react-native-push-notification';
 import { mapDarkStyle,mapStandardStyle } from './DarkStyle';
 const window=Dimensions.get('window')
@@ -113,8 +114,6 @@ bottom: 0}} ref={mapref}
         strokeWidth={2}
         strokeColor='red'
         apikey='AIzaSyDcTgDGFU0IT79oG9GHDUzJ7uAkA5Vldq8'
-
-      
       />
 
 {truckdata.map(truck=>(

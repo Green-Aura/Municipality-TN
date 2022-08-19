@@ -8,16 +8,16 @@ export default StyleSheet.create({
     backgroundColor: "white",
   },
   inputcontainer: {
-    width: "80%",
+    width: "100%",
     height: "-50%",
     
     marginBottom: 40,
   },
   input: {
-    backgroundColor: "#dcdcdc",
+    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 40,
+    marginTop: -5,
 
     textAlignVertical: "top",
 
@@ -25,7 +25,7 @@ export default StyleSheet.create({
 
     height:200,
     padding: 12,
-    borderRadius: 10,
+    borderRadius: 5,
     //     box-sizing: border-box;
     //     border: 2px solid #ccc;
     //     border-radius: 4px;
@@ -35,17 +35,17 @@ export default StyleSheet.create({
     //   }
   },
   button: {
-    backgroundColor: "#14b8a6",
+    backgroundColor: "#00B2FF",
     padding: 15,
-    paddingLeft: 55,
-    paddingRight: 55,
+    paddingLeft: 10,
+    paddingRight: 10,
     fontSize: 16,
-    height: 50,
-    borderRadius: 10,
+    height: 48,
+    borderRadius: 5,
     marginVertical: 3,
     marginBottom: 10,
-    marginTop: 3,
-    marginLeft: 1,
+    marginTop: 10,
+    marginLeft: 113,
   },
   but: {
     textAlign: "center",
@@ -53,7 +53,7 @@ export default StyleSheet.create({
   },
   buttontext: {
     color: "white",
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: "700",
   },
   buttoncontainer: {
@@ -96,4 +96,16 @@ export default StyleSheet.create({
     marginLeft: 10,
     margin: 10,
   },
+  author:{
+    fontWeight: "bold",
+    fontSize: 15,
+    marginTop: 20,
+    marginLeft: 5
+},
+author1:{
+  fontWeight: "bold",
+  fontSize: 15,
+  marginTop: 25,
+  marginLeft: 15,
+},
 });
