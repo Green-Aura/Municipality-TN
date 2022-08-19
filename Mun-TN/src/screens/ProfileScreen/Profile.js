@@ -362,8 +362,9 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
           onPress={() => {
             setPage("profile");
           }}
+          style={{alignSelf:"flex-start",marginTop:-150}}
         >
-        <Image source={require("../../../assets/images/back.png")}/>
+        <Image source={require("../../../assets/images/back.png")} style={{height:25,width:25}}/>
         </TouchableOpacity>
             <TextInput
               icon="mail"
@@ -403,14 +404,14 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
         </View>
       ) : page == "complains" ? (
         <View>
-          <TouchableOpacity
-            style={styles.backbutton}
-            onPress={() => {
-              setPage("profile");
-            }}
-          >
-            <Text>back</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+        onPress={() => {
+          setPage("profile");
+        }}
+        style={{alignSelf:"flex-start",marginTop:0}}
+      >
+      <Image source={require("../../../assets/images/back.png")} style={{height:25,width:25}}/>
+      </TouchableOpacity>
           <View>
             {fileredcomplaints.length == 0 ? (
               <View
