@@ -142,7 +142,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
       }}>
 
         <Image source={image} style={{
-          width: 25, height: 25,
+          width: 30, height: 30,
           tintColor: currentTab == title ? "#5359D1" : "white"
         }}></Image>
 
@@ -188,7 +188,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
     {TabButton(currentTab, setCurrentTab, "Suggestion", settings,"Suggestion")}
 
     </View>
-  <ScrollView style={{ flexGrow: 1, marginTop: 300 }}>
+  <ScrollView style={{ flexGrow: 1, marginTop: 222 }}>
 
   </ScrollView>
   
@@ -201,7 +201,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 <Animated.View style={{
   flexGrow: 1,
 
-  backgroundColor: '#DCDCDC',
+  backgroundColor: '#F5F5F5',
 
   position: 'absolute',
   top: 0,
@@ -259,7 +259,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
         height: 40,
         tintColor: '#00B2FF',
         marginTop: -5,
-        marginLeft: 325,
+        marginLeft: 300,
         marginBottom: 5
       }}></Image>
     </TouchableOpacity>
