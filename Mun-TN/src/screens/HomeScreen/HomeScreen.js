@@ -188,7 +188,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
     {TabButton(currentTab, setCurrentTab, "Suggestion", settings,"Suggestion")}
 
     </View>
-  <ScrollView style={{ flexGrow: 1, marginTop: 311 }}>
+  <ScrollView style={{ flexGrow: 1, marginTop: 300 }}>
 
   </ScrollView>
   
