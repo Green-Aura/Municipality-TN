@@ -44,8 +44,8 @@ export default StyleSheet.create({
     borderRadius: 5,
     marginVertical: 3,
     marginBottom: 10,
-    marginTop: 10,
-    marginLeft: 113,
+    marginTop: 10, 
+    marginLeft: 205,
   },
   but: {
     textAlign: "center",

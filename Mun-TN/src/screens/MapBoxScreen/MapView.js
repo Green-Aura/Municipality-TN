@@ -2,10 +2,12 @@ import  React,{ useEffect, useRef, useState } from 'react';
 import MapView, {Circle, Marker, MarkerAnimated, Polyline} from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView, NativeEventEmitter, Alert } from 'react-native';
 import {firebase} from '../../../firebase/config';
+import { Entypo } from "react-native-vector-icons"
 import { Button ,FAB} from 'react-native-paper';
 import { useTheme } from '@react-navigation/native';
 import * as Loaction from "expo-location"
 import MapDirections from "react-native-maps-directions"
+import { setGoogleApiKey } from 'expo-location';
 import  PushNotification  from 'react-native-push-notification';
 import { mapDarkStyle,mapStandardStyle } from './DarkStyle';
 const window=Dimensions.get('window')
@@ -137,7 +139,7 @@ bottom: 0}} ref={mapref}
 ))}
 
 </MapView> 
-<FAB icon="plus" style={{marginTop:400,width:50,marginLeft:"90%"}} onPress={()=>{
+<FAB icon="plus" style={{marginTop:18,width:50,marginLeft:"42%", height: 50, backgroundColor: "blue"}} onPress={()=>{
   
   console.log(location)
 
