@@ -358,6 +358,13 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
       ) : page == "updateprofile" ? (
         <View style={{ alignContent: "center", alignItems: "center" }}>
           <View style={styles.formcontainer}>
+          <TouchableOpacity
+          onPress={() => {
+            setPage("profile");
+          }}
+        >
+        <Image source={require("../../../assets/images/back.png")}/>
+        </TouchableOpacity>
             <TextInput
               icon="mail"
               style={styles.emailinput}
@@ -390,14 +397,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               >
                 <Text>submit</Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.backbutton}
-                onPress={() => {
-                  setPage("profile");
-                }}
-              >
-                <Text>back</Text>
-              </TouchableOpacity>
+             
             </View>
           </View>
         </View>
