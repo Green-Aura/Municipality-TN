@@ -6,6 +6,7 @@ import { Button ,FAB} from 'react-native-paper';
 import { useTheme } from '@react-navigation/native';
 import * as Loaction from "expo-location"
 import MapDirections from "react-native-maps-directions"
+import { setGoogleApiKey } from 'expo-location';
 import  PushNotification  from 'react-native-push-notification';
 import { mapDarkStyle,mapStandardStyle } from './DarkStyle';
 const window=Dimensions.get('window')
