@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Animated, SafeAreaView, } from 'react-native';
 import ComplainScreen from '../ComplainScreen/ComplainScreen';
@@ -14,6 +14,7 @@ import Event from '../../../assets/Event.png';
 import notifications from '../../../assets/complains.png';
 import settings from '../../../assets/suggest.png';
 import logout from '../../../assets/logout.png';
+import { firebase } from "../../../firebase/config";
 
 // Menu
 import menu from '../../../assets/menu.png';
@@ -21,6 +22,7 @@ import close from '../../../assets/time.png';
 
 // Photo
 import photo from '../../../assets/photo.jpg';
+import { useNavigation } from '@react-navigation/native';
 
 
  //Dummy data
@@ -65,11 +67,13 @@ const Categories = [
   },
 ];
 
-const HomeScreen = (props) => {
+const HomeScreen = ({navigation}) => {
 
   const [Page,SetPage] = useState('Home');
   const [currentTab, setCurrentTab] = useState("Home");
   const [showMenu, setShowMenu] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [userData, setUser] = useState({});
 
   // Animated Properties...
 
@@ -81,6 +85,39 @@ const HomeScreen = (props) => {
 var changeview=(view)=>{
   SetPage(view)
 }
+const getUser = () => {
+  const usersRef = firebase.firestore().collection("users");
+  firebase.auth().onAuthStateChanged(async (user) => {
+    {
+      if (user) {
+        await usersRef
+          .doc(user.uid)
+          .get()
+          .then((document) => {
+            setLoading(false);
+            setUser({
+              id: document.id,
+              email: document.data().email,
+              fullName: document.data().fullName,
+              image: document.data().image,
+              phoneNumber: document.data().phoneNumber,
+              Municipality: document.data().Municipality,
+              city:document.data().city
+            });
+          })
+
+          .catch((error) => {
+            setLoading(false);
+          });
+      } else {
+        setLoading(false);
+      }
+    }
+  });
+};
+useEffect(()=>{
+  getUser()
+},[])
 const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
   return (
 
@@ -122,9 +159,9 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 }
   return (
     <ScrollView style={{backgroundColor:'#00B2FF'}}>
-<View style={{ justifyContent: 'flex-start', padding: 5, }}>
-<View style={{ flexGrow: 1, marginTop: -5, backgroundColor:'#00B2FF', }}>
-<Image source={profile} style={{
+<View style={{ justifyContent: 'flex-start', padding: 5 }}>
+<View style={{ flexGrow: 1, marginTop: -5, backgroundColor:'#00B2FF' }}>
+<Image source={{uri:userData.image}} style={{
           width: 60,
           height: 60,
           borderRadius: 50,
@@ -136,18 +173,18 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
           fontWeight: 'bold',
           color: 'white',
           marginTop: 20
-        }}>Jenna Ezarik</Text>
+        }}>{userData.fullName}</Text>
 
-<TouchableOpacity>
+<TouchableOpacity onPress={()=>navigation.navigate("Profile")}>
           <Text style={{
             marginTop: 6,
             color: 'white'
           }}>View Profile</Text>
         </TouchableOpacity>
   
-    {TabButton(currentTab, setCurrentTab, "News", New,"News")}
-    {TabButton(currentTab, setCurrentTab, "Event", Event,"Events")}
-    {TabButton(currentTab, setCurrentTab, "Complain", notifications,"Complain")}
+    {TabButton(currentTab, setCurrentTab, "Actualités", New,"News")}
+    {TabButton(currentTab, setCurrentTab, "Evénements", Event,"Events")}
+    {TabButton(currentTab, setCurrentTab, "Réclamations", notifications,"Complain")}
     {TabButton(currentTab, setCurrentTab, "Suggestion", settings,"Suggestion")}
 
     </View>
@@ -163,7 +200,9 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 
 <Animated.View style={{
   flexGrow: 1,
-  backgroundColor: '#F5F5F5',
+
+  backgroundColor: '#DCDCDC',
+
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -269,7 +308,6 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
                     styles.itemTitle,
                   ]}>
               Réclamation
-
                 </Text>
               </View>
               <View style={styles.meditateItemWrapper}>
@@ -300,9 +338,6 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
                 isLooping
                 style={{ width: 360, height: 290, borderRadius: 5 }}
                 />
-      </View>
-      <View>
-        
       </View>
         <ScrollView horizontal={true}>
           {
