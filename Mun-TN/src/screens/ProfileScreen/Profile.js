@@ -208,7 +208,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                     style={{ marginLeft: "90%" }}
                     onPress={() => setPage("updateprofile")}
                   >
-                    <FontAwesome name="pencil" size={20} />
+                    <FontAwesome name="pencil" size={20} color="#00B2FF" />
                   </TouchableOpacity>
                   {userData.image ? (
                     <Image
