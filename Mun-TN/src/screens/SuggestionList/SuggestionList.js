@@ -119,15 +119,17 @@ setupvoted(false)
 
 
   return (
+    <View style={{backgroundColor:"#F5F5F5"}}>
+
     <Animated.FlatList data={list} 
        renderItem={({item})=>(
-      <Animated.View style={
-        [styles.container,
+         <Animated.View style={
+           [styles.container,
         {
           transform: [{ scale }]
         }
-        ]
-      }>
+      ]
+    }>
         <View style={{flexDirection:"row",marginLeft:10,marginTop:10}}> 
         <Image source={{uri:item.userimage}} style={{width:40,height:40, borderRadius:70}}/>
                 <Text style={{marginTop:8,marginLeft:5,fontWeight:"900",color:"#006AFF"}}>{item.username}</Text>
@@ -189,6 +191,7 @@ setupvoted(false)
        
         </Animated.View>  
     )} /> 
+    </View>
   )}
   
 
