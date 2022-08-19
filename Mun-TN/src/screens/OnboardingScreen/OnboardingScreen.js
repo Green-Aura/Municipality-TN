@@ -117,7 +117,7 @@ load(()=>setloaded(true))
         </View>
 
         {/* Render buttons */}
-       <View style={{marginBottom: 20}}>
+       <View style={{marginBottom: 45}}>
           
           {currentSlideIndex == slides.length - 1 ? (
             <View style={{height: 50}}>
