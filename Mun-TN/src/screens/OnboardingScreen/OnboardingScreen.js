@@ -188,7 +188,7 @@ load(()=>setloaded(true))
         renderItem={({item}) => <Slide item={item} />}
       />
       <Footer />
-      </View>):(<View ><Image  style ={{marginTop:"75%",marginLeft:40}} source={require("../../../assets/ba.png")}/></View>)}
+      </View>):(<View style={{backgroundColor:"#00B2FF"}}><Image  style ={{marginTop:"75%",marginLeft:40}} source={require("../../../assets/ba.png")}/></View>)}
     </SafeAreaView>
   );
 };

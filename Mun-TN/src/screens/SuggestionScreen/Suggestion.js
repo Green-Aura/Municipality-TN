@@ -12,7 +12,7 @@ import {Feather,Ionicons} from "@expo/vector-icons"
 import * as expoDocumentPicker from"expo-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
-    const options = ["general", "electicity", "garbage"]
+  const options = ["Suggestion Générales","Parking","Déchets/ordures","Autres"];
     const [user, setUser] = useState({});
     const [loading, setloading] = useState(false);
     const[type,setType]=useState('')
@@ -90,7 +90,6 @@ const UploadImage=async()=>{
                   email: document.data().email,
                   fullName: document.data().fullName,
                   image: document.data().image,
-                  phoneNumber: document.data().phoneNumber,
                  
                 });
                 console.log(document.data());
@@ -124,12 +123,23 @@ const UploadImage=async()=>{
           />
           <Text style={{marginTop:35,marginLeft:10,fontSize:18}}>{user.fullName}</Text>
     </View> */}
-        <View style={styles.inputcontainer}>
-          <Text>{user.fullName}</Text>
-          <Image source={{uri:user.image}} style={{height:100,width:100}}/>
-          <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
+        <View>
+          <View style={{flexDirection:"row"}}>
+          <Image 
+          source={{uri:user.image}}      
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: 30,
+            marginTop: 10,
 
-        <SelectDropdown
+          }}/>
+          <Text style={styles.author}>{user.fullName}</Text>
+          <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>Publier</Text></TouchableOpacity></View>
+          </View>
+          
+
+        {/* <SelectDropdown
             data={options}
             onSelect={(selectedItem, index) => {
                 console.log(selectedItem, index)
@@ -148,13 +158,21 @@ const UploadImage=async()=>{
                 return <Ionicons name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-down-circle-outline'} color={'#444'} size={18} />;
             }}
             defaultButtonText={'Sélectionnez'}
-            />
-    <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder={`what's in your mind ${user.fullName}`} />
+            /> */}
+    <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder={`Quoi de neuf ${user.fullName} ?`} />
    <SafeAreaView>
-   <View style={{ flexDirection: "row", marginTop: 15,marginLeft:50 }}>
-   <TouchableOpacity onPress={PickImage}><Text style={{ marginTop: 8, marginLeft:35}}><Feather name="camera"  size={30} color="#00B2FF" />  </Text></TouchableOpacity>
-   <TouchableOpacity onPress={openDocument}><Text style={{ marginTop: 8, marginLeft: 75}}><Feather name="file-plus"    size={30} color="#00B2FF" /></Text></TouchableOpacity>
-   </View>
+   <View style={{flexDirection:"row"}}>
+   <TouchableOpacity onPress={PickImage}>
+    <Text style={{ marginTop: 20, marginLeft:5}}><Feather name="camera"  size={30} color="#00B2FF" /></Text>
+    </TouchableOpacity>
+    <Text style={styles.author1}>Photo/Video</Text>
+    </View>
+    <View style={{flexDirection:"row"}}>
+   <TouchableOpacity onPress={openDocument}>
+    <Text style={{ marginTop: 20, marginLeft: 5}}><Feather name="file-plus"  size={30} color="#00B2FF" /></Text>
+    </TouchableOpacity>
+    <Text style={styles.author1}>Fichier</Text>
+    </View>
    
    {image&&(<View><Image source={{uri:image.uri}} style={{width:200,height:200}}/></View>)}
 

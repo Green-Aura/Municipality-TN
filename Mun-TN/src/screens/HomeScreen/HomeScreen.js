@@ -122,8 +122,8 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 }
   return (
     <ScrollView style={{backgroundColor:'#00B2FF'}}>
-<View style={{ justifyContent: 'flex-start', padding: 5, }}>
-<View style={{ flexGrow: 1, marginTop: -5, backgroundColor:'#00B2FF', }}>
+<View style={{ justifyContent: 'flex-start', padding: 5 }}>
+<View style={{ flexGrow: 1, marginTop: -5, backgroundColor:'#00B2FF' }}>
 <Image source={profile} style={{
           width: 60,
           height: 60,
@@ -163,7 +163,9 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 
 <Animated.View style={{
   flexGrow: 1,
+
   backgroundColor: '#DCDCDC',
+
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -300,9 +302,6 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
                 isLooping
                 style={{ width: 360, height: 290, borderRadius: 5 }}
                 />
-      </View>
-      <View>
-        
       </View>
         <ScrollView horizontal={true}>
           {
