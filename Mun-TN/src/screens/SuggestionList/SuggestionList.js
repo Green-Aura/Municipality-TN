@@ -89,10 +89,13 @@ setupvoted(false)
                     municipalityname:doc.data().municipalityname,
                     description:doc.data().description,
                     votes:doc.data().votes,
-                    downvotes:doc.data().downvotes
+                    downvotes:doc.data().downvotes,
+                    username:doc.data().username,
+                    userimage:doc.data().userimage
 
                 })
             }) 
+            console.log(list)
             setList(list)
         })
     },[])
@@ -104,6 +107,11 @@ setupvoted(false)
   return (
     <FlatList data={list} renderItem={({item})=>(
       <View style={styles.container}>
+        <View style={{flexDirection:"row"}}> 
+        <Image source={{uri:item.userimage}} style={{width:100,height:100}}/>
+                <Text>{item.username}</Text>
+
+                </View>
         <Image 
         source={{uri:item.image.uri}} 
         style={styles.feedImage}

@@ -17,7 +17,7 @@ import logout from '../../../assets/logout.png';
 
 // Menu
 import menu from '../../../assets/menu.png';
-import close from '../../../assets/close.png';
+import close from '../../../assets/time.png';
 
 // Photo
 import photo from '../../../assets/photo.jpg';
@@ -90,17 +90,18 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
       } else {
         setCurrentTab(title)
         SetPage(Page)
+        setShowMenu(true)
       }
     }}>
       <View style={{
         flexDirection: "row",
         alignItems: 'center',
-        paddingVertical: 8,
+        paddingVertical: 15,
         backgroundColor: currentTab == title ? 'white' : 'transparent',
         paddingLeft: 20,
         paddingRight: 35,
-        borderRadius: 8,
-        marginTop: 10
+        borderRadius: 10,
+        marginTop: 20
       }}>
 
         <Image source={image} style={{
@@ -120,9 +121,29 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
   );
 }
   return (
-    <ScrollView style={{backgroundColor: "#F5F5F5"}}>
-<View style={{ justifyContent: 'flex-start', padding: 5}}>
-<View style={{marginTop: 35, backgroundColor:'#989898'}}>
+    <ScrollView style={{backgroundColor:'#00B2FF'}}>
+<View style={{ justifyContent: 'flex-start', padding: 5 }}>
+<View style={{ flexGrow: 1, marginTop: -5, backgroundColor:'#00B2FF' }}>
+<Image source={profile} style={{
+          width: 60,
+          height: 60,
+          borderRadius: 50,
+          marginTop: 25
+        }}></Image>
+
+        <Text style={{
+          fontSize: 20,
+          fontWeight: 'bold',
+          color: 'white',
+          marginTop: 20
+        }}>Jenna Ezarik</Text>
+
+<TouchableOpacity>
+          <Text style={{
+            marginTop: 6,
+            color: 'white'
+          }}>View Profile</Text>
+        </TouchableOpacity>
   
     {TabButton(currentTab, setCurrentTab, "News", New,"News")}
     {TabButton(currentTab, setCurrentTab, "Event", Event,"Events")}
@@ -130,11 +151,10 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
     {TabButton(currentTab, setCurrentTab, "Suggestion", settings,"Suggestion")}
 
     </View>
-  <View style={{ flexGrow: 1, marginTop: 290 }}>
+  <ScrollView style={{ flexGrow: 1, marginTop: 311 }}>
 
-  </View>
+  </ScrollView>
   
-
 </View>
 
 {
@@ -143,7 +163,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 
 <Animated.View style={{
   flexGrow: 1,
-  backgroundColor: '#F5F5F5',
+  backgroundColor: "#DCDCDC",
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -196,10 +216,12 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
     }}>
 
       <Image source={showMenu ? close : menu} style={{
-        width: 30,
-        height: 25,
-        tintColor: 'black',
-        marginTop: 5,
+        width: 35,
+        height: 40,
+        tintColor: '#00B2FF',
+        marginTop: -5,
+        marginLeft: 325,
+        marginBottom: 5
       }}></Image>
     </TouchableOpacity>
           {/* <ScrollView
@@ -277,9 +299,6 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
                 isLooping
                 style={{ width: 360, height: 290, borderRadius: 5 }}
                 />
-      </View>
-      <View>
-        
       </View>
         <ScrollView horizontal={true}>
           {
@@ -417,8 +436,9 @@ backgroundVideo: {
   right: 0,
 },
 images : {
-  width: 25,
+  width: 30,
   height: 30,
+  marginTop: -30
 },
 image: {
   width: 200,

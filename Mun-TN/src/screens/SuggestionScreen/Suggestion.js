@@ -12,7 +12,7 @@ import {Feather,Ionicons} from "@expo/vector-icons"
 import * as expoDocumentPicker from"expo-document-picker"
 // import RNFetchBlob from 'rn-fetch-blob';
 const SuggesstionScreen = ({navigation}) => {
-    const options = ["general", "electicity", "garbage"]
+  const options = ["Suggestion Générales","Parking","Déchets/ordures","Autres"];
     const [user, setUser] = useState({});
     const [loading, setloading] = useState(false);
     const[type,setType]=useState('')
@@ -25,6 +25,8 @@ const SuggesstionScreen = ({navigation}) => {
     const[latitude,setLatitude]=useState(0)
     const [list,setList]=useState([])
     const[fileresponse,setFileResponse]=useState(null)
+    const [file, setfile] = useState(null);
+
     const openDocument= async()=>{
         const res= await expoDocumentPicker.getDocumentAsync({type:types.allFiles})
            const source={uri:res.uri}
@@ -36,7 +38,7 @@ const SuggesstionScreen = ({navigation}) => {
 const ref=firebase.firestore().collection('suggestions')
 var handlesubmit= async ()=>{
     UploadImage()
-    await  ref.add({type:type,municipalityname:name,description:desc,image:image,votes:0,downvotes:0})
+    await  ref.add({type:type,municipalityname:name,description:desc,image:image,votes:0,downvotes:0,username:user.fullName,userimage:user.image})
     alert("added successfully")
     console.log("image "+image.uri)
   navigation.navigate("Rendersuggestions")
@@ -73,44 +75,40 @@ const UploadImage=async()=>{
     }
     // No permissions request is necessary for launching the image library
     const getUser = () => {
-        const usersRef = firebase.firestore().collection("users");
-        
-        firebase.auth().onAuthStateChanged(async (user) => {
-        
-          {
-            if (user) {
-              await usersRef
-                .doc(user.uid)
-                .get()
-                .then((document) => {
-                  setloading(false);
-                  setUser({
-                    id: document.id,
-                    email: document.data().email,
-                    fullName: document.data().fullName,
-                    image: document.data().image,
-                    phoneNumber: document.data().phoneNumber,
-                    location: location,
-                  });
-                  console.log(document.data());
-                  console.log(user)
-                })
-    
-                .catch((error) => {
-                  setloading(false);
+      const usersRef = firebase.firestore().collection("users");
+      firebase.auth().onAuthStateChanged(async (user) => {
+        {
+          if (user) {
+            await usersRef
+              .doc(user.uid)
+              .get()
+              .then((document) => {
+                setloading(false);
+                setUser({
+  
+                  id: document.id,
+                  email: document.data().email,
+                  fullName: document.data().fullName,
+                  image: document.data().image,
+                 
                 });
-            } else {
-              setloading(false);
-            }
+                console.log(document.data());
+              })
+  
+              .catch((error) => {
+              
+              });
+          } else {
+           
           }
-        });
-      };
+        }
+      });
+    };
       useEffect(() => {
         getUser();
       }, []);
     return (
         <ScrollView>
-        <KeyboardAvoidingView style={styles.container} behavior='padding'>
         {/* <View style ={{flexDirection:"row"}}>
     <Image
             source={{ uri: user.image }}
@@ -125,8 +123,23 @@ const UploadImage=async()=>{
           />
           <Text style={{marginTop:35,marginLeft:10,fontSize:18}}>{user.fullName}</Text>
     </View> */}
-        <View style={styles.inputcontainer}>
-        <SelectDropdown
+        <View>
+          <View style={{flexDirection:"row"}}>
+          <Image 
+          source={{uri:user.image}}      
+          style={{
+            width: 50,
+            height: 50,
+            borderRadius: 30,
+            marginTop: 10,
+
+          }}/>
+          <Text style={styles.author}>{user.fullName}</Text>
+          <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>Publier</Text></TouchableOpacity></View>
+          </View>
+          
+
+        {/* <SelectDropdown
             data={options}
             onSelect={(selectedItem, index) => {
                 console.log(selectedItem, index)
@@ -145,13 +158,21 @@ const UploadImage=async()=>{
                 return <Ionicons name={isOpened ? 'ios-chevron-up-circle-outline' : 'ios-chevron-down-circle-outline'} color={'#444'} size={18} />;
             }}
             defaultButtonText={'Sélectionnez'}
-            />
-    <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder='description ' />
+            /> */}
+    <TextInput style={styles.input}  multiline={true} value={desc} onChangeText={setdesc} placeholder={`Quoi de neuf ${user.fullName} ?`} />
    <SafeAreaView>
-   <View style={{ flexDirection: "row", marginTop: 15,marginLeft:50 }}>
-   <TouchableOpacity onPress={PickImage}><Text style={{ marginTop: 8, marginLeft:35}}><Feather name="camera"  size={30} color="#00B2FF" />  </Text></TouchableOpacity>
-   <TouchableOpacity onPress={openDocument}><Text style={{ marginTop: 8, marginLeft: 75}}><Feather name="file-plus"    size={30} color="#00B2FF" /></Text></TouchableOpacity>
-   </View>
+   <View style={{flexDirection:"row"}}>
+   <TouchableOpacity onPress={PickImage}>
+    <Text style={{ marginTop: 20, marginLeft:5}}><Feather name="camera"  size={30} color="#00B2FF" /></Text>
+    </TouchableOpacity>
+    <Text style={styles.author1}>Photo/Video</Text>
+    </View>
+    <View style={{flexDirection:"row"}}>
+   <TouchableOpacity onPress={openDocument}>
+    <Text style={{ marginTop: 20, marginLeft: 5}}><Feather name="file-plus"  size={30} color="#00B2FF" /></Text>
+    </TouchableOpacity>
+    <Text style={styles.author1}>Fichier</Text>
+    </View>
    
    {image&&(<View><Image source={{uri:image.uri}} style={{width:200,height:200}}/></View>)}
 
@@ -159,13 +180,10 @@ const UploadImage=async()=>{
    </SafeAreaView>
     
    <View style={styles.buttoncontainer}>
-  
-  <View style={styles.button}><TouchableOpacity style={styles.but} onPress={()=>handlesubmit()}><Text style={styles.buttontext}>submit</Text></TouchableOpacity></View>
  </View>
 
     </View>
   
-    </KeyboardAvoidingView>
     </ScrollView>
   )
 }
