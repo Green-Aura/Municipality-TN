@@ -10,6 +10,7 @@ import Profile from '../ProfileScreen/Profile';
 import Articles from '../../../components/Article';
 import SuggestionList from '../SuggestionList/SuggestionList'
 import Events from "../HomeScreen/Events"
+
 import * as Animatable from 'react-native-animatable';
 
 const TabArr = [
