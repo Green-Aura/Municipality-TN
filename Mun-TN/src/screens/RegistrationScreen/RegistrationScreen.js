@@ -523,7 +523,7 @@ export default function RegistrationScreen({ navigation }) {
              boxStyles ={{borderWidth:0 , borderBottomWidth :1,marginTop:15}}
               setSelected={setcity}
               data={cities}
-              placeholder="       Choisissez votre ville "
+              placeholder=" Choisissez votre ville "
               onSelect={() => console.log(city)}
               search={false} 
                      

@@ -42,7 +42,7 @@ const Slide = ({item}) => {
     <View style={{alignItems: 'center',}}>
       <Image
         source={item?.image}
-        style={{height: '75%', width, resizeMode: 'contain'}}
+        style={{height: '66%', width, resizeMode: 'contain',marginTop:0}}
       />
       <View>
         <Text style={styles.title}>{item?.title}</Text>
