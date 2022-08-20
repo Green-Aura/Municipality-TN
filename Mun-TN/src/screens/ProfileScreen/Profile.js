@@ -197,7 +197,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
     (item) => item.iduser == userData.id
   );
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: "#F5F5F5"}}>
       {page === "profile" ? (
         <View>
           <View style={{ alignContent: "center", alignItems: "center" }}>
@@ -361,7 +361,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
         </View>
       ) : page == "updateprofile" ? (
         <View>
-        <View>
+        <View >
             <TouchableOpacity
         
           onPress={() => {
@@ -371,7 +371,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
         <Image style={{width:30,height:30}} source={require("../../../assets/images/back.png")}/>
         </TouchableOpacity>
             </View>
-            <View>
+            <View >
               <View style={{ flexDirection: "row", borderBottomWidth :1 }}>
                 <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 5}}>Photo de profil</Text>
                 <TouchableOpacity onPress={chooseImg}>
@@ -505,6 +505,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               </View>
             ) : null}
             <FlatList
+            
               data={fileredcomplaints}
               renderItem={({ item }) => (
                 <View>
