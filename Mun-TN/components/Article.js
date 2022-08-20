@@ -91,7 +91,7 @@ export default Articles;
 const styles = StyleSheet.create({
     container:{
         
-        width: "80%",
+        width: "100%",
         alignSelf: "center",
         shadowRadius: 10,
         elevation: 13,

@@ -197,7 +197,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
     (item) => item.iduser == userData.id
   );
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: "#F5F5F5"}}>
       {page === "profile" ? (
         <View>
           <View style={{ alignContent: "center", alignItems: "center" }}>
@@ -208,7 +208,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                     style={{ marginLeft: "90%" }}
                     onPress={() => setPage("updateprofile")}
                   >
-                    <FontAwesome name="pencil" size={20} />
+                    <FontAwesome name="pencil" size={20} color="#00B2FF" />
                   </TouchableOpacity>
                   {userData.image ? (
                     <Image
@@ -354,89 +354,167 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               </View>
             </View>
           </View> 
-        </View>
-      ) : page == "updateprofile" ? (
-        <View style={{ alignContent: "center", alignItems: "center" }}>
-          <View style={styles.formcontainer}>
-          <TouchableOpacity
+          <View>
+            <TouchableOpacity
+
           onPress={() => {
             setPage("profile");
           }}
         >
-        <Image source={require("../../../assets/images/back.png")}/>
+        <Image style={styles.images} source={require("../../../assets/images/back.png")}/>
         </TouchableOpacity>
-            <TextInput
+            </View>
+        </View>
+      ) : page == "updateprofile" ? (
+        <View>
+        <View >
+            <TouchableOpacity
+        
+          onPress={() => {
+            setPage("profile");
+          }}
+        >
+        <Image style={{width:30,height:30}} source={require("../../../assets/images/back.png")}/>
+        </TouchableOpacity>
+            </View>
+            <View >
+              <View style={{ flexDirection: "row", borderBottomWidth :1 }}>
+                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 5}}>Photo de profil</Text>
+                <TouchableOpacity onPress={chooseImg}>
+                <Feather  name="camera" 
+              style={{ marginTop: -5, marginLeft: 190}}
+              color="#00B2FF" 
+              size={30} />
+              </TouchableOpacity>
+              </View>
+              <View style={{borderBottomWidth :0}}>
+           {image?<Image
+                      source={{ uri: image }}
+                      style={{
+                        width: 140,
+                        height: 140,
+                        borderRadius: 70,
+                        overflow: "hidden",
+                        marginLeft: 115,
+                        marginTop: 20,
+                        
+                      }}
+                      />:<Image
+                      source={{ uri: userData.image }}
+                      style={{
+                        width: 140,
+                        height: 140,
+                        borderRadius: 70,
+                        overflow: "hidden",
+                        marginLeft: 115,
+                        marginTop: 20,
+                        
+                      }}
+                      />}
+                      </View>
+                </View>
+                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 25}}>Mettre à jour votre profil </Text>
+                <View style={{borderBottomWidth :1, marginTop: 8}}></View>
+          <View style={{marginTop: 30}}>
+            <View ><Feather name="mail"  size={30} color="#00B2FF" style={{marginLeft:15,marginBottom:-48}} />
+            <TextInput 
               icon="mail"
               style={styles.emailinput}
-              placeholder="email "
+              placeholder="Email"
               value={email}
               onChangeText={(text) => setemail(text)}
-            />
+              />
+              </View>
+              <View><Feather name="user"  size={30} color="#00B2FF" style={{marginLeft:15,marginBottom:-48}} />
             <TextInput
-              placeholder="name"
+             
+              placeholder="Nom et Prénom"
               style={styles.nameinput}
               value={name}
               onChangeText={(text) => setname(text)}
-            />
-            {image && (
-              <Image
-                source={{ uri: image }}
-                style={{ width: 200, height: 200 }}
               />
-            )}
-            <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity onPress={chooseImg}>
+             </View>
+            <View style={styles.button}>
+              {/* <TouchableOpacity onPress={chooseImg}>
                 <AntDesign  name="camera"
               style={{ marginTop: 28, marginLeft: 45}}
               color="#00B2FF" 
               size={30} />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
               <TouchableOpacity
-                style={styles.submitbutton}
+                style={styles.but}
                 onPress={() => handleupdate(userData.id)}
-              >
-                <Text>submit</Text>
+                >
+                <Text style={styles.buttontext}>Envoyer</Text>
               </TouchableOpacity>
-             
+            </View>  
             </View>
           </View>
-        </View>
       ) : page == "complains" ? (
         <View>
           <TouchableOpacity
-            style={styles.backbutton}
+            
             onPress={() => {
               setPage("profile");
             }}
           >
-            <Text>back</Text>
+            <Image style={styles.images} source={require('../../../assets/images/back.png')} />
           </TouchableOpacity>
+          {/* <Image
+                      source={{ uri: userData.image }}
+                      style={{
+                        width: 100,
+                        height: 100,
+                        borderRadius: 70,
+                        overflow: "hidden",
+                        marginLeft: 130,
+                      }}
+                    />
+                    <Text
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: 15,
+                      marginTop: 20,
+                      marginBottom: 10,
+                      marginLeft : 120
+                    }}
+                  >
+                    {userData.fullName}
+                  </Text> */}
           <View>
+
             {fileredcomplaints.length == 0 ? (
               <View
                 style={{
                   alignSelf: "center",
-                  marginTop: 50,
-                  backgroundColor: "white",
+                  marginTop: 30,
+                  // backgroundColor: "white",
                   borderRadius: 5,
+                  marginRight: 20
+                  
                 }}
               >
-                <Text>Looks Like you don't have any complaints yet</Text>
+                <Text style={{marginRight: 0}}>Il n'y a aucune réclamation, vous pouvez ajouter votre réclamation ici</Text>
+                <Text style={{marginTop: 15}}> </Text>
+                <View style={styles.button}>
                 <TouchableOpacity
-                  style={styles.addcomplain}
+                  style={styles.but}
                   onPress={() => navigation.navigate("Complain")}
-                >
-                  <Text>you want to add some new complaints here ?</Text>
+                  >
+                  <Text style={styles.buttontext}>Ajouter</Text>
                 </TouchableOpacity>
-                <TouchableOpacity
+                  </View>
+                {/* <TouchableOpacity
                   style={styles.nothanks}
                   onPress={() => setPage("profile")}
                 >
                   <Text>No thanks</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
             ) : null}
             <FlatList
+            
               data={fileredcomplaints}
               renderItem={({ item }) => (
                 <View>
@@ -450,19 +528,19 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                           style={{
                             width: 50,
                             height: 50,
-                            borderRadius: 50 / 2,
+                            borderRadius:50,
                           }}
                         />
                         <Text
                           style={{
                             fontWeight: "bold",
                             fontSize: 15,
-                            color: "black",
+                            color: "#006AFF",
                             marginTop: 9,
                             marginLeft: 5,
                           }}
                         >
-                          {item.username}
+                          {item.username} 
                         </Text>
                       </View>
                       <View
@@ -470,31 +548,53 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                           marginBottom: 20,
                           flexDirection: "row",
                           alignSelf: "flex-end",
-                          marginLeft: "52%",
+                          marginLeft: "55%",
                         }}
                       >
                         <TouchableOpacity
-                          style={styles.updatebutton}
-                          onPress={() => setshowpopup(true)}
+                          style={{ marginTop: 8 }}
+                          onPress={() =>  navigation.navigate("Complain")}
                         >
-                          <FontAwesome name="pencil" size={20} />
+                          <FontAwesome name="edit" size={30} color="#00B2FF" />
                         </TouchableOpacity>
                         <TouchableOpacity
                           onPress={() => handledelete(item.id)}
-                          style={styles.deletebutton}
+                          style={{ marginTop: 8, marginLeft: 20 }}
                         >
-                          <AntDesign name="delete" size={15} />
+                          <AntDesign name="delete" size={30} color="#00B2FF" />
                         </TouchableOpacity>
                       </View>
                     </View>
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        fontWeight: "bold",
+                        // alignSelf: "flex-end",
+                        marginLeft: 5,
+                      }}
+                    >
+                      {item.type}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        marginTop: 10,
+                        // alignSelf: "flex-start",
+                        fontWeight: "400",
+                        marginLeft: 5,
 
+                      }}
+                    >
+                      {item.description}
+                    </Text>
                     {item.image.uri ? (
                       <Image
                         source={{ uri: item.image.uri }}
                         style={{
-                          height: 300,
-                          borderRadius: 10,
-                          marginVertical: 10,
+                          height: 280,
+                          borderRadius: 5,
+                          marginTop: 10  
+                          // marginVertical: 10,
                         }}
                       />
                     ) : (
@@ -503,24 +603,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         style={{ width: "70%", borderRadius: 40, height: 300 }}
                       />
                     )}
-                    <Text
-                      style={{
-                        fontSize: 15,
-                        marginTop: 10,
-                        alignSelf: "flex-start",
-                      }}
-                    >
-                      {item.description}
-                    </Text>
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        fontWeight: "600",
-                        alignSelf: "flex-end",
-                      }}
-                    >
-                      {item.type}
-                    </Text>
+
                     {showpopup == true ? (
                       <View style={{ marginBottom: -30 }}>
                         <TouchableOpacity onPress={() => setshowpopup(false)}>
@@ -556,7 +639,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
         </View>
       ) : page == "Login" ? (
         <LoginScreen />
-      ) : null}
+      ) : page=="Updatecmplaint"?(<View></View>):null}
     </ScrollView>
   );
 };
