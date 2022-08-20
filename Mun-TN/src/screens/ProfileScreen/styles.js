@@ -302,16 +302,45 @@ export default StyleSheet.create({
         borderRadius:5,
         alignItems:"center",
         height:30,
-        marginLeft:10
+        marginLeft:60
         
     },
+    button: {
+        backgroundColor: "#00B2FF",
+        padding: 15,
+        paddingLeft: 10,
+        paddingRight: 10,
+        fontSize: 16,
+        height: 48,
+        borderRadius: 5,
+        marginVertical: 3,
+        marginBottom: 10,
+        marginTop: 20,
+        marginLeft: 110,
+        marginRight: 100
+      },
+    but: {
+        textAlign: "center",
+        alignItems: "center",
+      },
     addcomplain:{
-        backgroundColor:"#14b8a6",
+        backgroundColor:"#00B2FF",
         width:"80%",
-        marginTop:20,
+        marginTop:10,
         borderRadius:5,
         alignItems:"center",
-        height:30,
-        marginLeft:10
-    }
+        height:45,
+        marginLeft:140
+    },
+    images : {
+        width: 30,
+        height: 30,
+        marginTop: 15,
+        marginLeft: 8
+      },
+      buttontext: {
+        color: "white",
+        fontSize: 15,
+        fontWeight: "700",
+      },
 })

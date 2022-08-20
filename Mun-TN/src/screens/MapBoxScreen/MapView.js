@@ -1,7 +1,8 @@
 import  React,{ useEffect, useRef, useState } from 'react';
 import MapView, {Circle, Marker, MarkerAnimated, Polyline} from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView, NativeEventEmitter, Alert } from 'react-native';
+import { StyleSheet, Text, View, Dimensions,Image,SafeAreaView, NativeEventEmitter, Alert, TouchableOpacity } from 'react-native';
 import {firebase} from '../../../firebase/config';
+import { Entypo } from "react-native-vector-icons"
 import { Button ,FAB} from 'react-native-paper';
 import { useTheme } from '@react-navigation/native';
 import * as Loaction from "expo-location"
@@ -9,6 +10,9 @@ import MapDirections from "react-native-maps-directions"
 import { setGoogleApiKey } from 'expo-location';
 import  PushNotification  from 'react-native-push-notification';
 import { mapDarkStyle,mapStandardStyle } from './DarkStyle';
+import messaging from "@react-native-firebase/messaging"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+
 const window=Dimensions.get('window')
 export default function MapViewComponent (){
   const mapref=useRef()
@@ -75,6 +79,16 @@ var trucks=[
   }
 }
 ]
+async function requestUserPermission() {
+  const authStatus = await messaging().requestPermission();
+  const enabled =
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+  if (enabled) {
+    console.log('Authorization status:', authStatus);
+  }
+}
 
   var getlocation=async ()=>{
     let {status}=await Loaction.requestForegroundPermissionsAsync()
@@ -86,7 +100,43 @@ var trucks=[
     setLocation(location.coords)
     
   }
-  
+  function getnotification(){
+    PushNotification.configure({
+      onNotification:function(notification){
+         console.log(notification)
+      }
+
+    })
+  }
+  var getfctoken=()=>{
+    let fcmtoken=AsyncStorage.getItem("fcmtoken")
+    if(!fcmtoken){
+      try{
+        let fcmtoken=messaging().getToken()
+        if(fcmtoken){
+          AsyncStorage.setItem("fcmtoken",fcmtoken)
+
+        }
+      }catch(e){
+        console.log(e)
+      }
+    }
+  }
+  const notificationlistner=()=>{
+    messaging().onNotificationOpenedApp(remoteMessage=>{
+      console.log("Notification ",remoteMessage.notification)
+     
+      
+    })
+    messaging().getInitialNotification().then(remoteMessage=>{
+      if(remoteMessage){
+        console.log(remoteMessage.notification)
+      }
+    
+    })
+    messaging().onMessage(remoteMessage=>{
+      console.log("Notification ",remoteMessage.notification)})
+  }
   useEffect(()=>{
 getlocation()
   },[])
@@ -138,8 +188,8 @@ bottom: 0}} ref={mapref}
 ))}
 
 </MapView> 
-<FAB icon="plus" style={{marginTop:400,width:50,marginLeft:"90%"}} onPress={()=>{
-  
+<FAB icon="plus" style={{marginTop:18,width:50,marginLeft:"42%", height: 50, backgroundColor: "blue"}} onPress={()=>{
+   <TouchableOpacity onPress={()=>getnotification()}><Text>get notification</Text></TouchableOpacity>
   console.log(location)
 
   getlocation()}}/>

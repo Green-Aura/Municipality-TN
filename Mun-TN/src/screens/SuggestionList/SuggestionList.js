@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image, FlatList, ListItem, Dimensions  } from 'react-native'
+import { StyleSheet,Animated, Text, View,Image, FlatList, ListItem, Dimensions  } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import {firebase,db} from "../../../firebase/config"
 import styles from './styles'
@@ -7,20 +7,34 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 import { PanGestureHandler } from 'react-native-gesture-handler';
-import  { Animated,useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import  { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 const RenderSuggessions = () => {
     const[upvotes,setupvotes]=useState(null)
     const[list,setList]=useState([])
     const [upvoted,setupvoted]=useState(false)
     const [downvoted,setdownvoted]=useState(false)
     const[downvotes,setdownvotes]=useState(null)
+    const Yscroll = React.useRef(new Animated.Value(0)).current;
+    const marginBottomItem = 20;
+const paddingItem = 10;
+const imgHeight = 100;
+const sizeOfItem = imgHeight + paddingItem * 2 + marginBottomItem;
+
+    const scale = Yscroll.interpolate({
+      inputRange: [
+        -1, 0,
+        sizeOfItem * 1.25,
+        sizeOfItem * 1.25
+      ],
+      outputRange: [1, 1, 1, 0]
+    })
     const navigation=useNavigation()
     const ref=firebase.firestore().collection('suggestions') 
     const upvote=(id)=>{
        if(upvoted===false&&downvoted==false){ 
 
         ref.doc(id).get().then(snapshot=>{setupvotes(snapshot.data().votes)  })
-    
+     
 
         ref.doc(id).update({votes:upvotes+1}).then(()=>{
          console.log("updated successfully")
@@ -105,13 +119,25 @@ setupvoted(false)
 
 
   return (
-    <FlatList data={list} renderItem={({item})=>(
-      <View style={styles.container}>
-        <View style={{flexDirection:"row"}}> 
-        <Image source={{uri:item.userimage}} style={{width:100,height:100}}/>
-                <Text>{item.username}</Text>
+    <Animated.FlatList data={list} 
+       renderItem={({item})=>(
+      <Animated.View style={
+        [styles.container,
+        {
+          transform: [{ scale }]
+        }
+        ]
+      }>
+        <View style={{flexDirection:"row",marginLeft:10,marginTop:10}}> 
+        <Image source={{uri:item.userimage}} style={{width:40,height:40, borderRadius:70}}/>
+                <Text style={{marginTop:8,marginLeft:5,fontWeight:"900",color:"#006AFF"}}>{item.username}</Text>
 
                 </View>
+                <Text 
+        style={styles.description}
+        > 
+        {item.description}
+        </Text>
         <Image 
         source={{uri:item.image.uri}} 
         style={styles.feedImage}
@@ -124,28 +150,25 @@ setupvoted(false)
         > 
         {item.municipalityname}
         </Text>
-        <Text 
-        style={styles.description}
-        > 
-        {item.description}
-        </Text>
+       
         <View 
-        style={{flexDirection:'row'}}
+        style={{flexDirection:'row',alignSelf:"flex-start",marginLeft:10}}
         >
        <TouchableOpacity 
        onPress={()=>{upvote(item.id)}}
        >
+        
         <FontAwesome5 
-        name="thumbs-up" 
+        name="heart" 
         color={upvoted==true?"red":"grey"} 
-        size={(30)} style={{padding: 10}}
+        size={(30)} style={{padding: 10,marginRight:-10}}
         /></TouchableOpacity> 
        <Text 
-       style={{  padding: 15, marginRight: 80}}
+       style={{  padding: 15, marginRight: 10}}
        >
         {item.votes}
         </Text>  
-
+        
         <View 
         style={{ flexDirection: 'row', marginLeft: 10 }}>
       <TouchableOpacity 
@@ -153,18 +176,18 @@ setupvoted(false)
       >
         <FontAwesome5  
         name="thumbs-down" 
-        color={downvoted==true?"red":"grey"} 
-        size={(30)} style={{padding: 10}}
+        color={downvoted==true?"blue":"grey"} 
+        size={(30)} style={{padding: 10,marginLeft:-10,marginTop:2}}
         /></TouchableOpacity>
       <Text 
-      style={{  padding: 15, marginRight: 80}}
+      style={{  padding: 15, marginLeft: -12,marginTop:2}}
       >
         {item.downvotes}
         </Text>
         </View>
         </View>
        
-        </View>  
+        </Animated.View>  
     )} /> 
   )}
   

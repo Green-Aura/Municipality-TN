@@ -182,13 +182,13 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
           }}>View Profile</Text>
         </TouchableOpacity>
   
-    {TabButton(currentTab, setCurrentTab, "News", New,"News")}
-    {TabButton(currentTab, setCurrentTab, "Event", Event,"Events")}
-    {TabButton(currentTab, setCurrentTab, "Complain", notifications,"Complain")}
+    {TabButton(currentTab, setCurrentTab, "Actualités", New,"News")}
+    {TabButton(currentTab, setCurrentTab, "Evénements", Event,"Events")}
+    {TabButton(currentTab, setCurrentTab, "Réclamations", notifications,"Complain")}
     {TabButton(currentTab, setCurrentTab, "Suggestion", settings,"Suggestion")}
 
     </View>
-  <ScrollView style={{ flexGrow: 1, marginTop: 311 }}>
+  <ScrollView style={{ flexGrow: 1, marginTop: 300 }}>
 
   </ScrollView>
   
@@ -200,7 +200,9 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
 
 <Animated.View style={{
   flexGrow: 1,
-  backgroundColor: "#DCDCDC",
+
+  backgroundColor: '#DCDCDC',
+
   position: 'absolute',
   top: 0,
   bottom: 0,
