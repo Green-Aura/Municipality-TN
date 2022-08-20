@@ -51,19 +51,41 @@ const meditateTypes = [
 
 const Categories = [
   {
-    imageUrl: require('../../../assets/clean1.jpg'),
+    imageUrl: require('../../../assets/clean11.jpg'),
+    title:"hello",
+    description: "dans son petit sac à dos bleu elle a placé une gourde." ,
+    Date: "mardi 23 août 2022"
   },
   {
-    imageUrl: require('../../../assets/clean2.jpg'),
+    imageUrl: require('../../../assets/clean12.jpg'),
+    title:"hello",
+    description: "test",
+    Date: "samedi 20 août 2022"
   },
   {
-    imageUrl: require('../../../assets/clean3.jpg'),
+    imageUrl: require('../../../assets/clean13.jpg'),
+    title:"hello",
+    description: "test",
+    Date: "jeudi 18 août 2022"
   },
   {
-    imageUrl: require('../../../assets/clean4.jpg'),
+    imageUrl: require('../../../assets/clean14.jpg'),
+    title:"hello",
+    description: "test",
+    Date: "mercredi 10 août 2022"
   },
   {
-    imageUrl: require('../../../assets/clean5.webp'),
+    imageUrl: require('../../../assets/clean15.jpg'),
+    title:"hello",
+    description: "test",
+    Date: "lundi 8 août 2022"
+  },
+  {
+    imageUrl: require('../../../assets/clean16.jpg'),
+    title:"hello",
+    description: "test",
+    Date: "samedi 30 juillet 2022"
+
   },
 ];
 
@@ -339,10 +361,10 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
                 style={{ width: 360, height: 290, borderRadius: 5 }}
                 />
       </View>
-        <ScrollView horizontal={true}>
+        <ScrollView horizontal={false} >
           {
             Categories.map((category, index) => (
-              <View key={index}>
+              <View key={index}style={{flexDirection:'row'}}>
                 <Image
 
               // source={require('../../../assets/images/medicationTypes/bg2.png')}
@@ -350,9 +372,16 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
               source={category.imageUrl}
 
             />
+            <View style={{flexDirection:"column"}}>
+            <Text style={{fontSize:15}}>{category.title}</Text>
+            <Text style={{fontFamily:'georgia',fontSize:12,marginTop:3}}>{category.description}</Text>
+           
+             <Text style={{fontSize:12,color:'#989898',marginTop:35}}>{category.Date}</Text>
+            </View>
+           
             
-            <Text style={styles.card1Txt}>Stress Removal</Text>
               </View>
+             
             ))
           }
         </ScrollView>
@@ -480,10 +509,17 @@ images : {
   marginTop: -30
 },
 image: {
-  width: 200,
-  height: 220,
+  width: 150,
+  height: 100,
   margin: 5,
-  borderRadius: 5
+  borderRadius: 5,
+  shadowRadius: 10,
+  shadowOpacity: 0.5,
+  shadowColor: "#0000",
+  shadowOffset: {
+      height: 5,
+      width: 0,
+  },
 }
 });
 
