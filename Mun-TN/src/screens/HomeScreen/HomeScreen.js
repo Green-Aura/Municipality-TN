@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Animated, SafeAreaView, } from 'react-native';
+import { FontAwesome } from "@expo/vector-icons";
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Animated, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 import ComplainScreen from '../ComplainScreen/ComplainScreen';
 import SuggesstionScreen from '../SuggestionScreen/Suggestion';
 import {colors} from './colorsConfig';
@@ -52,25 +53,25 @@ const meditateTypes = [
 const Categories = [
   {
     imageUrl: require('../../../assets/clean11.jpg'),
-    title:"hello",
+    title:"Dandan Municipality",
     description: "dans son petit sac à dos bleu elle a placé une gourde." ,
     Date: "mardi 23 août 2022"
   },
   {
     imageUrl: require('../../../assets/clean12.jpg'),
-    title:"hello",
+    title:"Sousse Municipality",
     description: "test",
     Date: "samedi 20 août 2022"
   },
   {
     imageUrl: require('../../../assets/clean13.jpg'),
-    title:"hello",
+    title:"Ariana Municipality",
     description: "test",
     Date: "jeudi 18 août 2022"
   },
   {
     imageUrl: require('../../../assets/clean14.jpg'),
-    title:"hello",
+    title:"Ariana Municipality",
     description: "test",
     Date: "mercredi 10 août 2022"
   },
@@ -88,6 +89,22 @@ const Categories = [
 
   },
 ];
+
+const numStars = 5;
+
+class Star extends React.Component {
+  render() {
+    return (
+      <FontAwesome name={this.props.filled === true ? "star" : "star-o"}
+       color="blue" 
+       size={20} 
+       style={{marginHorizontal: 6 }}
+        />
+    )
+  }
+}
+
+
 
 const HomeScreen = ({navigation}) => {
 
@@ -140,6 +157,30 @@ const getUser = () => {
 useEffect(()=>{
   getUser()
 },[])
+state= {
+  rating: 4
+};
+
+const rate = star => {
+  state.rating= star ;
+}
+let stars = []
+
+for(let x = 1; x <= numStars; x++) {
+  stars.push(
+    <TouchableWithoutFeedback key={x}
+    onPress={() => {
+      rate(x)
+    }}
+    
+    >
+      <Animated.View>
+      <Star filled={x <= state.rating ? true : false} />
+      </Animated.View>
+    </TouchableWithoutFeedback>
+  )
+}
+
 const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
   return (
 
@@ -179,6 +220,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
     </TouchableOpacity>
   );
 }
+
   return (
     <ScrollView style={{backgroundColor:'#00B2FF'}}>
 <View style={{ justifyContent: 'flex-start', padding: 5 }}>
@@ -361,30 +403,38 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
                 style={{ width: 360, height: 290, borderRadius: 5 }}
                 />
       </View>
-        <ScrollView horizontal={false} >
+      
+
+      <ScrollView style={styles.container}>
+
+        <View>
           {
             Categories.map((category, index) => (
               <View key={index}style={{flexDirection:'row'}}>
                 <Image
 
-              // source={require('../../../assets/images/medicationTypes/bg2.png')}
-              style={styles.image}
-              source={category.imageUrl}
+// source={require('../../../assets/images/medicationTypes/bg2.png')}
+style={styles.image}
+source={category.imageUrl}
 
-            />
+/>
             <View style={{flexDirection:"column"}}>
-            <Text style={{fontSize:15}}>{category.title}</Text>
-            <Text style={{fontFamily:'georgia',fontSize:12,marginTop:3}}>{category.description}</Text>
+            <Text style={{fontSize:15, fontWeight: "bold"}}>{category.title}</Text>
+            <View style={{flexDirection: 'row', marginTop: 20}}>
+              {stars}
+            </View>
+            {/* <Text style={{fontFamily:'georgia',fontSize:12,marginTop:3}}>{category.description}</Text> */}
            
-             <Text style={{fontSize:12,color:'#989898',marginTop:35}}>{category.Date}</Text>
+             <Text style={{fontSize:12,color:'#989898',marginTop:20}}>Posté le {category.Date}</Text>
             </View>
            
             
               </View>
              
-            ))
-          }
-        </ScrollView>
+             ))
+            }
+        </View>
+            </ScrollView>
         </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><Articles /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
   </Animated.View>
 
@@ -400,10 +450,8 @@ export default HomeScreen;
 
 export const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flex: 1,
-    padding: 10,
-    marginBottom: 60,
+    padding: 0,
+    marginTop: 10,
     width: "100%"
     
   },
@@ -520,6 +568,16 @@ image: {
       height: 5,
       width: 0,
   },
+  customRatingBarStyle: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginTop: 30
+  },
+  starImgStyle: {
+    width: 40,
+    height: 40,
+    resizeMode: 'cover'
+  }
 }
 });
 
