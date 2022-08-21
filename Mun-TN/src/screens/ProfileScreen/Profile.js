@@ -544,7 +544,9 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       >
                         <TouchableOpacity
                           style={{ marginTop: 8 }}
-                          onPress={() =>  navigation.navigate("Complain")}
+                          onPress={() => { navigation.navigate("Complain")
+                          handledelete(item.id)
+                         }}
                         >
                           <FontAwesome name="edit" size={30} color="#00B2FF" />
                         </TouchableOpacity>

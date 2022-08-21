@@ -8,7 +8,6 @@ import { useTheme } from '@react-navigation/native';
 import * as Loaction from "expo-location"
 import MapDirections from "react-native-maps-directions"
 import { setGoogleApiKey } from 'expo-location';
-import  PushNotification  from 'react-native-push-notification';
 import { mapDarkStyle,mapStandardStyle } from './DarkStyle';
 import messaging from "@react-native-firebase/messaging"
 import AsyncStorage from "@react-native-async-storage/async-storage"
@@ -100,7 +99,7 @@ async function requestUserPermission() {
     setLocation(location.coords)
     
   }
-  function getnotification(){
+  {/*function getnotification(){
     PushNotification.configure({
       onNotification:function(notification){
          console.log(notification)
@@ -108,6 +107,7 @@ async function requestUserPermission() {
 
     })
   }
+*/}
   var getfctoken=()=>{
     let fcmtoken=AsyncStorage.getItem("fcmtoken")
     if(!fcmtoken){
@@ -189,9 +189,8 @@ bottom: 0}} ref={mapref}
 
 </MapView> 
 <FAB icon="plus" style={{marginTop:18,width:50,marginLeft:"42%", height: 50, backgroundColor: "blue"}} onPress={()=>{
-   <TouchableOpacity onPress={()=>getnotification()}><Text>get notification</Text></TouchableOpacity>
   console.log(location)
-
+  
   getlocation()}}/>
 
    </View>
