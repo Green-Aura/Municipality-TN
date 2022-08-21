@@ -208,7 +208,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                     style={{ marginLeft: "90%" }}
                     onPress={() => setPage("updateprofile")}
                   >
-                    <FontAwesome name="pencil" size={20} />
+                    <FontAwesome name="pencil" size={20} color="#00B2FF" />
                   </TouchableOpacity>
                   {userData.image ? (
                     <Image
@@ -375,10 +375,10 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               <View style={{ flexDirection: "row", borderBottomWidth :1 }}>
                 <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 5}}>Photo de profil</Text>
                 <TouchableOpacity onPress={chooseImg}>
-                <AntDesign  name="camera"
+                <Feather  name="camera" 
               style={{ marginTop: -5, marginLeft: 190}}
               color="#00B2FF" 
-              size={40} />
+              size={30} />
               </TouchableOpacity>
               </View>
               <View style={{borderBottomWidth :0}}>
@@ -410,20 +410,24 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                 <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 25}}>Mettre à jour votre profil </Text>
                 <View style={{borderBottomWidth :1, marginTop: 8}}></View>
           <View style={{marginTop: 30}}>
-            <TextInput
+            <View ><Feather name="mail"  size={30} color="#00B2FF" style={{marginLeft:15,marginBottom:-48}} />
+            <TextInput 
               icon="mail"
               style={styles.emailinput}
               placeholder="Email"
               value={email}
               onChangeText={(text) => setemail(text)}
               />
+              </View>
+              <View><Feather name="user"  size={30} color="#00B2FF" style={{marginLeft:15,marginBottom:-48}} />
             <TextInput
+             
               placeholder="Nom et Prénom"
               style={styles.nameinput}
               value={name}
               onChangeText={(text) => setname(text)}
               />
-             
+             </View>
             <View style={styles.button}>
               {/* <TouchableOpacity onPress={chooseImg}>
                 <AntDesign  name="camera"
