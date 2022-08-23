@@ -30,7 +30,7 @@ import * as expoDocumentPicker from "expo-document-picker";
 import MapViewComponent from "../MapBoxScreen/MapView.js";
 import { FAB } from "react-native-paper";
 import * as Loaction from "expo-location";
-
+import moment from "moment";
 export default function ComplainScreen({ navigation }) {
   const [user, setUser] = useState({});
   const [loading, setloading] = useState(false);
