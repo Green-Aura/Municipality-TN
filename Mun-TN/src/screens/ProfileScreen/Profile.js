@@ -509,7 +509,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
             ) : null}
             <FlatList
             
-              data={fileredcomplaints}
+              data={fileredcomplaints.sort((a,b)=>a.createdAt-b.createdAt)}
               renderItem={({ item }) => (
                 <View>
                   <View style={styles.container}>
