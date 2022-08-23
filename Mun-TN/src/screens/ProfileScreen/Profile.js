@@ -27,6 +27,7 @@ import * as PhotoPicker from "expo-image-picker";
 import { EvilIcons } from "react-native-vector-icons";
 import LoginScreen from "../LoginScreen/LoginScreen";
 import ImagePicker from "react-native-image-picker";
+import moment from "moment";
 export default Profile = ({ navigation }) => {
   const COLORS = { primary: "#ecfeff", cyan: "#14b8a6" };
   const { user, logout } = createContext(AuthContext);
@@ -181,9 +182,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
       .then(() => {
         alert("mis à jour avec succès");
         setPage("profile");
-        setImage(null);
-        setemail("");
-        setname("");
+       
       });
   };
 
@@ -244,7 +243,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                     }}
                   >
                     {userData.fullName?userData.fullName:name} 
-                  </Text>
+                  </Text> 
                   <Text
                     style={{
                       fontWeight: "bold",
@@ -600,6 +599,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         style={{ width: "70%", borderRadius: 40, height: 300 }}
                       />
                     )}
+                    <Text>                           { moment (item.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                    </Text>
 
                     {showpopup == true ? (
                       <View style={{ marginBottom: -30 }}>
