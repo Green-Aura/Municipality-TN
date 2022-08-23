@@ -27,6 +27,7 @@ import * as PhotoPicker from "expo-image-picker";
 import { EvilIcons } from "react-native-vector-icons";
 import LoginScreen from "../LoginScreen/LoginScreen";
 import ImagePicker from "react-native-image-picker";
+import moment from "moment";
 export default Profile = ({ navigation }) => {
   const COLORS = { primary: "#ecfeff", cyan: "#14b8a6" };
   const { user, logout } = createContext(AuthContext);
@@ -181,9 +182,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
       .then(() => {
         alert("mis à jour avec succès");
         setPage("profile");
-        setImage(null);
-        setemail("");
-        setname("");
+       
       });
   };
 
@@ -222,8 +221,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       }}
                     />
                   ) : (
-                    <Image
-                      source={{ uri: userData.image }}
+                   <Image
+                      source={{ uri: image}}
                       style={{
                         width: 100,
                         height: 100,
@@ -232,6 +231,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         marginLeft: 150,
                       }}
                     />
+                   
                   )}
                   <Text
                     style={{
@@ -242,8 +242,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       marginBottom: 10,
                     }}
                   >
-                    {userData.fullName}
-                  </Text>
+                    {userData.fullName?userData.fullName:name} 
+                  </Text> 
                   <Text
                     style={{
                       fontWeight: "bold",
@@ -252,7 +252,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       marginBottom: 10,
                     }}
                   >
-                    {userData.email}
+                    {userData.email?userData.email:email}
                   </Text>
                 </View>
               </View>
@@ -286,7 +286,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       marginTop: 10,
                     }}
                   >
-                    Address: {userData.city},{userData.Municipality}
+                    Addresse: {userData.city},{userData.Municipality}
                   </Text>
                 </View>
                 <View
@@ -355,14 +355,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
             </View>
           </View> 
           <View>
-            <TouchableOpacity
-
-          onPress={() => {
-            setPage("profile");
-          }}
-        >
-        <Image style={styles.images} source={require("../../../assets/images/back.png")}/>
-        </TouchableOpacity>
+     
             </View>
         </View>
       ) : page == "updateprofile" ? (
@@ -452,6 +445,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
           </View>
       ) : page == "complains" ? (
         <View>
+
           <TouchableOpacity
             
             onPress={() => {
@@ -515,7 +509,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
             ) : null}
             <FlatList
             
-              data={fileredcomplaints}
+              data={fileredcomplaints.sort((a,b)=>a.createdAt-b.createdAt)}
               renderItem={({ item }) => (
                 <View>
                   <View style={styles.container}>
@@ -553,7 +547,9 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       >
                         <TouchableOpacity
                           style={{ marginTop: 8 }}
-                          onPress={() =>  navigation.navigate("Complain")}
+                          onPress={() => { navigation.navigate("Complain")
+                          handledelete(item.id)
+                         }}
                         >
                           <FontAwesome name="edit" size={30} color="#00B2FF" />
                         </TouchableOpacity>
@@ -603,6 +599,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         style={{ width: "70%", borderRadius: 40, height: 300 }}
                       />
                     )}
+                    <Text>                           { moment (item.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                    </Text>
 
                     {showpopup == true ? (
                       <View style={{ marginBottom: -30 }}>
