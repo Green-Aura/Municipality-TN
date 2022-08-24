@@ -7,7 +7,7 @@ const DATA =[
         source: "ALJAZEERA",
         title: "LE COSTUME TRADITIONNEL TUNISIEN",
         image: "https://chwaya.b-cdn.net/img/ybc_blog/post/3-slide-costume-femmes.jpg",
-        description: "Le mode d'habillement constitue l'un des traits distinctifs de la personnalité de l'homme. Il fait également partie intégrante des spécificités inhérentes à son identité et à la civilisation dont il se prévaut. Autant par sa diversité, que par son raffinement, le costume traditionnel tunisien témoigne de la richesse et de la valeur inestimable du patrimoine culturel et civilisationnel de ce pays à l’histoire plusieurs fois millénaire, qu'est la Tunisie.",
+        description: "Le mode d'habillement constitue l'un des traits distinctifs de la personnalité de l'homme. Il fait également partie intégrante des spécificités inhérentes à son identité et à la civilisation dont il se prévaut."
         
     },
     {

@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   tabBar: {
-    height: 60,
+    height: 55,
     position: 'absolute',
     bottom: 0,
     right: 16,
@@ -119,7 +119,8 @@ const styles = StyleSheet.create({
     borderColor: Colors.white,
     backgroundColor: Colors.white,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop:7
   },
   circle: {
     ...StyleSheet.absoluteFillObject,

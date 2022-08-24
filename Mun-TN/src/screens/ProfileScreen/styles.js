@@ -343,4 +343,19 @@ export default StyleSheet.create({
         fontSize: 15,
         fontWeight: "700",
       },
+      nameinput1:{
+        backgroundColor: "transparent",
+        padding: 15,
+        paddingLeft: 10,
+        paddingRight: 165,
+        borderRadius: 10,
+        fontSize: 15,
+        height: 50,
+        marginVertical: 3,
+        marginBottom: 5,
+        marginTop: -1,
+        color: "gray",
+
+        
+         },
 })
