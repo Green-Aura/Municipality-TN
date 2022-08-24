@@ -53,41 +53,41 @@ const meditateTypes = [
 const Categories = [
   {
     imageUrl: require('../../../assets/clean11.jpg'),
-    title:"Dandan Municipality",
+    title:"Nettoyage des trottoirs",
     description: "dans son petit sac à dos bleu elle a placé une gourde." ,
     Date: "mardi 23 août 2022"
   },
   {
     imageUrl: require('../../../assets/clean12.jpg'),
-    title:"Sousse Municipality",
+    title:"Campagne de nettoyage",
     description: "test",
     Date: "samedi 20 août 2022"
   },
   {
     imageUrl: require('../../../assets/clean13.jpg'),
-    title:"Ariana Municipality",
+    title:"Un groupe de bénévoles ramasse du plastique",
     description: "test",
     Date: "jeudi 18 août 2022"
   },
   {
     imageUrl: require('../../../assets/clean14.jpg'),
-    title:"Ariana Municipality",
+    title:"La société civile coopère pour garder la ville propre",
     description: "test",
     Date: "mercredi 10 août 2022"
   },
-  {
-    imageUrl: require('../../../assets/clean15.jpg'),
-    title:"hello",
-    description: "test",
-    Date: "lundi 8 août 2022"
-  },
-  {
-    imageUrl: require('../../../assets/clean16.jpg'),
-    title:"hello",
-    description: "test",
-    Date: "samedi 30 juillet 2022"
+  // {
+  //   imageUrl: require('../../../assets/clean15.jpg'),
+  //   title:"hello",
+  //   description: "test",
+  //   Date: "lundi 8 août 2022"
+  // },
+  // {
+  //   imageUrl: require('../../../assets/clean16.jpg'),
+  //   title:"hello",
+  //   description: "test",
+  //   Date: "samedi 30 juillet 2022"
 
-  },
+  // },
 ];
 
 const numStars = 5;
@@ -96,7 +96,7 @@ class Star extends React.Component {
   render() {
     return (
       <FontAwesome name={this.props.filled === true ? "star" : "star-o"}
-       color="blue" 
+       color="gold" 
        size={20} 
        style={{marginHorizontal: 6 }}
         />
@@ -157,8 +157,8 @@ const getUser = () => {
 useEffect(()=>{
   getUser()
 },[])
-state= {
-  rating: 4
+const state= {
+  rating: 3
 };
 
 const rate = star => {
@@ -249,7 +249,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
     {TabButton(currentTab, setCurrentTab, "Actualités", New,"News")}
     {TabButton(currentTab, setCurrentTab, "Evénements", Event,"Events")}
     {TabButton(currentTab, setCurrentTab, "Réclamations", notifications,"Complain")}
-    {TabButton(currentTab, setCurrentTab, "Suggestion", settings,"Suggestion")}
+    {TabButton(currentTab, setCurrentTab, "Suggestions", settings,"Suggestion")}
 
     </View>
   <ScrollView style={{ flexGrow: 1, marginTop: 222 }}>
@@ -393,7 +393,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
       <ScrollView>
               <View>
               <Video
-                source={{ uri: 'https://v.ftcdn.net/03/29/04/62/700_F_329046289_HzoxUhrbyHyRr4XEvZUDAl9LQIzy3K0B_ST.mp4' }}
+                source={{ uri: 'https://images-ext-2.discordapp.net/external/4mSOSxAe1dsS9ewyfRJ2ff8KN4n_pwuvdspUaPBJha8/https/media.tenor.com/RC-g-L2bywoAAAPo/good-morning-hi.mp4' }}
                 rate={1.0}
                 volume={1.0}
                 isMuted={true}
