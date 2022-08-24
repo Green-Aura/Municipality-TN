@@ -257,7 +257,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                 </View>
               </View>
               <View style={styles.infocontainer}>
-                <View style={{ marginLeft: 20, flexDirection: "row" }}>
+                {/* <View style={{ marginLeft: 20, flexDirection: "row" }}>
                   <AntDesign name="phone" size={30} color={"#00B2FF"} />
                   <Text
                     style={{
@@ -269,12 +269,12 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                   >
                     Numéro de téléphone : {userData.phoneNumber}
                   </Text>
-                </View>
+                </View> */}
                 <View
                   style={{
                     marginLeft: 20,
                     flexDirection: "row",
-                    marginTop: 20,
+                    marginTop:-5,
                   }}
                 >
                   <AntDesign name="home" size={30} color={"#00B2FF"} />
@@ -526,9 +526,11 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         <Image
                           source={{ uri: item.userimage }}
                           style={{
-                            width: 50,
-                            height: 50,
+                            width: 45,
+                            height: 45,
                             borderRadius:50,
+                            marginTop: 5,
+                            marginLeft: 5
                           }}
                         />
                         <Text
