@@ -374,15 +374,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
         </TouchableOpacity>
             </View>
             <View >
-              <View style={{ flexDirection: "row", borderBottomWidth :1 }}>
-                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 5}}>Photo de profil</Text>
-                <TouchableOpacity onPress={chooseImg}>
-                <Feather  name="camera" 
-              style={{ marginTop: -5, marginLeft: 190}}
-              color="#00B2FF" 
-              size={30} />
-              </TouchableOpacity>
-              </View>
+                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 5}}>Mettre à jour votre profil</Text>
               <View style={{borderBottomWidth :0}}>
            {image?<Image
                       source={{ uri: image }}
@@ -409,8 +401,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       />}
                       </View>
                 </View>
-                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 25}}>Mettre à jour votre profil </Text>
-                <View style={{borderBottomWidth :1, marginTop: 8}}></View>
+             
           <View style={{marginTop: 30}}>
             <View ><Feather name="mail"  size={30} color="#00B2FF" style={{marginLeft:15,marginBottom:-48}} />
             <TextInput 
@@ -430,6 +421,16 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               onChangeText={(text) => setname(text)}
               />
              </View>
+             <View style={{flexDirection:"row"}}>
+             <TouchableOpacity onPress={chooseImg}>
+                <Feather  name="camera" 
+              style={{ marginTop: 8, marginLeft: 16}}
+              color="#00B2FF" 
+              size={30} />
+              </TouchableOpacity>
+              <Text style={styles.nameinput1}>Choisie votre photo</Text>
+              </View>
+              <View style={{ borderBottomColor :"black",borderBottomWidth :1,paddinLeft:20, backgroundColor: "transparent",}}></View>
             <View style={styles.button}>
               {/* <TouchableOpacity onPress={chooseImg}>
                 <AntDesign  name="camera"
@@ -526,6 +527,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                             width: 50,
                             height: 50,
                             borderRadius:50,
+                            marginTop: 5,
+                            marginLeft: 5
                           }}
                         />
                         <Text
@@ -545,7 +548,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                           marginBottom: 20,
                           flexDirection: "row",
                           alignSelf: "flex-end",
-                          marginLeft: "25%",
+                          marginLeft: "18%",
+                          marginTop: 5
                         }}
                       >
                         <TouchableOpacity
@@ -570,6 +574,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         fontWeight: "bold",
                         // alignSelf: "flex-end",
                         marginLeft: 5,
+                        color: "gray"
                       }}
                     >
                       {item.type}
@@ -592,8 +597,10 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         style={{
                           height: 280,
                           borderRadius: 5,
-                          marginTop: 10  
-                          // marginVertical: 10,
+                          marginTop: 10,  
+                          // marginVertical: 10,z,
+                          width: "95%",
+                          marginLeft: 8
                         }}
                       />
                     ) : (

@@ -38,7 +38,8 @@ import { color } from "react-native-reanimated";
         marginVertical: 3,
         marginBottom: 10,
         marginTop: 10,
-        marginLeft: 100,
+
+        marginLeft: 85,
       },
     but:{
         textAlign:"center",

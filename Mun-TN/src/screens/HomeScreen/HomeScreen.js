@@ -252,7 +252,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
     {TabButton(currentTab, setCurrentTab, "Suggestions", settings,"Suggestion")}
 
     </View>
-  <ScrollView style={{ flexGrow: 1, marginTop: 222 }}>
+  <ScrollView style={{ flexGrow: 1, marginTop: 220 }}>
 
   </ScrollView>
   
@@ -323,7 +323,7 @@ const TabButton = (currentTab, setCurrentTab, title, image,Page ) => {
         height: 40,
         tintColor: '#00B2FF',
         marginTop: -5,
-        marginLeft: 300,
+        marginLeft: 5,
         marginBottom: 5
       }}></Image>
     </TouchableOpacity>
@@ -435,7 +435,7 @@ source={category.imageUrl}
             }
         </View>
             </ScrollView>
-        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><Articles /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}><Image style={styles.images} source={require('../../../assets/images/back.png')} /></TouchableOpacity><SuggesstionScreen /></View>): null}
+        </ScrollView>:Page === 'News' ? (<View><TouchableOpacity onPress={()=> SetPage('Home')}></TouchableOpacity><News /></View>):Page ==="Events" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}></TouchableOpacity><Articles /></View>):Page ==="Complain" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}></TouchableOpacity><ComplainScreen /></View>):Page ==="Suggestion" ?(<View><TouchableOpacity onPress={()=>SetPage('Home')}></TouchableOpacity><SuggesstionScreen /></View>): null}
   </Animated.View>
 
 </Animated.View>
