@@ -30,7 +30,7 @@ import * as expoDocumentPicker from "expo-document-picker";
 import MapViewComponent from "../MapBoxScreen/MapView.js";
 import { FAB } from "react-native-paper";
 import * as Loaction from "expo-location";
-
+import moment from "moment";
 export default function ComplainScreen({ navigation }) {
   const [user, setUser] = useState({});
   const [loading, setloading] = useState(false);
@@ -228,7 +228,7 @@ console.log(location)
             />
           );
         }}
-        // defaultButtonText={"Select type"}
+        defaultButtonText={"Sélectioner"}
       />
       <View style={{ flexDirection: "row", marginTop: 10 }}>
         <TextInput
@@ -337,7 +337,8 @@ console.log(location)
       
 
      <MapView provider="google"  style={{flex:1,position:"absolute",width:"100%",height:"100%",top:0,left:0,bottom:0,right:0}}></MapView>
-     <FAB icon="plus" style={{marginTop:-80,width:55,marginLeft:150,height:55}} onPress={()=>getlocation()}/></View></View>):null}
+
+     <FAB icon="plus" style={{marginTop:-140,width:55,marginLeft:150,height:55}} onPress={()=>getlocation()}/></View></View>):null}
       
     {/* </KeyboardAvoidingView> */}
   </ScrollView>

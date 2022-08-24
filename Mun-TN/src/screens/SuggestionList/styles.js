@@ -48,9 +48,9 @@ export default StyleSheet.create({
         marginTop: 15
     },
     feedImage: {
-        height: 350,
+        height: 300,
         borderRadius: 5,
-        width: "90%",
+        width: "95%",
         alignSelf:"center",
         marginTop:10,
 

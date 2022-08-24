@@ -27,6 +27,7 @@ import * as PhotoPicker from "expo-image-picker";
 import { EvilIcons } from "react-native-vector-icons";
 import LoginScreen from "../LoginScreen/LoginScreen";
 import ImagePicker from "react-native-image-picker";
+import moment from "moment";
 export default Profile = ({ navigation }) => {
   const COLORS = { primary: "#ecfeff", cyan: "#14b8a6" };
   const { user, logout } = createContext(AuthContext);
@@ -181,9 +182,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
       .then(() => {
         alert("mis à jour avec succès");
         setPage("profile");
-        setImage(null);
-        setemail("");
-        setname("");
+       
       });
   };
 
@@ -222,8 +221,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       }}
                     />
                   ) : (
-                    <Image
-                      source={{ uri: userData.image }}
+                   <Image
+                      source={{ uri: image}}
                       style={{
                         width: 100,
                         height: 100,
@@ -232,6 +231,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         marginLeft: 150,
                       }}
                     />
+                   
                   )}
                   <Text
                     style={{
@@ -242,8 +242,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       marginBottom: 10,
                     }}
                   >
-                    {userData.fullName}
-                  </Text>
+                    {userData.fullName?userData.fullName:name} 
+                  </Text> 
                   <Text
                     style={{
                       fontWeight: "bold",
@@ -252,13 +252,13 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       marginBottom: 10,
                     }}
                   >
-                    {userData.email}
+                    {userData.email?userData.email:email}
                   </Text>
                 </View>
               </View>
               <View style={styles.infocontainer}>
                 <View style={{ marginLeft: 20, flexDirection: "row" }}>
-                  <AntDesign name="phone" size={30} color={"#00B2FF"} />
+                  {/* <AntDesign name="phone" size={30} color={"#00B2FF"} />
                   <Text
                     style={{
                       color: "grey",
@@ -268,7 +268,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                     }}
                   >
                     Numéro de téléphone : {userData.phoneNumber}
-                  </Text>
+                  </Text> */}
                 </View>
                 <View
                   style={{
@@ -284,9 +284,10 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       fontSize: 15,
                       marginLeft: 20,
                       marginTop: 10,
+                      fontWeight:"bold"
                     }}
                   >
-                    Address: {userData.city},{userData.Municipality}
+                    Addresse: {userData.city},{userData.Municipality}
                   </Text>
                 </View>
                 <View
@@ -310,12 +311,13 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       fontSize: 15,
                       marginLeft: 20,
                       marginTop: 10,
+                      fontWeight:"bold"
                     }}
                     onPress={() => {
                       setPage("complains");
                     }}
                   >
-                    Réclamations({fileredcomplaints.length} Réclamations)
+                    Réclamations:{fileredcomplaints.length} réclamation
                   </Text>
                 </View>
                 <View
@@ -346,6 +348,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       fontSize: 15,
                       marginLeft: 20,
                       marginTop: 10,
+                      fontWeight:"bold"
                     }}
                   >
                     déconnexion
@@ -355,14 +358,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
             </View>
           </View> 
           <View>
-            <TouchableOpacity
-
-          onPress={() => {
-            setPage("profile");
-          }}
-        >
-        <Image style={styles.images} source={require("../../../assets/images/back.png")}/>
-        </TouchableOpacity>
+     
             </View>
         </View>
       ) : page == "updateprofile" ? (
@@ -378,15 +374,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
         </TouchableOpacity>
             </View>
             <View >
-              <View style={{ flexDirection: "row", borderBottomWidth :1 }}>
-                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 5}}>Photo de profil</Text>
-                <TouchableOpacity onPress={chooseImg}>
-                <Feather  name="camera" 
-              style={{ marginTop: -5, marginLeft: 190}}
-              color="#00B2FF" 
-              size={30} />
-              </TouchableOpacity>
-              </View>
+                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 5}}>Mettre à jour votre profil</Text>
               <View style={{borderBottomWidth :0}}>
            {image?<Image
                       source={{ uri: image }}
@@ -413,8 +401,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       />}
                       </View>
                 </View>
-                <Text style={{fontSize:17, fontWeight: "bold", marginLeft: 5, marginTop: 25}}>Mettre à jour votre profil </Text>
-                <View style={{borderBottomWidth :1, marginTop: 8}}></View>
+             
           <View style={{marginTop: 30}}>
             <View ><Feather name="mail"  size={30} color="#00B2FF" style={{marginLeft:15,marginBottom:-48}} />
             <TextInput 
@@ -434,6 +421,16 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               onChangeText={(text) => setname(text)}
               />
              </View>
+             <View style={{flexDirection:"row"}}>
+             <TouchableOpacity onPress={chooseImg}>
+                <Feather  name="camera" 
+              style={{ marginTop: 8, marginLeft: 16}}
+              color="#00B2FF" 
+              size={30} />
+              </TouchableOpacity>
+              <Text style={styles.nameinput1}>Choisie votre photo</Text>
+              </View>
+              <View style={{ borderBottomColor :"black",borderBottomWidth :1,paddinLeft:20, backgroundColor: "transparent",}}></View>
             <View style={styles.button}>
               {/* <TouchableOpacity onPress={chooseImg}>
                 <AntDesign  name="camera"
@@ -452,6 +449,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
           </View>
       ) : page == "complains" ? (
         <View>
+
           <TouchableOpacity
             
             onPress={() => {
@@ -515,7 +513,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
             ) : null}
             <FlatList
             
-              data={fileredcomplaints}
+              data={fileredcomplaints.sort((a,b)=>a.createdAt-b.createdAt)}
               renderItem={({ item }) => (
                 <View>
                   <View style={styles.container}>
@@ -529,6 +527,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                             width: 50,
                             height: 50,
                             borderRadius:50,
+                            marginTop: 5,
+                            marginLeft: 5
                           }}
                         />
                         <Text
@@ -548,12 +548,15 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                           marginBottom: 20,
                           flexDirection: "row",
                           alignSelf: "flex-end",
-                          marginLeft: "55%",
+                          marginLeft: "18%",
+                          marginTop: 5
                         }}
                       >
                         <TouchableOpacity
                           style={{ marginTop: 8 }}
-                          onPress={() =>  navigation.navigate("Complain")}
+                          onPress={() => { navigation.navigate("Complain")
+                          handledelete(item.id)
+                         }}
                         >
                           <FontAwesome name="edit" size={30} color="#00B2FF" />
                         </TouchableOpacity>
@@ -571,6 +574,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         fontWeight: "bold",
                         // alignSelf: "flex-end",
                         marginLeft: 5,
+                        color: "gray"
                       }}
                     >
                       {item.type}
@@ -593,8 +597,10 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         style={{
                           height: 280,
                           borderRadius: 5,
-                          marginTop: 10  
-                          // marginVertical: 10,
+                          marginTop: 10,  
+                          // marginVertical: 10,z,
+                          width: "95%",
+                          marginLeft: 8
                         }}
                       />
                     ) : (
@@ -603,6 +609,8 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                         style={{ width: "70%", borderRadius: 40, height: 300 }}
                       />
                     )}
+                    <Text>                           { moment (item.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                    </Text>
 
                     {showpopup == true ? (
                       <View style={{ marginBottom: -30 }}>

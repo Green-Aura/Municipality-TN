@@ -144,14 +144,14 @@ setupvoted(false)
         source={{uri:item.image.uri}} 
         style={styles.feedImage}
         />
-      <Text style={styles.title}>
+      {/* <Text style={styles.title}>
         {item.type}
         </Text> 
         <Text 
         style={{padding: 15}}
         > 
         {item.municipalityname}
-        </Text>
+        </Text> */}
        
         <View 
         style={{flexDirection:'row',alignSelf:"flex-start",marginLeft:10}}
