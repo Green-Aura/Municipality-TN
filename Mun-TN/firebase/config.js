@@ -2,7 +2,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth"
 import "firebase/compat/firestore"
 import "firebase/compat/storage"
-
+import "@react-native-firebase/messaging"
 
 const firebaseConfig = {
     apiKey: "AIzaSyD9vomPbqwHl93F4PM9vo4LWqJblQoB_1E",
