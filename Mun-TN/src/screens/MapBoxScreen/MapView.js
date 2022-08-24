@@ -71,8 +71,16 @@ var trucks=[
   }
 },{
   coords:{
-    latitude: 36.8132,
-    longitude: 10.1339,
+    latitude: 36.8138,
+    longitude: 10.1467,
+    latitudeDelta: 0.09,
+  longitudeDelta: 0.04
+  }
+  
+},{
+  coords:{
+    latitude: 36.7909,
+    longitude: 10.1820,
     latitudeDelta: 0.09,
   longitudeDelta: 0.04
   }
@@ -178,17 +186,17 @@ bottom: 0}} ref={mapref}
   <Image source={require("../MapBoxScreen/garbage-truck.png")} style={{height:20,width:20}}/>
   </Marker>
   <Circle center={{latitude:truck.coords.latitude,longitude:truck.coords.longitude}} radius={1000}/>
-  <Polyline coordinates={[truck.coords
+  {/* <Polyline coordinates={[truck.coords
   ,{latitude: 36.803361467599,
     longitude:10.112652667605,
     latitudeDelta: 0.09,
-  longitudeDelta: 0.04}]}/>
+  longitudeDelta: 0.04}]}/> */}
   </View>
   
 ))}
 
 </MapView> 
-<FAB icon="plus" style={{marginTop:18,width:50,marginLeft:"42%", height: 50, backgroundColor: "blue"}} onPress={()=>{
+<FAB icon="plus" style={{marginTop:5,width:55,marginLeft:220, height: 55}} onPress={()=>{
   console.log(location)
   
   getlocation()}}/>

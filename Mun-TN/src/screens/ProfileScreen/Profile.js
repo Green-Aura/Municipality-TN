@@ -258,7 +258,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
               </View>
               <View style={styles.infocontainer}>
                 <View style={{ marginLeft: 20, flexDirection: "row" }}>
-                  <AntDesign name="phone" size={30} color={"#00B2FF"} />
+                  {/* <AntDesign name="phone" size={30} color={"#00B2FF"} />
                   <Text
                     style={{
                       color: "grey",
@@ -268,7 +268,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                     }}
                   >
                     Numéro de téléphone : {userData.phoneNumber}
-                  </Text>
+                  </Text> */}
                 </View>
                 <View
                   style={{
@@ -284,6 +284,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       fontSize: 15,
                       marginLeft: 20,
                       marginTop: 10,
+                      fontWeight:"bold"
                     }}
                   >
                     Addresse: {userData.city},{userData.Municipality}
@@ -310,12 +311,13 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       fontSize: 15,
                       marginLeft: 20,
                       marginTop: 10,
+                      fontWeight:"bold"
                     }}
                     onPress={() => {
                       setPage("complains");
                     }}
                   >
-                    Réclamations({fileredcomplaints.length} Réclamations)
+                    Réclamations:{fileredcomplaints.length} réclamation
                   </Text>
                 </View>
                 <View
@@ -346,6 +348,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                       fontSize: 15,
                       marginLeft: 20,
                       marginTop: 10,
+                      fontWeight:"bold"
                     }}
                   >
                     déconnexion
@@ -542,7 +545,7 @@ return(`${numyears}/${nummonths}/${numdays}:${numhours}:${numminutes}`) */
                           marginBottom: 20,
                           flexDirection: "row",
                           alignSelf: "flex-end",
-                          marginLeft: "55%",
+                          marginLeft: "25%",
                         }}
                       >
                         <TouchableOpacity
